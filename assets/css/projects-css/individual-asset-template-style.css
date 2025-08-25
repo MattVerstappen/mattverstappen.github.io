@@ -34,6 +34,8 @@
     "statusValue"
     "platformsLabel"
     "platformsValue"
+    "authorsLabel"      /* NEW */
+    "authorsValue"      /* NEW */
     "genresLabel"
     "genresValue"
     "tagsLabel"
@@ -42,8 +44,6 @@
 }
 @media (min-width:768px){
     .asset-grid{
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-2xl);
         grid-template-areas:
       "title         title"
       "media         desc"
@@ -51,10 +51,10 @@
       "s3            s4"
       "statusLabel   statusValue"
       "platformsLabel platformsValue"
+      "authorsLabel  authorsValue"   /* NEW */
       "genresLabel   genresValue"
       "tagsLabel     tagsValue"
       "download      download";
-        align-items: start;
     }
 }
 
@@ -83,6 +83,9 @@
 
 .label--platforms     { grid-area: platformsLabel; }
 .value--platforms     { grid-area: platformsValue; }
+
+.label--authors { grid-area: authorsLabel; }   /* NEW */
+.value--authors { grid-area: authorsValue; }   /* NEW */
 
 .label--genres        { grid-area: genresLabel; }
 .value--genres        { grid-area: genresValue; }

@@ -5,10 +5,11 @@
    Row 3:  [ screenShot1     ] [ screenShot2      ]
    Row 4:  [ screenShot3     ] [ screenShot4      ]
    Row 5:  [ Status          ] [ status (value)   ]
-   Row 6:  [ Platform        ] [ platforms        ]
-   Row 7:  [ Genres          ] [ genres           ]
-   Row 8:  [ Tags            ] [ tags             ]
-   Row 9:  [        Downloadref (center/full)     ]
+   Row 6:  [ Authors         ] [ authors (value)  ]
+   Row 7:  [ Platform        ] [ platforms        ]
+   Row 8:  [ Genres          ] [ genres           ]
+   Row 9:  [ Tags            ] [ tags             ]
+   Row 10: [        Downloadref (center/full)     ]
 */
 
 /* SECTION WRAPPER */
@@ -32,6 +33,8 @@
     "s4"
     "statusLabel"
     "statusValue"
+    "authorsLabel"     /* <-- ADDED */
+    "authorsValue"     /* <-- ADDED */
     "platformsLabel"
     "platformsValue"
     "genresLabel"
@@ -45,15 +48,16 @@
         grid-template-columns: 1fr 1fr;
         gap: var(--space-2xl);
         grid-template-areas:
-      "title         title"
-      "media         desc"
-      "s1            s2"
-      "s3            s4"
-      "statusLabel   statusValue"
-      "platformsLabel platformsValue"
-      "genresLabel   genresValue"
-      "tagsLabel     tagsValue"
-      "download      download";
+      "title           title"
+      "media           desc"
+      "s1              s2"
+      "s3              s4"
+      "statusLabel     statusValue"
+      "authorsLabel    authorsValue"   /* <-- ADDED */
+      "platformsLabel  platformsValue"
+      "genresLabel     genresValue"
+      "tagsLabel       tagsValue"
+      "download        download";
         align-items: start;
     }
 }
@@ -80,6 +84,9 @@
 
 .label--status        { grid-area: statusLabel; }
 .value--status        { grid-area: statusValue; }
+
+.label--authors       { grid-area: authorsLabel; }   /* <-- ADDED */
+.value--authors       { grid-area: authorsValue; }   /* <-- ADDED */
 
 .label--platforms     { grid-area: platformsLabel; }
 .value--platforms     { grid-area: platformsValue; }
@@ -110,23 +117,20 @@
 .model-shot2-card,
 .model-shot3-card,
 .model-shot4-card{
-    padding: var(--space-md);      /* slightly tighter padding around images */
-    overflow: hidden;              /* keep images inside rounded corners */
+    padding: var(--space-md);
+    overflow: hidden;
 }
 .model-figure{
-    margin: 0;                     /* remove default <figure> margins */
+    margin: 0;
 }
 .model-image{
     width: 100%;
     height: auto;
     display: block;
     border-radius: 12px;
-    background: #111;              /* fallback surface */
+    background: #111;
     border: 1px solid var(--border);
-    /* For consistent frames (uncomment if you want fixed aspect thumbnails)
-       aspect-ratio: 16/9;
-       object-fit: cover;
-    */
+    /* aspect-ratio: 16/9; object-fit: cover; */
 }
 
 /* DESCRIPTION PANEL */
@@ -138,12 +142,12 @@
     opacity: .95;
 }
 
-/* LABEL CARDS (LEFT COLUMN) */
+/* LABEL CARDS */
 .label-card{
     display: grid;
-    place-items: center start;     /* center vertically, align left */
+    place-items: center start;
     min-height: 64px;
-    background: #0b0b0b;          /* a touch darker to differentiate */
+    background: #0b0b0b;
     border: 1px dashed var(--border);
     border-radius: 12px;
     padding: var(--space-md);
@@ -158,12 +162,10 @@
     margin: 0;
 }
 
-/* VALUE CARDS (RIGHT COLUMN) */
-.value-card{
-    display: block;
-}
+/* VALUE CARDS */
+.value-card{ display: block; }
 
-/* Value text (when plain text, e.g., status) */
+/* Value text */
 .value-text{
     margin: 0;
     font-size: var(--text-base);
@@ -171,7 +173,7 @@
     color: var(--fg);
 }
 
-/* Meta chips (for arrays like platforms/genres/tags) */
+/* Chips */
 .meta-chips{
     list-style: none;
     padding: 0;
@@ -195,12 +197,12 @@
 }
 .meta-chip:hover,
 .meta-chip:focus{
-    background: rgba(157,0,255,0.08);   /* primary tint */
+    background: rgba(157,0,255,0.08);
     border-color: var(--primary);
     transform: translateY(-1px);
 }
 
-/* DOWNLOAD ROW (FULL-WIDTH, CENTERED) */
+/* DOWNLOAD ROW */
 .model-download-card{
     display: grid;
     place-items: center;
