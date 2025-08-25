@@ -1,0 +1,55 @@
+/* ===========================
+   Login Page — Page-Specific
+   =========================== */
+
+/* Subtle purple-tinted hero just for login */
+.section--hero.login-hero{
+    background: linear-gradient(180deg, rgba(157,0,255,0.12), rgba(0,0,0,0));
+    border-bottom: 1px solid var(--border);
+}
+
+.login-wrapper{
+    max-width: 480px;
+    margin-inline: auto;
+}
+
+.login-card{
+    /* uses global .card base – this just ensures consistency on the page */
+}
+
+.login-footnote{
+    margin-top: 16px;
+    text-align: center;
+}
+
+.link-muted{
+    color: var(--muted);
+    text-decoration: none;
+}
+.link-muted:hover{
+    color: var(--primary);
+}
+
+/* Alert variants – only used on login currently */
+.alert{
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #111;
+}
+.alert--error{
+    border-color: rgba(239,68,68,.4);
+    background: rgba(239,68,68,.08);
+    color: #fecaca;
+}
+.alert--info{
+    border-color: rgba(157,0,255,.4);
+    background: rgba(157,0,255,.08);
+}
+.alert--subtle{
+    background: #0f0f0f;
+}
+
+/* Small spacing helpers (page-local only) */
+.mb-xl{ margin-bottom: 20px; }
+.mt-lg{ margin-top: 16px; }

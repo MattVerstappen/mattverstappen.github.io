@@ -1,0 +1,223 @@
+/* =========================================================
+   INDEX PAGE STYLES (Home)
+   Uses global tokens: --bg, --fg, --muted, --primary, --panel, --border
+   Adds local spacing/type vars with safe fallbacks.
+   ========================================================= */
+
+/* Utility (in case .section isn’t globally styled) */
+.section { padding: var(--space-3xl) 0; }
+
+/* ---------- HERO ---------- */
+.home-hero {
+    position: relative;
+    overflow: clip;
+    background: radial-gradient(1200px 600px at 70% -10%, rgba(157,0,255,0.15), transparent 60%),
+    radial-gradient(800px 400px at 10% 0%, rgba(157,0,255,0.08), transparent 55%),
+    var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.home-hero__content {
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-block;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    color: var(--muted);
+    margin-bottom: var(--space-sm);
+}
+
+.home-hero__title {
+    font-size: clamp(2rem, 5vw, var(--text-4xl));
+    line-height: 1.1;
+    color: var(--fg);
+    margin: 0 0 var(--space-md);
+}
+
+.home-hero__subtitle {
+    font-size: clamp(1rem, 2vw, var(--text-lg));
+    color: var(--muted);
+    margin: 0 auto var(--space-xl);
+    max-width: 70ch;
+}
+
+.home-hero__actions {
+    display: inline-flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Decorative glow layer */
+.home-hero__bg {
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 60%;
+    pointer-events: none;
+    filter: blur(40px);
+    background: radial-gradient(600px 300px at 50% 0%, rgba(157,0,255,0.18), transparent 60%);
+    opacity: .9;
+}
+
+/* ---------- HIGHLIGHTS ---------- */
+.home-highlights .highlight-grid {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .home-highlights .highlight-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+    .home-highlights .highlight-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.highlight-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: var(--space-lg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(157,0,255,.45);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+.highlight-title {
+    margin: 0 0 var(--space-xs);
+    font-size: var(--text-xl);
+    color: var(--fg);
+}
+.highlight-desc {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-base);
+}
+
+/* ---------- SECTION HEADERS ---------- */
+.section-header {
+    text-align: center;
+    max-width: 70ch;
+    margin: 0 auto var(--space-2xl);
+}
+.section-title {
+    margin: 0 0 var(--space-xs);
+    color: var(--fg);
+    font-size: clamp(1.5rem, 3.2vw, var(--text-3xl));
+}
+.section-subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-base);
+}
+.section-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+
+/* ---------- FEATURED PROJECTS & WEBSITES ---------- */
+/* Cards use the shared styles from projects-style.css (project-card, project-thumb, project-meta, etc.) */
+
+.home-projects,
+.home-websites {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ---------- SHOWREEL CALLOUT ---------- */
+.showreel-card {
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    align-items: center;
+}
+
+@media (min-width: 880px) {
+    .showreel-card { grid-template-columns: 1.1fr .9fr; }
+}
+
+.showreel-copy .section-title { margin-bottom: var(--space-sm); }
+.showreel-copy .section-subtitle { margin-bottom: var(--space-lg); }
+
+.showreel-thumb {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform .2s ease, border-color .2s ease;
+}
+.showreel-thumb:hover {
+    transform: translateY(-2px);
+    border-color: rgba(157,0,255,.45);
+}
+.showreel-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: #111;
+}
+
+/* ---------- CONTACT BANNER ---------- */
+.home-contact .contact-banner {
+    background:
+            linear-gradient(0deg, rgba(157,0,255,0.07), rgba(157,0,255,0.07)),
+            var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: var(--space-xl);
+    display: grid;
+    gap: var(--space-md);
+    align-items: center;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+    .home-contact .contact-banner {
+        grid-template-columns: 1fr auto;
+    }
+}
+
+.home-contact .contact-copy .section-title { margin: 0 0 var(--space-xs); }
+.home-contact .contact-copy .section-subtitle { margin: 0; }
+
+/* ---------- BUTTONS (subtle variant, in case not global) ---------- */
+.btn--subtle {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+}
+.btn--subtle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .highlight-card,
+    .project-card,
+    .showreel-thumb {
+        transition: none;
+    }
+    .highlight-card:hover,
+    .project-card:hover,
+    .showreel-thumb:hover {
+        transform: none;
+    }
+}

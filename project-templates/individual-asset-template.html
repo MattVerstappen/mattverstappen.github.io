@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Asset — Matthew Derek Rall</title>
+    <meta name="description" content="Asset details — screenshots, description, status, tech and download link."/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="theme-color" content="#9D00FF"/>
+
+    <!-- Icons / Manifest -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+
+    <!-- Fonts (optional if globally loaded) -->
+    <link rel="preload" href="/assets/fonts/geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Use the path where you saved the CSS from earlier -->
+    <link rel="stylesheet" href="/assets/css/projects-css/individual-asset-template-style.css"/>
+
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Reusable Header -->
+<div data-include="/assets/reusables/header.html"></div>
+
+<main id="main" role="main">
+    <section class="asset-section">
+        <div class="container">
+            <div class="asset-grid" aria-live="polite">
+
+                <!-- Row 1: Title (full) -->
+                <section class="asset-card asset-title-card">
+                    <h1 id="asset-title" class="asset-title">Loading…</h1>
+                </section>
+
+                <!-- Row 2: Thumbnail (left) + Description (right) -->
+                <figure class="asset-card asset-media-card asset-figure" id="card-thumb">
+                    <img id="asset-thumb" class="asset-image" src="" alt=""/>
+                    <figcaption class="visually-hidden">Primary thumbnail</figcaption>
+                </figure>
+
+                <section class="asset-card asset-desc-card" id="card-desc">
+                    <p id="asset-desc">…</p>
+                </section>
+
+                <!-- Row 3 + 4: Screenshots (hide any that are missing) -->
+                <figure class="asset-card asset-shot1-card asset-figure" id="card-shot1">
+                    <img id="asset-shot1" class="asset-image" src="" alt="Screenshot 1"/>
+                    <figcaption class="visually-hidden">Screenshot 1</figcaption>
+                </figure>
+                <figure class="asset-card asset-shot2-card asset-figure" id="card-shot2">
+                    <img id="asset-shot2" class="asset-image" src="" alt="Screenshot 2"/>
+                    <figcaption class="visually-hidden">Screenshot 2</figcaption>
+                </figure>
+                <figure class="asset-card asset-shot3-card asset-figure" id="card-shot3">
+                    <img id="asset-shot3" class="asset-image" src="" alt="Screenshot 3"/>
+                    <figcaption class="visually-hidden">Screenshot 3</figcaption>
+                </figure>
+                <figure class="asset-card asset-shot4-card asset-figure" id="card-shot4">
+                    <img id="asset-shot4" class="asset-image" src="" alt="Screenshot 4"/>
+                    <figcaption class="visually-hidden">Screenshot 4</figcaption>
+                </figure>
+
+                <!-- Row 5: Status label + value -->
+                <aside class="asset-card label-card label--status" id="label-status">
+                    <h3>Status</h3>
+                </aside>
+                <section class="asset-card value-card value--status" id="card-status">
+                    <p id="asset-status" class="value-text">—</p>
+                </section>
+
+                <!-- Row 6: Platform(s) label + value -->
+                <aside class="asset-card label-card label--platforms" id="label-platforms">
+                    <h3>Platform</h3>
+                </aside>
+                <section class="asset-card value-card value--platforms" id="card-platforms">
+                    <ul id="asset-platforms" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 7: Genres label + value -->
+                <aside class="asset-card label-card label--genres" id="label-genres">
+                    <h3>Genres</h3>
+                </aside>
+                <section class="asset-card value-card value--genres" id="card-genres">
+                    <ul id="asset-genres" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 8: Tags label + value -->
+                <aside class="asset-card label-card label--tags" id="label-tags">
+                    <h3>Tags</h3>
+                </aside>
+                <section class="asset-card value-card value--tags" id="card-tags">
+                    <ul id="asset-tags" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 9: Download (full-width) -->
+                <section class="asset-card asset-download-card" id="card-download">
+                    <a id="asset-download" class="asset-download-btn" href="#" target="_blank" rel="noopener">
+                        ⬇️ Download
+                    </a>
+                </section>
+
+            </div>
+
+            <!-- Error placeholder -->
+            <div id="asset-error" class="alert alert--error" role="alert" style="display:none; margin-top: var(--space-xl);">
+                Could not load this asset.
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Reusable Footer -->
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Core JS -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/footer.js"></script>
+
+<!-- Individual Asset JSON loader -->
+<script>
+    (function () {
+        const DATA_URL = '/assets/data/individual-assets-projects.json';
+
+        function getSlug() {
+            const url = new URL(location.href);
+            const q = url.searchParams.get('slug');
+            if (q) return q.trim().toLowerCase();
+            // Fallback: filename (e.g., /foo/bar/my-asset.html -> my-asset)
+            const file = location.pathname.split('/').pop() || '';
+            return file.replace(/\.html?$/i, '').trim().toLowerCase();
+        }
+
+        function setText(id, text, hideIfEmpty = false) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (text && String(text).trim() !== '') {
+                el.textContent = text;
+            } else if (hideIfEmpty) {
+                // hide the card containing this value
+                const card = el.closest('.asset-card');
+                if (card) card.style.display = 'none';
+                // hide the paired label (previous sibling in grid) when appropriate
+                const label = card && card.previousElementSibling && card.previousElementSibling.classList.contains('label-card')
+                    ? card.previousElementSibling
+                    : null;
+                if (label) label.style.display = 'none';
+            }
+        }
+
+        function setImage(imgId, src, alt, cardId) {
+            const img = document.getElementById(imgId);
+            const card = document.getElementById(cardId);
+            if (!img || !card) return;
+            if (src && String(src).trim() !== '') {
+                img.src = src;
+                img.alt = alt || '';
+            } else {
+                card.style.display = 'none';
+            }
+        }
+
+        function setChips(listId, arr, labelCardId, valueCardId) {
+            const ul = document.getElementById(listId);
+            const labelCard = document.getElementById(labelCardId);
+            const valueCard = document.getElementById(valueCardId);
+            if (!ul || !labelCard || !valueCard) return;
+            ul.innerHTML = '';
+
+            if (Array.isArray(arr) && arr.length) {
+                arr.forEach(txt => {
+                    const li = document.createElement('li');
+                    li.className = 'meta-chip';
+                    li.textContent = txt;
+                    ul.appendChild(li);
+                });
+            } else {
+                // hide both label and value cards if nothing to show
+                labelCard.style.display = 'none';
+                valueCard.style.display = 'none';
+            }
+        }
+
+        function setDownload(href) {
+            const card = document.getElementById('card-download');
+            const a = document.getElementById('asset-download');
+            if (!card || !a) return;
+            if (href && String(href).trim() !== '') {
+                a.href = href;
+            } else {
+                card.style.display = 'none';
+            }
+        }
+
+        async function init() {
+            const slug = getSlug();
+            try {
+                const res = await fetch(DATA_URL, { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load individual assets JSON');
+                const list = await res.json();
+
+                const item = Array.isArray(list) ? list.find(x => (x.slug || '').toLowerCase() === slug) : null;
+                if (!item) throw new Error('Asset not found for slug: ' + slug);
+
+                // Title
+                setText('asset-title', item.title || 'Untitled Asset');
+
+                // Thumb + Description
+                setImage('asset-thumb', item.thumbnail, `Thumbnail: ${item.title || 'Asset'}`, 'card-thumb');
+                setText('asset-desc', item.description || '', true);
+
+                // Screenshots (hide absent ones)
+                setImage('asset-shot1', item.screenShot1, 'Screenshot 1', 'card-shot1');
+                setImage('asset-shot2', item.screenShot2, 'Screenshot 2', 'card-shot2');
+                setImage('asset-shot3', item.screenShot3, 'Screenshot 3', 'card-shot3');
+                setImage('asset-shot4', item.screenShot4, 'Screenshot 4', 'card-shot4');
+
+                // Status
+                setText('asset-status', item.status || '', true);
+
+                // Platforms / Genres / Tags
+                setChips('asset-platforms', item.platforms, 'label-platforms', 'card-platforms');
+                setChips('asset-genres', item.genres, 'label-genres', 'card-genres');
+                setChips('asset-tags', item.tags, 'label-tags', 'card-tags');
+
+                // Download
+                // uses "downloadref" for assets JSON per your schema
+                setDownload(item.downloadref || item.downloadRef || '');
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('asset-error').style.display = 'block';
+                // Minimal fallback
+                setText('asset-title', 'Asset Not Found');
+                // hide everything else to avoid empty blocks
+                [
+                    'card-thumb','card-desc','card-shot1','card-shot2','card-shot3','card-shot4',
+                    'label-status','card-status','label-platforms','card-platforms',
+                    'label-genres','card-genres','label-tags','card-tags','card-download'
+                ].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+            }
+        }
+
+        // Run after includes so header/footer are present (not strictly required for this loader)
+        document.addEventListener('includesLoaded', init);
+        if (document.readyState !== 'loading') {
+            // in case includes already finished
+            setTimeout(init, 0);
+        }
+    })();
+</script>
+
+<noscript>
+    <div class="container" style="margin:1rem auto;">
+        <div class="alert alert--error" role="alert">JavaScript is required to load the asset details.</div>
+    </div>
+</noscript>
+</body>
+</html>

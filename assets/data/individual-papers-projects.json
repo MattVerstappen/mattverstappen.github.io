@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Designing for Focus: Attention-Friendly Game Loops",
+    "description": "A short paper on pacing, friction and recovery in gameplay loops.",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/attention-friendly-loops-thumbnail.jpg",
+    "status": "Draft",
+    "authors": ["Matthew Derek Rall"],
+    "genres": ["Design", "UX"],
+    "tags": ["Attention", "Pacing", "Cognition"],
+    "downloadref": "/assets/downloads/papers/attention-friendly-loops.pdf",
+    "slug": "attention-friendly-loops"
+  },
+  {
+    "title": "Procedural Terrain Notes",
+    "description": "Notes comparing layered noise, marching cubes and erosion passes.",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/procedural-terrain-notes-thumbnail.jpg",
+    "status": "Published",
+    "authors": ["Matthew Derek Rall"],
+    "genres": ["Technical", "Graphics"],
+    "tags": ["Noise", "Erosion", "Marching Cubes"],
+    "downloadref": "/assets/downloads/papers/procedural-terrain-notes.pdf",
+    "slug": "procedural-terrain-notes"
+  }
+]

@@ -1,0 +1,22 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Showreels</title>
+  <!-- Film reel -->
+  <circle cx="32" cy="32" r="20" fill="#EEDCA8"/>
+  <circle cx="32" cy="32" r="20" stroke="#3F6E3A" stroke-width="2.5" fill="none"/>
+  <circle cx="32" cy="32" r="8" stroke="#3F6E3A" stroke-width="2" fill="none"/>
+  <!-- Film holes -->
+  <circle cx="20" cy="20" r="3" fill="#3F6E3A"/>
+  <circle cx="44" cy="20" r="3" fill="#3F6E3A"/>
+  <circle cx="44" cy="44" r="3" fill="#3F6E3A"/>
+  <circle cx="20" cy="44" r="3" fill="#3F6E3A"/>
+  <!-- Play button in center -->
+  <path d="M28 24l12 8-12 8V24z" fill="#7A0E2B"/>
+  <!-- Film strip accent -->
+  <rect x="8" y="28" width="6" height="8" rx="1" fill="#C6E88E"/>
+  <rect x="50" y="28" width="6" height="8" rx="1" fill="#C6E88E"/>
+  <!-- Film perforations -->
+  <rect x="9" y="30" width="1" height="1" fill="#3F6E3A"/>
+  <rect x="9" y="33" width="1" height="1" fill="#3F6E3A"/>
+  <rect x="54" y="30" width="1" height="1" fill="#3F6E3A"/>
+  <rect x="54" y="33" width="1" height="1" fill="#3F6E3A"/>
+</svg>

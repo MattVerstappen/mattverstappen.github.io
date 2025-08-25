@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Model — Matthew Derek Rall</title>
+    <meta name="description" content="Model details — screenshots, description, status, platforms, genres, tags, and download link."/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="theme-color" content="#9D00FF"/>
+
+    <!-- Icons / Manifest -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+
+    <!-- Fonts (optional if globally loaded) -->
+    <link rel="preload" href="/assets/fonts/geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/projects-css/individual-model-template-style.css"/>
+
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Reusable Header -->
+<div data-include="/assets/reusables/header.html"></div>
+
+<main id="main" role="main">
+    <section class="model-section">
+        <div class="container">
+            <div class="model-grid" aria-live="polite">
+
+                <!-- Row 1: Title (full) -->
+                <section class="model-card model-title-card">
+                    <h1 id="model-title" class="model-title">Loading…</h1>
+                </section>
+
+                <!-- Row 2: Thumbnail (left) + Description (right) -->
+                <figure class="model-card model-media-card model-figure" id="card-thumb">
+                    <img id="model-thumb" class="model-image" src="" alt=""/>
+                    <figcaption class="visually-hidden">Primary thumbnail</figcaption>
+                </figure>
+
+                <section class="model-card model-desc-card" id="card-desc">
+                    <p id="model-desc">…</p>
+                </section>
+
+                <!-- Row 3 + 4: Screenshots (hide any that are missing) -->
+                <figure class="model-card model-shot1-card model-figure" id="card-shot1">
+                    <img id="model-shot1" class="model-image" src="" alt="Screenshot 1"/>
+                    <figcaption class="visually-hidden">Screenshot 1</figcaption>
+                </figure>
+                <figure class="model-card model-shot2-card model-figure" id="card-shot2">
+                    <img id="model-shot2" class="model-image" src="" alt="Screenshot 2"/>
+                    <figcaption class="visually-hidden">Screenshot 2</figcaption>
+                </figure>
+                <figure class="model-card model-shot3-card model-figure" id="card-shot3">
+                    <img id="model-shot3" class="model-image" src="" alt="Screenshot 3"/>
+                    <figcaption class="visually-hidden">Screenshot 3</figcaption>
+                </figure>
+                <figure class="model-card model-shot4-card model-figure" id="card-shot4">
+                    <img id="model-shot4" class="model-image" src="" alt="Screenshot 4"/>
+                    <figcaption class="visually-hidden">Screenshot 4</figcaption>
+                </figure>
+
+                <!-- Row 5: Status label + value -->
+                <aside class="model-card label-card label--status" id="label-status">
+                    <h3>Status</h3>
+                </aside>
+                <section class="model-card value-card value--status" id="card-status">
+                    <p id="model-status" class="value-text">—</p>
+                </section>
+
+                <!-- Row 6: Platform(s) label + value -->
+                <aside class="model-card label-card label--platforms" id="label-platforms">
+                    <h3>Platform</h3>
+                </aside>
+                <section class="model-card value-card value--platforms" id="card-platforms">
+                    <ul id="model-platforms" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 7: Genres label + value -->
+                <aside class="model-card label-card label--genres" id="label-genres">
+                    <h3>Genres</h3>
+                </aside>
+                <section class="model-card value-card value--genres" id="card-genres">
+                    <ul id="model-genres" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 8: Tags label + value -->
+                <aside class="model-card label-card label--tags" id="label-tags">
+                    <h3>Tags</h3>
+                </aside>
+                <section class="model-card value-card value--tags" id="card-tags">
+                    <ul id="model-tags" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 9: Download (full-width) -->
+                <section class="model-card model-download-card" id="card-download">
+                    <a id="model-download" class="model-download-btn" href="#" target="_blank" rel="noopener">
+                        ⬇️ Download / Open
+                    </a>
+                </section>
+
+            </div>
+
+            <!-- Error placeholder -->
+            <div id="model-error" class="alert alert--error" role="alert" style="display:none; margin-top: var(--space-xl);">
+                Could not load this model.
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Reusable Footer -->
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Core JS -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/footer.js"></script>
+
+<!-- Individual Model JSON loader -->
+<script>
+    (function () {
+        const DATA_URL = '/assets/data/individual-model-projects.json';
+
+        function getSlug() {
+            const url = new URL(location.href);
+            const q = url.searchParams.get('slug');
+            if (q) return q.trim().toLowerCase();
+            const file = location.pathname.split('/').pop() || '';
+            return file.replace(/\.html?$/i, '').trim().toLowerCase();
+        }
+
+        function setText(id, text, hideIfEmpty = false) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (text && String(text).trim() !== '') {
+                el.textContent = text;
+            } else if (hideIfEmpty) {
+                const card = el.closest('.model-card');
+                if (card) card.style.display = 'none';
+                const maybeLabel = card && card.previousElementSibling && card.previousElementSibling.classList.contains('label-card')
+                    ? card.previousElementSibling
+                    : null;
+                if (maybeLabel) maybeLabel.style.display = 'none';
+            }
+        }
+
+        function setImage(imgId, src, alt, cardId) {
+            const img  = document.getElementById(imgId);
+            const card = document.getElementById(cardId);
+            if (!img || !card) return;
+            if (src && String(src).trim() !== '') {
+                img.src = src;
+                img.alt = alt || '';
+            } else {
+                card.style.display = 'none';
+            }
+        }
+
+        function setChips(listId, arr, labelCardId, valueCardId) {
+            const ul = document.getElementById(listId);
+            const labelCard = document.getElementById(labelCardId);
+            const valueCard = document.getElementById(valueCardId);
+            if (!ul || !labelCard || !valueCard) return;
+            ul.innerHTML = '';
+
+            if (Array.isArray(arr) && arr.length) {
+                arr.forEach(txt => {
+                    const li = document.createElement('li');
+                    li.className = 'meta-chip';
+                    li.textContent = txt;
+                    ul.appendChild(li);
+                });
+            } else {
+                labelCard.style.display = 'none';
+                valueCard.style.display = 'none';
+            }
+        }
+
+        function setDownload(href) {
+            const card = document.getElementById('card-download');
+            const a = document.getElementById('model-download');
+            if (!card || !a) return;
+            if (href && String(href).trim() !== '') {
+                a.href = href;
+            } else {
+                card.style.display = 'none';
+            }
+        }
+
+        async function init() {
+            const slug = getSlug();
+            try {
+                const res = await fetch(DATA_URL, { cache: 'no-store' });
+                if (!res.ok) throw new Error('Failed to load individual model JSON');
+                const list = await res.json();
+
+                const item = Array.isArray(list) ? list.find(x => (x.slug || '').toLowerCase() === slug) : null;
+                if (!item) throw new Error('Model not found for slug: ' + slug);
+
+                // Title
+                setText('model-title', item.title || 'Untitled Model');
+
+                // Thumb + Description
+                setImage('model-thumb', item.thumbnail, `Thumbnail: ${item.title || 'Model'}`, 'card-thumb');
+        setText('model-desc', item.description || '', true);
+
+        // Screenshots (hide absent ones)
+        setImage('model-shot1', item.screenShot1, 'Screenshot 1', 'card-shot1');
+        setImage('model-shot2', item.screenShot2, 'Screenshot 2', 'card-shot2');
+        setImage('model-shot3', item.screenShot3, 'Screenshot 3', 'card-shot3');
+        setImage('model-shot4', item.screenShot4, 'Screenshot 4', 'card-shot4');
+
+        // Status
+        setText('model-status', item.status || '', true);
+
+        // Platforms / Genres / Tags
+        setChips('model-platforms', item.platforms, 'label-platforms', 'card-platforms');
+        setChips('model-genres',    item.genres,    'label-genres',    'card-genres');
+        setChips('model-tags',      item.tags,      'label-tags',      'card-tags');
+
+        // Download (uses "downloadref" per your schema)
+        setDownload(item.downloadref || item.downloadRef || '');
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('model-error').style.display = 'block';
+        setText('model-title', 'Model Not Found');
+        [
+          'card-thumb','card-desc','card-shot1','card-shot2','card-shot3','card-shot4',
+          'label-status','card-status','label-platforms','card-platforms',
+          'label-genres','card-genres','label-tags','card-tags','card-download'
+        ].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+      }
+    }
+
+    document.addEventListener('includesLoaded', init);
+    if (document.readyState !== 'loading') {
+      setTimeout(init, 0);
+    }
+  })();
+</script>
+
+<noscript>
+    <div class="container" style="margin:1rem auto;">
+        <div class="alert alert--error" role="alert">JavaScript is required to load the model details.</div>
+    </div>
+</noscript>
+</body>
+</html>
