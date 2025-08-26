@@ -677,7 +677,7 @@ Changes made through CMS interface`;
         branch: this.githubConfig.branch,
         committer: {
           name: 'CMS Auto-Commit',
-          email: 'cms@stillmindsociety.com'
+          email: 'cms@mattverstappen.com'
         },
         author: {
           name: authorEmail.split('@')[0],
