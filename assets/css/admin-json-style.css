@@ -96,3 +96,12 @@ body { background: var(--bg); color: var(--fg); }
 .auth-state .pill { width: 8px; height: 8px; border-radius: 50%; background: #a33; }
 body.is-authed .auth-state .pill { background: #2ea043; }
 body.is-authed .auth-state .txt  { color: #9fe3b1; }
+
+.editor-panel { background: var(--panel); border:1px solid var(--border); border-radius:12px; padding: var(--space-lg); }
+.editor-header { margin-bottom: var(--space-md); }
+.editor-header .sub { color: var(--muted); font-size: var(--text-sm); }
+.editor-actions { display:flex; gap: var(--space-md); align-items:center; margin-top: var(--space-md); }
+.editor-textarea { width:100%; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#0e0e0e; color:var(--fg); border:1px solid var(--border); border-radius:8px; padding: var(--space-md); }
+.form-grid { display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+.form-grid label { display:flex; flex-direction:column; gap: var(--space-xs); }
+.form-grid .col-span { grid-column: 1 / -1; }

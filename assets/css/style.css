@@ -35,9 +35,11 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
     position: sticky; top: 0; z-index: 1000;
     background: rgba(0,0,0,0.8);
     backdrop-filter: saturate(1.2) blur(8px);
+    -webkit-backdrop-filter: saturate(1.2) blur(8px); /* iOS Safari */
     border-bottom: 1px solid var(--border);
+    transition: transform .2s ease; /* animate both directions */
 }
-.header-hidden{ transform: translateY(-100%); transition: transform .2s ease; }
+.header-hidden{ transform: translateY(-100%); }
 .header-content{ display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
 .logo-link{ display: flex; align-items: center; gap: 10px; color: var(--fg); text-decoration: none; }
 .site-name{ font-size: 1.05rem; font-weight: 600; }
@@ -51,20 +53,30 @@ h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
 .menu-toggle:hover, .menu-close:hover{ border-color: var(--primary); color: var(--primary); }
 
 /* Slide-out menu */
-.slide-menu{ position: fixed; inset: 0; pointer-events: none; }
+.slide-menu{
+    position: fixed; inset: 0;
+    z-index: 2000;                /* ensure above sticky header */
+    pointer-events: none;         /* disabled until open */
+}
 .slide-menu.menu-open{ pointer-events: auto; }
+
 .slide-menu-overlay{
     position: absolute; inset: 0;
     background: rgba(0,0,0,0.5);
     opacity: 0; transition: opacity .2s ease;
+    pointer-events: none;         /* don't catch clicks when closed */
 }
-.slide-menu.menu-open .slide-menu-overlay{ opacity: 1; }
+.slide-menu.menu-open .slide-menu-overlay{
+    opacity: 1;
+    pointer-events: auto;         /* clickable to close */
+}
 
 .slide-menu-content{
     position: absolute; top: 0; right: 0; height: 100%; width: min(320px, 85vw);
     background: var(--panel); border-left: 1px solid var(--border);
     transform: translateX(100%); transition: transform .25s ease;
     display: flex; flex-direction: column; padding: 14px;
+    box-shadow: -24px 0 48px rgba(0,0,0,.4);
 }
 .slide-menu.menu-open .slide-menu-content{ transform: translateX(0); }
 

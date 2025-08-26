@@ -51,23 +51,23 @@
         <div id="json-list" class="json-list" aria-live="polite"></div>
 
         <!-- Current selection -->
-        <div class="selection-bar" aria-live="polite">
-            <div id="selection-path" class="selection-path">No file selected.</div>
-            <a id="open-link" class="open-link" href="#" target="_blank" rel="noopener" style="display:none">Open JSON</a>
-        </div>
+        <section class="current-selection">
+            <h2>Current selection</h2>
+            <div id="editor-root" class="editor-root"></div>
+        </section>
     </div>
 </main>
 
 <div data-include="/assets/reusables/footer.html"></div>
 
 <!-- Optional shared scripts -->
-<script src="/assets/js/admin-js/includes.js"></script>
-<script src="/assets/js/admin-js/cms.js"></script>
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
 <script src="/assets/js/header.js"></script>
 <script src="/assets/js/footer.js"></script>
 
 <!-- Admin logic -->
-<script defer src="/assets/js/admin-js/admin-json.js"></script>
+<script defer src="/assets/js/admin-json.js"></script>
 
 <noscript>
     <div class="container" style="margin:1rem auto;">

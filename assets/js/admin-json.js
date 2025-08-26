@@ -1,6 +1,6 @@
-// ===== Admin JSON Page (token-aware, highlight-only for now) =====
+// ===== Admin JSON Page — multi-editor host =====
 
-// Keep this list in sync with your actual JSON files (web paths, not Windows paths):
+// Web paths for your JSON files (not Windows paths)
 const JSON_FILES = [
     { label: "About Me",              path: "/assets/data/about-me.json" },
     { label: "Brand",                 path: "/assets/data/brand.json" },
@@ -14,22 +14,41 @@ const JSON_FILES = [
     { label: "Websites",              path: "/assets/data/websites.json" }
 ];
 
-// Use the SAME key that cms.js uses so auth is shared.
-const TOKEN_KEY = "cms:githubToken";
+// Map each JSON file to its editor module (ES module paths)
+const EDITOR_MAP = {
+    "/assets/data/about-me.json":                "/assets/js/editors/about-me-editor.js",
+    "/assets/data/global-tokens.json":           "/assets/js/editors/global-tokens-editor.js",
+    "/assets/data/brand.json":                   "/assets/js/editors/brand-editor.js",
+    "/assets/data/footer.json":                  "/assets/js/editors/footer-editor.js",
+    "/assets/data/projects.json":                "/assets/js/editors/projects-editor.js",
+    "/assets/data/individual-assets-projects.json": "/assets/js/editors/individual-assets-editor.js",
+    "/assets/data/individual-game-projects.json":   "/assets/js/editors/individual-game-editor.js",
+    "/assets/data/individual-model-projects.json":  "/assets/js/editors/individual-model-editor.js",
+    "/assets/data/individual-papers-projects.json": "/assets/js/editors/individual-papers-editor.js",
+    "/assets/data/websites.json":                "/assets/js/editors/websites-editor.js"
+};
 
-// Remember last selection locally
+// Fallback editor if there isn't a specific one:
+const FALLBACK_EDITOR = "/assets/js/editors/generic-json-editor.js";
+
+// Same token key as cms.js
+const TOKEN_KEY   = "cms:githubToken";
 const SELECTED_KEY = "admin:selected-json";
 
-const $list     = document.getElementById("json-list");
-const $selPath  = document.getElementById("selection-path");
-const $openLink = document.getElementById("open-link");
+const $list       = document.getElementById("json-list");
+const $selPath    = document.getElementById("selection-path");
+const $openLink   = document.getElementById("open-link");
+const $editorRoot = document.getElementById("editor-root");
 
+// Optional token UI
 const $tokenInput = document.getElementById("gh-token");
 const $saveBtn    = document.getElementById("save-token");
 const $clearBtn   = document.getElementById("clear-token");
 const $authState  = document.getElementById("auth-state");
 
-// ---------- Auth helpers ----------
+let currentEditor = null; // { destroy?: Function } implemented by editor module
+
+// ---------- Auth ----------
 function getToken(){ return localStorage.getItem(TOKEN_KEY) || ""; }
 function setToken(token){
     if (token) {
@@ -51,7 +70,7 @@ function refreshAuthUI(){
     if ($tokenInput) $tokenInput.value = "";
 }
 
-// ---------- List rendering ----------
+// ---------- List ----------
 function renderButtons(activePath){
     if (!$list) return;
     $list.innerHTML = "";
@@ -86,9 +105,7 @@ function setActive(path){
     });
     localStorage.setItem(SELECTED_KEY, path);
     updateFooter(path);
-
-    // Hook for future editor:
-    // if (getToken()) openJsonEditor(path);
+    loadEditorFor(path); // <— load editor into #editor-root
 }
 
 function updateFooter(path){
@@ -103,10 +120,46 @@ function updateFooter(path){
     }
 }
 
-// ---------- Event wiring ----------
+// ---------- Editor loader ----------
+async function loadEditorFor(path){
+    if (!$editorRoot) return;
+    // Teardown previous editor
+    if (currentEditor && typeof currentEditor.destroy === "function") {
+        try { currentEditor.destroy(); } catch {}
+    }
+    currentEditor = null;
+    $editorRoot.innerHTML = `<div class="muted">Loading editor…</div>`;
+
+    const modulePath = EDITOR_MAP[path] || FALLBACK_EDITOR;
+    try {
+        const mod = await import(modulePath);
+        const mountFn = mod.mountEditor || mod.default;
+        if (typeof mountFn !== "function") {
+            throw new Error(`Editor module ${modulePath} does not export mountEditor/default`);
+        }
+        currentEditor = await mountFn({
+            container: $editorRoot,
+            path,
+            token: getToken(),
+            // optional hooks to integrate global UI in future
+            onDirtyChange: (isDirty) => {
+                document.body.classList.toggle("editor-dirty", !!isDirty);
+            }
+        });
+    } catch (err) {
+        console.error(err);
+        $editorRoot.innerHTML = `
+      <div class="alert alert--error">
+        Failed to load editor for <code>${path}</code>.
+      </div>`;
+    }
+}
+
+// ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {
     refreshAuthUI();
 
+    // Token actions
     $saveBtn?.addEventListener("click", () => {
         const v = ($tokenInput?.value || "").trim();
         if (!v) return;
@@ -116,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const last = localStorage.getItem(SELECTED_KEY) || "";
     renderButtons(last);
+    if (last) loadEditorFor(last);
 });
 
 window.addEventListener("cms:token-change", (e) => {
@@ -124,5 +178,3 @@ window.addEventListener("cms:token-change", (e) => {
     const txt = $authState?.querySelector(".txt");
     if (txt) txt.textContent = has ? "Signed in" : "Signed out";
 });
-
-// function openJsonEditor(path) { /* integrate later */ }

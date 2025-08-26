@@ -4,21 +4,31 @@
         <div class="header-content">
             <!-- Logo / Brand -->
             <div class="logo-section">
-                <a href="index.html" class="logo-link" aria-label="Go to homepage">
-                    <img src="assets/images/logo/favicon-32x32.png" alt="Matthew Derek Rall logo" class="site-logo" width="40" height="40">
+                <a href="index.html" class="logo-link" aria-label="Go to homepage" rel="home">
+                    <img
+                            src="/assets/images/logo/favicon-32x32.png"
+                            alt="Matthew Derek Rall logo"
+                            class="site-logo"
+                            width="40"
+                            height="40"
+                    />
                     <h1 class="site-name">Matthew Derek Rall</h1>
                 </a>
             </div>
 
             <!-- Right-side header actions -->
             <div class="header-actions">
-                <!-- (Optional) Theme or profile buttons could live here -->
-
                 <!-- Menu button (opens slide-out menu) -->
-                <button class="menu-toggle" aria-controls="slide-menu" aria-expanded="false" aria-label="Open navigation menu">
+                <button
+                        class="menu-toggle"
+                        type="button"
+                        aria-controls="slide-menu"
+                        aria-expanded="false"
+                        aria-label="Open navigation menu"
+                >
                     <span class="menu-text">Menu</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
                     </svg>
                 </button>
             </div>
@@ -27,13 +37,13 @@
 </header>
 
 <!-- Slide-out Menu -->
-<nav id="slide-menu" class="slide-menu" role="navigation" aria-hidden="true">
+<nav id="slide-menu" class="slide-menu" role="navigation" aria-label="Primary" aria-hidden="true">
     <div class="slide-menu-overlay"></div>
 
-    <div class="slide-menu-content">
-        <button class="menu-close" aria-label="Close navigation menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <div class="slide-menu-content" role="group" aria-label="Primary links">
+        <button class="menu-close" type="button" aria-label="Close navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
             </svg>
         </button>
 
@@ -58,15 +68,20 @@
 <div id="cms-toolbar" class="cms-toolbar" style="display:none;">
     <div class="cms-toolbar__content">
         <div class="cms-toolbar__actions">
-            <button onclick="window.cms?.savePage()" class="btn btn--primary btn--sm">💾 Save Changes</button>
-            <button onclick="window.cms?.resetPage()" class="btn btn--subtle btn--sm">🔄 Reset</button>
-            <button onclick="window.cms?.showGitHubSettings()" class="btn btn--subtle btn--sm">⚙️ GitHub</button>
+            <button onclick="window.cms?.savePage()" class="btn btn--primary btn--sm" type="button">💾 Save Changes</button>
+            <button onclick="window.cms?.resetPage()" class="btn btn--subtle btn--sm" type="button">🔄 Reset</button>
+            <button onclick="window.cms?.showGitHubSettings()" class="btn btn--subtle btn--sm" type="button">⚙️ GitHub</button>
         </div>
     </div>
 </div>
 
 <!-- CMS Toggle Button (visible only to authenticated admins) -->
-<button class="cms-toggle" onclick="window.cms?.toggleCMSMode()" title="Toggle Edit Mode" style="display:none;">✏️</button>
+<button class="cms-toggle" onclick="window.cms?.toggleCMSMode()" title="Toggle Edit Mode" style="display:none;" type="button">✏️</button>
 
 <!-- CMS Save Button (visible only when in edit mode) -->
-<button class="cms-save-btn" onclick="window.cms?.savePage()" title="Save Changes" style="display:none;">💾</button>
+<button class="cms-save-btn" onclick="window.cms?.savePage()" title="Save Changes" style="display:none;" type="button">💾</button>
+
+<!-- Bind JS even when this file is injected dynamically -->
+<script>
+    window.initHeaderNav?.();
+</script>

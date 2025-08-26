@@ -1,28 +1,53 @@
 /*
-    HEADER NAV + SLIDE MENU + ADMIN LINK
-    - Slide-out menu open/close (Template 2 behavior)
-    - Header hide/show on scroll (kept from Template 2)
-    - ARIA + focus management
-    - Admin nav visibility based on localStorage flags (from Template 1)
-    */
-
+  HEADER NAV + SLIDE MENU + ADMIN LINK (robust init + observer)
+  - Auto inits whether header is present at load or injected later
+  - Idempotent: safe against duplicate binds
+*/
 (function () {
     'use strict';
 
     let lastScrollY = 0;
     let ticking = false;
+    let initialized = false;
+    let observer = null;
 
-    document.addEventListener('DOMContentLoaded', function () {
+    function initAll() {
+        if (initialized) return;
+        // Require both core nodes to exist before wiring
+        if (!document.querySelector('.site-header') || !document.querySelector('#slide-menu')) return;
+
+        initialized = true;
+        if (observer) observer.disconnect();
+
         initScrollHeader();
         initSlideMenu();
         updateAdminNav();
 
-        // Keep admin link in sync
         window.addEventListener('storage', updateAdminNav);
         setInterval(updateAdminNav, 1000);
-    });
+    }
 
-    // --- Admin nav visibility (from Template 1) ---
+    // Observe DOM for injected header/nav (works with includes.js or any fetch/innerHTML)
+    function watchForHeader() {
+        if (observer) return;
+        observer = new MutationObserver(() => initAll());
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+
+    // Public hook (optional)
+    window.initHeaderNav = function () { initAll(); };
+
+    // Try immediate init (if already present), then watch for injection
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAll, { once: true });
+    } else {
+        initAll();
+    }
+    window.addEventListener('pageshow', initAll);
+    document.addEventListener('turbo:load', initAll);
+    watchForHeader();
+
+    /* ------------ Admin nav visibility ------------ */
     function updateAdminNav() {
         const adminNav = document.getElementById('admin-nav');
         const adminLink = document.getElementById('admin-link');
@@ -42,14 +67,13 @@
         }
     }
 
-    // --- Scroll header (Template 2) ---
+    /* ------------ Scroll header ------------ */
     function initScrollHeader() {
         const header = document.querySelector('.site-header');
         if (!header) return;
 
         function updateHeader() {
             const currentScrollY = window.scrollY;
-
             if (currentScrollY < 10) {
                 header.classList.remove('header-hidden');
             } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -57,7 +81,6 @@
             } else if (currentScrollY < lastScrollY) {
                 header.classList.remove('header-hidden');
             }
-
             lastScrollY = currentScrollY;
             ticking = false;
         }
@@ -69,10 +92,10 @@
             }
         }
 
-        window.addEventListener('scroll', requestTick, {passive: true});
+        window.addEventListener('scroll', requestTick, { passive: true });
     }
 
-    // --- Slide-out menu (Template 2) ---
+    /* ------------ Slide-out menu ------------ */
     function initSlideMenu() {
         const menuToggle = document.querySelector('.menu-toggle');
         const slideMenu = document.querySelector('.slide-menu');
@@ -87,7 +110,6 @@
             slideMenu.setAttribute('aria-hidden', 'false');
             menuToggle.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
-
             const firstMenuLink = slideMenu.querySelector('.menu-link');
             if (firstMenuLink) setTimeout(() => firstMenuLink.focus(), 300);
         }
@@ -100,8 +122,8 @@
         }
 
         menuToggle.addEventListener('click', openMenu);
-        menuClose?.addEventListener('click', closeMenu);
-        menuOverlay?.addEventListener('click', closeMenu);
+        menuClose && menuClose.addEventListener('click', closeMenu);
+        menuOverlay && menuOverlay.addEventListener('click', closeMenu);
 
         document.addEventListener('keydown', function (e) {
             if (e.code === 'Escape' && slideMenu.classList.contains('menu-open')) {
@@ -110,22 +132,17 @@
             }
         });
 
-        // Close on link click (useful for mobile)
         menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-        // Focus trap inside slide menu
         slideMenu.addEventListener('keydown', function (e) {
             if (e.code !== 'Tab' || !slideMenu.classList.contains('menu-open')) return;
             const focusables = slideMenu.querySelectorAll('button, a');
             const first = focusables[0];
             const last = focusables[focusables.length - 1];
-
             if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
+                e.preventDefault(); last.focus();
             } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
+                e.preventDefault(); first.focus();
             }
         });
     }
