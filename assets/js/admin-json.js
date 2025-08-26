@@ -120,9 +120,10 @@ function updateFooter(path){
     }
 }
 
-// ---------- Editor loader ----------
+// ---------- Editor loader (robust) ----------
 async function loadEditorFor(path){
     if (!$editorRoot) return;
+
     // Teardown previous editor
     if (currentEditor && typeof currentEditor.destroy === "function") {
         try { currentEditor.destroy(); } catch {}
@@ -130,30 +131,93 @@ async function loadEditorFor(path){
     currentEditor = null;
     $editorRoot.innerHTML = `<div class="muted">Loading editor…</div>`;
 
-    const modulePath = EDITOR_MAP[path] || FALLBACK_EDITOR;
+    const baseModulePath = EDITOR_MAP[path] || FALLBACK_EDITOR;
+    // cache-bust so you don’t fight stale modules in dev
+    const modulePath = `${baseModulePath}?v=${Date.now()}`;
+
+    // Optional preflight check to catch 404/HTML errors early
+    try {
+        const headRes = await fetch(modulePath, { method: "GET", cache: "no-store" });
+        if (!headRes.ok) {
+            throw new Error(`HTTP ${headRes.status} for ${baseModulePath}`);
+        }
+        const ctype = headRes.headers.get("Content-Type") || "";
+        if (!ctype.includes("javascript") && !ctype.includes("text/")) {
+            // Many static hosts still serve "text/javascript"; allow that.
+            // If we got HTML (404 page), warn explicitly:
+            if (ctype.includes("html")) {
+                throw new Error(`Got HTML instead of JS (likely 404): ${baseModulePath}`);
+            }
+        }
+    } catch (preErr) {
+        console.error("Preflight failed:", preErr);
+        return showEditorError(path, baseModulePath, preErr);
+    }
+
     try {
         const mod = await import(modulePath);
         const mountFn = mod.mountEditor || mod.default;
         if (typeof mountFn !== "function") {
-            throw new Error(`Editor module ${modulePath} does not export mountEditor/default`);
+            throw new Error(`Module does not export mountEditor/default: ${baseModulePath}`);
         }
         currentEditor = await mountFn({
             container: $editorRoot,
             path,
             token: getToken(),
-            // optional hooks to integrate global UI in future
             onDirtyChange: (isDirty) => {
                 document.body.classList.toggle("editor-dirty", !!isDirty);
             }
         });
     } catch (err) {
-        console.error(err);
-        $editorRoot.innerHTML = `
-      <div class="alert alert--error">
-        Failed to load editor for <code>${path}</code>.
-      </div>`;
+        console.error("Editor import failed:", err);
+        // Try generic fallback once if this wasn't already the fallback
+        if (baseModulePath !== FALLBACK_EDITOR) {
+            try {
+                const fallbackPath = `${FALLBACK_EDITOR}?v=${Date.now()}`;
+                const fmod = await import(fallbackPath);
+                const fmount = fmod.mountEditor || fmod.default;
+                if (typeof fmount !== "function") {
+                    throw new Error("Fallback generic editor missing mount function.");
+                }
+                currentEditor = await fmount({
+                    container: $editorRoot,
+                    path,
+                    token: getToken(),
+                    onDirtyChange: (isDirty) => {
+                        document.body.classList.toggle("editor-dirty", !!isDirty);
+                    }
+                });
+                // Also surface a non-blocking notice about the original failure:
+                const warn = document.createElement("div");
+                warn.className = "alert alert--warning";
+                warn.style.marginTop = "12px";
+                warn.innerHTML = `Loaded <strong>generic</strong> editor. Couldn’t load <code>${baseModulePath}</code>.<br><small>${err.message}</small>`;
+                $editorRoot.appendChild(warn);
+                return;
+            } catch (ferr) {
+                console.error("Fallback editor failed:", ferr);
+                return showEditorError(path, baseModulePath, err);
+            }
+        }
+        return showEditorError(path, baseModulePath, err);
     }
 }
+
+function showEditorError(path, modulePathTried, err){
+    $editorRoot.innerHTML = `
+    <div class="alert alert--error">
+      <div><strong>Failed to load editor for</strong> <code>${path}</code></div>
+      <div style="margin-top:.4rem"><code>${modulePathTried}</code></div>
+      <pre style="white-space:pre-wrap;margin-top:.5rem">${(err && err.message) ? err.message : err}</pre>
+      <ul style="margin-top:.5rem;padding-left:1.2rem">
+        <li>Verify the file exists at that path (case-sensitive).</li>
+        <li>Open DevTools → Network and confirm it returns <code>200</code> and JS content-type.</li>
+        <li>Serve over <code>http://</code> or <code>https://</code> (not <code>file://</code>).</li>
+      </ul>
+    </div>
+  `;
+}
+
 
 // ---------- Init ----------
 document.addEventListener("DOMContentLoaded", () => {

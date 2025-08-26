@@ -1,4 +1,4 @@
-export async function mountEditor({ container, path, token, onDirtyChange }){
+export async function mountEditor({ container, path, token, onDirtyChange }) {
     container.innerHTML = `
     <div class="editor-panel">
       <div class="editor-header">
@@ -119,9 +119,6 @@ export async function mountEditor({ container, path, token, onDirtyChange }){
         alert("Saved (demo).");
     });
 
-    return {
-        destroy(){
-            // if you attached global listeners, remove them here
-        }
-    };
+    return { destroy(){} };
 }
+export default mountEditor;
