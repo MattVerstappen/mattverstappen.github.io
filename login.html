@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Login — Matthew Derek Rall</title>
+    <meta name="description" content="Admin login for the Matthew Derek Rall portfolio CMS." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#9D00FF" />
+
+    <link rel="preload" href="/assets/fonts/geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- any other page CSS after this... -->
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+    <link rel="stylesheet" href="/assets/css/login-page.css" />
+</head>
+<body class="login-body">
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Reusable Header Include -->
+<div data-include="/assets/reusables/header.html"></div>
+
+<!-- CMS Toolbar (visible only to authenticated admins) -->
+<div id="cms-toolbar" class="cms-toolbar" style="display: none;">
+    <div class="cms-toolbar__content">
+        <div class="cms-toolbar__actions">
+            <button onclick="window.cms?.savePage()" class="btn btn--primary btn--sm">💾 Save Changes</button>
+            <button onclick="window.cms?.resetPage()" class="btn btn--subtle btn--sm">🔄 Reset</button>
+            <button onclick="window.cms?.showGitHubSettings()" class="btn btn--subtle btn--sm">⚙️ GitHub</button>
+        </div>
+    </div>
+</div>
+
+<!-- CMS Toggle Button (visible only to authenticated admins) -->
+<button class="cms-toggle" onclick="window.cms?.toggleCMSMode()" title="Toggle Edit Mode" style="display: none;">✏️</button>
+
+<main id="main" role="main">
+    <!-- Hero -->
+    <section class="section section--hero login-hero">
+        <div class="container">
+            <div class="hero text-center">
+                <h1 class="hero__title text-balance editable" contenteditable="false" data-field="login-hero-title">
+                    Admin Access
+                </h1>
+                <p class="hero__subtitle text-balance editable" contenteditable="false" data-field="login-hero-subtitle">
+                    Sign in to manage content across the Matthew Derek Rall portfolio.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Card -->
+    <section class="section">
+        <div class="container">
+            <div class="content-wrapper login-wrapper">
+                <!-- Login Form -->
+                <div id="login-form" class="card card--elevated login-card" aria-live="polite">
+                    <h2 class="text-center mb-xl">Sign In</h2>
+
+                    <form id="loginForm" class="stack-lg" novalidate>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form-input"
+                                    inputmode="email"
+                                    autocomplete="username"
+                                    required
+                                    autofocus
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-input"
+                                    autocomplete="current-password"
+                                    required
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn--primary btn--block" id="signin-btn">Sign In</button>
+                        </div>
+                    </form>
+
+                    <div id="login-error" class="mt-lg" style="display: none;">
+                        <div class="alert alert--error" role="alert">
+                            <p id="error-message">Login failed. Please check your credentials.</p>
+                        </div>
+                    </div>
+
+                    <div class="login-footnote">
+                        <a href="/index.html" class="link-muted">← Back to site</a>
+                    </div>
+                </div>
+
+                <!-- Logged In State -->
+                <div id="logged-in-state" class="card card--elevated login-card" style="display: none;">
+                    <h2 class="text-center mb-xl">Welcome Back!</h2>
+
+                    <div class="text-center stack-lg">
+                        <p>You are signed in as an admin.</p>
+                        <p>Use the ✏️ pencil icon on any page to enter edit mode.</p>
+
+                        <div class="cluster cluster--center">
+                            <a href="/index.html" class="btn btn--primary">Go to Homepage</a>
+                            <button id="sign-out-btn" class="btn btn--subtle" type="button">Sign Out</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-xl">
+                        <h3>Admin Features</h3>
+                        <ul class="stack-sm">
+                            <li>✏️ Live editing for text content</li>
+                            <li>💾 Manual save to commit changes</li>
+                            <li>🔄 Real-time sync across users</li>
+                            <li>🔒 Secure authentication required</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Notice -->
+    <section class="section">
+        <div class="container">
+            <div class="quote-block">
+                <p class="quote-block__text">
+                    Only authorized administrators can edit website content. All changes are tracked and synced in real time.
+                </p>
+                <cite class="quote-block__author">— Security & Content Management</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Editor (Admin Only) -->
+    <section id="admin-content-editor" class="section admin-only" style="display: none;">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="card card--elevated">
+                    <h2 class="mb-xl">🎨 Content Editor</h2>
+
+                    <div class="stack-lg">
+                        <div class="alert alert--info">
+                            <p><strong>Admin Content Management System</strong></p>
+                            <p>Edit content in real time. Changes are saved manually and committed to GitHub.</p>
+                        </div>
+
+                        <div class="stack-md">
+                            <h3>🔧 Features</h3>
+                            <ul class="grid grid--2-cols gap-md">
+                                <li>✏️ <strong>Live Editing:</strong> Edit text directly on any page</li>
+                                <li>💾 <strong>Manual Save:</strong> Save when you click “Save Changes”</li>
+                                <li>🔄 <strong>Real-time Sync:</strong> Updates appear instantly</li>
+                                <li>📱 <strong>GitHub Integration:</strong> Automatic commits</li>
+                                <li>🔒 <strong>Secure Access:</strong> Auth required</li>
+                                <li>📝 <strong>Version Control:</strong> Full history in GitHub</li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-md">
+                            <h3>⚙️ GitHub Integration</h3>
+                            <div class="form-group">
+                                <label for="github-token-display">Current GitHub Personal Access Token:</label>
+                                <div class="cluster gap-sm">
+                                    <input type="text" id="github-token-display" class="form-input" readonly placeholder="No token configured" />
+                                    <button id="manage-github-token" class="btn btn--subtle" type="button">Manage Token</button>
+                                </div>
+                                <small>This token enables automatic commits when you save content changes.</small>
+                            </div>
+
+                            <div class="alert alert--subtle">
+                                <p><strong>Repository:</strong> mattverstappen/mattverstappen.github.io</p>
+                                <p><strong>Branch:</strong> main</p>
+                                <p><strong>Status:</strong> <span id="github-status">❌ Not configured</span></p>
+                            </div>
+                        </div>
+
+                        <div class="stack-md">
+                            <h3>📋 How to Use</h3>
+                            <ol class="stack-sm">
+                                <li>Navigate to any page</li>
+                                <li>Click the ✏️ icon to enter edit mode</li>
+                                <li>Edit content inline</li>
+                                <li>Click “💾 Save Changes” to commit</li>
+                            </ol>
+                        </div>
+
+                        <div class="cluster cluster--center">
+                            <a href="/index.html" class="btn btn--primary">Start Editing</a>
+                            <button onclick="window.cms?.showGitHubSettings()" class="btn btn--subtle" type="button">GitHub Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Reusable Footer Include -->
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Core scripts -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/footer.js"></script>
+<script src="/assets/js/pages-loader/login-authentication.js"></script>
+
+<noscript>
+    <style>.admin-only,.cms-toggle,#cms-toolbar,#login-form{display:none!important}</style>
+    <div class="container" style="margin-top:1rem">
+        <div class="alert alert--error" role="alert">
+            JavaScript is required to sign in and edit content.
+        </div>
+    </div>
+</noscript>
+</body>
+</html>

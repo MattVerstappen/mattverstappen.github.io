@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Websites Made — Matthew Derek Rall</title>
+    <meta name="description" content="Live websites designed and built by Matthew Derek Rall." />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#9D00FF" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preload" href="/assets/fonts/geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
+
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- any other page CSS after this... -->
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+    <link rel="stylesheet" href="/assets/css/websites-style.css" />
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Reusable Header Include -->
+<div data-include="/assets/reusables/header.html"></div>
+
+<main id="main" role="main">
+    <section class="websites-section">
+        <div class="container">
+            <h1 class="editable" contenteditable="false" data-field="websites-title">Websites Made</h1>
+            <p class="websites-intro editable" contenteditable="false" data-field="websites-intro">
+                A selection of live websites I’ve designed and built for clients and collaborators.
+            </p>
+
+            <div id="websites-grid" class="websites-grid" aria-live="polite"></div>
+
+            <div id="websites-empty" style="display:none; text-align:center; opacity:.8; margin-top:1rem;">
+                No websites listed yet. Check back soon.
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Reusable Footer Include -->
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Core JS -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/pages-loader/websites-loader.js"></script>
+<script src="/assets/js/footer.js"></script>
+
+<noscript>
+    <style>#websites-grid{display:none!important}</style>
+    <div class="container" style="margin:1rem auto;">
+        <div class="alert alert--error" role="alert">JavaScript is required to load websites.</div>
+    </div>
+</noscript>
+</body>
+</html>

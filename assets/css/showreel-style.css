@@ -1,0 +1,96 @@
+/* ===== Showreel Styles (Dark Theme, Matthew Derek Rall) ===== */
+
+.video-content {
+    text-align: center;
+}
+
+/* Responsive 16:9 container with dark panel styling */
+.video-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    margin: var(--space-lg) 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Video fills the container; black fallback */
+.video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+    border-radius: inherit;
+}
+
+/* Centered play button for poster state (if you keep custom play UI) */
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 56px;
+    min-height: 56px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+    box-shadow: 0 10px 30px rgba(157, 0, 255, 0.25), 0 2px 0 rgba(255,255,255,0.05) inset;
+}
+
+.video-play:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+    background-color: #a61cff; /* slightly brighter than --primary without adding another token */
+    box-shadow: 0 14px 38px rgba(157, 0, 255, 0.35);
+    border-color: rgba(157, 0, 255, 0.35);
+}
+
+.video-play:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+.video-play svg {
+    margin-left: 2px; /* optical centering for play glyph */
+}
+
+/* Caption/description under the video */
+.video-caption {
+    font-family: var(--font-body, inherit);
+    font-size: var(--text-lg, 1.125rem);
+    color: var(--muted);
+    margin-top: var(--space-lg, 1.25rem);
+    opacity: 0.95;
+}
+
+/* Optional helper: make native controls fit dark theme edge a bit better on WebKit */
+@supports (-webkit-appearance: none) {
+    video::-webkit-media-controls-enclosure {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: saturate(1.1) blur(4px);
+    }
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .video-play {
+        transition: none;
+    }
+    .video-play:hover {
+        transform: translate(-50%, -50%); /* remove hover scale */
+        box-shadow: 0 10px 30px rgba(157, 0, 255, 0.25);
+    }
+}

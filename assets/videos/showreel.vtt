@@ -1,0 +1,1445 @@
+WEBVTT
+
+00:00:00.320 --> 00:00:03.360
+this is blender open-source 3D software
+
+00:00:03.360 --> 00:00:05.680
+that can be used to make animations
+
+00:00:05.680 --> 00:00:07.799
+visual effects game assets or
+
+00:00:07.799 --> 00:00:11.000
+practically anything 3D and best of all
+
+00:00:11.000 --> 00:00:14.519
+it's 100% free and it always will be if
+
+00:00:14.519 --> 00:00:16.119
+you've never used it before but you want
+
+00:00:16.119 --> 00:00:18.000
+to learn it well then you're in the
+
+00:00:18.000 --> 00:00:20.320
+right place this is a tutorial for
+
+00:00:20.320 --> 00:00:22.160
+complete beginners I've been using
+
+00:00:22.160 --> 00:00:24.000
+blender for 20 years so I'm going to
+
+00:00:24.000 --> 00:00:25.560
+show you how to use all of its core
+
+00:00:25.560 --> 00:00:27.720
+features and by the end you'll finish
+
+00:00:27.720 --> 00:00:29.599
+with not only the confidence to start
+
+00:00:29.599 --> 00:00:32.200
+your own projects but with your very own
+
+00:00:32.200 --> 00:00:34.719
+dut animation and I know this looks
+
+00:00:34.719 --> 00:00:36.520
+complex but I promise you it's
+
+00:00:36.520 --> 00:00:38.840
+achievable for a complete beginner and I
+
+00:00:38.840 --> 00:00:40.600
+say that with confidence because many
+
+00:00:40.600 --> 00:00:42.960
+already have this is actually the fourth
+
+00:00:42.960 --> 00:00:44.879
+version of this tutorial I made the
+
+00:00:44.879 --> 00:00:47.640
+first dut tutorial back in 2016 and I've
+
+00:00:47.640 --> 00:00:49.920
+been remaking it every few years to keep
+
+00:00:49.920 --> 00:00:52.039
+up with blender's development in that
+
+00:00:52.039 --> 00:00:54.079
+time millions of people just like
+
+00:00:54.079 --> 00:00:55.960
+yourself have gone from having never
+
+00:00:55.960 --> 00:00:58.480
+used 3D to successfully making their own
+
+00:00:58.480 --> 00:01:01.359
+Donuts one arst even snuck his into a
+
+00:01:01.359 --> 00:01:03.440
+little film called everything everywhere
+
+00:01:03.440 --> 00:01:06.479
+all at once very clever so if you're
+
+00:01:06.479 --> 00:01:08.720
+ready to take your first steps in 3D hit
+
+00:01:08.720 --> 00:01:10.920
+the Subscribe button and let's begin
+
+00:01:10.920 --> 00:01:13.799
+first go to blender.org download or just
+
+00:01:13.799 --> 00:01:16.000
+click the link in the description then
+
+00:01:16.000 --> 00:01:17.360
+obviously you got to hit the big
+
+00:01:17.360 --> 00:01:19.439
+download button once downloaded on
+
+00:01:19.439 --> 00:01:21.360
+Windows double click it and then just go
+
+00:01:21.360 --> 00:01:23.360
+through the install steps but if you're
+
+00:01:23.360 --> 00:01:25.280
+on a Mac just drag it into the
+
+00:01:25.280 --> 00:01:27.400
+applications folder then just find the
+
+00:01:27.400 --> 00:01:29.560
+blender shortcut and open it then once
+
+00:01:29.560 --> 00:01:31.439
+it's open open just click anywhere off
+
+00:01:31.439 --> 00:01:33.360
+the splash screen to close it and
+
+00:01:33.360 --> 00:01:36.759
+welcome to the wonderful world of 3D
+
+00:01:36.759 --> 00:01:39.240
+first tip do not get overwhelmed if you
+
+00:01:39.240 --> 00:01:41.880
+go clicking around you might find lots
+
+00:01:41.880 --> 00:01:44.759
+of buttons and some of them with very
+
+00:01:44.759 --> 00:01:46.479
+scary names and it can all get very
+
+00:01:46.479 --> 00:01:48.360
+overwhelming very quickly thing you need
+
+00:01:48.360 --> 00:01:49.880
+to know is blunder can do a lot of
+
+00:01:49.880 --> 00:01:51.880
+things which means it has a lot of tools
+
+00:01:51.880 --> 00:01:53.560
+but you don't need to know every tool in
+
+00:01:53.560 --> 00:01:55.240
+order to do what you want to do if
+
+00:01:55.240 --> 00:01:57.159
+you're familiar with the 8020 rule
+
+00:01:57.159 --> 00:01:59.320
+there's really only 20% of blender
+
+00:01:59.320 --> 00:02:01.320
+features that you end up using 80% of
+
+00:02:01.320 --> 00:02:03.200
+the time and that's what I'm planning to
+
+00:02:03.200 --> 00:02:05.320
+teach you in this tutorial Series so
+
+00:02:05.320 --> 00:02:07.320
+stay with me and you should be fine
+
+00:02:07.320 --> 00:02:09.160
+we'll start making the donut in the next
+
+00:02:09.160 --> 00:02:10.879
+video in this one we're just going to
+
+00:02:10.879 --> 00:02:12.480
+look at the interface and I'm going to
+
+00:02:12.480 --> 00:02:14.720
+show you some of the basic navigation so
+
+00:02:14.720 --> 00:02:17.200
+for starters this view this window right
+
+00:02:17.200 --> 00:02:19.640
+here is your 3D viewport and it's where
+
+00:02:19.640 --> 00:02:22.680
+you'll spend probably 90% of your time
+
+00:02:22.680 --> 00:02:25.560
+because it is the 3D World so you can
+
+00:02:25.560 --> 00:02:27.480
+see that we have three objects here
+
+00:02:27.480 --> 00:02:29.560
+we've got a camera we've got a cube and
+
+00:02:29.560 --> 00:02:31.840
+we've got a lamp and when we click on it
+
+00:02:31.840 --> 00:02:33.599
+you can see it's selected because it has
+
+00:02:33.599 --> 00:02:36.040
+the yellow outline so let's delete the
+
+00:02:36.040 --> 00:02:38.360
+default cube of course and replace it
+
+00:02:38.360 --> 00:02:40.000
+with something else so we could do that
+
+00:02:40.000 --> 00:02:42.920
+by going up to the add menu up here or
+
+00:02:42.920 --> 00:02:44.760
+by remembering the hot key which is
+
+00:02:44.760 --> 00:02:48.159
+shift a so shift a for add so usually
+
+00:02:48.159 --> 00:02:49.959
+the one you're looking for is underneath
+
+00:02:49.959 --> 00:02:52.720
+mesh so these are called your Primitives
+
+00:02:52.720 --> 00:02:55.000
+and it's what you use to start something
+
+00:02:55.000 --> 00:02:57.200
+when you're looking to uh make an object
+
+00:02:57.200 --> 00:02:58.879
+like if you're going to make a chair you
+
+00:02:58.879 --> 00:03:00.959
+might start with a cylinder as the chair
+
+00:03:00.959 --> 00:03:03.480
+leg and then build out from there but
+
+00:03:03.480 --> 00:03:05.319
+the one I'm sure you're all very curious
+
+00:03:05.319 --> 00:03:07.400
+you want to click it it's the monkey so
+
+00:03:07.400 --> 00:03:09.360
+let's just click the monkey why does
+
+00:03:09.360 --> 00:03:11.599
+blender have a monkey well fun fact
+
+00:03:11.599 --> 00:03:13.840
+every 3D software has its own little
+
+00:03:13.840 --> 00:03:16.080
+random complex object because it's
+
+00:03:16.080 --> 00:03:18.400
+useful to test things like shaders or
+
+00:03:18.400 --> 00:03:20.720
+complexities of scenes so 3ds Max has
+
+00:03:20.720 --> 00:03:23.440
+the Utah teapot Houdini has the toy and
+
+00:03:23.440 --> 00:03:26.120
+I think Pig's head uh blenda has the
+
+00:03:26.120 --> 00:03:27.840
+monkey and it's actually called the
+
+00:03:27.840 --> 00:03:29.599
+suzan monkey head which you can see in
+
+00:03:29.599 --> 00:03:31.920
+the top left there named after the
+
+00:03:31.920 --> 00:03:34.959
+rangang from the film Jay and Silent Bob
+
+00:03:34.959 --> 00:03:37.879
+Strikes Back random piece of trivia so
+
+00:03:37.879 --> 00:03:39.200
+let's get a better look at it and to
+
+00:03:39.200 --> 00:03:41.599
+that we need to orbit which you can do
+
+00:03:41.599 --> 00:03:44.439
+by on your mouse there your scroll wheel
+
+00:03:44.439 --> 00:03:46.200
+that is called your middle Mouse button
+
+00:03:46.200 --> 00:03:49.400
+if you push that in and then drag around
+
+00:03:49.400 --> 00:03:52.360
+that is now orbiting now for my laptop
+
+00:03:52.360 --> 00:03:53.840
+users you've just panicked cuz you
+
+00:03:53.840 --> 00:03:56.120
+realize you don't have a mouse how are
+
+00:03:56.120 --> 00:03:58.599
+you going to orbit around first of all
+
+00:03:58.599 --> 00:04:00.720
+probably good idea to get a Mouse for 3D
+
+00:04:00.720 --> 00:04:03.239
+work it will come in handy um but in a
+
+00:04:03.239 --> 00:04:05.280
+pinch you can get by without it just by
+
+00:04:05.280 --> 00:04:06.959
+up here in the top right hand corner
+
+00:04:06.959 --> 00:04:09.000
+this little gray Circle anywhere in the
+
+00:04:09.000 --> 00:04:11.319
+gray section if you just left click drag
+
+00:04:11.319 --> 00:04:13.319
+on that that will do the exact same
+
+00:04:13.319 --> 00:04:16.519
+thing or if you want you can go to edit
+
+00:04:16.519 --> 00:04:19.120
+preferences and then underneath input
+
+00:04:19.120 --> 00:04:21.280
+there's emulate three button Mouse and
+
+00:04:21.280 --> 00:04:23.160
+that means that if you hold down alt and
+
+00:04:23.160 --> 00:04:25.000
+then left click drag that will do the
+
+00:04:25.000 --> 00:04:27.360
+exact same thing also whilst you are in
+
+00:04:27.360 --> 00:04:29.320
+user preferences you might want to go to
+
+00:04:29.320 --> 00:04:31.280
+interface face and you've got resolution
+
+00:04:31.280 --> 00:04:34.600
+scale if you're on a 4k monitor you
+
+00:04:34.600 --> 00:04:36.400
+might find that your menus and buttons
+
+00:04:36.400 --> 00:04:38.280
+are really small and you kind of have to
+
+00:04:38.280 --> 00:04:40.919
+like squint in to see it so personally I
+
+00:04:40.919 --> 00:04:43.160
+like to keep my 4k monitor around about
+
+00:04:43.160 --> 00:04:45.400
+1.5 but since this is a tutorial I make
+
+00:04:45.400 --> 00:04:46.720
+it nice and big so you can see what I'm
+
+00:04:46.720 --> 00:04:48.639
+doing okay so that's orbiting around
+
+00:04:48.639 --> 00:04:50.160
+with the middle Mouse button if we want
+
+00:04:50.160 --> 00:04:52.320
+to zoom in we can do that just by
+
+00:04:52.320 --> 00:04:54.960
+scrolling in and out we could also do it
+
+00:04:54.960 --> 00:04:56.919
+by going up to the magnifying glass tool
+
+00:04:56.919 --> 00:04:58.880
+there and then just left click dragging
+
+00:04:58.880 --> 00:05:00.919
+and then moving the uh mouse back and
+
+00:05:00.919 --> 00:05:03.440
+forth that does the same thing or you
+
+00:05:03.440 --> 00:05:05.400
+could hold down control and then middle
+
+00:05:05.400 --> 00:05:07.520
+Mouse button and that will do a smooth
+
+00:05:07.520 --> 00:05:10.080
+Zoom as well okay so one thing you might
+
+00:05:10.080 --> 00:05:11.919
+notice looking at this is that it's not
+
+00:05:11.919 --> 00:05:13.919
+very pretty right it's just kind of got
+
+00:05:13.919 --> 00:05:17.120
+this flat Bland gray lighting over
+
+00:05:17.120 --> 00:05:19.000
+everything and that's because this state
+
+00:05:19.000 --> 00:05:21.560
+right now is called viewport shading and
+
+00:05:21.560 --> 00:05:23.560
+it's kind of a lightweight optimized way
+
+00:05:23.560 --> 00:05:25.280
+to view the scene just as you're
+
+00:05:25.280 --> 00:05:27.080
+building it but if you want to create a
+
+00:05:27.080 --> 00:05:30.280
+final pretty image that's called r ring
+
+00:05:30.280 --> 00:05:31.960
+and you can actually switch into
+
+00:05:31.960 --> 00:05:34.120
+rendered mode by going up here into the
+
+00:05:34.120 --> 00:05:36.080
+top right hand corner you can see we're
+
+00:05:36.080 --> 00:05:38.240
+currently in the viewport shading mode
+
+00:05:38.240 --> 00:05:41.240
+if we go to across you should see render
+
+00:05:41.240 --> 00:05:43.840
+View mode so if we click that your
+
+00:05:43.840 --> 00:05:45.520
+computer might stall for a quick second
+
+00:05:45.520 --> 00:05:47.199
+whilst it loads it in but you can see
+
+00:05:47.199 --> 00:05:49.680
+it's now different we have directional
+
+00:05:49.680 --> 00:05:51.759
+light we have shadow cast across the
+
+00:05:51.759 --> 00:05:54.360
+monkey so it's now currently being lit
+
+00:05:54.360 --> 00:05:58.039
+by this lamp up here so if I wanted to
+
+00:05:58.039 --> 00:05:59.840
+uh you know zoom in on that lamp lamp
+
+00:05:59.840 --> 00:06:00.800
+there and just kind of like move it
+
+00:06:00.800 --> 00:06:02.440
+around you can see it's kind of hard to
+
+00:06:02.440 --> 00:06:05.120
+focus on like it's always exactly not in
+
+00:06:05.120 --> 00:06:08.160
+the right View and that's because we are
+
+00:06:08.160 --> 00:06:10.400
+centered on our monkey right now we need
+
+00:06:10.400 --> 00:06:13.160
+to change the focus we need to pan to
+
+00:06:13.160 --> 00:06:14.759
+something else so we could do that one
+
+00:06:14.759 --> 00:06:17.160
+of two ways one if you're on a laptop
+
+00:06:17.160 --> 00:06:19.160
+you could use a little move tool there
+
+00:06:19.160 --> 00:06:22.680
+that will do that or everyone else shift
+
+00:06:22.680 --> 00:06:25.000
+middle Mouse click drag that will do the
+
+00:06:25.000 --> 00:06:26.720
+same thing so middle Mouse is for
+
+00:06:26.720 --> 00:06:29.240
+orbiting shift middle Mouse is for pan
+
+00:06:29.240 --> 00:06:32.080
+to change your view to something else
+
+00:06:32.080 --> 00:06:33.680
+okay so I want to move my light because
+
+00:06:33.680 --> 00:06:35.560
+it's uh it's too Moody I want to be able
+
+00:06:35.560 --> 00:06:37.960
+to see the monkey's face there so to
+
+00:06:37.960 --> 00:06:40.000
+move an object you could do it one of
+
+00:06:40.000 --> 00:06:42.720
+two ways one you could go over to the
+
+00:06:42.720 --> 00:06:44.280
+left hand corner here and you've got the
+
+00:06:44.280 --> 00:06:46.520
+move tool when you click that you can
+
+00:06:46.520 --> 00:06:48.840
+see that the selected object the lamp
+
+00:06:48.840 --> 00:06:51.720
+has this uh this Gizmo it's called with
+
+00:06:51.720 --> 00:06:53.759
+these axes on it and if I just clicked
+
+00:06:53.759 --> 00:06:55.919
+and dragged on any of those arrows there
+
+00:06:55.919 --> 00:06:58.120
+you can see I can move it along any of
+
+00:06:58.120 --> 00:07:00.000
+those axes I could also just click on
+
+00:07:00.000 --> 00:07:02.039
+that uh white circle there and that will
+
+00:07:02.039 --> 00:07:04.479
+just freehand drag it um depending on my
+
+00:07:04.479 --> 00:07:06.240
+view but it's kind of tedious every time
+
+00:07:06.240 --> 00:07:07.319
+you want to move something you have to
+
+00:07:07.319 --> 00:07:09.120
+like go to that tool and then find the
+
+00:07:09.120 --> 00:07:11.120
+arrows and yada yada so actually most
+
+00:07:11.120 --> 00:07:13.039
+people in blender prefer to use the hot
+
+00:07:13.039 --> 00:07:14.960
+keys so we just keep it in the default
+
+00:07:14.960 --> 00:07:17.000
+selection State here and instead
+
+00:07:17.000 --> 00:07:21.199
+remember the hot key which is G for grab
+
+00:07:21.199 --> 00:07:23.080
+now I've just tapped the key and you'll
+
+00:07:23.080 --> 00:07:25.199
+notice as I move my cursor that it's now
+
+00:07:25.199 --> 00:07:27.720
+attached to my cursor it's not my cursor
+
+00:07:27.720 --> 00:07:30.280
+isn't even actually close to it in fact
+
+00:07:30.280 --> 00:07:31.919
+my cursor could be on the other side of
+
+00:07:31.919 --> 00:07:34.560
+the screen and I could tap G and it will
+
+00:07:34.560 --> 00:07:36.560
+move it and at first this is kind of
+
+00:07:36.560 --> 00:07:38.560
+awkward you're like why is it working
+
+00:07:38.560 --> 00:07:40.000
+this way but once you get used to it you
+
+00:07:40.000 --> 00:07:41.440
+realize it's actually handy because you
+
+00:07:41.440 --> 00:07:42.840
+don't have to spend all this time like
+
+00:07:42.840 --> 00:07:44.720
+navigating your cursor to something just
+
+00:07:44.720 --> 00:07:46.240
+so that you can move it your cursor
+
+00:07:46.240 --> 00:07:48.159
+could be over here and then just tap it
+
+00:07:48.159 --> 00:07:49.840
+and you're moving it so whilst you're in
+
+00:07:49.840 --> 00:07:51.919
+this move state if you want to cancel a
+
+00:07:51.919 --> 00:07:53.639
+movement you can do it one of two ways
+
+00:07:53.639 --> 00:07:56.120
+you could just hit Escape or you could
+
+00:07:56.120 --> 00:07:58.720
+rightclick then if you want to confirm a
+
+00:07:58.720 --> 00:08:00.240
+movement like say I want to move my lamp
+
+00:08:00.240 --> 00:08:01.599
+here and I like the movement I could
+
+00:08:01.599 --> 00:08:04.319
+just do a single left click so again if
+
+00:08:04.319 --> 00:08:05.759
+I want to cancel something just right
+
+00:08:05.759 --> 00:08:07.599
+click if I want to confirm the movement
+
+00:08:07.599 --> 00:08:09.159
+left click but let's say I wanted to
+
+00:08:09.159 --> 00:08:11.280
+move it along an axis like you know I
+
+00:08:11.280 --> 00:08:12.639
+like these arrows here and I want to be
+
+00:08:12.639 --> 00:08:15.000
+able to move it on just a specific axis
+
+00:08:15.000 --> 00:08:17.039
+well I can do that whilst I'm in that
+
+00:08:17.039 --> 00:08:19.280
+grab State as well so after I have hit
+
+00:08:19.280 --> 00:08:22.919
+the g key to grab it I can then tap the
+
+00:08:22.919 --> 00:08:25.240
+letter of the axes that I want to move
+
+00:08:25.240 --> 00:08:26.960
+it on so if you don't know in the real
+
+00:08:26.960 --> 00:08:28.800
+world and in the 3D software there are
+
+00:08:28.800 --> 00:08:31.280
+three axis cuz there's three dimensions
+
+00:08:31.280 --> 00:08:33.640
+there's the x axis which I can move it
+
+00:08:33.640 --> 00:08:36.640
+by hitting the X key the y axis to move
+
+00:08:36.640 --> 00:08:38.919
+it back and forth along the Y AIS with
+
+00:08:38.919 --> 00:08:41.719
+the y key or the Zed axis to move it up
+
+00:08:41.719 --> 00:08:45.000
+and down on the Zed axis so you can
+
+00:08:45.000 --> 00:08:48.000
+remember those uh those letters the X Y
+
+00:08:48.000 --> 00:08:50.720
+and Zed or the method that I actually
+
+00:08:50.720 --> 00:08:52.839
+prefer to use is whilst you're in that g
+
+00:08:52.839 --> 00:08:54.720
+state if you just hold down the middle
+
+00:08:54.720 --> 00:08:56.920
+Mouse button and then pull out you can
+
+00:08:56.920 --> 00:08:58.959
+see you get this like Gray Line that
+
+00:08:58.959 --> 00:09:00.959
+pulls out from the center and then if
+
+00:09:00.959 --> 00:09:03.360
+you just drag out and move around it
+
+00:09:03.360 --> 00:09:06.320
+will snap it to the nearest axis which
+
+00:09:06.320 --> 00:09:08.480
+again is maybe an odd way to work but
+
+00:09:08.480 --> 00:09:09.959
+it's actually really handy because it
+
+00:09:09.959 --> 00:09:12.000
+means you don't have to think of the the
+
+00:09:12.000 --> 00:09:14.320
+letter and locate it on your keyboard I
+
+00:09:14.320 --> 00:09:15.920
+can just tap G to move it and then
+
+00:09:15.920 --> 00:09:18.480
+middle Mouse drag out and then just find
+
+00:09:18.480 --> 00:09:21.160
+that exact axis that I'm looking for and
+
+00:09:21.160 --> 00:09:23.240
+so it's very fast to just quickly move
+
+00:09:23.240 --> 00:09:25.920
+the lamp exactly where I want it by the
+
+00:09:25.920 --> 00:09:27.040
+way if you're finding it hard to
+
+00:09:27.040 --> 00:09:28.640
+remember all of the keyboard shortcuts
+
+00:09:28.640 --> 00:09:30.079
+that I've mentioned I've actually put
+
+00:09:30.079 --> 00:09:32.279
+together a PDF a cheat sheet of
+
+00:09:32.279 --> 00:09:34.600
+blender's most common hotkeys and you
+
+00:09:34.600 --> 00:09:36.240
+can download that by clicking the link
+
+00:09:36.240 --> 00:09:37.880
+in the description so you could print it
+
+00:09:37.880 --> 00:09:39.120
+out or you could just have it on a
+
+00:09:39.120 --> 00:09:41.399
+separate monitor while you work also if
+
+00:09:41.399 --> 00:09:43.519
+you are from another 3D software package
+
+00:09:43.519 --> 00:09:45.480
+you might notice that blenders hotkeys
+
+00:09:45.480 --> 00:09:47.519
+are different than what you are used to
+
+00:09:47.519 --> 00:09:49.680
+so if you actually go to preferences
+
+00:09:49.680 --> 00:09:51.079
+just for those people that are from
+
+00:09:51.079 --> 00:09:53.120
+other softwares if you change the key
+
+00:09:53.120 --> 00:09:55.519
+map to Industry compatible you'll find
+
+00:09:55.519 --> 00:09:57.480
+that these shortcuts are probably more
+
+00:09:57.480 --> 00:09:58.800
+in line with what you remember from
+
+00:09:58.800 --> 00:09:59.880
+other software
+
+00:09:59.880 --> 00:10:01.399
+I'll also put a link to a cheat sheet
+
+00:10:01.399 --> 00:10:03.000
+that is just for the industry compatible
+
+00:10:03.000 --> 00:10:04.920
+keymaps that somebody else put together
+
+00:10:04.920 --> 00:10:06.240
+I've got nothing to do with it but I'll
+
+00:10:06.240 --> 00:10:07.480
+put that link there so you can check it
+
+00:10:07.480 --> 00:10:09.160
+out as well for the rest of this
+
+00:10:09.160 --> 00:10:10.279
+tutorial series I'm going to use
+
+00:10:10.279 --> 00:10:12.560
+blender's hotkeys just keep that in mind
+
+00:10:12.560 --> 00:10:14.880
+now let's say as I am moving around here
+
+00:10:14.880 --> 00:10:17.040
+I'm like oh this looks really good I've
+
+00:10:17.040 --> 00:10:19.839
+got some nice REM lighting across the
+
+00:10:19.839 --> 00:10:22.360
+monkeyy face I want to take a photo I
+
+00:10:22.360 --> 00:10:24.600
+want to take a nice pretty image of this
+
+00:10:24.600 --> 00:10:27.880
+and post it on socials for clout right
+
+00:10:27.880 --> 00:10:29.600
+well I could take a screenshot shot of
+
+00:10:29.600 --> 00:10:31.040
+it but that would be silly cuz it's got
+
+00:10:31.040 --> 00:10:33.079
+all these lines all over it's all noisy
+
+00:10:33.079 --> 00:10:34.560
+right we don't like it the way you take
+
+00:10:34.560 --> 00:10:36.920
+a photo a pretty image in letter is to
+
+00:10:36.920 --> 00:10:39.240
+do a render so you could do that one or
+
+00:10:39.240 --> 00:10:40.800
+two ways by going up to render and
+
+00:10:40.800 --> 00:10:43.000
+hitting render image or remembering the
+
+00:10:43.000 --> 00:10:45.160
+hot key which says next to it
+
+00:10:45.160 --> 00:10:47.760
+F12 so when you do that a little window
+
+00:10:47.760 --> 00:10:51.040
+will pop up it will use your CPU or GPU
+
+00:10:51.040 --> 00:10:52.399
+depending on which renderer you've got
+
+00:10:52.399 --> 00:10:54.800
+active and it will render out a pretty
+
+00:10:54.800 --> 00:10:57.360
+image and from here you could go image
+
+00:10:57.360 --> 00:10:59.480
+and then save as and that'll save it as
+
+00:10:59.480 --> 00:11:01.320
+PNG or whatever wherever you want to
+
+00:11:01.320 --> 00:11:03.000
+save it but you might notice looking at
+
+00:11:03.000 --> 00:11:04.480
+this that this is actually a different
+
+00:11:04.480 --> 00:11:06.920
+view than what we have here right so
+
+00:11:06.920 --> 00:11:08.240
+here I've got a nice view of the
+
+00:11:08.240 --> 00:11:09.639
+monkey's face but up there was a
+
+00:11:09.639 --> 00:11:10.959
+different View and the reason for that
+
+00:11:10.959 --> 00:11:12.160
+is when you do a render it's not
+
+00:11:12.160 --> 00:11:14.200
+rendering from The View that you're
+
+00:11:14.200 --> 00:11:15.720
+looking at currently it's always going
+
+00:11:15.720 --> 00:11:17.519
+to render from the point of view of the
+
+00:11:17.519 --> 00:11:19.480
+camera so this is our camera over here
+
+00:11:19.480 --> 00:11:21.480
+and it's looking from this angle and we
+
+00:11:21.480 --> 00:11:23.920
+can actually look through the camera by
+
+00:11:23.920 --> 00:11:25.639
+just clicking the little camera icon
+
+00:11:25.639 --> 00:11:27.959
+there or by remembering the hotkey which
+
+00:11:27.959 --> 00:11:30.200
+is number pad Z
+
+00:11:30.200 --> 00:11:33.399
+zero so how do we move the camera well
+
+00:11:33.399 --> 00:11:34.880
+blender is a little awkward maybe a
+
+00:11:34.880 --> 00:11:36.120
+little different to other software
+
+00:11:36.120 --> 00:11:38.279
+packages but you're supposed to like hit
+
+00:11:38.279 --> 00:11:40.639
+G to move it and then like middle Mouse
+
+00:11:40.639 --> 00:11:42.600
+to zoom in and out and then if you want
+
+00:11:42.600 --> 00:11:44.880
+to like move it along an axis I guess g
+
+00:11:44.880 --> 00:11:47.639
+and then X you could do that but
+
+00:11:47.639 --> 00:11:49.279
+actually what a lot of users prefer
+
+00:11:49.279 --> 00:11:50.600
+especially those from other software
+
+00:11:50.600 --> 00:11:52.760
+packages is if you've got your camera
+
+00:11:52.760 --> 00:11:54.320
+selected which by the way I haven't
+
+00:11:54.320 --> 00:11:56.000
+mentioned this but up here this is your
+
+00:11:56.000 --> 00:11:58.320
+outliner it's kind of an inventory of
+
+00:11:58.320 --> 00:12:00.480
+every item that you've got in your scene
+
+00:12:00.480 --> 00:12:03.240
+okay so with the camera there selected
+
+00:12:03.240 --> 00:12:06.320
+if I hit n n is to bring up the
+
+00:12:06.320 --> 00:12:08.920
+properties n for properties for whatever
+
+00:12:08.920 --> 00:12:12.639
+reason um and then go to view there's a
+
+00:12:12.639 --> 00:12:15.480
+little box there that just says lock to
+
+00:12:15.480 --> 00:12:19.880
+camera to view so now with that active
+
+00:12:19.880 --> 00:12:21.440
+if I just use the same keyboard
+
+00:12:21.440 --> 00:12:23.040
+shortcuts as before middle Mouse button
+
+00:12:23.040 --> 00:12:25.320
+to orbit around shift middle Mouse to
+
+00:12:25.320 --> 00:12:27.279
+drag it you can see that the camera is
+
+00:12:27.279 --> 00:12:29.720
+moving with it so essentially the view I
+
+00:12:29.720 --> 00:12:32.440
+can set it up exactly as I want then hit
+
+00:12:32.440 --> 00:12:35.199
+n again and then I can disable that and
+
+00:12:35.199 --> 00:12:36.920
+then now as I pull out you can see the
+
+00:12:36.920 --> 00:12:38.839
+camera will stay exactly where it was
+
+00:12:38.839 --> 00:12:42.079
+and I could do a lovely pretty render
+
+00:12:42.079 --> 00:12:44.399
+but this is too simple if we post this
+
+00:12:44.399 --> 00:12:46.120
+on the internet people are bound to make
+
+00:12:46.120 --> 00:12:48.800
+fun of us imagine that well we could
+
+00:12:48.800 --> 00:12:51.639
+give it some color right so with our
+
+00:12:51.639 --> 00:12:54.000
+monkey head selected we can go over to
+
+00:12:54.000 --> 00:12:56.320
+here to the properties so this
+
+00:12:56.320 --> 00:12:57.800
+properties section is where you might
+
+00:12:57.800 --> 00:13:00.120
+spend the other I don't know another
+
+00:13:00.120 --> 00:13:03.079
+eight five to 8% I don't know getting
+
+00:13:03.079 --> 00:13:04.920
+too exact there you might spend another
+
+00:13:04.920 --> 00:13:07.399
+5% of your time in this section but it's
+
+00:13:07.399 --> 00:13:09.880
+where all of the properties for things
+
+00:13:09.880 --> 00:13:12.360
+are in blender so for example you've got
+
+00:13:12.360 --> 00:13:14.240
+uh like the render properties like the
+
+00:13:14.240 --> 00:13:16.240
+size of the image that you're saving
+
+00:13:16.240 --> 00:13:18.040
+something as is defined there and some
+
+00:13:18.040 --> 00:13:20.519
+of these properties will stay here um no
+
+00:13:20.519 --> 00:13:22.920
+matter what is selected but others are
+
+00:13:22.920 --> 00:13:25.120
+selection dependent so you can see
+
+00:13:25.120 --> 00:13:27.000
+actually if I click the camera there you
+
+00:13:27.000 --> 00:13:29.120
+can see I get a little camera tab at the
+
+00:13:29.120 --> 00:13:31.440
+bottom there but if I select my monkey
+
+00:13:31.440 --> 00:13:33.839
+you'll see the camera tab disappears but
+
+00:13:33.839 --> 00:13:35.320
+instead I have some other ones that
+
+00:13:35.320 --> 00:13:37.760
+appear so one that we might want to
+
+00:13:37.760 --> 00:13:39.760
+change is underneath material and this
+
+00:13:39.760 --> 00:13:41.680
+will enable us to add a
+
+00:13:41.680 --> 00:13:43.959
+material change the color to something
+
+00:13:43.959 --> 00:13:46.279
+else essentially so underneath here
+
+00:13:46.279 --> 00:13:48.040
+where it's got new I'm just going to hit
+
+00:13:48.040 --> 00:13:50.639
+new and then you've got a bunch of
+
+00:13:50.639 --> 00:13:54.880
+options very conf o i subsurface again
+
+00:13:54.880 --> 00:13:56.720
+don't worry about it we'll get to all of
+
+00:13:56.720 --> 00:13:58.519
+that later on the one that defines the
+
+00:13:58.519 --> 00:14:01.040
+color is is the base color so if I do a
+
+00:14:01.040 --> 00:14:03.399
+single left click on that white box
+
+00:14:03.399 --> 00:14:05.759
+there I can then change this color to
+
+00:14:05.759 --> 00:14:09.360
+whatever I want I could uh make it an
+
+00:14:09.360 --> 00:14:14.759
+odd creepy skin toned monkey head right
+
+00:14:14.759 --> 00:14:17.440
+like that and do a random okay so hey
+
+00:14:17.440 --> 00:14:19.920
+all right it's better but still it's too
+
+00:14:19.920 --> 00:14:21.839
+simple I think people will think we
+
+00:14:21.839 --> 00:14:23.959
+haven't put enough effort into this uh
+
+00:14:23.959 --> 00:14:26.839
+Masterpiece so let's add another object
+
+00:14:26.839 --> 00:14:29.880
+let's give the monkey a hack so if we
+
+00:14:29.880 --> 00:14:31.920
+want to add another object how do we do
+
+00:14:31.920 --> 00:14:34.120
+it well we could go to the add menu like
+
+00:14:34.120 --> 00:14:37.440
+I mentioned before or the hotkey shift
+
+00:14:37.440 --> 00:14:40.600
+a so what sort of hat do we want to add
+
+00:14:40.600 --> 00:14:43.639
+we could do a boxy hat uh let's do a
+
+00:14:43.639 --> 00:14:46.800
+party hat with a cone so once we've
+
+00:14:46.800 --> 00:14:48.120
+added that object you can see it's just
+
+00:14:48.120 --> 00:14:49.480
+plopped it straight in the center
+
+00:14:49.480 --> 00:14:51.800
+intersecting our monkey so we need to
+
+00:14:51.800 --> 00:14:54.279
+move it can move it and we could grab it
+
+00:14:54.279 --> 00:14:57.160
+with the G key so it's now moving it
+
+00:14:57.160 --> 00:14:59.079
+just on our cursor there I don't want to
+
+00:14:59.079 --> 00:15:00.720
+move it just freehand though cuz I like
+
+00:15:00.720 --> 00:15:02.120
+the position but I just want to move it
+
+00:15:02.120 --> 00:15:04.440
+up so I'm going to hit Zed to move it
+
+00:15:04.440 --> 00:15:07.680
+along the Zed axis right I like it there
+
+00:15:07.680 --> 00:15:09.160
+so once I like the placement I'm just
+
+00:15:09.160 --> 00:15:12.040
+going to do a single left click okay
+
+00:15:12.040 --> 00:15:16.440
+great but too big oh so see need to
+
+00:15:16.440 --> 00:15:18.839
+learn another tool which is scale so we
+
+00:15:18.839 --> 00:15:20.720
+could go to the scale tool there and
+
+00:15:20.720 --> 00:15:24.440
+then we get this familiar um little axes
+
+00:15:24.440 --> 00:15:26.000
+there but again most people prefer to
+
+00:15:26.000 --> 00:15:28.279
+remember the hotkey which for scale is
+
+00:15:28.279 --> 00:15:32.839
+just s so s to scale so resizing that
+
+00:15:32.839 --> 00:15:34.920
+okay that's pretty good let's move it
+
+00:15:34.920 --> 00:15:38.800
+down again so G and Zed okay all right
+
+00:15:38.800 --> 00:15:40.120
+but yeah let's say we want to make it a
+
+00:15:40.120 --> 00:15:42.360
+little taller okay so we could scale it
+
+00:15:42.360 --> 00:15:45.639
+along just the Z axis so s and then Zed
+
+00:15:45.639 --> 00:15:48.519
+whoops s z there we go and it's now
+
+00:15:48.519 --> 00:15:52.279
+making it a tall party hat scale it down
+
+00:15:52.279 --> 00:15:54.399
+there we go ha look at that be a very
+
+00:15:54.399 --> 00:15:56.199
+Bland party if it's gray though so let's
+
+00:15:56.199 --> 00:15:59.120
+give it another material an exciting
+
+00:15:59.120 --> 00:16:02.399
+color a vibrant uh
+
+00:16:02.399 --> 00:16:05.519
+aqua color why not give that a render by
+
+00:16:05.519 --> 00:16:09.040
+hitting F12 okay camera is in the wrong
+
+00:16:09.040 --> 00:16:11.120
+position so let's go to camera view mode
+
+00:16:11.120 --> 00:16:13.519
+with number pad zero I'm going to select
+
+00:16:13.519 --> 00:16:15.920
+my camera and rather than dabbling with
+
+00:16:15.920 --> 00:16:17.759
+that little thing I had before I'm going
+
+00:16:17.759 --> 00:16:20.880
+to hit G and then middle Mouse just tap
+
+00:16:20.880 --> 00:16:23.160
+it once as I said it's a little awkward
+
+00:16:23.160 --> 00:16:25.800
+blend is um the way it handles with the
+
+00:16:25.800 --> 00:16:28.440
+camera but anyway just uh move that out
+
+00:16:28.440 --> 00:16:30.920
+and then uh I got to rotate it done all
+
+00:16:30.920 --> 00:16:32.480
+right so I'm going to rotate so with the
+
+00:16:32.480 --> 00:16:35.560
+camera selected tap r then middle Mouse
+
+00:16:35.560 --> 00:16:37.199
+and it's now kind of like free hand
+
+00:16:37.199 --> 00:16:39.759
+rotating around so I'll just uh move it
+
+00:16:39.759 --> 00:16:43.800
+up slightly there we go okay this is
+
+00:16:43.800 --> 00:16:45.319
+this is just a full around session so
+
+00:16:45.319 --> 00:16:46.519
+don't worry if you're making mistakes
+
+00:16:46.519 --> 00:16:48.319
+we'll get to actual practical building
+
+00:16:48.319 --> 00:16:50.399
+stuff in the next part I'm just trying
+
+00:16:50.399 --> 00:16:52.560
+to find ways to throw in these like
+
+00:16:52.560 --> 00:16:56.040
+fundamental tools rotate right the
+
+00:16:56.040 --> 00:16:58.240
+monkey's head is just he needs to look
+
+00:16:58.240 --> 00:16:59.959
+dead on at the camera and currently he's
+
+00:16:59.959 --> 00:17:02.959
+off ah what an excuse to use the rotate
+
+00:17:02.959 --> 00:17:05.520
+tool so you could enable the rotate tool
+
+00:17:05.520 --> 00:17:07.839
+right The Familiar axes there you could
+
+00:17:07.839 --> 00:17:09.959
+click and rotate it around like that
+
+00:17:09.959 --> 00:17:11.400
+again most people prefer to remember the
+
+00:17:11.400 --> 00:17:14.120
+hotkey which is R to rotate right so
+
+00:17:14.120 --> 00:17:15.799
+it's now just freehand rotating on my
+
+00:17:15.799 --> 00:17:18.720
+cursor remember the uh the axis as I
+
+00:17:18.720 --> 00:17:20.079
+mentioned before can be used for any
+
+00:17:20.079 --> 00:17:22.959
+mode so uh the x axis will rotate it
+
+00:17:22.959 --> 00:17:27.120
+back and forth the Y AIS tilt it or Zed
+
+00:17:27.120 --> 00:17:29.440
+there we go to turn it towards the
+
+00:17:29.440 --> 00:17:31.919
+camera just a little bit right and there
+
+00:17:31.919 --> 00:17:34.840
+you go F12 and we've done it let's save
+
+00:17:34.840 --> 00:17:37.919
+it let's upload it to Art station and
+
+00:17:37.919 --> 00:17:40.440
+then just wait for the recruiters
+
+00:17:40.440 --> 00:17:43.160
+essentially all right let's start a new
+
+00:17:43.160 --> 00:17:45.559
+scene so that we can get ready for part
+
+00:17:45.559 --> 00:17:47.400
+two where we're going to actually start
+
+00:17:47.400 --> 00:17:50.080
+building our donut and learning some of
+
+00:17:50.080 --> 00:17:52.360
+the more core features of blender so
+
+00:17:52.360 --> 00:17:54.039
+click here and I will see you in part
+
+00:17:54.039 --> 00:17:57.039
+two
+

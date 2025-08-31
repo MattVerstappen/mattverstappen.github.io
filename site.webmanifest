@@ -1,0 +1,26 @@
+{
+  "name": "Matthew Derek Rall",
+  "short_name": "Matthew Rall",
+  "description": "Game Developer & Programmer crafting immersive worlds and interactive experiences.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#9D00FF",
+  "icons": [
+    {
+      "src": "assets/images/logo/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

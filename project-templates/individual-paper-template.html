@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Paper — Matthew Derek Rall</title>
+    <meta name="description" content="Paper details — abstract, status, authors, genres, tags and downloadable PDF."/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="theme-color" content="#9D00FF"/>
+
+    <!-- Icons / Manifest -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/favicon-32x32.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+
+    <!-- Fonts (optional if globally loaded) -->
+    <link rel="preload" href="/assets/fonts/geist/Geist-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin/>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/global-style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/projects-css/individual-paper-template-style.css"/>
+
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Reusable Header -->
+<div data-include="/assets/reusables/header.html"></div>
+
+<main id="main" role="main">
+    <section class="paper-section">
+        <div class="container">
+            <div class="paper-grid" aria-live="polite">
+
+                <!-- Row 1: Title (full) -->
+                <section class="paper-card paper-title-card">
+                    <h1 id="paper-title" class="paper-title">Loading…</h1>
+                </section>
+
+                <!-- Row 2: Thumbnail (left) + Description (right) -->
+                <figure class="paper-card paper-media-card paper-figure" id="card-thumb">
+                    <img id="paper-thumb" class="paper-image" src="" alt=""/>
+                    <figcaption class="visually-hidden">Paper cover / thumbnail</figcaption>
+                </figure>
+
+                <section class="paper-card paper-desc-card" id="card-desc">
+                    <p id="paper-desc">…</p>
+                </section>
+
+                <!-- Row 3: Status -->
+                <aside class="paper-card label-card label--status" id="label-status">
+                    <h3>Status</h3>
+                </aside>
+                <section class="paper-card value-card value--status" id="card-status">
+                    <p id="paper-status" class="value-text">—</p>
+                </section>
+
+                <!-- Row 4: Authors -->
+                <aside class="paper-card label-card label--authors" id="label-authors">
+                    <h3>Authors</h3>
+                </aside>
+                <section class="paper-card value-card value--authors" id="card-authors">
+                    <ul id="paper-authors" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 5: Genres -->
+                <aside class="paper-card label-card label--genres" id="label-genres">
+                    <h3>Genres</h3>
+                </aside>
+                <section class="paper-card value-card value--genres" id="card-genres">
+                    <ul id="paper-genres" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 6: Tags -->
+                <aside class="paper-card label-card label--tags" id="label-tags">
+                    <h3>Tags</h3>
+                </aside>
+                <section class="paper-card value-card value--tags" id="card-tags">
+                    <ul id="paper-tags" class="meta-chips"></ul>
+                </section>
+
+                <!-- Row 7: Download (full-width) -->
+                <section class="paper-card paper-download-card" id="card-download">
+                    <a id="paper-download" class="paper-download-btn" href="#" target="_blank" rel="noopener">
+                        ⬇️ Download PDF
+                    </a>
+                </section>
+
+            </div>
+
+            <!-- Error placeholder -->
+            <div id="paper-error" class="alert alert--error" role="alert" style="display:none; margin-top: var(--space-xl);">
+                Could not load this paper.
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Reusable Footer -->
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Core JS -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/footer.js"></script>
+<script src="/assets/js/pages-loader/individual-paper-loader.js"></script>
+
+<noscript>
+    <div class="container" style="margin:1rem auto;">
+        <div class="alert alert--error" role="alert">JavaScript is required to load the paper details.</div>
+    </div>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin — JSON Files</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#9D00FF" />
+
+    <!-- Your base styles -->
+    <link rel="stylesheet" href="/assets/css/global-style.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/admin-json-style.css" />
+    <script defer src="/assets/js/apply-global-tokens.js"></script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div data-include="/assets/reusables/header.html"></div>
+
+<main id="main" role="main" class="admin-wrap">
+    <div class="container">
+        <header class="admin-header">
+            <h1 class="admin-title">Admin — JSON Files</h1>
+            <p class="admin-sub">Sign in with your GitHub token (same one used by CMS), then pick a JSON. For now this view only highlights your selection.</p>
+        </header>
+
+        <!-- Auth box -->
+        <section class="auth-card" aria-labelledby="auth-title">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap: var(--space-md); margin-bottom: var(--space-sm);">
+                <h2 id="auth-title" class="section-title" style="margin:0;">GitHub Auth</h2>
+                <span id="auth-state" class="auth-state" title="Authentication status">
+            <span class="pill" aria-hidden="true"></span>
+            <span class="txt">Signed out</span>
+          </span>
+            </div>
+
+            <div class="auth-row" style="margin-bottom: var(--space-sm);">
+                <input id="gh-token" class="auth-input" type="password" placeholder="GitHub token (repo scope)" aria-label="GitHub token">
+                <button id="save-token" class="auth-btn" type="button">Save Token</button>
+                <button id="clear-token" class="auth-btn secondary" type="button">Clear</button>
+            </div>
+
+            <p class="auth-meta">
+                Token is stored locally in your browser under the same key as <code>cms.js</code> so both features share auth.
+                Never publish this value; this page is <strong>client-side only</strong>.
+            </p>
+        </section>
+
+        <!-- JSON buttons -->
+        <div id="json-list" class="json-list" aria-live="polite"></div>
+
+        <!-- Current selection -->
+        <section class="current-selection">
+            <h2>Current selection</h2>
+            <div id="editor-root" class="editor-root"></div>
+        </section>
+    </div>
+</main>
+
+<div data-include="/assets/reusables/footer.html"></div>
+
+<!-- Optional shared scripts -->
+<script src="/assets/js/includes.js"></script>
+<script src="/assets/js/cms.js"></script>
+<script src="/assets/js/header.js"></script>
+<script src="/assets/js/footer.js"></script>
+
+<!-- Admin logic -->
+<script defer src="/assets/js/admin-json.js"></script>
+
+<noscript>
+    <div class="container" style="margin:1rem auto;">
+        <div class="alert alert--error" role="alert">JavaScript is required on this admin page.</div>
+    </div>
+</noscript>
+</body>
+</html>

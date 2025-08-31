@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Modular UI Kit",
+    "description": "A clean, reusable HUD/menus kit built for game prototypes and jams.",
+    "href": "/projects-collection/individual-assets/modular-ui-kit.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/modular-ui-kit-thumbnail.jpg",
+    "slug": "modular-ui-kit"
+  },
+  {
+    "title": "Shader Pack Vol.1",
+    "description": "Stylized real-time shaders: dissolve, outline, toon and water.",
+    "href": "/projects-collection/individual-assets/shader-pack-v1.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/shader-pack-v1-thumbnail.jpg",
+    "slug": "shader-pack-v1"
+  },
+  {
+    "title": "Neon Runner",
+    "description": "Fast arcade runner with reactive music and procedural tracks.",
+    "href": "/projects-collection/individual-game/neon-runner.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/neon-runner-thumbnail.jpg",
+    "slug": "neon-runner"
+  },
+  {
+    "title": "Orbital Miner",
+    "description": "Loop-based resource miner with orbital mechanics and automation.",
+    "href": "/projects-collection/individual-game/orbital-miner.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/orbital-miner-thumbnail.jpg",
+    "slug": "orbital-miner"
+  },
+  {
+    "title": "Low-Poly Mech",
+    "description": "Game-ready mech with clean topology and two LODs.",
+    "href": "/projects-collection/individual-model/lowpoly-mech.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/lowpoly-mech-thumbnail.jpg",
+    "slug": "lowpoly-mech"
+  },
+  {
+    "title": "Forest Shrine",
+    "description": "Hand-painted prop set: shrine, lanterns, stones and foliage.",
+    "href": "/projects-collection/individual-model/forest-shrine.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/forest-shrine-thumbnail.jpg",
+    "slug": "forest-shrine"
+  },
+  {
+    "title": "Designing for Focus: Attention-Friendly Game Loops",
+    "description": "A short paper on pacing, friction and recovery in gameplay loops.",
+    "href": "/projects-collection/individual-papers/attention-friendly-loops.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/attention-friendly-loops-thumbnail.jpg",
+    "slug": "attention-friendly-loops"
+  },
+  {
+    "title": "Procedural Terrain Notes",
+    "description": "Notes comparing layered noise, marching cubes and erosion passes.",
+    "href": "/projects-collection/individual-papers/procedural-terrain-notes.html",
+    "thumbnail": "/assets/images/project-images/project-thumbnail-images/procedural-terrain-notes-thumbnail.jpg",
+    "slug": "procedural-terrain-notes"
+  }
+]

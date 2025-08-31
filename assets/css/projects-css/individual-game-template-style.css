@@ -1,0 +1,266 @@
+/* ===== INDIVIDUAL GAME TEMPLATE (Dark Theme, Matthew Derek Rall) =====
+   Layout:
+   Row 1:  [                 title (full)                  ]
+   Row 2:  [ Thumbnail Photo ] [ Description               ]
+   Row 3:  [ shot1           ] [ shot2          ] [ shot3 ]
+   Row 4:  [ shot4           ] [ shot5          ] [ shot6 ]
+   Row 5:  [ Status          ] [ status (value)           ]
+   Row 6:  [ Platform        ] [ platforms                ]
+   Row 7:  [ Genres          ] [ genres                   ]
+   Row 8:  [ Tags            ] [ tags                     ]
+   Row 9:  [             Downloadref (full)               ]
+*/
+
+/* SECTION WRAPPER */
+.asset-section{
+    padding: var(--space-3xl) 0;
+    background: var(--bg);
+}
+
+/* GRID LAYOUT */
+.asset-grid{
+    display: grid;
+    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "title"
+    "thumb"
+    "desc"
+    "shot1"
+    "shot2"
+    "shot3"
+    "shot4"
+    "shot5"
+    "shot6"
+    "label-status"
+    "value-status"
+    "label-platforms"
+    "value-platforms"
+    "label-authors"
+    "value-authors"
+    "label-genres"
+    "value-genres"
+    "label-tags"
+    "value-tags"
+    "download";
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px){
+    .asset-grid{
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+        grid-template-areas:
+      "title          title"
+      "thumb          desc"
+      "shot1          shot2"
+      "shot3          shot4"
+      "shot5          shot6"
+      "label-status   value-status"
+      "label-platforms value-platforms"
+      "label-authors    value-authors"
+      "label-genres   value-genres"
+      "label-tags     value-tags"
+      "download       download";
+        align-items: start;
+    }
+}
+
+/* Desktop: 3 columns for screenshot rows (value cells span 2 cols) */
+@media (min-width: 1024px){
+    .asset-grid{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+      "title            title            title"
+      "thumb            desc             desc"
+      "shot1            shot2            shot3"
+      "shot4            shot5            shot6"
+      "label-status     value-status     value-status"
+      "label-platforms  value-platforms  value-platforms"
+      "label-authors    value-authors    value-authors"
+      "label-genres     value-genres     value-genres"
+      "label-tags       value-tags       value-tags"
+      "download         download         download";
+    }
+}
+
+/* BASE CARD */
+.asset-card{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    padding: var(--space-lg);
+    color: var(--fg);
+    margin: 0; /* ensure no extra outer spacing inside the grid */
+}
+
+/* AREA ASSIGNMENTS */
+.asset-title-card     { grid-area: title; text-align: center; }
+.asset-media-card     { grid-area: thumb; }
+.asset-desc-card      { grid-area: desc; }
+
+.asset-shot1-card     { grid-area: shot1; }
+.asset-shot2-card     { grid-area: shot2; }
+.asset-shot3-card     { grid-area: shot3; }
+.asset-shot4-card     { grid-area: shot4; }
+.asset-shot5-card     { grid-area: shot5; }
+.asset-shot6-card     { grid-area: shot6; }
+
+.label-card.label--status           { grid-area: label-status; }
+.value-card.value--status           { grid-area: value-status; }
+
+.label-card.label--platforms        { grid-area: label-platforms; }
+.value-card.value--platforms        { grid-area: value-platforms; }
+
+.label-card.label--authors { grid-area: label-authors; }   /* NEW */
+.value-card.value--authors { grid-area: value-authors; }   /* NEW */
+
+.label-card.label--genres           { grid-area: label-genres; }
+.value-card.value--genres           { grid-area: value-genres; }
+
+.label-card.label--tags             { grid-area: label-tags; }
+.value-card.value--tags             { grid-area: value-tags; }
+
+.asset-download-card  { grid-area: download; display: grid; place-items: center; text-align: center; }
+
+/* TITLE */
+.asset-title{
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    color: var(--fg);
+}
+
+/* MEDIA (thumbnail & screenshots) */
+.asset-figure{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.asset-image{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #111;
+    /* Make thumbnails/screenshots consistent by default */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* DESCRIPTION */
+.asset-desc-card p{
+    margin: 0;
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--fg);
+    opacity: .95;
+}
+
+/* LABEL + VALUE CELLS */
+.label-card{
+    display: grid;
+    place-items: center start;
+    background: #0f0f0f;
+}
+
+.label-card h3{
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.value-card{
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+}
+
+.value-text{
+    margin: 0;
+    font-size: var(--text-base);
+    color: var(--fg);
+}
+
+/* CHIPS (platforms, genres, tags) */
+.meta-chips{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.meta-chip{
+    background: #111;
+    color: var(--fg);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 20px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    border: 1px solid var(--border);
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* DOWNLOAD BUTTON (full width block) */
+.asset-download-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    background: var(--primary);
+    color: #fff;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 600;
+    border: 1px solid var(--primary);
+    min-height: 44px;
+    transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.asset-download-btn:hover{
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+.asset-download-btn:focus-visible{
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ACCESSIBILITY UTILITY */
+.visually-hidden{
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce){
+    .asset-download-btn{ transition: none; }
+    .asset-download-btn:hover{ transform: none; box-shadow: none; }
+}

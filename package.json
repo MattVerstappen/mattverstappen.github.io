@@ -1,0 +1,23 @@
+{
+  "name": "matthew-rall-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Matthew Derek Rall's portfolio website with automated project manifests",
+  "type": "module",
+  "scripts": {
+    "build:projects": "node tools/build-projects-manifest.mjs",
+    "build:websites": "node tools/build-websites-manifest.mjs",
+    "build": "npm run build:projects && npm run build:websites"
+  },
+  "keywords": [
+    "portfolio",
+    "design",
+    "projects",
+    "websites"
+  ],
+  "author": "Matthew Derek Rall",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  }
+}

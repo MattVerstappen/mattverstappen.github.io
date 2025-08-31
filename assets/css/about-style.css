@@ -1,0 +1,276 @@
+/* ===== ABOUT PAGE STYLES (Dark Theme, Matthew Derek Rall) ===== */
+/* Layout:
+   Row 1:  [ Profile Photo ] [ Quick Info ]
+   Row 2:  [ Skills        ] [ About Me   ]
+   Row 3:  [       Resume (center/full)   ]
+*/
+
+/* SECTION WRAPPER */
+.about-section{
+    padding: var(--space-3xl) 0;
+    background: var(--bg);
+}
+
+/* GRID LAYOUT */
+.about-grid{
+    display:grid;
+    gap:var(--space-xl);
+    grid-template-columns:1fr;
+    grid-template-areas:
+    "photo"
+    "info"
+    "skills"
+    "about"
+    "cv";
+}
+@media (min-width:768px){
+    .about-grid{
+        grid-template-columns:1fr 1fr;
+        gap:var(--space-2xl);
+        grid-template-areas:
+          "photo  info"
+          "skills about"
+          "cv     cv";
+        align-items:start;
+    }
+}
+
+/* BASE CARD */
+.about-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    padding:var(--space-lg);
+    color:var(--fg);
+    margin:0; /* ensure no extra outer spacing inside the grid */
+}
+
+/* AREA ASSIGNMENTS */
+.about-photo-card{ grid-area:photo; }
+.card--info{      grid-area:info; }
+.card--skills{    grid-area:skills; }
+.card--about{     grid-area:about; }
+.card--cv{        grid-area:cv; }
+
+/* CV CARD CENTERING */
+.card--cv{
+    display:grid;
+    place-items:center;
+    text-align:center;
+}
+
+/* PHOTO CARD
+   - Reset <figure> default margins
+   - Match padding to other cards
+   - Keep image inside rounded corners */
+.about-photo-card{
+    margin:0;                     /* <figure> default margins cause misalignment */
+    padding:var(--space-lg);      /* match .about-card padding */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;              /* prevents image from spilling past rounded edges */
+}
+.photo-container{
+    width:100%;
+    max-width:320px;
+    margin:0;
+}
+.profile-photo{
+    width:100%;
+    height:auto;
+    object-fit:contain;           /* use 'cover' if you want edge-to-edge crop */
+    display:block;
+    border-radius:12px;
+    background:#111;              /* fallback surface */
+    border:1px solid var(--border);
+}
+
+/* TITLES */
+.card-title{
+    font-family:var(--font-heading);
+    font-size:var(--text-xl);
+    font-weight:600;
+    color:var(--fg);
+    margin:0 0 var(--space-md);
+    line-height:1.3;
+}
+
+/* QUICK INFO GRID */
+.info-grid{
+    display:grid;
+    gap:var(--space-md);
+    grid-template-columns:1fr;
+}
+@media (min-width:480px){
+    .info-grid{ grid-template-columns:1fr 1fr; }
+}
+.info-item{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-xs);
+}
+.info-label{
+    font-size:var(--text-sm);
+    font-weight:500;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    opacity:.9;
+}
+.info-value{
+    font-size:var(--text-base);
+    font-weight:500;
+    color:var(--fg);
+}
+.info-link{
+    color:var(--fg);
+    text-decoration:none;
+    transition:color .2s ease, text-decoration-color .2s ease;
+    text-decoration-color:transparent;
+}
+.info-link:hover,
+.info-link:focus{
+    color:var(--primary);
+    text-decoration:underline;
+    text-decoration-color:var(--primary);
+}
+.info-link:focus-visible{
+    outline:2px solid var(--primary);
+    outline-offset:2px;
+    border-radius:2px;
+}
+
+/* ABOUT TEXT */
+.about-description{
+    font-size:var(--text-base);
+    line-height:1.65;
+    color:var(--fg);
+    opacity:.95;
+    margin:0;
+}
+
+/* SKILLS CHIPS */
+.skills-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--space-sm);
+}
+.skill-chip{
+    background:#111;
+    color:var(--fg);
+    padding:var(--space-xs) var(--space-sm);
+    border-radius:20px;
+    font-size:var(--text-sm);
+    font-weight:500;
+    border:1px solid var(--border);
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    min-height:36px;
+    display:inline-flex;
+    align-items:center;
+}
+.skill-chip:hover,
+.skill-chip:focus{
+    background:rgba(157,0,255,0.08); /* primary tint */
+    border-color:var(--primary);
+    transform:translateY(-1px);
+}
+
+/* CV BUTTON */
+.cv-download{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:var(--space-sm);
+    background:var(--primary);
+    color:#fff;
+    padding:var(--space-md) var(--space-lg);
+    border-radius:10px;
+    text-decoration:none;
+    font-family:var(--font-body);
+    font-size:var(--text-base);
+    font-weight:600;
+    border:1px solid var(--primary);
+    min-height:44px;
+    transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+}
+.cv-download:hover{
+    filter:brightness(1.06);
+    transform:translateY(-2px);
+    box-shadow:0 12px 32px rgba(0,0,0,0.45);
+}
+.cv-download:focus-visible{
+    outline:3px solid var(--primary);
+    outline-offset:2px;
+}
+.download-icon{
+    font-size:var(--text-lg);
+    line-height:1;
+}
+
+/* Actions row for CV buttons */
+.cv-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* View CV (webpage) button — complementary to .cv-download */
+.cv-view {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: transparent;
+    color: var(--fg);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 500;
+    border: 1px solid var(--border);
+    min-height: 44px;
+    transition: all 0.3s ease;
+}
+.cv-view:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(157, 0, 255, 0.25);
+}
+.cv-view:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce){
+    .skill-chip, .cv-download, .info-link, .cv-view{
+        transition:none;
+    }
+    .skill-chip:hover, .cv-download:hover, .cv-view:hover{
+        transform:none;
+        box-shadow:none;
+    }
+}
+
+/* Utility: hide text visually but keep it for screen readers
+   (for your <figcaption class="visually-hidden">Profile photo</figcaption>) */
+.visually-hidden{
+    position:absolute !important;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    clip-path:inset(50%);
+    white-space:nowrap;
+    border:0;
+}
