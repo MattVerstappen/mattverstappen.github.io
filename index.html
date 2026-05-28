@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matt Verstappen | Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio website for Matt Verstappen, a software developer preparing for a move to the United States."
+  >
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f5f7fb;
+      --surface: #ffffff;
+      --surface-muted: #e9eefb;
+      --text: #1f2937;
+      --text-soft: #526077;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --border: #d7dfef;
+      --shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--background) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 1.5rem 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    main {
+      padding: 1rem 0 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0 3rem;
+    }
+
+    .eyebrow,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    h1,
+    h2 {
+      margin: 0 0 1rem;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-top: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+    }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .hero-copy p {
+      max-width: 38rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.25rem;
+      border-radius: 0.9rem;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .hero-card,
+    .section-card,
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 1.75rem;
+    }
+
+    .hero-card ul,
+    .timeline-item ul {
+      margin: 1rem 0 0;
+      padding-left: 1.2rem;
+      color: var(--text-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    section {
+      padding: 1.5rem 0;
+    }
+
+    .section-card {
+      padding: 1.5rem;
+      height: 100%;
+    }
+
+    .section-card h3,
+    .timeline-item h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      padding: 1.5rem;
+    }
+
+    footer {
+      padding: 0 0 3rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 1.5rem, 1100px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav aria-label="Primary">
+        <div class="brand">Matt Verstappen</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#value">Value</a>
+          <a href="#next-step">Next Step</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="intro-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Available for opportunities in the USA</span>
+          <h1 id="intro-title">A portfolio site built for a fresh start in the United States.</h1>
+          <p>
+            I'm Matt Verstappen, a software developer focused on building dependable,
+            user-friendly digital experiences. This site introduces who I am, how I work,
+            and the value I can bring as I prepare for my move to the USA.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="https://github.com/MattVerstappen">View GitHub</a>
+            <a class="button button-secondary" href="#next-step">Let's Connect</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Highlights">
+          <span class="pill">Quick Highlights</span>
+          <ul>
+            <li>Open to relocation and new software opportunities in the United States.</li>
+            <li>Interested in practical projects with a clear impact for users and teams.</li>
+            <li>Ready to collaborate across product, engineering, and business needs.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About me</h2>
+        <p>
+          I value clear communication, steady execution, and thoughtful problem solving.
+          Whether I am improving an interface, shaping content, or supporting delivery, I focus
+          on work that feels polished, trustworthy, and easy to use.
+        </p>
+      </section>
+
+      <section id="value" aria-labelledby="value-title">
+        <h2 id="value-title">What I bring</h2>
+        <div class="grid">
+          <article class="section-card">
+            <h3>User-focused thinking</h3>
+            <p>I care about making websites intuitive, professional, and welcoming from the first visit.</p>
+          </article>
+          <article class="section-card">
+            <h3>Reliable execution</h3>
+            <p>I aim for clean, maintainable solutions that can be shipped confidently and improved over time.</p>
+          </article>
+          <article class="section-card">
+            <h3>Adaptability</h3>
+            <p>Moving to a new country means staying flexible, learning quickly, and contributing wherever I can add value.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="journey-title">
+        <h2 id="journey-title">Current focus</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Building a strong professional presence</h3>
+            <p>
+              This portfolio is designed to serve as a simple, direct introduction for employers,
+              collaborators, and anyone interested in my work as I prepare for my transition to the USA.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="next-step" aria-labelledby="next-step-title">
+        <h2 id="next-step-title">Next step</h2>
+        <p>
+          If you'd like to learn more about my background or discuss opportunities in the United States,
+          the best place to start is my GitHub profile.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href="https://github.com/MattVerstappen">Visit GitHub Profile</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© Matt Verstappen</p>
+    </footer>
+  </div>
+</body>
+</html>
