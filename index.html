@@ -412,6 +412,21 @@
             letter-spacing: .04em; text-transform: uppercase;
         }
 
+        /* ── VIEW PROJECT BUTTON ── */
+        .proj-view-btn {
+            display: block; text-align: center; margin-top: 16px;
+            padding: 10px 18px; border-radius: 8px; text-decoration: none;
+            background: transparent; border: 1px solid var(--border-hi);
+            color: var(--text-muted); font-size: .85rem; font-weight: 600;
+            transition: all .25s; font-family: 'Space Grotesk', sans-serif;
+        }
+        .proj-view-btn:hover {
+            background: var(--gradient); color: #fff;
+            border-color: transparent; transform: translateY(-2px);
+        }
+        .proj-cover-link { display: block; }
+        .proj-cover-link:hover .proj-cover { border-color: var(--accent); }
+
         /* ── PROJ FILTERS ── */
         .proj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; min-height: 38px; }
         .filter-chip {
@@ -537,6 +552,20 @@
             .scroll-hint { display: none; }
             section { padding: 72px 0; }
             .pub-card { padding: 26px; }
+            .proj-tabs { flex-wrap: wrap; }
+            .timeline { padding-left: 24px; }
+            .tl-dot { left: -31px; }
+            .stats { grid-template-columns: 1fr 1fr; }
+            .ach-grid { grid-template-columns: 1fr; }
+            .foot-inner { flex-direction: column; text-align: center; }
+            .contact-link:hover { transform: none; }
+        }
+        @media (max-width: 480px) {
+            .hero-btns { flex-direction: column; }
+            .btn-p, .btn-s { justify-content: center; }
+            .proj-tabs .tab { flex: 1; text-align: center; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .edu-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1036,13 +1065,17 @@
             ? `projects/${proj.slug}/${proj.coverImage}`
             : proj.photos > 0 ? `projects/${proj.slug}/cover.jpg` : null;
         const cover = coverSrc
-            ? `<img src="${coverSrc}" class="proj-cover" onerror="this.style.display='none'" alt="${proj.title}">`
+            ? `<a href="project.html?slug=${proj.slug}" class="proj-cover-link">
+                <img src="${coverSrc}" class="proj-cover" onerror="this.style.display='none'" alt="${proj.title}">
+               </a>`
             : '';
 
-        // Additional photo thumbnails
+        // Additional photo thumbnails (link to project page)
         const gallery = proj.photoFiles?.length
             ? `<div class="proj-gallery">${proj.photoFiles.map(f =>
-                `<img src="projects/${proj.slug}/${f}" class="proj-thumb" onerror="this.style.display='none'" alt="screenshot">`
+                `<a href="project.html?slug=${proj.slug}">
+                    <img src="projects/${proj.slug}/${f}" class="proj-thumb" onerror="this.style.display='none'" alt="screenshot">
+                 </a>`
               ).join('')}</div>`
             : '';
 
@@ -1129,6 +1162,7 @@
                     ${links}
                     ${itchWidget}
                     ${articlesHTML}
+                    <a href="project.html?slug=${proj.slug}" class="proj-view-btn">View Project →</a>
                 </div>
             </div>`;
     }
