@@ -379,6 +379,77 @@
         .foot-text { font-size: .83rem; color: var(--text-dim); }
         .foot-text span { color: var(--accent-lt); }
 
+        /* ── PROJ FILTERS ── */
+        .proj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; min-height: 38px; }
+        .filter-chip {
+            background: transparent; border: 1px solid var(--border);
+            color: var(--text-muted); padding: 7px 18px; border-radius: 100px;
+            font-family: 'Space Grotesk',sans-serif; font-size: .8rem;
+            font-weight: 500; cursor: pointer; transition: all .2s;
+        }
+        .filter-chip.on, .filter-chip:hover { border-color: var(--cyan); color: var(--cyan-lt); background: rgba(34,211,238,.08); }
+
+        /* ── PROJ CARD (dynamic) ── */
+        .proj-cover {
+            width: 100%; aspect-ratio: 16/9; object-fit: cover;
+            border-radius: 10px; margin-bottom: 18px; display: block;
+            border: 1px solid var(--border);
+        }
+        .proj-card-body { display: flex; flex-direction: column; flex: 1; }
+        .proj-meta-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+        .proj-degree-badge {
+            background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2);
+            color: var(--accent-lt); padding: 3px 10px; border-radius: 4px;
+            font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+        }
+        .proj-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 16px; }
+        .proj-link-btn {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2);
+            color: var(--accent-lt); text-decoration: none; padding: 6px 14px;
+            border-radius: 6px; font-size: .78rem; font-weight: 500; transition: all .2s;
+        }
+        .proj-link-btn:hover { background: rgba(99,102,241,.22); border-color: var(--accent); }
+        .proj-link-dl { background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.2); color: var(--cyan-lt); }
+        .proj-link-dl:hover { background: rgba(34,211,238,.22); border-color: var(--cyan); }
+        .proj-empty {
+            grid-column: 1/-1; text-align: center; padding: 60px 20px;
+            color: var(--text-dim); font-size: .9rem;
+        }
+        .proj-empty-icon { font-size: 2.5rem; display: block; margin-bottom: 12px; opacity: .3; }
+
+        /* ── EVENT BADGE ── */
+        .proj-event-badge {
+            background: rgba(250,204,21,.1); border: 1px solid rgba(250,204,21,.3);
+            color: #fde68a; padding: 3px 10px; border-radius: 4px;
+            font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+        }
+
+        /* ── PHOTO GALLERY ── */
+        .proj-gallery {
+            display: flex; gap: 8px; overflow-x: auto; margin-bottom: 16px;
+            padding-bottom: 4px; scrollbar-width: thin; scrollbar-color: var(--accent) transparent;
+        }
+        .proj-gallery::-webkit-scrollbar { height: 4px; }
+        .proj-gallery::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+        .proj-thumb {
+            height: 80px; min-width: 130px; max-width: 200px; width: auto;
+            object-fit: cover; border-radius: 6px; border: 1px solid var(--border);
+            flex-shrink: 0; cursor: pointer; transition: border-color .2s;
+        }
+        .proj-thumb:hover { border-color: var(--accent); }
+
+        /* ── TAGS ── */
+        .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .proj-tag-chip {
+            background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.15);
+            color: var(--text-dim); padding: 3px 10px; border-radius: 100px; font-size: .72rem; font-weight: 500;
+        }
+
+        /* ── ITCH WIDGET ── */
+        .proj-itch-wrap { margin-top: 16px; border-radius: 8px; overflow: hidden; }
+        .proj-itch-wrap iframe { display: block; width: 100%; border: none; }
+
         /* ── MOBILE ── */
         @media (max-width: 768px) {
             .hamburger { display: flex; }
@@ -661,7 +732,7 @@
                 the research captures student perspectives on immersive learning environments and their impact on
                 engagement and comprehension.
             </p>
-            <a href="https://www.researchgate.net/profile/Matthew-Rall" target="_blank" rel="noopener" class="pub-link">
+            <a href="https://www.researchgate.net/profile/Matthew-Rall-2" target="_blank" rel="noopener" class="pub-link">
                 View on ResearchGate
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -677,55 +748,14 @@
         <div class="fade-in">
             <span class="section-label">My Work</span>
             <h2 class="section-title">Projects</h2>
-            <p class="section-sub">Games and applications I've built and projects currently in development.</p>
+            <p class="section-sub">Games, research, and applications across my degrees and personal work.</p>
         </div>
         <div class="proj-tabs fade-in">
-            <button class="tab on" id="t-done" onclick="showTab('done')">Completed</button>
-            <button class="tab" id="t-wip" onclick="showTab('wip')">In Development</button>
+            <button class="tab on" id="t-done" onclick="showStatus('completed')">Completed</button>
+            <button class="tab" id="t-wip"  onclick="showStatus('wip')">In Development</button>
         </div>
-
-        <!-- Completed -->
-        <div id="p-done" class="proj-grid fade-in">
-            <div class="proj-card ph">
-                <div class="ph-inner">
-                    <div class="ph-icon">🎮</div>
-                    <div class="ph-title">Projects Coming Soon</div>
-                    <div class="ph-text">Completed projects will be showcased here. Check back soon.</div>
-                </div>
-            </div>
-            <div class="proj-card ph">
-                <div class="ph-inner">
-                    <div class="ph-icon">🕹️</div>
-                    <div class="ph-title">More to Come</div>
-                    <div class="ph-text">Screenshots, builds, and write-ups will appear here.</div>
-                </div>
-            </div>
-            <div class="proj-card ph">
-                <div class="ph-inner">
-                    <div class="ph-icon">📦</div>
-                    <div class="ph-title">Adding Soon</div>
-                    <div class="ph-text">Academic and personal projects will be documented here.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- In Development -->
-        <div id="p-wip" class="proj-grid fade-in" style="display:none">
-            <div class="proj-card ph">
-                <div class="ph-inner">
-                    <div class="ph-icon">🔭</div>
-                    <div class="ph-title">In Development</div>
-                    <div class="ph-text">Projects currently being actively built will appear here.</div>
-                </div>
-            </div>
-            <div class="proj-card ph">
-                <div class="ph-inner">
-                    <div class="ph-icon">✏️</div>
-                    <div class="ph-title">Concepts &amp; Design</div>
-                    <div class="ph-text">Game concepts, design documents, and prototypes in progress.</div>
-                </div>
-            </div>
-        </div>
+        <div class="proj-filters fade-in" id="degreeFilters"></div>
+        <div class="proj-grid fade-in" id="projGrid"></div>
     </div>
 </section>
 
@@ -748,11 +778,11 @@
                     </div>
                     <span class="cl-arr">→</span>
                 </a>
-                <a href="https://linkedin.com/in/matthew-rall" target="_blank" rel="noopener" class="cl">
+                <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener" class="cl">
                     <div class="cl-icon">💼</div>
                     <div class="cl-body">
                         <div class="cl-label">LinkedIn</div>
-                        <div class="cl-val">linkedin.com/in/matthew-rall</div>
+                        <div class="cl-val">linkedin.com/in/matthew-rall-60b242269</div>
                     </div>
                     <span class="cl-arr">→</span>
                 </a>
@@ -780,29 +810,194 @@
 </footer>
 
 <script>
-    // Sticky nav
+    // ── NAV ──
     const nav = document.getElementById('nav');
     addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
 
-    // Hamburger
     const ham = document.getElementById('ham');
-    const links = document.getElementById('navLinks');
-    ham.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    const navLinks = document.getElementById('navLinks');
+    ham.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-    // Fade-in on scroll
+    // ── FADE IN ──
     const io = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-    // Project tabs
-    function showTab(id) {
-        document.getElementById('p-done').style.display = id === 'done' ? 'grid' : 'none';
-        document.getElementById('p-wip').style.display  = id === 'wip'  ? 'grid' : 'none';
-        document.getElementById('t-done').classList.toggle('on', id === 'done');
-        document.getElementById('t-wip').classList.toggle('on', id === 'wip');
+    // ── PROJECTS ──
+    let allProjects = [];
+    let currentStatus = 'completed';
+    let currentDegree = 'all';
+
+    const DEGREE_SHORT = {
+        'BA Honours in Design Leadership':             'BA Honours',
+        'BCIS in Game Design and Development':         'BCIS',
+        'Personal':                                    'Personal',
+    };
+
+    const TYPE_ICON = {
+        research: '📄',
+        game:     '🎮',
+        app:      '📱',
+        web:      '🌐',
+        design:   '🎨',
+        other:    '📦',
+    };
+
+    const LINK_LABEL = {
+        github: '⌥ GitHub',
+        itch:   '🎮 itch.io',
+        video:  '▶ Video',
+        doi:    '📄 DOI',
+        live:   '🌐 Live',
+    };
+
+    function shortenDegree(degree) {
+        return DEGREE_SHORT[degree] || (degree ? degree.split(' ').slice(0, 2).join(' ') : '');
     }
+
+    function buildCard(proj) {
+        const short     = shortenDegree(proj.degree);
+        const icon      = TYPE_ICON[proj.type] || '📦';
+        const typeLabel = proj.type ? proj.type.charAt(0).toUpperCase() + proj.type.slice(1) : 'Project';
+
+        // Cover image — explicit filename takes priority, falls back to cover.jpg if photos > 0
+        const coverSrc = proj.coverImage
+            ? `projects/${proj.slug}/${proj.coverImage}`
+            : proj.photos > 0 ? `projects/${proj.slug}/cover.jpg` : null;
+        const cover = coverSrc
+            ? `<img src="${coverSrc}" class="proj-cover" onerror="this.style.display='none'" alt="${proj.title}">`
+            : '';
+
+        // Additional photo thumbnails
+        const gallery = proj.photoFiles?.length
+            ? `<div class="proj-gallery">${proj.photoFiles.map(f =>
+                `<img src="projects/${proj.slug}/${f}" class="proj-thumb" onerror="this.style.display='none'" alt="screenshot">`
+              ).join('')}</div>`
+            : '';
+
+        // Badges
+        const degreeBadge = short ? `<span class="proj-degree-badge">${short}</span>` : '';
+        const eventBadge  = proj.event ? `<span class="proj-event-badge">🏆 ${proj.event}</span>` : '';
+
+        // Tags
+        const tagsHTML = proj.tags?.length
+            ? `<div class="proj-tags">${proj.tags.map(t => `<span class="proj-tag-chip">${t}</span>`).join('')}</div>`
+            : '';
+
+        // Stack
+        const stack = proj.stack?.length
+            ? `<div class="proj-stack" style="margin-top:12px">${proj.stack.map(s => `<span class="st">${s}</span>`).join('')}</div>`
+            : '';
+
+        // Link buttons
+        const linkBtns = [];
+        if (proj.links) {
+            for (const [key, url] of Object.entries(proj.links)) {
+                const label = LINK_LABEL[key] || key;
+                linkBtns.push(`<a href="${url}" target="_blank" rel="noopener" class="proj-link-btn">${label}</a>`);
+            }
+        }
+        if (proj.file) {
+            linkBtns.push(`<a href="projects/${proj.slug}/${proj.file}" download class="proj-link-btn proj-link-dl">⬇ Download</a>`);
+        }
+        const links = linkBtns.length ? `<div class="proj-links">${linkBtns.join('')}</div>` : '';
+
+        // Itch.io embed widget
+        const itchWidget = proj.itchId
+            ? `<div class="proj-itch-wrap">
+                <iframe frameborder="0"
+                    src="https://itch.io/embed/${proj.itchId}?border_width=3&bg_color=0f0f1a&fg_color=f1f5f9&link_color=22d3ee&border_color=6366f1"
+                    height="171">
+                </iframe>
+               </div>`
+            : '';
+
+        return `
+            <div class="proj-card">
+                ${cover}
+                ${gallery}
+                <div class="proj-card-body">
+                    <div class="proj-meta-row">
+                        <span class="proj-engine">${icon} ${typeLabel}</span>
+                        ${degreeBadge}
+                        ${eventBadge}
+                    </div>
+                    <h3 class="proj-title">${proj.title}</h3>
+                    <p class="proj-desc">${proj.summary || proj.description || ''}</p>
+                    ${tagsHTML}
+                    ${stack}
+                    ${links}
+                    ${itchWidget}
+                </div>
+            </div>`;
+    }
+
+    function renderFilters(projects) {
+        const degrees = ['all', ...new Set(projects.map(p => p.degree).filter(Boolean))];
+        const container = document.getElementById('degreeFilters');
+        container.innerHTML = degrees.map(d => {
+            const label = d === 'all' ? 'All' : shortenDegree(d);
+            const on    = d === currentDegree ? ' on' : '';
+            return `<button class="filter-chip${on}" onclick="filterDegree('${d}')">${label}</button>`;
+        }).join('');
+    }
+
+    function renderGrid() {
+        const grid = document.getElementById('projGrid');
+        const filtered = allProjects.filter(p => {
+            const statusMatch = currentStatus === 'completed'
+                ? p.status === 'completed'
+                : p.status !== 'completed';
+            const degreeMatch = currentDegree === 'all' || p.degree === currentDegree;
+            return statusMatch && degreeMatch;
+        });
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div class="proj-empty">
+                <span class="proj-empty-icon">🔭</span>
+                No projects here yet — check back soon.
+            </div>`;
+        } else {
+            grid.innerHTML = filtered.map(buildCard).join('');
+        }
+    }
+
+    function showStatus(status) {
+        currentStatus = status;
+        document.getElementById('t-done').classList.toggle('on', status === 'completed');
+        document.getElementById('t-wip').classList.toggle('on',  status === 'wip');
+        renderGrid();
+    }
+
+    function filterDegree(degree) {
+        currentDegree = degree;
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            const chipDeg = chip.getAttribute('onclick').match(/'(.+)'/)[1];
+            chip.classList.toggle('on', chipDeg === degree);
+        });
+        renderGrid();
+    }
+
+    async function loadProjects() {
+        try {
+            const manifest = await fetch('projects/manifest.json').then(r => r.json());
+            allProjects = await Promise.all(
+                manifest.map(async slug => {
+                    const data = await fetch(`projects/${slug}/project.json`).then(r => r.json());
+                    return { ...data, slug };
+                })
+            );
+            renderFilters(allProjects);
+            renderGrid();
+        } catch (e) {
+            document.getElementById('projGrid').innerHTML =
+                `<div class="proj-empty"><span class="proj-empty-icon">⚠️</span>Could not load projects.</div>`;
+        }
+    }
+
+    loadProjects();
 </script>
 
 </body>

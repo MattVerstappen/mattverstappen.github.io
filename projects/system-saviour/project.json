@@ -1,0 +1,10 @@
+{
+  "title": "System Saviour: A Modular Diagnostic Device for Accessible Tech Repair",
+  "degree": "BA Honours in Design Leadership",
+  "type": "design",
+  "status": "completed",
+  "photos": 0,
+  "summary": "This project proposes System Saviour, a rugged, modular, offline-compatible diagnostic device addressing the critical gap in affordable tech repair tools across South Africa, where device replacement costs are prohibitive and e-waste reached 360,000 tonnes in 2024 with only 14% properly recycled. Grounded in Cradle-to-Cradle design principles, circular economy frameworks, and right-to-repair ethics, the research identifies that South African users in township and low-income contexts lack standardised diagnostic tools. System Saviour is a compact handheld unit built from recycled plastic with modular adapter ports, a 12-hour battery, thermal sensors, and a multilingual UI supporting isiZulu, English, and Sesotho, capable of producing a full hardware and software diagnostic report in under 30 seconds with real-time part pricing. Use case testing across an informal repair stall in Khayelitsha, a school ICT lab, and a corporate tech environment demonstrated significant cost savings and a 70% reduction in diagnosis time.",
+  "stack": ["Word", "Google Docs", "Obsidian", "Google Sheets", "Excel", "Photoshop"],
+  "file": "SystemSaviourSDES8411Summative.PDF"
+}
