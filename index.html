@@ -425,6 +425,46 @@
             font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
         }
 
+        /* ── AWARDS ── */
+        .proj-awards { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+        .proj-award {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(250,204,21,.07); border: 1px solid rgba(250,204,21,.2);
+            border-radius: 8px; padding: 7px 12px; font-size: .8rem; color: #fde68a;
+        }
+        .proj-award-icon { font-size: 1rem; flex-shrink: 0; }
+
+        /* ── DATE ── */
+        .proj-date {
+            font-size: .75rem; color: var(--text-dim);
+            display: flex; align-items: center; gap: 5px; margin-bottom: 10px;
+        }
+
+        /* ── GENRE ── */
+        .proj-genre {
+            background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.25);
+            color: #d8b4fe; padding: 3px 10px; border-radius: 4px;
+            font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+        }
+
+        /* ── ARTICLES ── */
+        .proj-articles { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; }
+        .proj-articles-label {
+            font-size: .7rem; color: var(--text-dim); text-transform: uppercase;
+            letter-spacing: .08em; font-weight: 600; margin-bottom: 8px;
+        }
+        .proj-article-link {
+            display: flex; align-items: center; gap: 8px;
+            color: var(--text-muted); text-decoration: none; font-size: .82rem;
+            padding: 6px 0; border-bottom: 1px solid var(--border); transition: color .2s;
+        }
+        .proj-article-link:last-child { border-bottom: none; }
+        .proj-article-link:hover { color: var(--cyan); }
+        .proj-article-source {
+            font-size: .72rem; color: var(--text-dim); margin-left: auto;
+            white-space: nowrap; padding-left: 8px;
+        }
+
         /* ── PHOTO GALLERY ── */
         .proj-gallery {
             display: flex; gap: 8px; overflow-x: auto; margin-bottom: 16px;
@@ -877,9 +917,22 @@
               ).join('')}</div>`
             : '';
 
-        // Badges
+        // Meta badges row
         const degreeBadge = short ? `<span class="proj-degree-badge">${short}</span>` : '';
-        const eventBadge  = proj.event ? `<span class="proj-event-badge">🏆 ${proj.event}</span>` : '';
+        const eventBadge  = proj.event ? `<span class="proj-event-badge">🎮 ${proj.event}</span>` : '';
+        const genreBadge  = proj.genre ? `<span class="proj-genre">${proj.genre}</span>` : '';
+
+        // Publication date
+        const dateHTML = proj.date
+            ? `<div class="proj-date">🗓 ${proj.date}</div>`
+            : '';
+
+        // Awards
+        const awardsHTML = proj.awards?.length
+            ? `<div class="proj-awards">${proj.awards.map(a =>
+                `<div class="proj-award"><span class="proj-award-icon">🏆</span>${a}</div>`
+              ).join('')}</div>`
+            : '';
 
         // Tags
         const tagsHTML = proj.tags?.length
@@ -914,6 +967,19 @@
                </div>`
             : '';
 
+        // Press / articles
+        const articlesHTML = proj.articles?.length
+            ? `<div class="proj-articles">
+                <div class="proj-articles-label">Press &amp; Articles</div>
+                ${proj.articles.map(a =>
+                    `<a href="${a.url}" target="_blank" rel="noopener" class="proj-article-link">
+                        ↗ ${a.title}
+                        ${a.source ? `<span class="proj-article-source">${a.source}</span>` : ''}
+                    </a>`
+                ).join('')}
+               </div>`
+            : '';
+
         return `
             <div class="proj-card">
                 ${cover}
@@ -921,15 +987,19 @@
                 <div class="proj-card-body">
                     <div class="proj-meta-row">
                         <span class="proj-engine">${icon} ${typeLabel}</span>
+                        ${genreBadge}
                         ${degreeBadge}
                         ${eventBadge}
                     </div>
+                    ${dateHTML}
                     <h3 class="proj-title">${proj.title}</h3>
                     <p class="proj-desc">${proj.summary || proj.description || ''}</p>
+                    ${awardsHTML}
                     ${tagsHTML}
                     ${stack}
                     ${links}
                     ${itchWidget}
+                    ${articlesHTML}
                 </div>
             </div>`;
     }
