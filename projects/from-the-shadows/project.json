@@ -1,0 +1,15 @@
+{
+  "title": "From The Shadows",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "date": "Jun 26, 2023",
+  "genre": "Survival",
+  "photos": 2,
+  "coverImage": "FromTheShadowsCover.png",
+  "photoFiles": ["FromTheShadows1.png", "FromTheShadows2.png"],
+  "itchId": "2135839",
+  "summary": "Embark on an epic journey through challenging dungeons, battling enemies and uncovering hidden treasures. This game blends engaging combat with rich storytelling, creating an immersive experience in a visually captivating world.",
+  "tags": ["Dungeon Crawler", "Turn-Based Combat"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"]
+}

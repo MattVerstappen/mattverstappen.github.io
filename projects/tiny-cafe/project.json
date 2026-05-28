@@ -1,0 +1,17 @@
+{
+  "title": "Tiny Cafe",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "event": "Ludum Dare 56",
+  "awards": ["Top 500 (Rank 475)"],
+  "date": "Oct 08, 2024",
+  "genre": "Simulation",
+  "photos": 4,
+  "coverImage": "TinyCafeCover.png",
+  "photoFiles": ["TinyCafe1.png", "TinyCafe2.png", "TinyCafe3.png"],
+  "itchId": "3027046",
+  "summary": "Cafe styled gameplay experience made for Ludum Dare 56.",
+  "tags": ["2D", "Cafe", "Ludum Dare", "Ludum Dare 56", "Point & Click"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"]
+}

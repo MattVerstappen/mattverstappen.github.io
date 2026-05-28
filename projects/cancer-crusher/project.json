@@ -1,0 +1,26 @@
+{
+  "title": "Cancer Crusher",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "event": "National Vega Game Jam & Creative Conscience",
+  "awards": ["National Vega Game Jam Award Winner", "Shortlisted for Creative Conscience"],
+  "date": "October 30, 2023",
+  "genre": "Shooter",
+  "photos": 5,
+  "coverImage": "CancerCrusherCover.png",
+  "photoFiles": ["CancerCrusher1.png", "CancerCrusher2.png", "CancerCrusher3.png", "CancerCrusher4.png"],
+  "itchId": "2710574",
+  "summary": "A 2D fixed shooter using retro-styled gameplay where you journey through the body to kill cancer. Players fight through 3 increasingly corrupted levels, each featuring 3 waves and a boss fight, raising awareness of testicular cancer in partnership with Love Your Nuts.",
+  "tags": ["2D", "Indie", "Retro", "Singleplayer", "Unity"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"],
+  "articles": [
+    { "title": "Testicular cancer awareness: Student-developed games aim to reach younger generation", "source": "NGO Connect SA", "url": "https://ngoconnectsa.org/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation/" },
+    { "title": "Students develop award-winning games to raise awareness about testicular cancer", "source": "Media Update", "url": "https://www.mediaupdate.co.za/publicity/155750/students-develop-award-winning-games-to-raise-awareness-about-testicular-cancer" },
+    { "title": "Testicular cancer awareness: Student-developed games aim to reach younger generation", "source": "Vega School", "url": "https://www.vegaschool.com/news-and-events/articles/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation" },
+    { "title": "IIE-VEGA students create award-winning games for testicular cancer awareness", "source": "Education Today", "url": "https://www.educationtoday.co.za/innovation/student-game-developers-raise-testicular-cancer-awareness/" },
+    { "title": "Cancer Smart School Programme", "source": "Love Your Nuts", "url": "https://loveyournuts.org/cancer-smart/" },
+    { "title": "IIE-Vega students' award-winning games aim to reach younger generation", "source": "World of Work", "url": "https://iieworldofwork.iie.ac.za/testicular-cancer-awareness-in-a-nutshell-iie-vega-students-award-winning-games-aim-to-reach-younger-generation" },
+    { "title": "Students develop digital games for cancer awareness education", "source": "The Mighty Pen", "url": "http://www.themightypen.co.za/doc/September%20&%20October%202024%20issue.pdf" }
+  ]
+}
