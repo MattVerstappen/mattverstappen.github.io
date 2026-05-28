@@ -1,0 +1,17 @@
+{
+  "title": "Timmys' Revenge",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "event": "TCGJ 2024",
+  "awards": ["3rd Place"],
+  "date": "July 13, 2024",
+  "genre": "Shooter",
+  "photos": 10,
+  "coverImage": "TimmysRevengeCover.png",
+  "photoFiles": ["TimmysRevenge1.png", "TimmysRevenge2.png", "TimmysRevenge3.png", "TimmysRevenge4.png", "TimmysRevenge5.png", "TimmysRevenge6.png", "TimmysRevenge7.png", "TimmysRevenge8.png", "TimmysRevenge9.png"],
+  "itchId": "2829359",
+  "summary": "Timmy's Revenge is a top-down 2D shooter where players battle relentless waves of zombies, unlocking powerful new weapons as they face the undead horde. Developed for a Game Jam, this roguelike game challenges players to control Timmy, strategically fighting off enemies and surviving increasingly difficult waves.",
+  "tags": ["2D", "Funny", "Gore", "Indie", "Pixel Art", "Singleplayer", "Top Down Shooter", "Zombies"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"]
+}

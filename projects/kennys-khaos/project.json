@@ -1,0 +1,17 @@
+{
+  "title": "Kenny's Khaos",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "event": "SA Game Jam 2024",
+  "awards": ["Top 10 (Rank 8th)"],
+  "date": "Oct 21, 2024",
+  "genre": "Action",
+  "photos": 2,
+  "coverImage": "KennysKhaosCover.png",
+  "photoFiles": ["KennysKhaos1.png"],
+  "itchId": "3054461",
+  "summary": "A reimagining of Timmys' Revenge — rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution. Map art by Michele \"Buch\" Bucelli.",
+  "tags": ["2D", "Funny", "Gore", "Indie", "Pixel Art", "Singleplayer", "Top Down Shooter"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"]
+}

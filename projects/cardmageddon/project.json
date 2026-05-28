@@ -1,0 +1,17 @@
+{
+  "title": "Cardmageddon",
+  "degree": "BCIS in Game Design And Game Development",
+  "type": "game",
+  "status": "completed",
+  "event": "Ludum Dare 55",
+  "awards": ["Top 1,000 (924th)"],
+  "date": "April 17, 2024",
+  "genre": "Action / Card Game",
+  "photos": 5,
+  "coverImage": "CardMageddonCover.png",
+  "photoFiles": ["CardMageddon1.png", "CardMageddon2.png", "CardMageddon3.png", "CardMageddon4.png"],
+  "itchId": "2649557",
+  "summary": "Thrown into a deep dungeon and set in the Mighty Maze, explore and embark on an epic adventure to become the Card Mage. Scattered around the maze, collect a myriad of card-based summons to use along your journey — but their use comes at a great cost. Strategy must always be considered if you wish to triumph and win back your freedom by collecting every card.",
+  "tags": ["Ludum Dare 55", "Summoning"],
+  "stack": ["C#", "Unity", "Blender", "Photoshop"]
+}

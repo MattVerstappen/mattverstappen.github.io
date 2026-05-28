@@ -379,6 +379,39 @@
         .foot-text { font-size: .83rem; color: var(--text-dim); }
         .foot-text span { color: var(--accent-lt); }
 
+        /* ── ACHIEVEMENTS ── */
+        .ach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .ach-card {
+            background: var(--bg-card); border-radius: 16px; padding: 24px;
+            border: 1px solid var(--border); display: flex; gap: 18px;
+            align-items: flex-start; transition: all .3s;
+        }
+        .ach-card:hover { transform: translateY(-4px); border-color: var(--ach-color, var(--accent)); }
+
+        .ach-card.award  { --ach-color: #fbbf24; --ach-bg: rgba(251,191,36,.12); --ach-border: rgba(251,191,36,.25); }
+        .ach-card.pub    { --ach-color: #a78bfa; --ach-bg: rgba(167,139,250,.12); --ach-border: rgba(167,139,250,.25); }
+        .ach-card.press  { --ach-color: #22d3ee; --ach-bg: rgba(34,211,238,.12);  --ach-border: rgba(34,211,238,.25); }
+        .ach-card.rank   { --ach-color: #fb923c; --ach-bg: rgba(251,146,60,.12);  --ach-border: rgba(251,146,60,.25); }
+
+        .ach-icon-wrap {
+            width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+            background: var(--ach-bg); border: 1px solid var(--ach-border);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+        }
+        .ach-body { flex: 1; min-width: 0; }
+        .ach-title { font-size: .97rem; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+        .ach-context { font-size: .82rem; color: var(--text-muted); margin-bottom: 8px; }
+        .ach-date {
+            display: inline-block; font-size: .7rem; font-weight: 600;
+            color: var(--ach-color); background: var(--ach-bg);
+            border: 1px solid var(--ach-border); padding: 2px 10px; border-radius: 100px;
+            letter-spacing: .04em; text-transform: uppercase;
+        }
+
         /* ── PROJ FILTERS ── */
         .proj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; min-height: 38px; }
         .filter-chip {
@@ -423,6 +456,46 @@
             background: rgba(250,204,21,.1); border: 1px solid rgba(250,204,21,.3);
             color: #fde68a; padding: 3px 10px; border-radius: 4px;
             font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+        }
+
+        /* ── AWARDS ── */
+        .proj-awards { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+        .proj-award {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(250,204,21,.07); border: 1px solid rgba(250,204,21,.2);
+            border-radius: 8px; padding: 7px 12px; font-size: .8rem; color: #fde68a;
+        }
+        .proj-award-icon { font-size: 1rem; flex-shrink: 0; }
+
+        /* ── DATE ── */
+        .proj-date {
+            font-size: .75rem; color: var(--text-dim);
+            display: flex; align-items: center; gap: 5px; margin-bottom: 10px;
+        }
+
+        /* ── GENRE ── */
+        .proj-genre {
+            background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.25);
+            color: #d8b4fe; padding: 3px 10px; border-radius: 4px;
+            font-size: .68rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+        }
+
+        /* ── ARTICLES ── */
+        .proj-articles { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; }
+        .proj-articles-label {
+            font-size: .7rem; color: var(--text-dim); text-transform: uppercase;
+            letter-spacing: .08em; font-weight: 600; margin-bottom: 8px;
+        }
+        .proj-article-link {
+            display: flex; align-items: center; gap: 8px;
+            color: var(--text-muted); text-decoration: none; font-size: .82rem;
+            padding: 6px 0; border-bottom: 1px solid var(--border); transition: color .2s;
+        }
+        .proj-article-link:last-child { border-bottom: none; }
+        .proj-article-link:hover { color: var(--cyan); }
+        .proj-article-source {
+            font-size: .72rem; color: var(--text-dim); margin-left: auto;
+            white-space: nowrap; padding-left: 8px;
         }
 
         /* ── PHOTO GALLERY ── */
@@ -478,6 +551,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">Achievements</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
@@ -742,6 +816,100 @@
     </div>
 </section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">Recognition</span>
+            <h2 class="section-title">Achievements</h2>
+            <p class="section-sub">Awards, competition placements, publications, and press coverage across my work.</p>
+        </div>
+        <div class="ach-grid fade-in">
+
+            <!-- Publication -->
+            <div class="ach-card pub">
+                <div class="ach-icon-wrap">📄</div>
+                <div class="ach-body">
+                    <div class="ach-title">Published Research Paper</div>
+                    <div class="ach-context">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — ResearchGate</div>
+                    <span class="ach-date">2025</span>
+                </div>
+            </div>
+
+            <!-- National Vega Game Jam -->
+            <div class="ach-card award">
+                <div class="ach-icon-wrap">🏆</div>
+                <div class="ach-body">
+                    <div class="ach-title">National Vega Game Jam — Winner</div>
+                    <div class="ach-context">Cancer Crusher · National Vega Game Jam</div>
+                    <span class="ach-date">Oct 2023</span>
+                </div>
+            </div>
+
+            <!-- Creative Conscience -->
+            <div class="ach-card award">
+                <div class="ach-icon-wrap">🌍</div>
+                <div class="ach-body">
+                    <div class="ach-title">Creative Conscience — Shortlisted</div>
+                    <div class="ach-context">Cancer Crusher · International Creative Conscience Awards</div>
+                    <span class="ach-date">2023</span>
+                </div>
+            </div>
+
+            <!-- Press coverage -->
+            <div class="ach-card press">
+                <div class="ach-icon-wrap">📰</div>
+                <div class="ach-body">
+                    <div class="ach-title">7 Press Features</div>
+                    <div class="ach-context">Cancer Crusher covered by NGO Connect SA, Media Update, Vega School, Education Today, Love Your Nuts, World of Work &amp; The Mighty Pen</div>
+                    <span class="ach-date">2023 – 2024</span>
+                </div>
+            </div>
+
+            <!-- SA Game Jam -->
+            <div class="ach-card award">
+                <div class="ach-icon-wrap">🥈</div>
+                <div class="ach-body">
+                    <div class="ach-title">SA Game Jam 2024 — Top 10 (8th Place)</div>
+                    <div class="ach-context">Kenny's Khaos · SA Game Jam 2024</div>
+                    <span class="ach-date">Oct 2024</span>
+                </div>
+            </div>
+
+            <!-- TCGJ -->
+            <div class="ach-card award">
+                <div class="ach-icon-wrap">🥉</div>
+                <div class="ach-body">
+                    <div class="ach-title">TCGJ 2024 — 3rd Place</div>
+                    <div class="ach-context">Timmys' Revenge · Thomas More College Game Jam 2024</div>
+                    <span class="ach-date">July 2024</span>
+                </div>
+            </div>
+
+            <!-- Ludum Dare 56 -->
+            <div class="ach-card rank">
+                <div class="ach-icon-wrap">🎮</div>
+                <div class="ach-body">
+                    <div class="ach-title">Ludum Dare 56 — Top 500 (Rank 475)</div>
+                    <div class="ach-context">Tiny Cafe · Ludum Dare 56 Global Game Jam</div>
+                    <span class="ach-date">Oct 2024</span>
+                </div>
+            </div>
+
+            <!-- Ludum Dare 55 -->
+            <div class="ach-card rank">
+                <div class="ach-icon-wrap">🃏</div>
+                <div class="ach-body">
+                    <div class="ach-title">Ludum Dare 55 — Top 1,000 (Rank 924)</div>
+                    <div class="ach-context">Cardmageddon · Ludum Dare 55 Global Game Jam</div>
+                    <span class="ach-date">April 2024</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
     <div class="container">
@@ -833,6 +1001,7 @@
     const DEGREE_SHORT = {
         'BA Honours in Design Leadership':             'BA Honours',
         'BCIS in Game Design and Development':         'BCIS',
+        'BCIS in Game Design And Game Development':    'BCIS',
         'Personal':                                    'Personal',
     };
 
@@ -877,9 +1046,22 @@
               ).join('')}</div>`
             : '';
 
-        // Badges
+        // Meta badges row
         const degreeBadge = short ? `<span class="proj-degree-badge">${short}</span>` : '';
-        const eventBadge  = proj.event ? `<span class="proj-event-badge">🏆 ${proj.event}</span>` : '';
+        const eventBadge  = proj.event ? `<span class="proj-event-badge">🎮 ${proj.event}</span>` : '';
+        const genreBadge  = proj.genre ? `<span class="proj-genre">${proj.genre}</span>` : '';
+
+        // Publication date
+        const dateHTML = proj.date
+            ? `<div class="proj-date">🗓 ${proj.date}</div>`
+            : '';
+
+        // Awards
+        const awardsHTML = proj.awards?.length
+            ? `<div class="proj-awards">${proj.awards.map(a =>
+                `<div class="proj-award"><span class="proj-award-icon">🏆</span>${a}</div>`
+              ).join('')}</div>`
+            : '';
 
         // Tags
         const tagsHTML = proj.tags?.length
@@ -914,6 +1096,19 @@
                </div>`
             : '';
 
+        // Press / articles
+        const articlesHTML = proj.articles?.length
+            ? `<div class="proj-articles">
+                <div class="proj-articles-label">Press &amp; Articles</div>
+                ${proj.articles.map(a =>
+                    `<a href="${a.url}" target="_blank" rel="noopener" class="proj-article-link">
+                        ↗ ${a.title}
+                        ${a.source ? `<span class="proj-article-source">${a.source}</span>` : ''}
+                    </a>`
+                ).join('')}
+               </div>`
+            : '';
+
         return `
             <div class="proj-card">
                 ${cover}
@@ -921,15 +1116,19 @@
                 <div class="proj-card-body">
                     <div class="proj-meta-row">
                         <span class="proj-engine">${icon} ${typeLabel}</span>
+                        ${genreBadge}
                         ${degreeBadge}
                         ${eventBadge}
                     </div>
+                    ${dateHTML}
                     <h3 class="proj-title">${proj.title}</h3>
                     <p class="proj-desc">${proj.summary || proj.description || ''}</p>
+                    ${awardsHTML}
                     ${tagsHTML}
                     ${stack}
                     ${links}
                     ${itchWidget}
+                    ${articlesHTML}
                 </div>
             </div>`;
     }
