@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pg-title">Project — Matthew Rall</title>
-    <meta name="description" id="pg-desc" content="Project by Matthew Rall">
+    <title id="pg-title">Project — Matthew Derek Rall</title>
+    <meta name="description" id="pg-desc" content="A project by Matthew Derek Rall — game developer and designer.">
+    <link rel="canonical" id="pg-canonical" href="https://matthewderekrall.com/project.html">
+    <meta property="og:title" id="og-title" content="Project — Matthew Derek Rall">
+    <meta property="og:description" id="og-desc" content="A project by Matthew Derek Rall — game developer and designer.">
+    <meta property="og:url" id="og-url" content="https://matthewderekrall.com/project.html">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -356,8 +361,16 @@
 
     /* ── HERO ── */
     function renderHero(p) {
-        document.getElementById('pg-title').textContent = `${p.title} — Matthew Rall`;
-        document.getElementById('pg-desc').content = (p.summary || '').slice(0, 160);
+        const pageTitle = `${p.title} — Matthew Derek Rall`;
+        const pageDesc  = (p.summary || '').slice(0, 160);
+        const pageUrl   = `https://matthewderekrall.com/project.html?slug=${slug}`;
+
+        document.getElementById('pg-title').textContent    = pageTitle;
+        document.getElementById('pg-desc').content         = pageDesc;
+        document.getElementById('pg-canonical').href       = pageUrl;
+        document.getElementById('og-title').content        = pageTitle;
+        document.getElementById('og-desc').content         = pageDesc;
+        document.getElementById('og-url').content          = pageUrl;
 
         const coverSrc = p.coverImage
             ? `projects/${p.slug}/${p.coverImage}`
@@ -436,7 +449,7 @@
             const items = photos.map((src, i) => `
                 <div class="gal-item" onclick="openLB(${i})" role="button" tabindex="0"
                      onkeydown="if(event.key==='Enter')openLB(${i})">
-                    <img src="${src}" alt="Screenshot ${i + 1}" loading="lazy">
+                    <img src="${src}" alt="${p.title} — screenshot ${i + 1}" loading="lazy">
                     <div class="gal-zoom">🔍</div>
                 </div>`).join('');
             parts.push(`

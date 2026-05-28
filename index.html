@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Rall — Game Developer</title>
-    <meta name="description" content="Portfolio of Matthew Rall, Game Developer specialising in Unity, Unreal Engine, C#, and C++.">
+    <title>Matthew Derek Rall — Game Developer & Designer</title>
+    <meta name="description" content="Portfolio of Matthew Derek Rall — game developer from Durban, South Africa. BCIS in Game Design & Development, BA Honours in Design Leadership, and a published researcher in VR education.">
+    <link rel="canonical" href="https://matthewderekrall.com/">
+    <meta property="og:title" content="Matthew Derek Rall — Game Developer & Designer">
+    <meta property="og:description" content="Portfolio of Matthew Derek Rall — game developer from Durban, South Africa. BCIS in Game Design & Development, BA Honours in Design Leadership, and a published researcher in VR education.">
+    <meta property="og:url" content="https://matthewderekrall.com/">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -602,8 +607,9 @@
             </h1>
             <p class="hero-role">Unity · Unreal Engine · C# · C++</p>
             <p class="hero-desc">
-                Game developer with a BCIS in Game Design &amp; Development and a BA Honours in Design Leadership.
-                Published researcher in VR education. Building immersive, well-crafted experiences.
+                Game developer from Durban, South Africa — shipping games since 2023, from cancer awareness shooters to card-based dungeon crawlers.
+                BCIS in Game Design &amp; Development, BA Honours in Design Leadership, and a published paper on VR in education.
+                Making the jump to the US.
             </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn-p">
@@ -671,7 +677,7 @@
         <div class="fade-in">
             <span class="section-label">What I Know</span>
             <h2 class="section-title">Skills &amp; Tools</h2>
-            <p class="section-sub">Technologies and tools I work with across game development, design, and software engineering.</p>
+            <p class="section-sub">Everything from Unity and Unreal to the tools that sit around the edges — what I reach for when building.</p>
         </div>
         <div class="skills-grid fade-in">
             <div class="skill-card">
@@ -727,7 +733,7 @@
         <div class="fade-in">
             <span class="section-label">Work History</span>
             <h2 class="section-title">Experience</h2>
-            <p class="section-sub">A track record across game development, education, and competitive esports.</p>
+            <p class="section-sub">Game jams, classrooms, and the coaching lane — here's where I've put in the hours.</p>
         </div>
         <div class="timeline fade-in">
             <div class="tl-item">
@@ -794,7 +800,7 @@
         <div class="fade-in">
             <span class="section-label">Academic Background</span>
             <h2 class="section-title">Education</h2>
-            <p class="section-sub">Formal training across game development, design leadership, and technology.</p>
+            <p class="section-sub">Four years at Vega School, two degrees — the foundation that sits under everything else I do.</p>
         </div>
         <div class="edu-grid fade-in">
             <div class="edu-card">
@@ -830,10 +836,11 @@
             <div class="pub-badge">📄 Peer Research · 2025</div>
             <h3 class="pub-title">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning</h3>
             <p class="pub-desc">
-                A qualitative, phenomenological study exploring how Virtual Reality can enhance programming education
-                at the higher-education level. Drawing on Dewey's Learning by Doing and Csikszentmihalyi's Flow Theory,
-                the research captures student perspectives on immersive learning environments and their impact on
-                engagement and comprehension.
+                A study I ran as part of my Honours research — interviewing third-year computer science students about
+                their experiences using VR for learning to program. The findings pointed to real gains in engagement and
+                problem-solving, but also honest barriers like hardware costs, motion sickness, and limited institutional
+                support. The core takeaway: VR has genuine potential here, but only if implemented with care.
+                Published on ResearchGate with a DOI.
             </p>
             <a href="https://www.researchgate.net/profile/Matthew-Rall-2" target="_blank" rel="noopener" class="pub-link">
                 View on ResearchGate
@@ -1074,7 +1081,7 @@
         const gallery = proj.photoFiles?.length
             ? `<div class="proj-gallery">${proj.photoFiles.map(f =>
                 `<a href="project.html?slug=${proj.slug}">
-                    <img src="projects/${proj.slug}/${f}" class="proj-thumb" onerror="this.style.display='none'" alt="screenshot">
+                    <img src="projects/${proj.slug}/${f}" class="proj-thumb" onerror="this.style.display='none'" alt="${proj.title} screenshot">
                  </a>`
               ).join('')}</div>`
             : '';
