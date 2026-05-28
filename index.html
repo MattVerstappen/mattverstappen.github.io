@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Rall — Game Developer</title>
+    <meta name="description" content="Portfolio of Matthew Rall, Game Developer specialising in Unity, Unreal Engine, C#, and C++.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:          #0f0f1a;
+            --bg-card:     #1a1a2e;
+            --border:      rgba(99,102,241,0.15);
+            --border-hi:   rgba(99,102,241,0.45);
+            --accent:      #6366f1;
+            --accent-lt:   #818cf8;
+            --cyan:        #22d3ee;
+            --cyan-lt:     #67e8f9;
+            --text:        #f1f5f9;
+            --text-muted:  #94a3b8;
+            --text-dim:    #64748b;
+            --gradient:    linear-gradient(135deg,#6366f1,#22d3ee);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk','Inter',sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        /* ── UTILITIES ── */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+            text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
+        }
+        .section-label::before {
+            content:''; display:inline-block; width:24px; height:2px; background:var(--cyan);
+        }
+        .section-title {
+            font-size: clamp(1.75rem,4vw,2.5rem); font-weight: 700;
+            line-height: 1.15; margin-bottom: 8px;
+        }
+        .section-sub {
+            color: var(--text-muted); font-size: 1rem;
+            margin-bottom: 48px; max-width: 520px;
+        }
+
+        section { padding: 100px 0; }
+
+        .fade-in {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: none; }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 18px 0; transition: all .3s;
+        }
+        nav.scrolled {
+            background: rgba(15,15,26,.92); backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border); padding: 12px 0;
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            font-weight: 700; font-size: 1.15rem;
+            background: var(--gradient); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+            text-decoration: none;
+        }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted); text-decoration: none;
+            font-size: .88rem; font-weight: 500; transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            color: var(--accent-lt) !important;
+            border: 1px solid var(--accent); padding: 7px 18px;
+            border-radius: 6px; transition: all .2s !important;
+        }
+        .nav-cta:hover { background: var(--accent); color: #fff !important; }
+
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; background: none; border: none; padding: 4px;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--text); border-radius: 2px; transition: all .3s;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh; display: flex; align-items: center;
+            position: relative; overflow: hidden; padding-top: 80px;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,.18), transparent),
+                radial-gradient(ellipse 50% 50% at 85% 85%, rgba(34,211,238,.10), transparent);
+        }
+        .hero-grid {
+            position: absolute; inset: 0; pointer-events: none;
+            background-image:
+                linear-gradient(rgba(99,102,241,.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99,102,241,.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.3);
+            border-radius: 100px; padding: 6px 18px; margin-bottom: 28px;
+            font-size: .78rem; color: var(--accent-lt); font-weight: 500; letter-spacing: .05em;
+        }
+        .hero-badge::before {
+            content: ''; width: 6px; height: 6px; border-radius: 50%;
+            background: var(--cyan); animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%,100% { opacity:1; transform:scale(1); }
+            50%      { opacity:.4; transform:scale(.8); }
+        }
+
+        .hero-name {
+            font-size: clamp(3rem,9vw,6rem); font-weight: 700;
+            line-height: 1.02; margin-bottom: 18px;
+        }
+        .grad { background: var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+        .hero-role {
+            font-size: clamp(1rem,2.5vw,1.35rem);
+            color: var(--text-muted); font-weight: 400; margin-bottom: 22px;
+        }
+        .hero-desc {
+            font-size: 1rem; color: var(--text-muted);
+            max-width: 540px; margin-bottom: 40px; line-height: 1.75;
+        }
+        .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-p {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--gradient); color: #fff; text-decoration: none;
+            padding: 14px 28px; border-radius: 8px; font-weight: 600;
+            font-size: .95rem; transition: opacity .2s, transform .2s;
+        }
+        .btn-p:hover { opacity: .88; transform: translateY(-2px); }
+
+        .btn-s {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--text); text-decoration: none;
+            padding: 14px 28px; border-radius: 8px; font-weight: 600;
+            font-size: .95rem; border: 1px solid var(--border-hi); transition: all .2s;
+        }
+        .btn-s:hover { border-color: var(--accent); color: var(--accent-lt); transform: translateY(-2px); }
+
+        .scroll-hint {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            color: var(--text-dim); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px; height: 40px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            animation: drip 1.6s ease-in-out infinite;
+        }
+        @keyframes drip {
+            0%   { opacity:0; transform:scaleY(0); transform-origin:top; }
+            50%  { opacity:1; transform:scaleY(1); transform-origin:top; }
+            100% { opacity:0; transform:scaleY(1); transform-origin:bottom; }
+        }
+
+        /* ── ABOUT ── */
+        #about { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .about-text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
+
+        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .stat {
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 12px; padding: 22px; text-align: center; transition: border-color .2s;
+        }
+        .stat:hover { border-color: var(--accent); }
+        .stat-n {
+            display: block; font-size: 2rem; font-weight: 700; margin-bottom: 4px;
+            background: var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+        }
+        .stat-l { font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+
+        /* ── SKILLS ── */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(265px,1fr)); gap: 22px; }
+
+        .skill-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 26px; transition: border-color .3s, transform .25s;
+        }
+        .skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+        .sk-icon { font-size: 1.7rem; display: block; margin-bottom: 10px; }
+        .sk-title { font-size: .95rem; font-weight: 600; margin-bottom: 14px; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.2);
+            color: var(--accent-lt); padding: 5px 12px; border-radius: 100px;
+            font-size: .78rem; font-weight: 500; transition: all .2s;
+        }
+        .tag:hover { background: rgba(99,102,241,.22); border-color: var(--accent); }
+        .tag.c {
+            background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.2); color: var(--cyan-lt);
+        }
+        .tag.c:hover { background: rgba(34,211,238,.22); border-color: var(--cyan); }
+
+        /* ── EXPERIENCE ── */
+        #experience { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+        .timeline { position: relative; padding-left: 32px; }
+        .timeline::before {
+            content:''; position:absolute; left:0; top:8px; bottom:8px; width:2px;
+            background: linear-gradient(to bottom, var(--accent), var(--cyan), transparent);
+        }
+        .tl-item { position: relative; padding-bottom: 44px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position: absolute; left: -39px; top: 8px;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--accent); border: 2px solid var(--bg-card);
+            box-shadow: 0 0 0 3px rgba(99,102,241,.3);
+        }
+        .tl-card {
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 14px; padding: 22px 26px; transition: border-color .3s;
+        }
+        .tl-card:hover { border-color: var(--accent); }
+        .tl-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+        .tl-role { font-size: 1rem; font-weight: 600; }
+        .tl-date {
+            font-size: .75rem; color: var(--cyan);
+            background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.2);
+            padding: 4px 12px; border-radius: 100px; white-space: nowrap;
+        }
+        .tl-org { font-size: .88rem; color: var(--text-muted); margin-bottom: 10px; }
+        .tl-pts { list-style: none; }
+        .tl-pts li {
+            color: var(--text-muted); font-size: .88rem; padding-left: 16px;
+            position: relative; margin-bottom: 5px; line-height: 1.6;
+        }
+        .tl-pts li::before { content:'▹'; position:absolute; left:0; color:var(--accent); }
+
+        /* ── EDUCATION ── */
+        .edu-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 22px; }
+        .edu-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 26px; transition: all .3s; position: relative; overflow: hidden;
+        }
+        .edu-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:3px;
+            background: var(--gradient); opacity: 0; transition: opacity .3s;
+        }
+        .edu-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .edu-card:hover::before { opacity: 1; }
+        .edu-yr { font-size: .73rem; color: var(--cyan); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 8px; }
+        .edu-deg { font-size: .98rem; font-weight: 600; margin-bottom: 4px; }
+        .edu-school { font-size: .87rem; color: var(--text-muted); margin-bottom: 14px; }
+        .edu-detail { font-size: .83rem; color: var(--text-dim); line-height: 1.6; }
+
+        /* ── PUBLICATION ── */
+        #publication { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+        .pub-card {
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 20px; padding: 40px; max-width: 800px; transition: border-color .3s;
+        }
+        .pub-card:hover { border-color: var(--accent); }
+        .pub-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.3);
+            color: var(--accent-lt); padding: 5px 14px; border-radius: 100px;
+            font-size: .75rem; font-weight: 600; letter-spacing: .05em; margin-bottom: 18px;
+        }
+        .pub-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
+        .pub-desc { color: var(--text-muted); font-size: .9rem; line-height: 1.75; margin-bottom: 24px; }
+        .pub-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--cyan); text-decoration: none; font-weight: 600;
+            font-size: .9rem; transition: gap .2s;
+        }
+        .pub-link:hover { gap: 14px; }
+
+        /* ── PROJECTS ── */
+        .proj-tabs { display: flex; gap: 10px; margin-bottom: 40px; }
+        .tab {
+            background: transparent; border: 1px solid var(--border);
+            color: var(--text-muted); padding: 9px 22px; border-radius: 8px;
+            font-family: 'Space Grotesk',sans-serif; font-size: .88rem;
+            font-weight: 500; cursor: pointer; transition: all .2s;
+        }
+        .tab.on, .tab:hover { border-color: var(--accent); color: var(--accent-lt); background: rgba(99,102,241,.08); }
+
+        .proj-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 22px; }
+        .proj-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 26px; transition: all .3s;
+        }
+        .proj-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .proj-card.ph { border-style: dashed; opacity: .6; }
+        .proj-card.ph:hover { opacity: .85; transform: translateY(-3px); }
+
+        .ph-inner {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; min-height: 160px; gap: 12px;
+        }
+        .ph-icon { font-size: 2rem; opacity: .4; }
+        .ph-title { font-size: 1rem; font-weight: 600; }
+        .ph-text { color: var(--text-dim); font-size: .83rem; }
+
+        .proj-engine {
+            display: inline-block; background: rgba(34,211,238,.1);
+            border: 1px solid rgba(34,211,238,.2); color: var(--cyan-lt);
+            padding: 3px 10px; border-radius: 4px; font-size: .7rem;
+            font-weight: 600; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 12px;
+        }
+        .proj-title { font-size: 1.02rem; font-weight: 600; margin-bottom: 8px; }
+        .proj-desc { color: var(--text-muted); font-size: .83rem; line-height: 1.6; margin-bottom: 18px; }
+        .proj-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+        .st { background: rgba(99,102,241,.08); color: var(--text-dim); padding: 3px 10px; border-radius: 4px; font-size: .73rem; }
+
+        /* ── CONTACT ── */
+        #contact { background: var(--bg-card); border-top: 1px solid var(--border); }
+
+        .contact-wrap { max-width: 600px; }
+        .contact-text { color: var(--text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 36px; }
+
+        .contact-links { display: flex; flex-direction: column; gap: 14px; }
+        .cl {
+            display: flex; align-items: center; gap: 16px;
+            color: var(--text); text-decoration: none;
+            background: var(--bg); border: 1px solid var(--border);
+            border-radius: 12px; padding: 16px 20px; transition: all .2s;
+        }
+        .cl:hover { border-color: var(--accent); transform: translateX(6px); }
+        .cl-icon {
+            width: 40px; height: 40px; border-radius: 8px;
+            background: rgba(99,102,241,.1); display: flex;
+            align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .cl-body { flex: 1; }
+        .cl-label { font-size: .72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+        .cl-val { font-size: .93rem; font-weight: 500; }
+        .cl-arr { color: var(--text-dim); transition: color .2s; }
+        .cl:hover .cl-arr { color: var(--accent); }
+
+        /* ── FOOTER ── */
+        footer { padding: 30px 0; border-top: 1px solid var(--border); }
+        .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .foot-text { font-size: .83rem; color: var(--text-dim); }
+        .foot-text span { color: var(--accent-lt); }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none; position: fixed; top: 60px; left: 0; right: 0;
+                background: rgba(15,15,26,.97); backdrop-filter: blur(14px);
+                flex-direction: column; padding: 24px; gap: 22px;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-links.open { display: flex; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .scroll-hint { display: none; }
+            section { padding: 72px 0; }
+            .pub-card { padding: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="#hero" class="nav-logo">MR</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="ham" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+        <div class="hero-content fade-in">
+            <div class="hero-badge">Game Developer &amp; Designer</div>
+            <h1 class="hero-name">
+                Matthew<br><span class="grad">Rall</span>
+            </h1>
+            <p class="hero-role">Unity · Unreal Engine · C# · C++</p>
+            <p class="hero-desc">
+                Game developer with a BCIS in Game Design &amp; Development and a BA Honours in Design Leadership.
+                Published researcher in VR education. Building immersive, well-crafted experiences.
+            </p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn-p">
+                    View Projects
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="Matthew_Rall_Resume.pdf" download class="btn-s">
+                    Download CV
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid fade-in">
+            <div class="about-text">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Building worlds,<br>solving problems</h2>
+                <p>
+                    I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership
+                    at Vega School. My work sits at the intersection of technical development and creative design — from
+                    building games in Unity and Unreal Engine to researching how Virtual Reality can transform the way
+                    programming is taught.
+                </p>
+                <p>
+                    Beyond development, I bring experience as a competitive esports coach and academic tutor, which has
+                    sharpened my communication, leadership, and analytical thinking. I thrive in collaborative,
+                    fast-moving environments where creative problem-solving matters.
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-n">3+</span>
+                    <span class="stat-l">Years Dev</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-n">2</span>
+                    <span class="stat-l">Degrees</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-n">1</span>
+                    <span class="stat-l">Publication</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-n">5+</span>
+                    <span class="stat-l">Languages</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">What I Know</span>
+            <h2 class="section-title">Skills &amp; Tools</h2>
+            <p class="section-sub">Technologies and tools I work with across game development, design, and software engineering.</p>
+        </div>
+        <div class="skills-grid fade-in">
+            <div class="skill-card">
+                <span class="sk-icon">💻</span>
+                <h3 class="sk-title">Programming Languages</h3>
+                <div class="tags">
+                    <span class="tag">C#</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Kotlin</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <span class="sk-icon">🎮</span>
+                <h3 class="sk-title">Game Engines &amp; 3D</h3>
+                <div class="tags">
+                    <span class="tag c">Unity</span>
+                    <span class="tag c">Unreal Engine</span>
+                    <span class="tag c">Blender</span>
+                    <span class="tag c">3ds Max</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <span class="sk-icon">🔧</span>
+                <h3 class="sk-title">Tools &amp; IDEs</h3>
+                <div class="tags">
+                    <span class="tag">Visual Studio</span>
+                    <span class="tag">JetBrains Rider</span>
+                    <span class="tag">Android Studio</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                    <span class="tag">Photoshop</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <span class="sk-icon">🧠</span>
+                <h3 class="sk-title">Other Skills</h3>
+                <div class="tags">
+                    <span class="tag">Design Leadership</span>
+                    <span class="tag">VR Research</span>
+                    <span class="tag">Team Coaching</span>
+                    <span class="tag">Academic Tutoring</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">Work History</span>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-sub">A track record across game development, education, and competitive esports.</p>
+        </div>
+        <div class="timeline fade-in">
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-head">
+                        <span class="tl-role">Academic Tutor — Computer Science</span>
+                        <span class="tl-date">Jan 2025 – Dec 2025</span>
+                    </div>
+                    <div class="tl-org">ADvTECH · Durban, South Africa</div>
+                    <ul class="tl-pts">
+                        <li>Tutored first-year university students in C# programming using Visual Studio and JetBrains Rider.</li>
+                        <li>Guided students through debugging, object-oriented design, and project work while concurrently completing BA Honours.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-head">
+                        <span class="tl-role">Esports Coach — Counter-Strike</span>
+                        <span class="tl-date">Mar 2024 – Oct 2025</span>
+                    </div>
+                    <div class="tl-org">Royal Republic Esports</div>
+                    <ul class="tl-pts">
+                        <li>Coached a competitive Counter-Strike roster through the first-division ranks of the VS Gaming League.</li>
+                        <li>Built strategy, performance reviews, and team communication systems used in weekly scrims and tournaments.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-head">
+                        <span class="tl-role">Veterinary Receptionist (After-Hours)</span>
+                        <span class="tl-date">Dec 2021 – Oct 2023</span>
+                    </div>
+                    <div class="tl-org">Westville Veterinary Hospital · Durban</div>
+                    <ul class="tl-pts">
+                        <li>Managed after-hours intake, point-of-sale, and emergency triage coordination in a high-pressure clinical environment.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-card">
+                    <div class="tl-head">
+                        <span class="tl-role">Esports Coach — Counter-Strike</span>
+                        <span class="tl-date">Mar 2021 – Apr 2022</span>
+                    </div>
+                    <div class="tl-org">THE-SA</div>
+                    <ul class="tl-pts">
+                        <li>Coached a lower-division Counter-Strike team in the VS Gaming League and supported player progression to higher divisions.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">Academic Background</span>
+            <h2 class="section-title">Education</h2>
+            <p class="section-sub">Formal training across game development, design leadership, and technology.</p>
+        </div>
+        <div class="edu-grid fade-in">
+            <div class="edu-card">
+                <div class="edu-yr">Jan 2025 – Dec 2025</div>
+                <div class="edu-deg">BA Honours in Design Leadership</div>
+                <div class="edu-school">Vega School · Durban, South Africa</div>
+                <div class="edu-detail">Focus areas: Virtual Reality, Design Leadership, Higher Education Research.</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-yr">Jan 2022 – Dec 2024</div>
+                <div class="edu-deg">BCIS in Game Design and Development</div>
+                <div class="edu-school">Vega School · Durban, South Africa</div>
+                <div class="edu-detail">Coursework: Programming, App Design, Web Design, Graphic Design, Unity, Unreal Engine, Blender 3D.</div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-yr">Jan 2017 – Dec 2021</div>
+                <div class="edu-deg">National Senior Certificate (Matric)</div>
+                <div class="edu-school">Thomas More College · Kloof, South Africa</div>
+                <div class="edu-detail">Completed secondary education with a focus on sciences and technology.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PUBLICATION -->
+<section id="publication">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">Research</span>
+            <h2 class="section-title">Publication</h2>
+        </div>
+        <div class="pub-card fade-in">
+            <div class="pub-badge">📄 Peer Research · 2025</div>
+            <h3 class="pub-title">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning</h3>
+            <p class="pub-desc">
+                A qualitative, phenomenological study exploring how Virtual Reality can enhance programming education
+                at the higher-education level. Drawing on Dewey's Learning by Doing and Csikszentmihalyi's Flow Theory,
+                the research captures student perspectives on immersive learning environments and their impact on
+                engagement and comprehension.
+            </p>
+            <a href="https://www.researchgate.net/profile/Matthew-Rall" target="_blank" rel="noopener" class="pub-link">
+                View on ResearchGate
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label">My Work</span>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-sub">Games and applications I've built and projects currently in development.</p>
+        </div>
+        <div class="proj-tabs fade-in">
+            <button class="tab on" id="t-done" onclick="showTab('done')">Completed</button>
+            <button class="tab" id="t-wip" onclick="showTab('wip')">In Development</button>
+        </div>
+
+        <!-- Completed -->
+        <div id="p-done" class="proj-grid fade-in">
+            <div class="proj-card ph">
+                <div class="ph-inner">
+                    <div class="ph-icon">🎮</div>
+                    <div class="ph-title">Projects Coming Soon</div>
+                    <div class="ph-text">Completed projects will be showcased here. Check back soon.</div>
+                </div>
+            </div>
+            <div class="proj-card ph">
+                <div class="ph-inner">
+                    <div class="ph-icon">🕹️</div>
+                    <div class="ph-title">More to Come</div>
+                    <div class="ph-text">Screenshots, builds, and write-ups will appear here.</div>
+                </div>
+            </div>
+            <div class="proj-card ph">
+                <div class="ph-inner">
+                    <div class="ph-icon">📦</div>
+                    <div class="ph-title">Adding Soon</div>
+                    <div class="ph-text">Academic and personal projects will be documented here.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- In Development -->
+        <div id="p-wip" class="proj-grid fade-in" style="display:none">
+            <div class="proj-card ph">
+                <div class="ph-inner">
+                    <div class="ph-icon">🔭</div>
+                    <div class="ph-title">In Development</div>
+                    <div class="ph-text">Projects currently being actively built will appear here.</div>
+                </div>
+            </div>
+            <div class="proj-card ph">
+                <div class="ph-inner">
+                    <div class="ph-icon">✏️</div>
+                    <div class="ph-title">Concepts &amp; Design</div>
+                    <div class="ph-text">Game concepts, design documents, and prototypes in progress.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-wrap fade-in">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="contact-text">
+                I'm open to game development roles, collaborations, and freelance projects — including opportunities
+                in the USA. Whether you have a project in mind or just want to say hello, feel free to reach out.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:matthewderekrall@gmail.com" class="cl">
+                    <div class="cl-icon">✉️</div>
+                    <div class="cl-body">
+                        <div class="cl-label">Email</div>
+                        <div class="cl-val">matthewderekrall@gmail.com</div>
+                    </div>
+                    <span class="cl-arr">→</span>
+                </a>
+                <a href="https://linkedin.com/in/matthew-rall" target="_blank" rel="noopener" class="cl">
+                    <div class="cl-icon">💼</div>
+                    <div class="cl-body">
+                        <div class="cl-label">LinkedIn</div>
+                        <div class="cl-val">linkedin.com/in/matthew-rall</div>
+                    </div>
+                    <span class="cl-arr">→</span>
+                </a>
+                <a href="Matthew_Rall_Resume.pdf" download class="cl">
+                    <div class="cl-icon">📄</div>
+                    <div class="cl-body">
+                        <div class="cl-label">Resume / CV</div>
+                        <div class="cl-val">Download PDF</div>
+                    </div>
+                    <span class="cl-arr">↓</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="foot-inner">
+            <p class="foot-text">© 2025 <span>Matthew Rall</span>. All rights reserved.</p>
+            <p class="foot-text">Durban, South Africa → <span>USA</span></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+    // Hamburger
+    const ham = document.getElementById('ham');
+    const links = document.getElementById('navLinks');
+    ham.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    // Fade-in on scroll
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // Project tabs
+    function showTab(id) {
+        document.getElementById('p-done').style.display = id === 'done' ? 'grid' : 'none';
+        document.getElementById('p-wip').style.display  = id === 'wip'  ? 'grid' : 'none';
+        document.getElementById('t-done').classList.toggle('on', id === 'done');
+        document.getElementById('t-wip').classList.toggle('on', id === 'wip');
+    }
+</script>
+
+</body>
+</html>
