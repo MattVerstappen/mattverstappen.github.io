@@ -958,8 +958,8 @@
             <button class="tab on" id="t-done" onclick="showStatus('completed')">Completed</button>
             <button class="tab" id="t-wip"  onclick="showStatus('wip')">In Development</button>
         </div>
-        <div class="proj-filters fade-in" id="degreeFilters"></div>
-        <div class="proj-grid fade-in" id="projGrid"></div>
+        <div class="proj-filters" id="degreeFilters"></div>
+        <div class="proj-grid" id="projGrid"></div>
     </div>
 </section>
 
@@ -1223,12 +1223,15 @@
     async function loadProjects() {
         try {
             const manifest = await fetch('projects/manifest.json').then(r => r.json());
-            allProjects = await Promise.all(
+            const results = await Promise.allSettled(
                 manifest.map(async slug => {
                     const data = await fetch(`projects/${slug}/project.json`).then(r => r.json());
                     return { ...data, slug };
                 })
             );
+            allProjects = results
+                .filter(r => r.status === 'fulfilled')
+                .map(r => r.value);
             renderFilters(allProjects);
             renderGrid();
         } catch (e) {
