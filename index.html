@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Derek Rall — Game Developer & Designer</title>
-    <meta name="description" content="Portfolio of Matthew Derek Rall — game developer from Durban, South Africa. BCIS in Game Design & Development, BA Honours in Design Leadership, and a published researcher in VR education.">
+    <meta name="description" content="Matthew Derek Rall — Unity & Unreal Engine game developer relocating to the USA. Indie game developer, C# and C++ programmer, national game jam winner, and published VR researcher.">
+    <meta name="keywords" content="game developer, Unity developer, Unreal Engine, C#, C++, indie games, game design, portfolio, Matthew Derek Rall">
+    <meta name="author" content="Matthew Derek Rall">
     <link rel="canonical" href="https://matthewderekrall.com/">
     <meta property="og:title" content="Matthew Derek Rall — Game Developer & Designer">
-    <meta property="og:description" content="Portfolio of Matthew Derek Rall — game developer from Durban, South Africa. BCIS in Game Design & Development, BA Honours in Design Leadership, and a published researcher in VR education.">
+    <meta property="og:description" content="Unity & Unreal Engine game developer relocating to the USA. National game jam winner and published VR researcher.">
     <meta property="og:url" content="https://matthewderekrall.com/">
     <meta property="og:type" content="website">
+    <!-- TODO: Create a 1200x630 branded card and place at /og-image.jpg -->
+    <meta property="og:image" content="https://matthewderekrall.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matthew Derek Rall — Game Developer & Designer">
+    <meta name="twitter:description" content="Unity & Unreal Engine game developer relocating to the USA. National game jam winner and published VR researcher.">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Matthew Derek Rall",
+      "jobTitle": "Game Developer & Designer",
+      "url": "https://matthewderekrall.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/matthew-rall-60b242269/",
+        "https://www.researchgate.net/profile/Matthew-Rall-2"
+      ],
+      "knowsAbout": ["Unity", "Unreal Engine", "C#", "C++", "Game Development", "VR Research", "Game Design"]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -31,13 +52,19 @@
             --accent-2:        #9333EA;
             --accent-2-lt:     #C026D3;
             --text:        #F1E8FF;
-            --text-muted:  #A78BCA;
-            --text-dim:    #7B63A0;
+            --text-muted:  #C4B0E0;
+            --text-dim:    #C4B0E0;
             --gradient:    linear-gradient(135deg,#9333EA,#C026D3);
             --glow:        rgba(147,51,234,0.3);
         }
 
         html { scroll-behavior: smooth; }
+
+        :focus-visible { outline: 2px solid #9333EA; outline-offset: 3px; }
+
+        #hero, #about, #skills, #experience, #education, #publication, #achievements, #projects, #contact {
+            scroll-margin-top: 80px;
+        }
 
         body {
             background: var(--bg);
@@ -61,10 +88,10 @@
         .section-label {
             display: inline-flex; align-items: center; gap: 8px;
             font-size: .72rem; font-weight: 600; letter-spacing: .15em;
-            text-transform: uppercase; color: var(--accent-2); margin-bottom: 12px;
+            text-transform: uppercase; color: #C026D3; margin-bottom: 12px;
         }
         .section-label::before {
-            content:''; display:inline-block; width:24px; height:2px; background:var(--accent-2);
+            content:''; display:inline-block; width:24px; height:2px; background:#C026D3;
         }
         .section-title {
             font-size: clamp(1.75rem,4vw,2.5rem); font-weight: 700;
@@ -72,7 +99,7 @@
         }
         .section-sub {
             color: var(--text-muted); font-size: 1rem;
-            margin-bottom: 48px; max-width: 520px;
+            margin-bottom: 48px; max-width: 70ch;
         }
 
         section { padding: 100px 0; }
@@ -167,11 +194,13 @@
 
         .hero-role {
             font-size: clamp(1rem,2.5vw,1.35rem);
-            color: var(--text-muted); font-weight: 400; margin-bottom: 22px;
+            color: #EDE0FF; font-weight: 400; margin-bottom: 22px;
+            text-shadow: 0 1px 6px rgba(13,10,20,.7);
         }
         .hero-desc {
-            font-size: 1rem; color: var(--text-muted);
-            max-width: 540px; margin-bottom: 40px; line-height: 1.75;
+            font-size: 1rem; color: #EDE0FF;
+            max-width: 70ch; margin-bottom: 40px; line-height: 1.75;
+            text-shadow: 0 1px 6px rgba(13,10,20,.7);
         }
         .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -211,19 +240,32 @@
         #about { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .about-text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
+        .about-text p { color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; max-width: 70ch; }
 
-        .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
         .stat {
             background: var(--bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 22px; text-align: center; transition: border-color .2s;
+            padding: 28px 22px; text-align: center; transition: border-color .2s, box-shadow .2s;
+            border-right: none;
         }
-        .stat:hover { border-color: var(--accent); }
+        .stat:first-child { border-radius: 12px 0 0 12px; }
+        .stat:last-child  { border-radius: 0 12px 12px 0; border-right: 1px solid var(--border); }
+        .stat:hover { border-color: var(--accent); box-shadow: 0 0 14px var(--glow); z-index: 1; }
         .stat-n {
-            display: block; font-size: 2rem; font-weight: 700; margin-bottom: 4px;
-            background: var(--gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+            display: block; font-size: 2.5rem; font-weight: 800; margin-bottom: 6px;
+            color: var(--accent);
         }
-        .stat-l { font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+        .stat-l { font-size: .85rem; color: #C4B0E0; text-transform: uppercase; letter-spacing: .05em; }
+        @media (max-width: 640px) {
+            .stats { grid-template-columns: 1fr 1fr; }
+            .stat { border-right: none; border-bottom: none; border-radius: 0 !important; }
+            .stat:nth-child(2n) { border-right: 1px solid var(--border); }
+            .stat:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+            .stat:first-child { border-radius: 12px 0 0 0 !important; }
+            .stat:nth-child(2) { border-radius: 0 12px 0 0 !important; }
+            .stat:nth-last-child(2) { border-radius: 0 0 0 12px !important; }
+            .stat:last-child { border-radius: 0 0 12px 0 !important; border-right: 1px solid var(--border); }
+        }
 
         /* ── SKILLS ── */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(265px,1fr)); gap: 22px; }
@@ -271,19 +313,34 @@
         }
         .tl-card:hover { border-color: var(--accent); }
         .tl-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
-        .tl-role { font-size: 1rem; font-weight: 600; }
+        .tl-role { font-size: 1rem; font-weight: 600; color: #F1E8FF; }
         .tl-date {
-            font-size: .75rem; color: var(--accent-2);
+            font-size: .75rem; color: #C4B0E0;
             background: rgba(147,51,234,.1); border: 1px solid rgba(147,51,234,.2);
             padding: 4px 12px; border-radius: 100px; white-space: nowrap;
         }
-        .tl-org { font-size: .88rem; color: var(--text-muted); margin-bottom: 10px; }
+        .tl-org { font-size: .88rem; color: #C026D3; margin-bottom: 10px; font-weight: 500; }
         .tl-pts { list-style: none; }
         .tl-pts li {
-            color: var(--text-muted); font-size: .88rem; padding-left: 16px;
+            color: #D4C4F0; font-size: .88rem; padding-left: 16px;
             position: relative; margin-bottom: 5px; line-height: 1.6;
         }
         .tl-pts li::before { content:'▹'; position:absolute; left:0; color:var(--accent); }
+
+        /* Other experience — collapsible */
+        .other-exp-toggle {
+            display: flex; align-items: center; gap: 10px; cursor: pointer;
+            list-style: none; padding: 10px 0; margin-top: 28px;
+            color: var(--text-dim); font-size: .82rem; font-weight: 600;
+            letter-spacing: .06em; text-transform: uppercase;
+        }
+        .other-exp-toggle::marker, .other-exp-toggle::-webkit-details-marker { display: none; }
+        .other-exp-toggle::before { content:''; flex: 1; height: 1px; background: var(--border); }
+        .other-exp-toggle::after  { content:''; flex: 1; height: 1px; background: var(--border); }
+        .other-exp-details[open] .other-exp-toggle { color: var(--text-muted); }
+        .other-exp-details .tl-item { margin-top: 20px; }
+        .other-exp-details .tl-card { opacity: .7; font-size: .9em; }
+        .other-exp-details[open] .tl-card { opacity: 1; }
 
         /* ── EDUCATION ── */
         .edu-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 22px; }
@@ -333,7 +390,8 @@
             font-family: 'DM Sans',sans-serif; font-size: .88rem;
             font-weight: 500; cursor: pointer; transition: all .2s;
         }
-        .tab.on, .tab:hover { border-color: var(--accent); color: var(--accent-lt); background: var(--bg-elevated); }
+        .tab.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .tab:hover:not(.on) { border-color: var(--accent); color: var(--accent-lt); background: var(--bg-elevated); }
 
         .proj-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 22px; }
         .proj-card {
@@ -404,7 +462,7 @@
         .cl-icon.cv-ic      svg { fill: var(--accent-2); }
 
         /* ── FOOTER ── */
-        footer { padding: 36px 0; border-top: 1px solid var(--border); }
+        footer { padding: 36px 0; border-top: 1px solid #3B1F5E; }
         .foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
         .foot-text { font-size: .83rem; color: var(--text-dim); }
         .foot-text span { color: var(--accent-lt); }
@@ -478,7 +536,8 @@
             font-family: 'DM Sans',sans-serif; font-size: .8rem;
             font-weight: 500; cursor: pointer; transition: all .2s;
         }
-        .filter-chip.on, .filter-chip:hover { border-color: var(--accent-2); color: var(--accent-2-lt); background: var(--bg-elevated); }
+        .filter-chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .filter-chip:hover:not(.on) { border-color: var(--accent-2); color: var(--accent-2-lt); background: var(--bg-elevated); }
 
         /* ── PROJ CARD (dynamic) ── */
         .proj-cover {
@@ -581,6 +640,58 @@
         .proj-itch-wrap { margin-top: 16px; border-radius: 8px; overflow: hidden; }
         .proj-itch-wrap iframe { display: block; width: 100%; border: none; }
 
+        /* ── HERO PHOTO ── */
+        .hero-layout { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+        /* TODO: Drop your photo at /images/profile.jpg */
+        .hero-photo-wrap {
+            width: 300px; height: 300px; border-radius: 50%; flex-shrink: 0;
+            background: var(--gradient); padding: 3px;
+            box-shadow: 0 0 32px var(--glow), 0 0 64px rgba(147,51,234,.15);
+        }
+        .hero-photo-inner {
+            width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+            background: var(--bg-elevated); display: flex; align-items: center;
+            justify-content: center;
+        }
+        .hero-photo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero-photo-placeholder {
+            width: 100%; height: 100%; display: flex; align-items: center;
+            justify-content: center; font-size: 4rem; opacity: .3;
+        }
+
+        /* ── RELOCATING BADGE ── */
+        .reloc-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(147,51,234,.12); border: 1px solid rgba(147,51,234,.45);
+            border-radius: 100px; padding: 7px 20px; margin-bottom: 20px;
+            font-size: .82rem; color: #C4B0E0; font-weight: 600; letter-spacing: .04em;
+            box-shadow: 0 0 12px rgba(147,51,234,.2);
+        }
+
+        /* ── CONTACT FORM ── */
+        .contact-form { margin-top: 40px; }
+        .contact-form h3 { font-family: 'Oxanium',sans-serif; font-size: 1.1rem; margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: .82rem; color: #C4B0E0; margin-bottom: 6px; font-weight: 500; }
+        .form-input, .form-textarea {
+            width: 100%; background: #1A1025; border: 1px solid #3B1F5E;
+            color: #F1E8FF; padding: 12px 16px; border-radius: 8px;
+            font-family: 'DM Sans',sans-serif; font-size: .95rem;
+            transition: border-color .2s, box-shadow .2s; outline: none;
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color: #6B5A8A; }
+        .form-input:focus, .form-textarea:focus {
+            border-color: #9333EA; box-shadow: 0 0 0 3px rgba(147,51,234,.2);
+        }
+        .form-textarea { resize: vertical; min-height: 130px; }
+        .form-submit {
+            background: #9333EA; color: #fff; border: none; padding: 13px 32px;
+            border-radius: 6px; font-family: 'DM Sans',sans-serif; font-size: .95rem;
+            font-weight: 600; cursor: pointer; transition: background .2s, transform .15s;
+            width: 100%;
+        }
+        .form-submit:hover { background: #6B21A8; transform: translateY(-1px); }
+
         /* ── MOBILE ── */
         @media (max-width: 768px) {
             .hamburger { display: flex; }
@@ -598,10 +709,11 @@
             .proj-tabs { flex-wrap: wrap; }
             .timeline { padding-left: 24px; }
             .tl-dot { left: -31px; }
-            .stats { grid-template-columns: 1fr 1fr; }
             .ach-grid { grid-template-columns: 1fr; }
             .foot-inner { flex-direction: column; text-align: center; }
             .contact-link:hover { transform: none; }
+            .hero-layout { grid-template-columns: 1fr; gap: 32px; }
+            .hero-photo-wrap { width: 200px; height: 200px; margin: 0 auto; }
         }
         @media (max-width: 480px) {
             .hero-btns { flex-direction: column; }
@@ -639,29 +751,41 @@
     <div class="hero-grid"></div>
     <div class="container">
         <div class="hero-content fade-in">
-            <div class="hero-badge">Game Developer &amp; Designer</div>
-            <h1 class="hero-name">
-                Matthew Derek<br><span class="grad">Rall</span>
-            </h1>
-            <p class="hero-role">Unity · Unreal Engine · C# · C++</p>
-            <p class="hero-desc">
-                Game developer from Durban, South Africa — shipping games since 2023, from cancer awareness shooters to card-based dungeon crawlers.
-                BCIS in Game Design &amp; Development, BA Honours in Design Leadership, and a published paper on VR in education.
-                Making the jump to the US.
-            </p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn-p">
-                    View Projects
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-                <a href="Matthew_Rall_Resume.pdf" download class="btn-s">
-                    Download CV
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+            <div class="hero-layout">
+                <div>
+                    <div class="reloc-badge">📍 Relocating to the USA</div>
+                    <div class="hero-badge">Game Developer &amp; Designer</div>
+                    <h1 class="hero-name">
+                        Matthew Derek<br><span class="grad">Rall</span>
+                    </h1>
+                    <p class="hero-role">Unity · Unreal Engine · C# · C++</p>
+                    <p class="hero-desc">
+                        Shipping games since 2023 — from cancer awareness shooters to card-based dungeon crawlers.
+                        BCIS in Game Design &amp; Development, Honours in Design Leadership, and a published VR researcher.
+                    </p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn-p">
+                            View Projects
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="Matthew_Rall_Resume.pdf" download class="btn-s">
+                            Download CV
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- TODO: Drop your photo at /images/profile.jpg -->
+                <div class="hero-photo-wrap">
+                    <div class="hero-photo-inner">
+                        <img src="/images/profile.jpg" alt="Matthew Derek Rall — Game Developer"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="hero-photo-placeholder" style="display:none;">👤</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -806,19 +930,6 @@
                 <div class="tl-dot"></div>
                 <div class="tl-card">
                     <div class="tl-head">
-                        <span class="tl-role">Veterinary Receptionist (After-Hours)</span>
-                        <span class="tl-date">Dec 2021 – Oct 2023</span>
-                    </div>
-                    <div class="tl-org">Westville Veterinary Hospital · Durban</div>
-                    <ul class="tl-pts">
-                        <li>Managed after-hours intake, point-of-sale, and emergency triage coordination in a high-pressure clinical environment.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-card">
-                    <div class="tl-head">
                         <span class="tl-role">Esports Coach — Counter-Strike</span>
                         <span class="tl-date">Mar 2021 – Apr 2022</span>
                     </div>
@@ -828,6 +939,23 @@
                     </ul>
                 </div>
             </div>
+
+            <details class="other-exp-details">
+                <summary class="other-exp-toggle">Other Experience</summary>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card">
+                        <div class="tl-head">
+                            <span class="tl-role">Veterinary Receptionist (After-Hours)</span>
+                            <span class="tl-date">Dec 2021 – Oct 2023</span>
+                        </div>
+                        <div class="tl-org">Westville Veterinary Hospital · Durban</div>
+                        <ul class="tl-pts">
+                            <li>Managed after-hours intake, point-of-sale, and emergency triage coordination in a high-pressure clinical environment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </details>
         </div>
     </div>
 </section>
@@ -880,7 +1008,7 @@
                 support. The core takeaway: VR has genuine potential here, but only if implemented with care.
                 Published on ResearchGate with a DOI.
             </p>
-            <a href="https://www.researchgate.net/profile/Matthew-Rall-2" target="_blank" rel="noopener" class="pub-link">
+            <a href="https://www.researchgate.net/profile/Matthew-Rall-2" target="_blank" rel="noopener noreferrer" class="pub-link">
                 View on ResearchGate
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -987,7 +1115,7 @@
                     <div class="ach-title">Featured in Highway Mail</div>
                     <div class="ach-context">
                         Cycled 1,000km with my dad Derek during the Covid-19 lockdown in July 2020 — finished three days early.
-                        <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener" style="color:var(--accent-2);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
+                        <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-2);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
                     </div>
                     <span class="ach-date">Aug 2020</span>
                 </div>
@@ -1020,9 +1148,9 @@
         <div class="contact-wrap fade-in">
             <span class="section-label">Get In Touch</span>
             <h2 class="section-title">Let's Connect</h2>
-            <p class="contact-text">
-                I'm open to game development roles, collaborations, and freelance projects — including opportunities
-                in the USA. Whether you have a project in mind or just want to say hello, feel free to reach out.
+            <p class="contact-text" style="max-width:70ch;">
+                I'm relocating to the USA and am actively seeking game development roles.
+                Whether you have a project, a position, or just want to connect — reach out.
             </p>
             <div class="contact-links">
                 <a href="mailto:matthewderekrall@gmail.com" class="cl">
@@ -1035,7 +1163,7 @@
                     </div>
                     <span class="cl-arr">→</span>
                 </a>
-                <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener" class="cl">
+                <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener noreferrer" class="cl">
                     <div class="cl-icon li-ic">
                         <svg class="cl-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </div>
@@ -1045,7 +1173,7 @@
                     </div>
                     <span class="cl-arr">→</span>
                 </a>
-                <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener" class="cl">
+                <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener noreferrer" class="cl">
                     <div class="cl-icon github-ic">
                         <svg class="cl-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                     </div>
@@ -1055,7 +1183,7 @@
                     </div>
                     <span class="cl-arr">→</span>
                 </a>
-                <a href="https://www.instagram.com/mattverstappen1" target="_blank" rel="noopener" class="cl">
+                <a href="https://www.instagram.com/mattverstappen1" target="_blank" rel="noopener noreferrer" class="cl">
                     <div class="cl-icon insta-ic">
                         <svg class="cl-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </div>
@@ -1085,6 +1213,26 @@
                     <span class="cl-arr">↓</span>
                 </a>
             </div>
+
+            <!-- TODO: Replace with your Formspree endpoint or preferred form handler -->
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form action="mailto:matthewderekrall@gmail.com" method="POST" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="cf-name">Name</label>
+                        <input id="cf-name" name="name" type="text" class="form-input" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email</label>
+                        <input id="cf-email" name="email" type="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-msg">Message</label>
+                        <textarea id="cf-msg" name="message" class="form-textarea" placeholder="Tell me about your project or role…" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
@@ -1093,22 +1241,22 @@
 <footer>
     <div class="container">
         <div class="foot-inner">
-            <p class="foot-text">© 2025 <span>Matthew Derek Rall</span>. All rights reserved.</p>
+            <p class="foot-text">© 2026 <span>Matthew Derek Rall</span>. All rights reserved.</p>
             <div class="foot-socials">
-                <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener" class="foot-soc gh" aria-label="GitHub">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener noreferrer" class="foot-soc gh" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
                 </a>
-                <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener" class="foot-soc li" aria-label="LinkedIn">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener noreferrer" class="foot-soc li" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/mattverstappen1" target="_blank" rel="noopener" class="foot-soc ig" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://www.instagram.com/mattverstappen1" target="_blank" rel="noopener noreferrer" class="foot-soc ig" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="https://discord.com/users/mattverstappen" target="_blank" rel="noopener" class="foot-soc dc" aria-label="Discord">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                <a href="https://discord.com/users/mattverstappen" target="_blank" rel="noopener noreferrer" class="foot-soc dc" aria-label="Discord">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 </a>
             </div>
-            <p class="foot-text">Durban, South Africa → <span>USA</span></p>
+            <p class="foot-text" style="color:#A78BCA;">Durban, South Africa → United States</p>
         </div>
     </div>
 </footer>
@@ -1218,7 +1366,7 @@
         if (proj.links) {
             for (const [key, url] of Object.entries(proj.links)) {
                 const label = LINK_LABEL[key] || key;
-                linkBtns.push(`<a href="${url}" target="_blank" rel="noopener" class="proj-link-btn">${label}</a>`);
+                linkBtns.push(`<a href="${url}" target="_blank" rel="noopener noreferrer" class="proj-link-btn">${label}</a>`);
             }
         }
         if (proj.file) {
@@ -1241,7 +1389,7 @@
             ? `<div class="proj-articles">
                 <div class="proj-articles-label">Press &amp; Articles</div>
                 ${proj.articles.map(a =>
-                    `<a href="${a.url}" target="_blank" rel="noopener" class="proj-article-link">
+                    `<a href="${a.url}" target="_blank" rel="noopener noreferrer" class="proj-article-link">
                         ↗ ${a.title}
                         ${a.source ? `<span class="proj-article-source">${a.source}</span>` : ''}
                     </a>`
