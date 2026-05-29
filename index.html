@@ -28,8 +28,8 @@
             --border-hi:   rgba(147,51,234,0.55);
             --accent:      #9333EA;
             --accent-lt:   #C026D3;
-            --cyan:        #9333EA;
-            --cyan-lt:     #C026D3;
+            --accent-2:        #9333EA;
+            --accent-2-lt:     #C026D3;
             --text:        #F1E8FF;
             --text-muted:  #A78BCA;
             --text-dim:    #7B63A0;
@@ -61,10 +61,10 @@
         .section-label {
             display: inline-flex; align-items: center; gap: 8px;
             font-size: .72rem; font-weight: 600; letter-spacing: .15em;
-            text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
+            text-transform: uppercase; color: var(--accent-2); margin-bottom: 12px;
         }
         .section-label::before {
-            content:''; display:inline-block; width:24px; height:2px; background:var(--cyan);
+            content:''; display:inline-block; width:24px; height:2px; background:var(--accent-2);
         }
         .section-title {
             font-size: clamp(1.75rem,4vw,2.5rem); font-weight: 700;
@@ -152,7 +152,7 @@
         }
         .hero-badge::before {
             content: ''; width: 6px; height: 6px; border-radius: 50%;
-            background: var(--cyan); animation: blink 2s infinite;
+            background: var(--accent-2); animation: blink 2s infinite;
         }
         @keyframes blink {
             0%,100% { opacity:1; transform:scale(1); }
@@ -179,9 +179,9 @@
             display: inline-flex; align-items: center; gap: 8px;
             background: var(--gradient); color: #fff; text-decoration: none;
             padding: 14px 28px; border-radius: 8px; font-weight: 600;
-            font-size: .95rem; transition: opacity .2s, transform .2s;
+            font-size: .95rem; transition: opacity .2s, transform .2s, box-shadow .2s;
         }
-        .btn-p:hover { opacity: .88; transform: translateY(-2px); }
+        .btn-p:hover { opacity: .88; transform: translateY(-2px); box-shadow: 0 0 20px var(--glow); }
 
         .btn-s {
             display: inline-flex; align-items: center; gap: 8px;
@@ -232,7 +232,7 @@
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 16px; padding: 26px; transition: border-color .3s, transform .25s;
         }
-        .skill-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .skill-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 0 18px var(--glow); }
 
         .sk-icon { font-size: 1.7rem; display: block; margin-bottom: 10px; }
         .sk-title { font-size: .95rem; font-weight: 600; margin-bottom: 14px; }
@@ -245,9 +245,9 @@
         }
         .tag:hover { background: rgba(147,51,234,.22); border-color: var(--accent); }
         .tag.c {
-            background: rgba(147,51,234,.1); border-color: rgba(147,51,234,.2); color: var(--cyan-lt);
+            background: rgba(147,51,234,.1); border-color: rgba(147,51,234,.2); color: var(--accent-2-lt);
         }
-        .tag.c:hover { background: rgba(147,51,234,.22); border-color: var(--cyan); }
+        .tag.c:hover { background: rgba(147,51,234,.22); border-color: var(--accent-2); }
 
         /* ── EXPERIENCE ── */
         #experience { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -255,7 +255,7 @@
         .timeline { position: relative; padding-left: 32px; }
         .timeline::before {
             content:''; position:absolute; left:0; top:8px; bottom:8px; width:2px;
-            background: linear-gradient(to bottom, var(--accent), var(--cyan), transparent);
+            background: linear-gradient(to bottom, var(--accent), var(--accent-2), transparent);
         }
         .tl-item { position: relative; padding-bottom: 44px; }
         .tl-item:last-child { padding-bottom: 0; }
@@ -263,7 +263,7 @@
             position: absolute; left: -39px; top: 8px;
             width: 14px; height: 14px; border-radius: 50%;
             background: var(--accent); border: 2px solid var(--bg-card);
-            box-shadow: 0 0 0 3px rgba(147,51,234,.3);
+            box-shadow: 0 0 0 3px var(--glow);
         }
         .tl-card {
             background: var(--bg); border: 1px solid var(--border);
@@ -273,7 +273,7 @@
         .tl-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
         .tl-role { font-size: 1rem; font-weight: 600; }
         .tl-date {
-            font-size: .75rem; color: var(--cyan);
+            font-size: .75rem; color: var(--accent-2);
             background: rgba(147,51,234,.1); border: 1px solid rgba(147,51,234,.2);
             padding: 4px 12px; border-radius: 100px; white-space: nowrap;
         }
@@ -297,7 +297,7 @@
         }
         .edu-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .edu-card:hover::before { opacity: 1; }
-        .edu-yr { font-size: .73rem; color: var(--cyan); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 8px; }
+        .edu-yr { font-size: .73rem; color: var(--accent-2); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 8px; }
         .edu-deg { font-size: .98rem; font-weight: 600; margin-bottom: 4px; }
         .edu-school { font-size: .87rem; color: var(--text-muted); margin-bottom: 14px; }
         .edu-detail { font-size: .83rem; color: var(--text-dim); line-height: 1.6; }
@@ -320,7 +320,7 @@
         .pub-desc { color: var(--text-muted); font-size: .9rem; line-height: 1.75; margin-bottom: 24px; }
         .pub-link {
             display: inline-flex; align-items: center; gap: 8px;
-            color: var(--cyan); text-decoration: none; font-weight: 600;
+            color: var(--accent-2); text-decoration: none; font-weight: 600;
             font-size: .9rem; transition: gap .2s;
         }
         .pub-link:hover { gap: 14px; }
@@ -333,14 +333,14 @@
             font-family: 'DM Sans',sans-serif; font-size: .88rem;
             font-weight: 500; cursor: pointer; transition: all .2s;
         }
-        .tab.on, .tab:hover { border-color: var(--accent); color: var(--accent-lt); background: rgba(147,51,234,.08); }
+        .tab.on, .tab:hover { border-color: var(--accent); color: var(--accent-lt); background: var(--bg-elevated); }
 
         .proj-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 22px; }
         .proj-card {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 16px; padding: 26px; transition: all .3s;
         }
-        .proj-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .proj-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 0 20px var(--glow); }
         .proj-card.ph { border-style: dashed; opacity: .6; }
         .proj-card.ph:hover { opacity: .85; transform: translateY(-3px); }
 
@@ -354,7 +354,7 @@
 
         .proj-engine {
             display: inline-block; background: rgba(147,51,234,.1);
-            border: 1px solid rgba(147,51,234,.2); color: var(--cyan-lt);
+            border: 1px solid rgba(147,51,234,.2); color: var(--accent-2-lt);
             padding: 3px 10px; border-radius: 4px; font-size: .7rem;
             font-weight: 600; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 12px;
         }
@@ -391,17 +391,17 @@
         /* ── SOCIAL ICONS ── */
         .cl-svg { width: 20px; height: 20px; display: block; }
         .cl-icon.github-ic  { background: rgba(147,51,234,.1); }
-        .cl-icon.github-ic  svg { fill: var(--cyan); }
+        .cl-icon.github-ic  svg { fill: var(--accent-2); }
         .cl-icon.insta-ic   { background: rgba(147,51,234,.1); }
-        .cl-icon.insta-ic   svg { fill: var(--cyan); }
+        .cl-icon.insta-ic   svg { fill: var(--accent-2); }
         .cl-icon.discord-ic { background: rgba(147,51,234,.1); }
-        .cl-icon.discord-ic svg { fill: var(--cyan); }
+        .cl-icon.discord-ic svg { fill: var(--accent-2); }
         .cl-icon.gmail-ic   { background: rgba(147,51,234,.1); }
-        .cl-icon.gmail-ic   svg { fill: var(--cyan); }
+        .cl-icon.gmail-ic   svg { fill: var(--accent-2); }
         .cl-icon.li-ic      { background: rgba(147,51,234,.1); }
         .cl-icon.li-ic      svg { fill: var(--accent-lt); }
         .cl-icon.cv-ic      { background: rgba(147,51,234,.1); }
-        .cl-icon.cv-ic      svg { fill: var(--cyan); }
+        .cl-icon.cv-ic      svg { fill: var(--accent-2); }
 
         /* ── FOOTER ── */
         footer { padding: 36px 0; border-top: 1px solid var(--border); }
@@ -417,10 +417,10 @@
         }
         .foot-soc:hover { border-color: var(--border-hi); transform: translateY(-2px); }
         .foot-soc svg { width: 16px; height: 16px; display: block; }
-        .foot-soc.gh  svg { fill: var(--cyan); }
+        .foot-soc.gh  svg { fill: var(--accent-2); }
         .foot-soc.li  svg { fill: var(--accent-lt); }
-        .foot-soc.ig  svg { fill: var(--cyan); }
-        .foot-soc.dc  svg { fill: var(--cyan); }
+        .foot-soc.ig  svg { fill: var(--accent-2); }
+        .foot-soc.dc  svg { fill: var(--accent-2); }
 
         /* ── ACHIEVEMENTS ── */
         .ach-grid {
@@ -433,7 +433,7 @@
             border: 1px solid var(--border); display: flex; gap: 18px;
             align-items: flex-start; transition: all .3s;
         }
-        .ach-card:hover { transform: translateY(-4px); border-color: var(--ach-color, var(--accent)); }
+        .ach-card:hover { transform: translateY(-4px); border-color: var(--ach-color, var(--accent)); box-shadow: 0 0 16px var(--glow); }
 
         .ach-card.award  { --ach-color: #fbbf24; --ach-bg: rgba(251,191,36,.12); --ach-border: rgba(251,191,36,.25); }
         .ach-card.pub    { --ach-color: #a78bfa; --ach-bg: rgba(167,139,250,.12); --ach-border: rgba(167,139,250,.25); }
@@ -478,7 +478,7 @@
             font-family: 'DM Sans',sans-serif; font-size: .8rem;
             font-weight: 500; cursor: pointer; transition: all .2s;
         }
-        .filter-chip.on, .filter-chip:hover { border-color: var(--cyan); color: var(--cyan-lt); background: rgba(147,51,234,.08); }
+        .filter-chip.on, .filter-chip:hover { border-color: var(--accent-2); color: var(--accent-2-lt); background: var(--bg-elevated); }
 
         /* ── PROJ CARD (dynamic) ── */
         .proj-cover {
@@ -501,8 +501,8 @@
             border-radius: 6px; font-size: .78rem; font-weight: 500; transition: all .2s;
         }
         .proj-link-btn:hover { background: rgba(147,51,234,.22); border-color: var(--accent); }
-        .proj-link-dl { background: rgba(147,51,234,.1); border-color: rgba(147,51,234,.2); color: var(--cyan-lt); }
-        .proj-link-dl:hover { background: rgba(147,51,234,.22); border-color: var(--cyan); }
+        .proj-link-dl { background: rgba(147,51,234,.1); border-color: rgba(147,51,234,.2); color: var(--accent-2-lt); }
+        .proj-link-dl:hover { background: rgba(147,51,234,.22); border-color: var(--accent-2); }
         .proj-empty {
             grid-column: 1/-1; text-align: center; padding: 60px 20px;
             color: var(--text-dim); font-size: .9rem;
@@ -550,7 +550,7 @@
             padding: 6px 0; border-bottom: 1px solid var(--border); transition: color .2s;
         }
         .proj-article-link:last-child { border-bottom: none; }
-        .proj-article-link:hover { color: var(--cyan); }
+        .proj-article-link:hover { color: var(--accent-2); }
         .proj-article-source {
             font-size: .72rem; color: var(--text-dim); margin-left: auto;
             white-space: nowrap; padding-left: 8px;
@@ -987,7 +987,7 @@
                     <div class="ach-title">Featured in Highway Mail</div>
                     <div class="ach-context">
                         Cycled 1,000km with my dad Derek during the Covid-19 lockdown in July 2020 — finished three days early.
-                        <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener" style="color:var(--cyan);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
+                        <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener" style="color:var(--accent-2);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
                     </div>
                     <span class="ach-date">Aug 2020</span>
                 </div>
