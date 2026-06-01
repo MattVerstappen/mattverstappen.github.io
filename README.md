@@ -34,3 +34,36 @@
 
 ### Status: COMPLETE
 All three prompts finished. Branch: claude/brave-maxwell-Xp7Ma. Ready to review and merge into main.
+
+---
+
+## Copilot PR Review - Action Plan (PR #13)
+
+### Comments Read: 23
+### Files Reviewed by Copilot: 30
+
+| # | File | Comment Summary | Action | Reason |
+|---|------|----------------|--------|--------|
+| 1 | js/nav.js:8 | setActiveLangOption runs before buildLangSwitcher populates elements, so active state never applies on first load | IMPLEMENT | Real bug - build switcher before setting active option |
+| 2 | js/lang-persist.js:10 | Header comment priority order wrong - code checks URL param first, not FS handle first | IMPLEMENT | Comment contradicts code |
+| 3 | js/lang-persist.js:86 | confirm() text misleads about persistence - handle is in-memory only, not cross-session | IMPLEMENT | Replaced confirm() with custom modal and corrected copy |
+| 4 | js/lang-persist.js:153 | Comment says IndexedDB is used but code only uses module variable + sessionStorage flag | IMPLEMENT | Implemented actual IndexedDB storage for cross-page persistence |
+| 5 | css/style.css:1107 | .lang-chips has no breakpoint gating - shows on desktop alongside the dropdown | IMPLEMENT | Added display:none on desktop, flex only inside mobile media query |
+| 6 | index.html:66 | div inside ul is invalid HTML - lang-chips should be an li element | IMPLEMENT | Changed to li in all 6 HTML pages |
+| 7 | about.html:46 | Same as above | IMPLEMENT | Same fix |
+| 8 | work.html:46 | Same as above | IMPLEMENT | Same fix |
+| 9 | research.html:46 | Same as above | IMPLEMENT | Same fix |
+| 10 | achievements.html:46 | Same as above | IMPLEMENT | Same fix |
+| 11 | contact.html:46 | Same as above | IMPLEMENT | Same fix |
+| 12 | index.html:19 | All hreflang alternates point to same URL - use ?lang=XX for distinct URLs | IMPLEMENT | Added ?lang=XX params, en and x-default keep base URL |
+| 13 | about.html:17 | Same as above | IMPLEMENT | Same fix |
+| 14 | work.html:17 | Same as above | IMPLEMENT | Same fix |
+| 15 | research.html:17 | Same as above | IMPLEMENT | Same fix |
+| 16 | achievements.html:17 | Same as above | IMPLEMENT | Same fix |
+| 17 | contact.html:17 | Same as above | IMPLEMENT | Same fix |
+| 18 | sitemap.xml:16 | All xhtml:link alternates point to same URL - use ?lang=XX | IMPLEMENT | Updated sitemap with distinct ?lang=XX hrefs |
+| 19 | sitemap.xml:111 | Sitemap only lists project.html without slug URLs - project pages should be indexed | IMPLEMENT | Added all 16 project slug URLs back to sitemap |
+| 20 | README.md:8 | README is a progress checklist with branch names that will go stale | SKIP | README serves as implementation log for this dev branch, useful context for reviewers |
+| 21 | js/nav.js:116 | Language dropdown does not update aria-expanded - screen readers cannot tell if menu is open | IMPLEMENT | Added aria-expanded toggle to toggleLangDropdown and closeLangDropdown |
+| 22 | index.md:19 | Language note misleads markdown readers - switcher only exists on HTML pages | IMPLEMENT | Reworded to clarify HTML site has switcher, markdown mirror is English-only |
+| 23 | project.md:65 | Available Languages section implies project.html has a switcher, but it does not | IMPLEMENT | Corrected to state UI is English-only on project detail pages |
