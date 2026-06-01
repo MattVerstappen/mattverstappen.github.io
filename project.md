@@ -51,7 +51,9 @@ Each rendered project page contains the following sections (populated from proje
 
 ## Available Languages
 
-The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+The main portfolio pages (index, about, work, research, achievements, contact) support 8 languages via an in-page language switcher. Project detail pages (project.html) display content in English only and do not include a language switcher.
+
+Supported languages on the main portfolio:
 
 - English (en)
 - Chinese / Zhongwen (zh)
@@ -61,8 +63,6 @@ The site navigation and UI elements on this page support the following 8 languag
 - Arabic / Arabi (ar)
 - Afrikaans (af)
 - Japanese / Nihongo (ja)
-
-Project content on this page is displayed in English only.
 
 ## Navigation
 
