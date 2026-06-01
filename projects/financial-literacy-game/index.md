@@ -2,7 +2,8 @@
 title: "Financial Literacy Game: Cash Crusade — The Hustle for Rands — Matthew Derek Rall"
 description: "Game design project by Matthew Derek Rall proposing a mobile financial literacy game for South African youth, using choice-driven narrative mechanics and culturally grounded characters."
 url: https://matthewderekrall.com/project.html?slug=financial-literacy-game
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Financial Literacy Game: Cash Crusade — The Hustle for Rands
@@ -63,3 +64,20 @@ A mobile-first, offline-compatible, and culturally localised financial education
 ## Links
 
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

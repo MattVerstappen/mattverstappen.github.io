@@ -2,7 +2,8 @@
 title: "System Saviour: A Modular Diagnostic Device for Accessible Tech Repair — Matthew Derek Rall"
 description: "Design project by Matthew Derek Rall proposing a rugged, modular, offline-compatible diagnostic device for affordable tech repair across South Africa, grounded in Cradle-to-Cradle and right-to-repair principles."
 url: https://matthewderekrall.com/project.html?slug=system-saviour
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # System Saviour: A Modular Diagnostic Device for Accessible Tech Repair
@@ -66,3 +67,20 @@ Testing conducted across three environments:
 ## Links
 
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

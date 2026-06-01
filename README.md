@@ -29,5 +29,5 @@
 - [x] sitemap.xml updated with hreflang alternates
 - [x] index.md updated
 - [x] project.md updated
-- [ ] All projects/slug/index.md files updated
+- [x] All projects/slug/index.md files updated
 - [ ] Final check - no em dashes or en dashes remain

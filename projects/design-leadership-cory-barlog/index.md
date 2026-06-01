@@ -2,7 +2,8 @@
 title: "Design Leadership in Action: The Case of Cory Barlog — Matthew Derek Rall"
 description: "Research paper by Matthew Derek Rall analysing Cory Barlog's leadership of God of War (2018) as a case study in visionary, transformational, and reflexive design leadership in AAA game development."
 url: https://matthewderekrall.com/project.html?slug=design-leadership-cory-barlog
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Design Leadership in Action: The Case of Cory Barlog
@@ -58,3 +59,20 @@ The second part of the paper presents a fictional executive recruitment brief fo
 ## Links
 
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

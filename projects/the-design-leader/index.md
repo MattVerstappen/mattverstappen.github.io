@@ -2,7 +2,8 @@
 title: "The Design Leader: A Vision for Game Development in South Africa — Matthew Derek Rall"
 description: "Research paper by Matthew Derek Rall examining the South African game development landscape and articulating a personal vision for design leadership — including a plan to build decentralised game development incubators in township communities."
 url: https://matthewderekrall.com/project.html?slug=the-design-leader
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # The Design Leader: A Vision for Game Development in South Africa
@@ -73,3 +74,20 @@ The vision aims to democratise access to game development education and create a
 ## Links
 
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.
