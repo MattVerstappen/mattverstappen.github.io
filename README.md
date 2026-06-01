@@ -26,7 +26,7 @@
 - [x] js/nav.js updated to load language on startup
 
 ### Prompt 3 of 3 - Sitemap and MD Files
-- [ ] sitemap.xml updated with hreflang alternates
+- [x] sitemap.xml updated with hreflang alternates
 - [ ] index.md updated
 - [ ] project.md updated
 - [ ] All projects/slug/index.md files updated
