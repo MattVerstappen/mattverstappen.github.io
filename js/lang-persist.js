@@ -79,11 +79,7 @@ async function promptFileSystemSave(code) {
     if (!isFileSystemSupported()) return;
     if (hasDeclinedFileSystem()) return;
 
-    const accepted = confirm(
-        'Want to save your language preference locally?\n\n' +
-        'This means it will persist even if you clear your browser storage. ' +
-        'Click OK to choose a save location once - after that it saves silently.'
-    );
+    const accepted = await showFsModal();
 
     if (!accepted) {
         localStorage.setItem(FS_DECLINED_KEY, 'true');
@@ -99,15 +95,54 @@ async function promptFileSystemSave(code) {
             }]
         });
 
-        // Store handle reference in sessionStorage
         await storeHandle(handle);
-
-        // Write immediately
         await writeToHandle(handle, code);
     } catch (e) {
         // User cancelled the picker - treat as declined
         localStorage.setItem(FS_DECLINED_KEY, 'true');
     }
+}
+
+/**
+ * Show a custom modal asking whether to save a language file.
+ * Non-blocking - returns a Promise<boolean>.
+ */
+function showFsModal() {
+    return new Promise(resolve => {
+        let overlay = document.getElementById('fsSaveModal');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.id = 'fsSaveModal';
+            overlay.className = 'fs-modal-overlay';
+            overlay.setAttribute('role', 'dialog');
+            overlay.setAttribute('aria-modal', 'true');
+            overlay.setAttribute('aria-labelledby', 'fsModalTitle');
+            overlay.innerHTML =
+                '<div class="fs-modal">' +
+                    '<p class="fs-modal-title" id="fsModalTitle">Save language preference?</p>' +
+                    '<p class="fs-modal-body">Your preference is already saved to localStorage and will persist across visits. Optionally you can also write it to a JSON file on your device - useful if you clear browser data regularly. The file is written once in this page session only.</p>' +
+                    '<div class="fs-modal-btns">' +
+                        '<button class="fs-modal-no" id="fsBtnNo">No thanks</button>' +
+                        '<button class="fs-modal-save" id="fsBtnSave">Save locally</button>' +
+                    '</div>' +
+                '</div>';
+            document.body.appendChild(overlay);
+        }
+
+        const ac = new AbortController();
+        const done = result => {
+            ac.abort();
+            overlay.classList.remove('open');
+            resolve(result);
+        };
+
+        document.getElementById('fsBtnNo').onclick = () => done(false);
+        document.getElementById('fsBtnSave').onclick = () => done(true);
+        overlay.addEventListener('click', e => { if (e.target === overlay) done(false); }, { signal: ac.signal });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') done(false); }, { signal: ac.signal });
+
+        requestAnimationFrame(() => overlay.classList.add('open'));
+    });
 }
 
 /**

@@ -1105,6 +1105,41 @@ hr.divider { border:none; border-top:1px solid var(--border); margin: 48px 0; }
     background: rgba(147,51,234,.15); border-color: var(--accent); color: var(--accent-lt);
 }
 
+/* ---- FILE SYSTEM SAVE MODAL ---- */
+.fs-modal-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,.6); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.fs-modal-overlay.open { opacity: 1; pointer-events: all; }
+.fs-modal {
+    background: var(--bg-card); border: 1px solid rgba(59,31,94,.7);
+    border-radius: 16px; padding: 28px 32px; max-width: 400px; width: 90%;
+    box-shadow: 0 24px 80px rgba(0,0,0,.6);
+}
+.fs-modal-title {
+    font-family: 'Oxanium', sans-serif; font-weight: 700; font-size: 1.1rem;
+    color: var(--text); margin: 0 0 12px;
+}
+.fs-modal-body {
+    color: var(--text-muted); font-size: .88rem; line-height: 1.6; margin: 0 0 24px;
+}
+.fs-modal-btns { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+.fs-modal-no {
+    background: transparent; border: 1px solid var(--border); color: var(--text-muted);
+    padding: 9px 18px; border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-size: .88rem; font-weight: 500; cursor: pointer; transition: all .2s;
+}
+.fs-modal-no:hover { border-color: var(--border-hi); color: var(--text); }
+.fs-modal-save {
+    background: linear-gradient(135deg, var(--accent), var(--accent-lt));
+    border: none; color: #fff; padding: 9px 18px; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: .88rem; font-weight: 600;
+    cursor: pointer; transition: opacity .2s;
+}
+.fs-modal-save:hover { opacity: .85; }
+
 /* ---- RTL LAYOUT ADJUSTMENTS (Arabic) ---- */
 [dir="rtl"] .section-label::before { margin-left: 8px; margin-right: 0; }
 [dir="rtl"] .timeline { padding-left: 0; padding-right: 32px; }
