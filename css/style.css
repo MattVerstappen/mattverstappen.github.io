@@ -1080,6 +1080,7 @@ hr.divider { border:none; border-top:1px solid var(--border); margin: 48px 0; }
     padding: 12px 24px; display: flex; align-items: flex-start;
     gap: 12px; font-size: .85rem; color: var(--text-muted);
     position: relative; z-index: 190; line-height: 1.6;
+    margin-top: 60px;
 }
 .lang-notice strong { color: var(--text); }
 .lang-notice-dismiss {
