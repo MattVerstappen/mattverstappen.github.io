@@ -181,26 +181,67 @@ async function writeToHandle(handle, code) {
     }
 }
 
-/**
- * Store a FileSystemFileHandle in sessionStorage using IndexedDB as a bridge.
- * Note: FileSystemFileHandle objects cannot be directly serialised to sessionStorage.
- * We store them in a module-level variable and use sessionStorage as a flag only.
- * @param {FileSystemFileHandle} handle
- */
-let _storedHandle = null;
+// IndexedDB constants for handle persistence across page navigations
+const IDB_DB_NAME = 'mdr-prefs';
+const IDB_STORE_NAME = 'handles';
+const IDB_HANDLE_KEY = 'lang-file-handle';
 
-async function storeHandle(handle) {
-    _storedHandle = handle;
-    sessionStorage.setItem(FS_HANDLE_KEY, 'active');
+function openHandleDB() {
+    return new Promise((resolve, reject) => {
+        const req = indexedDB.open(IDB_DB_NAME, 1);
+        req.onupgradeneeded = e => { e.target.result.createObjectStore(IDB_STORE_NAME); };
+        req.onsuccess = e => resolve(e.target.result);
+        req.onerror = () => reject(req.error);
+    });
+}
+
+async function saveHandleToIDB(handle) {
+    try {
+        const db = await openHandleDB();
+        await new Promise((resolve, reject) => {
+            const tx = db.transaction(IDB_STORE_NAME, 'readwrite');
+            tx.objectStore(IDB_STORE_NAME).put(handle, IDB_HANDLE_KEY);
+            tx.oncomplete = resolve;
+            tx.onerror = () => reject(tx.error);
+        });
+        db.close();
+    } catch (e) { /* IDB unavailable - silent fallback to localStorage */ }
+}
+
+async function getHandleFromIDB() {
+    try {
+        const db = await openHandleDB();
+        const handle = await new Promise((resolve, reject) => {
+            const tx = db.transaction(IDB_STORE_NAME, 'readonly');
+            const req = tx.objectStore(IDB_STORE_NAME).get(IDB_HANDLE_KEY);
+            req.onsuccess = () => resolve(req.result || null);
+            req.onerror = () => reject(req.error);
+        });
+        db.close();
+        return handle;
+    } catch (e) { return null; }
 }
 
 /**
- * Retrieve the stored FileSystemFileHandle if available.
- * @returns {FileSystemFileHandle|null}
+ * Store a FileSystemFileHandle in IndexedDB so it persists across page navigations.
+ * FileSystemFileHandle objects are structured-cloneable and can be stored in IDB.
+ * @param {FileSystemFileHandle} handle
+ */
+async function storeHandle(handle) {
+    await saveHandleToIDB(handle);
+}
+
+/**
+ * Retrieve the stored FileSystemFileHandle from IndexedDB if available and permitted.
+ * @returns {Promise<FileSystemFileHandle|null>}
  */
 async function getStoredHandle() {
-    if (_storedHandle && sessionStorage.getItem(FS_HANDLE_KEY) === 'active') {
-        return _storedHandle;
+    const handle = await getHandleFromIDB();
+    if (!handle) return null;
+    try {
+        const perm = await handle.queryPermission({ mode: 'readwrite' });
+        return perm === 'granted' ? handle : null;
+    } catch (e) {
+        return null;
     }
-    return null;
 }
