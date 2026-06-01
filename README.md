@@ -67,3 +67,8 @@ All three prompts finished. Branch: claude/brave-maxwell-Xp7Ma. Ready to review 
 | 21 | js/nav.js:116 | Language dropdown does not update aria-expanded - screen readers cannot tell if menu is open | IMPLEMENT | Added aria-expanded toggle to toggleLangDropdown and closeLangDropdown |
 | 22 | index.md:19 | Language note misleads markdown readers - switcher only exists on HTML pages | IMPLEMENT | Reworded to clarify HTML site has switcher, markdown mirror is English-only |
 | 23 | project.md:65 | Available Languages section implies project.html has a switcher, but it does not | IMPLEMENT | Corrected to state UI is English-only on project detail pages |
+
+## Copilot PR Review - Status: RESOLVED
+All actionable comments from the Copilot review of PR #13 have been addressed.
+Fixes implemented: 22
+Comments skipped: 1 (comment 20 - README rewrite; README serves as implementation log for this branch)
