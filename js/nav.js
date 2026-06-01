@@ -1,14 +1,16 @@
-// Language support - load saved preference on every page
+// Single DOMContentLoaded: language load runs first, then nav setup
 document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Load and apply saved language first
     if (typeof loadLang === 'function' && typeof applyTranslations === 'function') {
         const lang = await loadLang();
         applyTranslations(lang);
+        buildLangSwitcher();        // populate elements before marking active
         setActiveLangOption(lang);
+    } else {
+        buildLangSwitcher();
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    // ── NAV SCROLL ──
+    // 2. Nav scroll behaviour
     var nav = document.querySelector('nav');
     if (nav) {
         window.addEventListener('scroll', function () {
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ── HAMBURGER ──
+    // 3. Hamburger toggle
     var ham = document.getElementById('hamburger') || document.getElementById('ham');
     var navLinks = document.getElementById('navLinks');
     if (ham && navLinks) {
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ── FADE IN ──
+    // 4. Fade-in observer
     var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
             if (e.isIntersecting) e.target.classList.add('visible');
@@ -39,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.fade-in').forEach(function (el) {
         io.observe(el);
     });
+
+    // 5. Init notice banner
+    initLangNotice();
 });
 
 // ---- LANGUAGE SWITCHER ----
@@ -107,12 +112,18 @@ async function selectLang(lang) {
 
 function toggleLangDropdown() {
     const dropdown = document.querySelector('.lang-dropdown');
-    if (dropdown) dropdown.classList.toggle('open');
+    const btn = document.getElementById('langBtn');
+    if (dropdown) {
+        const isOpen = dropdown.classList.toggle('open');
+        if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
 }
 
 function closeLangDropdown() {
     const dropdown = document.querySelector('.lang-dropdown');
+    const btn = document.getElementById('langBtn');
     if (dropdown) dropdown.classList.remove('open');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
 }
 
 // Close dropdown on outside click
@@ -124,9 +135,6 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeLangDropdown();
 });
-
-// Build switcher on DOM ready
-document.addEventListener('DOMContentLoaded', buildLangSwitcher);
 
 // ---- LANGUAGE NOTICE BANNER ----
 
@@ -147,5 +155,3 @@ function initLangNotice() {
         });
     }
 }
-
-document.addEventListener('DOMContentLoaded', initLangNotice);
