@@ -2,7 +2,8 @@
 title: "Pixel to Platform: Redesigning Atlas Games' Website as a Strategic Design Tool — Matthew Derek Rall"
 description: "Design strategy and management plan by Matthew Derek Rall for redesigning the Atlas Games website, grounded in User-Centred Design and Minimalist Aesthetics."
 url: https://matthewderekrall.com/project.html?slug=pixel-to-platform-atlas-games
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Pixel to Platform: Redesigning Atlas Games' Website as a Strategic Design Tool
@@ -65,3 +66,20 @@ Five key risk categories identified with mitigation strategies focusing on:
 ## Links
 
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

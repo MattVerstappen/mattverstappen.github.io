@@ -2,7 +2,8 @@
 title: "Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — Matthew Derek Rall"
 description: "Published research paper by Matthew Derek Rall exploring how VR influences student learning in higher-education computer programming classrooms. Published on ResearchGate with a DOI."
 url: https://matthewderekrall.com/project.html?slug=exploring-vr-in-game-development-education
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning
@@ -66,3 +67,20 @@ VR has strong potential to enhance programming education but requires careful, t
 - [DOI: 10.13140/RG.2.2.32898.95688](https://doi.org/10.13140/RG.2.2.32898.95688)
 - [View on ResearchGate](https://www.researchgate.net/profile/Matthew-Rall-2)
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

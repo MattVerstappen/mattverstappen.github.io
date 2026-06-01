@@ -6,6 +6,16 @@
     <title>Achievements — Matthew Derek Rall</title>
     <meta name="description" content="Awards, competition placements, and press coverage for Matthew Derek Rall — game developer.">
     <link rel="canonical" href="https://matthewderekrall.com/achievements.html">
+    <link rel="alternate" hreflang="en"        href="https://matthewderekrall.com/achievements.html">
+    <link rel="alternate" hreflang="zh"        href="https://matthewderekrall.com/achievements.html?lang=zh">
+    <link rel="alternate" hreflang="hi"        href="https://matthewderekrall.com/achievements.html?lang=hi">
+    <link rel="alternate" hreflang="es"        href="https://matthewderekrall.com/achievements.html?lang=es">
+    <link rel="alternate" hreflang="fr"        href="https://matthewderekrall.com/achievements.html?lang=fr">
+    <link rel="alternate" hreflang="ar"        href="https://matthewderekrall.com/achievements.html?lang=ar">
+    <link rel="alternate" hreflang="af"        href="https://matthewderekrall.com/achievements.html?lang=af">
+    <link rel="alternate" hreflang="ja"        href="https://matthewderekrall.com/achievements.html?lang=ja">
+    <link rel="alternate" hreflang="x-default" href="https://matthewderekrall.com/achievements.html">
+    <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Achievements — Matthew Derek Rall">
     <meta property="og:description" content="Awards, competition placements, and press coverage for Matthew Derek Rall — game developer.">
@@ -26,28 +36,39 @@
     <div class="nav-inner">
         <a href="index.html" class="nav-logo">MDR</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Work</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="achievements.html" class="active">Achievements</a></li>
-            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="work.html" data-i18n="nav_work">Work</a></li>
+            <li><a href="research.html" data-i18n="nav_research">Research</a></li>
+            <li><a href="achievements.html" class="active" data-i18n="nav_achievements">Achievements</a></li>
+            <li><a href="contact.html" class="nav-cta" data-i18n="nav_contact">Contact</a></li>
+            <li class="lang-chips" id="langChips">
+                <!-- populated by nav.js buildLangSwitcher() -->
+            </li>
         </ul>
+        <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()" aria-label="Select language" aria-expanded="false">
+                🌐 English
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <!-- populated by nav.js buildLangSwitcher() -->
+            
+        
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
-    </div>
+    
 </nav>
 
 <!-- PAGE HERO -->
 <div class="page-hero">
-    <div class="page-hero-grid"></div>
-    <div class="page-hero-glow"></div>
+    <div class="page-hero-grid">
+    <div class="page-hero-glow">
     <div class="container page-hero-content">
-        <span class="section-label">Recognition</span>
-        <h1 class="section-title">Achievements</h1>
-        <p class="page-hero-sub">Awards, competition placements, publications, and press coverage across my work.</p>
-    </div>
-</div>
+        <span class="section-label" data-i18n="label_achievements">Recognition</span>
+        <h1 class="section-title" data-i18n="ach_heading">Achievements</h1>
+        <p class="page-hero-sub" data-i18n="ach_sub">Awards, competition placements, publications, and press coverage across my work.</p>
+    
+
 
 <!-- ACHIEVEMENTS GRID -->
 <section id="achievements">
@@ -56,110 +77,110 @@
 
             <!-- Publication -->
             <div class="ach-card pub">
-                <div class="ach-icon-wrap">📄</div>
+                <div class="ach-icon-wrap">📄
                 <div class="ach-body">
-                    <div class="ach-title">Published Research Paper</div>
-                    <div class="ach-context">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — ResearchGate</div>
+                    <div class="ach-title">Published Research Paper
+                    <div class="ach-context">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — ResearchGate
                     <span class="ach-date">2025</span>
-                </div>
-            </div>
+                
+            
 
             <!-- National Vega Game Jam -->
             <div class="ach-card award">
-                <div class="ach-icon-wrap">🏆</div>
+                <div class="ach-icon-wrap">🏆
                 <div class="ach-body">
-                    <div class="ach-title">National Vega Game Jam — Winner</div>
-                    <div class="ach-context">Cancer Crusher · National Vega Game Jam</div>
+                    <div class="ach-title">National Vega Game Jam — Winner
+                    <div class="ach-context">Cancer Crusher · National Vega Game Jam
                     <span class="ach-date">Oct 2023</span>
-                </div>
-            </div>
+                
+            
 
             <!-- Creative Conscience -->
             <div class="ach-card award">
-                <div class="ach-icon-wrap">🌍</div>
+                <div class="ach-icon-wrap">🌍
                 <div class="ach-body">
-                    <div class="ach-title">Creative Conscience — Shortlisted</div>
-                    <div class="ach-context">Cancer Crusher · International Creative Conscience Awards</div>
+                    <div class="ach-title">Creative Conscience — Shortlisted
+                    <div class="ach-context">Cancer Crusher · International Creative Conscience Awards
                     <span class="ach-date">2023</span>
-                </div>
-            </div>
+                
+            
 
             <!-- Press coverage -->
             <div class="ach-card press">
-                <div class="ach-icon-wrap">📰</div>
+                <div class="ach-icon-wrap">📰
                 <div class="ach-body">
-                    <div class="ach-title">7 Press Features</div>
-                    <div class="ach-context">Cancer Crusher covered by NGO Connect SA, Media Update, Vega School, Education Today, Love Your Nuts, World of Work &amp; The Mighty Pen</div>
+                    <div class="ach-title">7 Press Features
+                    <div class="ach-context">Cancer Crusher covered by NGO Connect SA, Media Update, Vega School, Education Today, Love Your Nuts, World of Work &amp; The Mighty Pen
                     <span class="ach-date">2023 – 2024</span>
-                </div>
-            </div>
+                
+            
 
             <!-- SA Game Jam -->
             <div class="ach-card award">
-                <div class="ach-icon-wrap">🥈</div>
+                <div class="ach-icon-wrap">🥈
                 <div class="ach-body">
-                    <div class="ach-title">SA Game Jam 2024 — Top 10 (8th Place)</div>
-                    <div class="ach-context">Kenny's Khaos · SA Game Jam 2024</div>
+                    <div class="ach-title">SA Game Jam 2024 — Top 10 (8th Place)
+                    <div class="ach-context">Kenny's Khaos · SA Game Jam 2024
                     <span class="ach-date">Oct 2024</span>
-                </div>
-            </div>
+                
+            
 
             <!-- TCGJ -->
             <div class="ach-card award">
-                <div class="ach-icon-wrap">🥉</div>
+                <div class="ach-icon-wrap">🥉
                 <div class="ach-body">
-                    <div class="ach-title">TCGJ 2024 — 3rd Place</div>
-                    <div class="ach-context">Timmys' Revenge · Thomas More College Game Jam 2024</div>
+                    <div class="ach-title">TCGJ 2024 — 3rd Place
+                    <div class="ach-context">Timmys' Revenge · Thomas More College Game Jam 2024
                     <span class="ach-date">July 2024</span>
-                </div>
-            </div>
+                
+            
 
             <!-- Ludum Dare 56 -->
             <div class="ach-card rank">
-                <div class="ach-icon-wrap">🎮</div>
+                <div class="ach-icon-wrap">🎮
                 <div class="ach-body">
-                    <div class="ach-title">Ludum Dare 56 — Top 500 (Rank 475)</div>
-                    <div class="ach-context">Tiny Cafe · Ludum Dare 56 Global Game Jam</div>
+                    <div class="ach-title">Ludum Dare 56 — Top 500 (Rank 475)
+                    <div class="ach-context">Tiny Cafe · Ludum Dare 56 Global Game Jam
                     <span class="ach-date">Oct 2024</span>
-                </div>
-            </div>
+                
+            
 
             <!-- Ludum Dare 55 -->
             <div class="ach-card rank">
-                <div class="ach-icon-wrap">🃏</div>
+                <div class="ach-icon-wrap">🃏
                 <div class="ach-body">
-                    <div class="ach-title">Ludum Dare 55 — Top 1,000 (Rank 924)</div>
-                    <div class="ach-context">Cardmageddon · Ludum Dare 55 Global Game Jam</div>
+                    <div class="ach-title">Ludum Dare 55 — Top 1,000 (Rank 924)
+                    <div class="ach-context">Cardmageddon · Ludum Dare 55 Global Game Jam
                     <span class="ach-date">April 2024</span>
-                </div>
-            </div>
+                
+            
 
             <!-- Highway Mail feature -->
             <div class="ach-card press">
-                <div class="ach-icon-wrap">📰</div>
+                <div class="ach-icon-wrap">📰
                 <div class="ach-body">
-                    <div class="ach-title">Featured in Highway Mail</div>
+                    <div class="ach-title">Featured in Highway Mail
                     <div class="ach-context">
                         Cycled 1,000km with my dad Derek during the Covid-19 lockdown in July 2020 — finished three days early.
                         <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-2);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
-                    </div>
+                    
                     <span class="ach-date">Aug 2020</span>
-                </div>
-            </div>
+                
+            
 
-        </div>
-    </div>
+        
+    
 </section>
 
-<div class="container"><hr class="divider"></div>
+<div class="container"><hr class="divider">
 
 <!-- PRESS & MEDIA -->
 <section id="press">
     <div class="container">
         <div class="fade-in">
             <span class="section-label">Press</span>
-            <h2 class="section-title">Press &amp; Media Features</h2>
-        </div>
+            <h2 class="section-title" data-i18n="press_heading">Press &amp; Media Features</h2>
+        
         <div class="press-list article-list fade-in">
             <a href="https://ngoconnectsa.org/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation/" target="_blank" rel="noopener noreferrer" class="article-row">
                 <span class="art-arrow">↗</span>
@@ -196,15 +217,15 @@
                 <span class="art-title">Students develop digital games for cancer awareness education</span>
                 <span class="art-source">The Mighty Pen</span>
             </a>
-        </div>
-    </div>
+        
+    
 </section>
 
 <!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="foot-inner">
-            <p class="foot-text">© 2026 <span>Matthew Derek Rall</span>. All rights reserved.</p>
+            <p class="foot-text">© 2026 <span>Matthew Derek Rall</span>. <span data-i18n="foot_rights">All rights reserved.</span></p>
             <div class="foot-socials">
                 <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener noreferrer" class="foot-soc gh" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
@@ -218,12 +239,14 @@
                 <a href="https://discord.com/users/mattverstappen" target="_blank" rel="noopener noreferrer" class="foot-soc dc" aria-label="Discord">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 </a>
-            </div>
-            <p class="foot-text" style="color:#A78BCA;">Durban, South Africa → United States</p>
-        </div>
-    </div>
+            
+            <p class="foot-text" style="color:#A78BCA;" data-i18n="foot_location">Durban, South Africa → United States</p>
+        
+    
 </footer>
 
+<script src="js/lang-persist.js" defer></script>
+<script src="js/translations.js" defer></script>
 <script src="js/nav.js" defer></script>
 </body>
 </html>

@@ -8,6 +8,16 @@
     <meta name="keywords" content="game developer, Unity developer, Unreal Engine, C#, C++, indie games, game design, portfolio, Matthew Derek Rall">
     <meta name="author" content="Matthew Derek Rall">
     <link rel="canonical" href="https://matthewderekrall.com/">
+    <link rel="alternate" hreflang="en"        href="https://matthewderekrall.com/">
+    <link rel="alternate" hreflang="zh"        href="https://matthewderekrall.com/?lang=zh">
+    <link rel="alternate" hreflang="hi"        href="https://matthewderekrall.com/?lang=hi">
+    <link rel="alternate" hreflang="es"        href="https://matthewderekrall.com/?lang=es">
+    <link rel="alternate" hreflang="fr"        href="https://matthewderekrall.com/?lang=fr">
+    <link rel="alternate" hreflang="ar"        href="https://matthewderekrall.com/?lang=ar">
+    <link rel="alternate" hreflang="af"        href="https://matthewderekrall.com/?lang=af">
+    <link rel="alternate" hreflang="ja"        href="https://matthewderekrall.com/?lang=ja">
+    <link rel="alternate" hreflang="x-default" href="https://matthewderekrall.com/">
+    <meta name="robots" content="index, follow">
     <meta property="og:title" content="Matthew Derek Rall — Game Developer & Designer">
     <meta property="og:description" content="Unity & Unreal Engine game developer relocating to the USA. National game jam winner and published VR researcher.">
     <meta property="og:url" content="https://matthewderekrall.com/">
@@ -46,122 +56,138 @@
     <div class="nav-inner">
         <a href="index.html" class="nav-logo">MDR</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Work</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="work.html" data-i18n="nav_work">Work</a></li>
+            <li><a href="research.html" data-i18n="nav_research">Research</a></li>
+            <li><a href="achievements.html" data-i18n="nav_achievements">Achievements</a></li>
+            <li><a href="contact.html" class="nav-cta" data-i18n="nav_contact">Contact</a></li>
+            <li class="lang-chips" id="langChips">
+                <!-- populated by nav.js buildLangSwitcher() -->
+            </li>
         </ul>
+        <div class="lang-switcher" id="langSwitcher">
+            <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()" aria-label="Select language" aria-expanded="false">
+                🌐 English
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <!-- populated by nav.js buildLangSwitcher() -->
+            
+        
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
-    </div>
+    
 </nav>
+
+<div class="lang-notice" id="langNotice">
+    <span data-i18n="notice_text">I am personally fluent in English and Afrikaans only. This site is available in 8 languages not because I speak them all, but because I want every visitor to be able to read in their mother tongue - rather than having to accommodate me. All translations have been carefully checked for grammar, spelling, and sentence structure.</span>
+    <button class="lang-notice-dismiss" aria-label="Dismiss">&#x2715;</button>
+
 
 <!-- HERO -->
 <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+    <div class="hero-bg">
+    <div class="hero-grid">
     <div class="container">
         <div class="hero-content fade-in">
             <div class="hero-layout">
                 <div>
-                    <div class="reloc-badge">📍 Relocating to the USA</div>
-                    <div class="hero-badge">Game Developer &amp; Designer</div>
+                    <div class="reloc-badge">📍 <span data-i18n="hero_relocating">Relocating to the USA</span>
+                    <div class="hero-badge" data-i18n="hero_badge">Game Developer &amp; Designer
                     <h1 class="hero-name">
                         Matthew Derek<br><span class="grad">Rall</span>
                     </h1>
-                    <p class="hero-role">Unity · Unreal Engine · C# · C++</p>
-                    <p class="hero-desc">
+                    <p class="hero-role" data-i18n="hero_role">Unity · Unreal Engine · C# · C++</p>
+                    <p class="hero-desc" data-i18n="hero_desc">
                         Shipping games since 2023 — from cancer awareness shooters to card-based dungeon crawlers.
                         BCIS in Game Design &amp; Development, Honours in Design Leadership, and a published VR researcher.
                     </p>
                     <div class="hero-btns">
                         <a href="work.html" class="btn-p">
-                            View Projects
+                            <span data-i18n="hero_btn_projects">View Projects</span>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
                         <a href="Matthew_Rall_Resume.pdf" download class="btn-s">
-                            Download CV
+                            <span data-i18n="hero_btn_cv">Download CV</span>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                                 <path d="M8 2v8M5 7l3 3 3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
-                    </div>
-                </div>
+                    
+                
                 <!-- Profile photo -->
                 <div class="hero-photo-wrap">
                     <div class="hero-photo-inner">
                         <img src="/images/profile.jpg" alt="Matthew Derek Rall — Game Developer"
                              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="hero-photo-placeholder" style="display:none;">👤</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="scroll-hint"><div class="scroll-line"></div></div>
+                        <div class="hero-photo-placeholder" style="display:none;">👤
+                    
+                
+            
+        
+    
+    <div class="scroll-hint"><div class="scroll-line"></div>
 </section>
 
 <!-- STATS STRIP -->
 <div class="stats-strip">
     <div class="stats-strip-inner">
-        <div class="strip-stat"><span class="strip-n">3+</span><span class="strip-l">Years Dev</span></div>
-        <div class="strip-stat"><span class="strip-n">2</span><span class="strip-l">Degrees</span></div>
-        <div class="strip-stat"><span class="strip-n">1</span><span class="strip-l">Publication</span></div>
-        <div class="strip-stat"><span class="strip-n">5+</span><span class="strip-l">Languages</span></div>
-    </div>
-</div>
+        <div class="strip-stat"><span class="strip-n">3+</span><span class="strip-l" data-i18n="stat_years">Years Dev</span>
+        <div class="strip-stat"><span class="strip-n">2</span><span class="strip-l" data-i18n="stat_degrees">Degrees</span>
+        <div class="strip-stat"><span class="strip-n">1</span><span class="strip-l" data-i18n="stat_publication">Publication</span>
+        <div class="strip-stat"><span class="strip-n">5+</span><span class="strip-l" data-i18n="stat_languages">Languages</span>
+    
+
 
 <!-- FEATURED WORK -->
 <section>
     <div class="container">
         <div class="fade-in" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:32px;">
             <div>
-                <span class="section-label">Featured Work</span>
-                <h2 class="section-title">Featured Work</h2>
-            </div>
-            <a href="work.html" class="btn-s" style="padding:10px 20px; font-size:.88rem;">View all projects →</a>
-        </div>
+                <span class="section-label" data-i18n="proj_featured">Featured Work</span>
+                <h2 class="section-title" data-i18n="proj_featured">Featured Work</h2>
+            
+            <a href="work.html" class="btn-s" style="padding:10px 20px; font-size:.88rem;" data-i18n="proj_view_all">View all projects →</a>
+        
         <div class="featured-grid fade-in">
 
             <!-- Cancer Crusher -->
             <div class="featured-card">
                 <img src="projects/cancer-crusher/CancerCrusherCover.png" class="featured-cover" alt="Cancer Crusher" onerror="this.style.display='none'">
                 <div class="featured-body">
-                    <div class="featured-award">🏆 National Vega Game Jam Winner</div>
-                    <div class="featured-title">Cancer Crusher</div>
+                    <div class="featured-award">🏆 National Vega Game Jam Winner
+                    <div class="featured-title">Cancer Crusher
                     <p class="featured-desc">A 2D retro shooter fighting cancer — National Vega Game Jam Winner.</p>
                     <a href="project.html?slug=cancer-crusher" class="featured-link">View Project →</a>
-                </div>
-            </div>
+                
+            
 
             <!-- Kenny's Khaos -->
             <div class="featured-card">
                 <img src="projects/kennys-khaos/KennysKhaosCover.png" class="featured-cover" alt="Kenny's Khaos" onerror="this.style.display='none'">
                 <div class="featured-body">
-                    <div class="featured-award">🥈 SA Game Jam 2024 — Top 10 (Rank 8th)</div>
-                    <div class="featured-title">Kenny's Khaos</div>
+                    <div class="featured-award">🥈 SA Game Jam 2024 — Top 10 (Rank 8th)
+                    <div class="featured-title">Kenny's Khaos
                     <p class="featured-desc">A reimagining of Timmys' Revenge — rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution.</p>
                     <a href="project.html?slug=kennys-khaos" class="featured-link">View Project →</a>
-                </div>
-            </div>
+                
+            
 
             <!-- Cardmageddon -->
             <div class="featured-card">
                 <img src="projects/cardmageddon/CardMageddonCover.png" class="featured-cover" alt="Cardmageddon" onerror="this.style.display='none'">
                 <div class="featured-body">
-                    <div class="featured-award">🃏 Ludum Dare 55 — Top 1,000 (924th)</div>
-                    <div class="featured-title">Cardmageddon</div>
+                    <div class="featured-award">🃏 Ludum Dare 55 — Top 1,000 (924th)
+                    <div class="featured-title">Cardmageddon
                     <p class="featured-desc">Thrown into a deep dungeon — explore the Mighty Maze, collect card-based summons, and win your freedom.</p>
                     <a href="project.html?slug=cardmageddon" class="featured-link">View Project →</a>
-                </div>
-            </div>
+                
+            
 
-        </div>
-    </div>
+        
+    
 </section>
 
 <!-- ABOUT SUMMARY -->
@@ -169,20 +195,20 @@
     <div class="container">
         <div class="about-summary-grid fade-in">
             <div class="about-summary-text">
-                <span class="section-label">About Me</span>
-                <h2 class="section-title" style="margin-bottom:20px;">Building worlds,<br>solving problems</h2>
-                <p>
+                <span class="section-label" data-i18n="label_about">About Me</span>
+                <h2 class="section-title" style="margin-bottom:20px;" data-i18n="about_heading">Building worlds,<br>solving problems</h2>
+                <p data-i18n="about_p1">
                     I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership
                     at Vega School. My work sits at the intersection of technical development and creative design — from
                     building games in Unity and Unreal Engine to researching how Virtual Reality can transform the way
                     programming is taught.
                 </p>
-                <p>
+                <p data-i18n="about_p2">
                     Beyond development, I bring experience as a competitive esports coach and academic tutor, which has
                     sharpened my communication, leadership, and analytical thinking.
                 </p>
-                <a href="about.html" class="about-summary-link">Read more about me →</a>
-            </div>
+                <a href="about.html" class="about-summary-link" data-i18n="about_readmore">Read more about me →</a>
+            
             <div>
                 <div class="tags" style="margin-bottom:18px;">
                     <span class="tag">C#</span>
@@ -191,12 +217,12 @@
                     <span class="tag">GDScript</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">HTML/CSS</span>
-                </div>
+                
                 <div class="tags" style="margin-bottom:18px;">
                     <span class="tag c">Unity</span>
                     <span class="tag c">Unreal Engine</span>
                     <span class="tag c">Godot</span>
-                </div>
+                
                 <div class="tags">
                     <span class="tag">Git</span>
                     <span class="tag">GitHub</span>
@@ -206,10 +232,10 @@
                     <span class="tag">Photoshop</span>
                     <span class="tag">Figma</span>
                     <span class="tag">Obsidian</span>
-                </div>
-            </div>
-        </div>
-    </div>
+                
+            
+        
+    
 </section>
 
 <!-- QUICK LINKS -->
@@ -219,29 +245,29 @@
             <a href="work.html" class="quick-card">
                 <span class="quick-icon">🎮</span>
                 <div class="quick-info">
-                    <div class="quick-label">All Projects</div>
-                    <div class="quick-desc">Games, apps, and design work</div>
-                </div>
+                    <div class="quick-label" data-i18n="ql_projects">All Projects
+                    <div class="quick-desc" data-i18n="ql_projects_desc">Games, apps, and design work
+                
                 <span class="quick-arrow">→</span>
             </a>
             <a href="research.html" class="quick-card">
                 <span class="quick-icon">📄</span>
                 <div class="quick-info">
-                    <div class="quick-label">Research &amp; Papers</div>
-                    <div class="quick-desc">Published VR research and academic work</div>
-                </div>
+                    <div class="quick-label" data-i18n="ql_research">Research &amp; Papers
+                    <div class="quick-desc" data-i18n="ql_research_desc">Published VR research and academic work
+                
                 <span class="quick-arrow">→</span>
             </a>
             <a href="achievements.html" class="quick-card">
                 <span class="quick-icon">🏆</span>
                 <div class="quick-info">
-                    <div class="quick-label">Achievements</div>
-                    <div class="quick-desc">Awards, placements, and press</div>
-                </div>
+                    <div class="quick-label" data-i18n="ql_ach">Achievements
+                    <div class="quick-desc" data-i18n="ql_ach_desc">Awards, placements, and press
+                
                 <span class="quick-arrow">→</span>
             </a>
-        </div>
-    </div>
+        
+    
 </section>
 
 <!-- CONTACT CTA -->
@@ -253,16 +279,16 @@
                 <a href="mailto:matthewderekrall@gmail.com" class="btn-p">Email Me</a>
                 <a href="https://www.linkedin.com/in/matthew-rall-60b242269/" target="_blank" rel="noopener noreferrer" class="btn-s">LinkedIn</a>
                 <a href="contact.html" class="btn-s">Full Contact Form →</a>
-            </div>
-        </div>
-    </div>
+            
+        
+    
 </section>
 
 <!-- FOOTER -->
 <footer>
     <div class="container">
         <div class="foot-inner">
-            <p class="foot-text">© 2026 <span>Matthew Derek Rall</span>. All rights reserved.</p>
+            <p class="foot-text">© 2026 <span>Matthew Derek Rall</span>. <span data-i18n="foot_rights">All rights reserved.</span></p>
             <div class="foot-socials">
                 <a href="https://github.com/MattVerstappen" target="_blank" rel="noopener noreferrer" class="foot-soc gh" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
@@ -276,12 +302,15 @@
                 <a href="https://discord.com/users/mattverstappen" target="_blank" rel="noopener noreferrer" class="foot-soc dc" aria-label="Discord">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 </a>
-            </div>
-            <p class="foot-text" style="color:#A78BCA;">Durban, South Africa → United States</p>
-        </div>
-    </div>
+            
+            <p class="foot-text" style="color:#A78BCA;" data-i18n="foot_location">Durban, South Africa → United States</p>
+        
+    
 </footer>
 
+<script src="js/lang-persist.js" defer></script>
+<script src="js/translations.js" defer></script>
 <script src="js/nav.js" defer></script>
+<script src="js/projects.js" defer></script>
 </body>
 </html>

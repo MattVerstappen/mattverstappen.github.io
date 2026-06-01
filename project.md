@@ -2,7 +2,8 @@
 title: "Project — Matthew Derek Rall"
 description: "Individual project detail page for Matthew Derek Rall's portfolio. Content is loaded dynamically based on the slug query parameter."
 url: https://matthewderekrall.com/project.html
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Project Detail Template — Matthew Derek Rall
@@ -48,9 +49,24 @@ Each rendered project page contains the following sections (populated from proje
 8. **Links** — GitHub, itch.io, DOI, video, or live links
 9. **Document** — Inline PDF viewer for research/design documents
 
+## Available Languages
+
+The main portfolio pages (index, about, work, research, achievements, contact) support 8 languages via an in-page language switcher. Project detail pages (project.html) display content in English only and do not include a language switcher.
+
+Supported languages on the main portfolio:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
 ## Navigation
 
-- [← Back to Portfolio](https://matthewderekrall.com/)
+- [Back to Portfolio](https://matthewderekrall.com/)
 
 ---
 

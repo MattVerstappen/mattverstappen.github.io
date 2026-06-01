@@ -2,7 +2,8 @@
 title: "Timmys' Revenge — Matthew Derek Rall"
 description: "Timmys' Revenge — a top-down 2D zombie shooter developed for TCGJ 2024, placing 3rd. Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=timmys-revenge
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Timmys' Revenge
@@ -46,3 +47,20 @@ Timmy's Revenge is a top-down 2D shooter where players battle relentless waves o
 
 - [View on itch.io](https://itch.io/embed/2829359)
 - [Back to Portfolio](https://matthewderekrall.com/)
+
+---
+
+## Available Languages
+
+The site navigation and UI elements on this page support the following 8 languages via the in-page language switcher:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Project content on this page is displayed in English only.

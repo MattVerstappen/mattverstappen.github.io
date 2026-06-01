@@ -2,7 +2,8 @@
 title: "Matthew Derek Rall — Game Developer & Designer"
 description: "Matthew Derek Rall — Unity & Unreal Engine game developer relocating to the USA. Indie game developer, C# and C++ programmer, national game jam winner, and published VR researcher."
 url: https://matthewderekrall.com/
-last_updated: 2026-05-29
+last_updated: 2026-06-01
+languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
 # Matthew Derek Rall — Game Developer & Designer
@@ -14,6 +15,8 @@ last_updated: 2026-05-29
 Shipping games since 2023 — from cancer awareness shooters to card-based dungeon crawlers. BCIS in Game Design & Development, Honours in Design Leadership, and a published VR researcher.
 
 [View Projects](https://matthewderekrall.com/#projects) | [Download CV](https://matthewderekrall.com/Matthew_Rall_Resume.pdf)
+
+> **Language note:** The live HTML site at matthewderekrall.com supports 8 languages (English, Chinese, Hindi, Spanish, French, Arabic, Afrikaans, Japanese) via an in-page language switcher. This markdown file is an AI-readable mirror of the homepage and is English-only.
 
 ---
 
@@ -312,6 +315,23 @@ All 16 projects are listed below. Each has a dedicated detail page linked by slu
 - **Instagram:** [@mattverstappen1](https://www.instagram.com/mattverstappen1)
 - **Discord:** mattverstappen
 - **Resume / CV:** [Download PDF](https://matthewderekrall.com/Matthew_Rall_Resume.pdf)
+
+---
+
+## Available Languages
+
+This site supports the following 8 languages via the in-page language switcher in the navigation bar:
+
+- English (en)
+- Chinese / Zhongwen (zh)
+- Hindi (hi)
+- Spanish / Espanol (es)
+- French / Francais (fr)
+- Arabic / Arabi (ar)
+- Afrikaans (af)
+- Japanese / Nihongo (ja)
+
+Language preference is saved in your browser and persists across visits.
 
 ---
 
