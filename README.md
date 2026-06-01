@@ -22,7 +22,7 @@
 - [ ] data-i18n attributes added to contact.html
 - [ ] Language notice banner added to index.html
 - [ ] hreflang tags added to all 6 pages
-- [ ] Language CSS added to css/style.css
+- [x] Language CSS added to css/style.css
 - [ ] js/nav.js updated to load language on startup
 
 ### Prompt 3 of 3 - Sitemap and MD Files
