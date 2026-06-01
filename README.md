@@ -5,7 +5,7 @@
 ### Prompt 1 of 3 - Core JS Files
 - [x] README.md progress tracker created
 - [x] js/lang-persist.js created
-- [ ] js/translations.js created
+- [x] js/translations.js created
 
 ### Prompt 2 of 3 - HTML Pages and CSS
 - [ ] Language switcher added to index.html
