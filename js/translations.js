@@ -491,13 +491,13 @@ const TRANSLATIONS = {
 
         label_about:      '关于我',
         about_heading:    '构建世界，解决问题',
-        about_p1:         '我是一名来自南非德班的游戏开发者，目前正在维嘉学院攻读设计领导力荣誉学士学位。我的工作处于技术开发与创意设计的交汇处——从使用Unity和虚幻引擎开发游戏，到研究虚拟现实如何革新编程教学方式。',
+        about_p1:         '我是一名来自南非德班的游戏开发者，目前正在维嘉学院攻读设计领导力荣誉学士学位。我的工作处于技术开发与创意设计的交汇处 - 从使用Unity和虚幻引擎开发游戏，到研究虚拟现实如何革新编程教学方式。',
         about_p2:         '除开发工作外，我还拥有竞技电子竞技教练和学术辅导的经验，这磨练了我的沟通、领导力和分析思维能力。我善于在需要创造性解决问题的协作型快节奏环境中发挥所长。',
         about_readmore:   '阅读更多',
 
         label_skills:     '我的技能',
         skills_heading:   '技能与工具',
-        skills_sub:       '从Unity和虚幻引擎到各类辅助工具——这是我在开发时所使用的一切。',
+        skills_sub:       '从Unity和虚幻引擎到各类辅助工具 - 这是我在开发时所使用的一切。',
         skill_languages:  '编程语言',
         skill_engines:    '游戏引擎与3D',
         skill_tools:      '工具与IDE',
@@ -505,12 +505,12 @@ const TRANSLATIONS = {
 
         label_experience: '工作经历',
         exp_heading:      '经验',
-        exp_sub:          '游戏开发马拉松、课堂教学和电竞训练——这就是我积累时间的地方。',
+        exp_sub:          '游戏开发马拉松、课堂教学和电竞训练 - 这就是我积累时间的地方。',
         exp_other:        '其他经历',
 
         label_education:  '学术背景',
         edu_heading:      '教育经历',
-        edu_sub:          '四年维嘉学院，两个学位——是我一切工作的基石。',
+        edu_sub:          '四年维嘉学院，两个学位 - 是我一切工作的基石。',
 
         label_research:   '研究',
         research_heading: '发表作品与研究',
@@ -537,7 +537,7 @@ const TRANSLATIONS = {
 
         label_contact:    '联系我',
         contact_heading:  '建立联系',
-        contact_text:     '我即将移居美国，正在积极寻找游戏开发相关职位。无论您有项目合作、职位机会还是只是想联系——欢迎随时联系我。',
+        contact_text:     '我即将移居美国，正在积极寻找游戏开发相关职位。无论您有项目合作、职位机会还是只是想联系 - 欢迎随时联系我。',
         contact_email:    '邮箱',
         contact_li:       'LinkedIn',
         contact_github:   'GitHub',
@@ -567,7 +567,7 @@ const TRANSLATIONS = {
         foot_rights:      '版权所有。',
         foot_location:    '南非德班 - 美国',
 
-        notice_text:      '我本人仅流利掌握英语和南非荷兰语。本网站提供8种语言，并非因为我全部精通，而是希望每位访客都能以母语阅读——而不必迁就我。所有译文均已仔细审核语法、拼写及句式结构。',
+        notice_text:      '我本人仅流利掌握英语和南非荷兰语。本网站提供8种语言，并非因为我全部精通，而是希望每位访客都能以母语阅读 - 而不必迁就我。所有译文均已仔细审核语法、拼写及句式结构。',
         notice_dismiss:   '关闭',
 
         title_home:       'Matthew Derek Rall - 游戏开发者与设计师',
