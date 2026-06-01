@@ -30,4 +30,4 @@
 - [x] index.md updated
 - [x] project.md updated
 - [x] All projects/slug/index.md files updated
-- [ ] Final check - no em dashes or en dashes remain
+- [x] Final check - no em dashes or en dashes remain
