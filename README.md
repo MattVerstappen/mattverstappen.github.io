@@ -4,7 +4,7 @@
 
 ### Prompt 1 of 3 - Core JS Files
 - [x] README.md progress tracker created
-- [ ] js/lang-persist.js created
+- [x] js/lang-persist.js created
 - [ ] js/translations.js created
 
 ### Prompt 2 of 3 - HTML Pages and CSS
