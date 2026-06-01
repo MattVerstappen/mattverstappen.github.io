@@ -11,13 +11,13 @@
 - [x] Language switcher added to index.html
 - [x] Language switcher added to about.html
 - [x] Language switcher added to work.html
-- [ ] Language switcher added to research.html
+- [x] Language switcher added to research.html
 - [ ] Language switcher added to achievements.html
 - [ ] Language switcher added to contact.html
 - [x] data-i18n attributes added to index.html
 - [x] data-i18n attributes added to about.html
 - [x] data-i18n attributes added to work.html
-- [ ] data-i18n attributes added to research.html
+- [x] data-i18n attributes added to research.html
 - [ ] data-i18n attributes added to achievements.html
 - [ ] data-i18n attributes added to contact.html
 - [x] Language notice banner added to index.html
