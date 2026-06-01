@@ -16,7 +16,7 @@ Shipping games since 2023 — from cancer awareness shooters to card-based dunge
 
 [View Projects](https://matthewderekrall.com/#projects) | [Download CV](https://matthewderekrall.com/Matthew_Rall_Resume.pdf)
 
-> **Language note:** This site is available in 8 languages. Use the language switcher in the navigation bar to switch between English, Chinese, Hindi, Spanish, French, Arabic, Afrikaans, and Japanese. Your preference is saved in your browser.
+> **Language note:** The live HTML site at matthewderekrall.com supports 8 languages (English, Chinese, Hindi, Spanish, French, Arabic, Afrikaans, Japanese) via an in-page language switcher. This markdown file is an AI-readable mirror of the homepage and is English-only.
 
 ---
 
