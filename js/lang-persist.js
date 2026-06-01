@@ -2,10 +2,10 @@
  * lang-persist.js
  * Handles saving and loading the user's language preference.
  *
- * Priority order on load:
- * 1. File System API handle stored in sessionStorage (most persistent)
- * 2. localStorage key 'mdr-lang'
- * 3. URL parameter ?lang=XX
+ * Priority order on load (highest to lowest):
+ * 1. URL parameter ?lang=XX  - allows direct per-link override
+ * 2. File System API handle  - in-memory only; valid only within the current page session
+ * 3. localStorage key 'mdr-lang' - persists across page navigations and browser restarts
  * 4. Default: 'en'
  */
 
