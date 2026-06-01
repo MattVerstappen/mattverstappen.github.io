@@ -23,7 +23,7 @@
 - [ ] Language notice banner added to index.html
 - [ ] hreflang tags added to all 6 pages
 - [x] Language CSS added to css/style.css
-- [ ] js/nav.js updated to load language on startup
+- [x] js/nav.js updated to load language on startup
 
 ### Prompt 3 of 3 - Sitemap and MD Files
 - [ ] sitemap.xml updated with hreflang alternates
