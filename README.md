@@ -28,6 +28,6 @@
 ### Prompt 3 of 3 - Sitemap and MD Files
 - [x] sitemap.xml updated with hreflang alternates
 - [x] index.md updated
-- [ ] project.md updated
+- [x] project.md updated
 - [ ] All projects/slug/index.md files updated
 - [ ] Final check - no em dashes or en dashes remain
