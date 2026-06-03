@@ -10,12 +10,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         buildLangSwitcher();
     }
 
-    // 2. Nav scroll behaviour
+    // 2. Nav scroll behaviour — rAF-throttled, passive, write-on-change only.
+    //    Batches the layout read (scrollY) into a single animation frame and only
+    //    touches the DOM when the state actually flips, avoiding forced reflow and
+    //    long main-thread tasks during scroll.
     var nav = document.querySelector('nav');
     if (nav) {
+        var scrolled = false;
+        var ticking = false;
         window.addEventListener('scroll', function () {
-            nav.classList.toggle('scrolled', window.scrollY > 20);
-        });
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(function () {
+                var isScrolled = window.scrollY > 20;   // single batched read
+                if (isScrolled !== scrolled) {
+                    scrolled = isScrolled;
+                    nav.classList.toggle('scrolled', scrolled);   // write only when it changes
+                }
+                ticking = false;
+            });
+        }, { passive: true });
     }
 
     // 3. Hamburger toggle

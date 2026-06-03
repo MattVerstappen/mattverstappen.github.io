@@ -44,9 +44,10 @@
       "knowsAbout": ["Unity", "Unreal Engine", "C#", "C++", "Game Development", "VR Research", "Game Design"]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Self-hosted fonts — removes the third-party request chain (googleapis CSS -> gstatic woff2) -->
+    <link rel="preload" href="/fonts/oxanium-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -84,6 +85,8 @@
     <button class="lang-notice-dismiss" aria-label="Dismiss">&#x2715;</button>
 </div>
 
+<main id="main">
+
 <!-- HERO -->
 <section id="hero">
     <div class="hero-bg"></div>
@@ -120,8 +123,13 @@
                 <!-- Profile photo -->
                 <div class="hero-photo-wrap">
                     <div class="hero-photo-inner">
-                        <img src="/images/profile.jpg" alt="Matthew Derek Rall — Game Developer"
-                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <img src="/images/profile-600.webp"
+                             srcset="/images/profile-300.webp 300w, /images/profile-600.webp 600w"
+                             sizes="(max-width: 768px) 200px, 300px"
+                             width="300" height="300"
+                             fetchpriority="high" decoding="async"
+                             alt="Matthew Derek Rall — Game Developer"
+                             onerror="this.onerror=null;this.src='/images/profile.jpg'">
                         <div class="hero-photo-placeholder" style="display:none;">👤</div>
                     </div>
                 </div>
@@ -156,7 +164,16 @@
 
             <!-- Cancer Crusher -->
             <div class="featured-card">
-                <img src="projects/cancer-crusher/CancerCrusherCover.png" class="featured-cover" alt="Cancer Crusher" onerror="this.style.display='none'">
+                <picture>
+                    <source type="image/webp"
+                            srcset="projects/cancer-crusher/CancerCrusherCover-400.webp 400w,
+                                    projects/cancer-crusher/CancerCrusherCover-700.webp 700w,
+                                    projects/cancer-crusher/CancerCrusherCover-987.webp 987w"
+                            sizes="(max-width: 700px) 100vw, 336px">
+                    <img src="projects/cancer-crusher/CancerCrusherCover.png" class="featured-cover"
+                         width="987" height="555" loading="lazy" decoding="async"
+                         alt="Cancer Crusher" onerror="this.style.display='none'">
+                </picture>
                 <div class="featured-body">
                     <div class="featured-award">🏆 National Vega Game Jam Winner</div>
                     <div class="featured-title">Cancer Crusher</div>
@@ -167,7 +184,12 @@
 
             <!-- Kenny's Khaos -->
             <div class="featured-card">
-                <img src="projects/kennys-khaos/KennysKhaosCover.png" class="featured-cover" alt="Kenny's Khaos" onerror="this.style.display='none'">
+                <picture>
+                    <source type="image/webp" srcset="projects/kennys-khaos/KennysKhaosCover.webp">
+                    <img src="projects/kennys-khaos/KennysKhaosCover.png" class="featured-cover"
+                         width="347" height="282" loading="lazy" decoding="async"
+                         alt="Kenny's Khaos" onerror="this.style.display='none'">
+                </picture>
                 <div class="featured-body">
                     <div class="featured-award">🥈 SA Game Jam 2024 — Top 10 (Rank 8th)</div>
                     <div class="featured-title">Kenny's Khaos</div>
@@ -178,7 +200,12 @@
 
             <!-- Cardmageddon -->
             <div class="featured-card">
-                <img src="projects/cardmageddon/CardMageddonCover.png" class="featured-cover" alt="Cardmageddon" onerror="this.style.display='none'">
+                <picture>
+                    <source type="image/webp" srcset="projects/cardmageddon/CardMageddonCover.webp">
+                    <img src="projects/cardmageddon/CardMageddonCover.png" class="featured-cover"
+                         width="336" height="468" loading="lazy" decoding="async"
+                         alt="Cardmageddon" onerror="this.style.display='none'">
+                </picture>
                 <div class="featured-body">
                     <div class="featured-award">🃏 Ludum Dare 55 — Top 1,000 (924th)</div>
                     <div class="featured-title">Cardmageddon</div>
@@ -285,6 +312,8 @@
     </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
     <div class="container">
@@ -310,7 +339,7 @@
 </footer>
 
 <script src="js/lang-persist.js" defer></script>
-<script src="js/translations.js" defer></script>
+<script src="js/translations.min.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="js/projects.js" defer></script>
 </body>
