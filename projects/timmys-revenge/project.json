@@ -2,6 +2,7 @@
   "title": "Timmys' Revenge",
   "degree": "BCIS in Game Design And Game Development",
   "type": "game",
+  "engine": "UNITY",
   "status": "completed",
   "event": "TCGJ 2024",
   "awards": ["3rd Place"],

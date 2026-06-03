@@ -20,6 +20,16 @@ var TYPE_ICON = {
     other:    '📦',
 };
 
+// Custom mdr-icons.js icon name per project type (used for cover placeholder / fallback)
+var TYPE_ICON_NAME = {
+    research: 'paper',
+    game:     'gamepad',
+    app:      'code',
+    web:      'globe',
+    design:   'spark',
+    other:    'card',
+};
+
 var LINK_LABEL = {
     github: '⌥ GitHub',
     itch:   '🎮 itch.io',
@@ -37,12 +47,37 @@ function buildCard(proj) {
     var icon      = TYPE_ICON[proj.type] || '📦';
     var typeLabel = proj.type ? proj.type.charAt(0).toUpperCase() + proj.type.slice(1) : 'Project';
 
+    var catBadge   = proj.engine ? '<span class="project-category-badge">' + proj.engine + '</span>' : '';
+    var fallbackIcon = (typeof mdrIcon === 'function')
+        ? mdrIcon(TYPE_ICON_NAME[proj.type] || 'gamepad', 40) : '';
+    var fallbackDiv = function (visible) {
+        return '<div class="cover-icon-fallback" style="display:' + (visible ? 'flex' : 'none') +
+               '; align-items:center; justify-content:center; height:100%; color:var(--accent);">' + fallbackIcon + '</div>';
+    };
+
     var coverSrc = proj.coverImage
         ? 'projects/' + proj.slug + '/' + proj.coverImage
         : proj.photos > 0 ? 'projects/' + proj.slug + '/cover.jpg' : null;
-    var cover = coverSrc
-        ? '<a href="project.html?slug=' + proj.slug + '" class="proj-cover-link"><img src="' + coverSrc + '" class="proj-cover" onerror="this.style.display=\'none\'" alt="' + proj.title + '"></a>'
-        : '';
+
+    var coverInner;
+    if (coverSrc) {
+        var onerr = "this.closest('.proj-cover-wrap').querySelector('.cover-icon-fallback').style.display='flex';";
+        var imgTag;
+        if (proj.coverWebp) {
+            imgTag = '<picture><source type="image/webp" srcset="projects/' + proj.slug + '/' + proj.coverWebp + '">' +
+                     '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+                     'onerror="this.closest(\'picture\').style.display=\'none\'; ' + onerr + '"></picture>';
+        } else {
+            imgTag = '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+                     'onerror="this.style.display=\'none\'; ' + onerr + '">';
+        }
+        coverInner = imgTag + fallbackDiv(false);
+    } else {
+        // No cover image — use the category icon as the cover area.
+        coverInner = fallbackDiv(true);
+    }
+    var cover = '<a href="project.html?slug=' + proj.slug + '" class="proj-cover-link">' +
+                '<div class="proj-cover-wrap">' + catBadge + coverInner + '</div></a>';
 
     var gallery = proj.photoFiles && proj.photoFiles.length
         ? '<div class="proj-gallery">' + proj.photoFiles.map(function (f) {

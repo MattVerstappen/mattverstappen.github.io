@@ -43,7 +43,7 @@ const TRANSLATIONS = {
         // About section
         label_about:      'About Me',
         about_heading:    'Building worlds, solving problems',
-        about_p1:         "I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership at Vega School. My work sits at the intersection of technical development and creative design - from building games in Unity and Unreal Engine to researching how Virtual Reality can transform the way programming is taught.",
+        about_p1:         "I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership at Vega School. My work sits at the intersection of technical development and creative design - from building games in Unity and Unreal Engine to researching how VR can transform how programming is taught.",
         about_p2:         'Beyond development, I bring experience as a competitive esports coach and academic tutor, which has sharpened my communication, leadership, and analytical thinking. I thrive in collaborative, fast-moving environments where creative problem-solving matters.',
         about_readmore:   'Read more about me',
 
@@ -78,13 +78,13 @@ const TRANSLATIONS = {
         // Achievements section
         label_achievements: 'Recognition',
         ach_heading:      'Achievements',
-        ach_sub:          'Awards, competition placements, publications, and press coverage across my work.',
+        ach_sub:          'Awards, placements, and press across game jams and academia.',
         press_heading:    'Press & Media Features',
 
         // Projects section
         label_work:       'My Work',
         work_heading:     'Projects',
-        work_sub:         'Games, research, and applications across my degrees and personal work.',
+        work_sub:         'Games, research, and design work - filter by what you\'re after.',
         tab_completed:    'Completed',
         tab_wip:          'In Development',
         filter_all:       'All',
