@@ -43,9 +43,9 @@ const TRANSLATIONS = {
         // About section
         label_about:      'About Me',
         about_heading:    'Building worlds, solving problems',
-        about_p1:         "I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership at Vega School. My work sits at the intersection of technical development and creative design - from building games in Unity and Unreal Engine to researching how Virtual Reality can transform the way programming is taught.",
+        about_p1:         "I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership at Vega School. My work sits at the intersection of technical development and creative design - from building games in Unity and Unreal Engine to researching how VR can transform how programming is taught.",
         about_p2:         'Beyond development, I bring experience as a competitive esports coach and academic tutor, which has sharpened my communication, leadership, and analytical thinking. I thrive in collaborative, fast-moving environments where creative problem-solving matters.',
-        about_readmore:   'Read more',
+        about_readmore:   'Read more about me',
 
         // Skills section
         label_skills:     'What I Know',
@@ -78,13 +78,13 @@ const TRANSLATIONS = {
         // Achievements section
         label_achievements: 'Recognition',
         ach_heading:      'Achievements',
-        ach_sub:          'Awards, competition placements, publications, and press coverage across my work.',
+        ach_sub:          'Awards, placements, and press across game jams and academia.',
         press_heading:    'Press & Media Features',
 
         // Projects section
         label_work:       'My Work',
         work_heading:     'Projects',
-        work_sub:         'Games, research, and applications across my degrees and personal work.',
+        work_sub:         'Games, research, and design work - filter by what you\'re after.',
         tab_completed:    'Completed',
         tab_wip:          'In Development',
         filter_all:       'All',
@@ -166,7 +166,7 @@ const TRANSLATIONS = {
         about_heading:    'Werelde bou, probleme oplos',
         about_p1:         'Ek is \'n spelontwikkelaar van Durban, Suid-Afrika. My werk staan op die kruispunt van tegniese ontwikkeling en kreatiewe ontwerp - van die bou van speletjies in Unity en Unreal Engine tot navorsing oor hoe Virtuele Realiteit die manier waarop programmering onderrig word, kan verander.',
         about_p2:         'Buiten ontwikkeling bring ek ondervinding as \'n mededingende esports-afrigter en akademiese tutor, wat my kommunikasie, leierskap en analitiese denke skerp gestel het. Ek floreer in samewerkende, vinnigbewegende omgewings waar kreatiewe probleemoplossing saak maak.',
-        about_readmore:   'Lees meer',
+        about_readmore:   'Lees meer oor my',
 
         label_skills:     'Wat Ek Weet',
         skills_heading:   'Vaardighede & Gereedskap',
@@ -275,7 +275,7 @@ const TRANSLATIONS = {
         about_heading:    'Construyendo mundos, resolviendo problemas',
         about_p1:         'Soy un desarrollador de videojuegos de Durban, Sudafrica. Mi trabajo se encuentra en la interseccion entre el desarrollo tecnico y el diseno creativo - desde construir juegos en Unity y Unreal Engine hasta investigar como la Realidad Virtual puede transformar la ensenanza de la programacion.',
         about_p2:         'Mas alla del desarrollo, aporto experiencia como entrenador competitivo de esports y tutor academico, lo que ha agudizado mi comunicacion, liderazgo y pensamiento analitico. Me desenvuelvo bien en entornos colaborativos y dinamicos donde la resolucion creativa de problemas es fundamental.',
-        about_readmore:   'Leer mas',
+        about_readmore:   'Leer más sobre mí',
 
         label_skills:     'Lo Que Se',
         skills_heading:   'Habilidades y Herramientas',
@@ -384,7 +384,7 @@ const TRANSLATIONS = {
         about_heading:    'Construire des mondes, resoudre des problemes',
         about_p1:         'Je suis un developpeur de jeux video de Durban, en Afrique du Sud. Mon travail se situe a l\'intersection du developpement technique et du design creatif - de la creation de jeux sous Unity et Unreal Engine a la recherche sur la facon dont la Realite Virtuelle peut transformer l\'enseignement de la programmation.',
         about_p2:         'Au-dela du developpement, j\'apporte une experience d\'entraineur esports competitif et de tuteur academique, ce qui a affine mes capacites de communication, de leadership et de pensee analytique. Je m\'epanouis dans des environnements collaboratifs et dynamiques ou la resolution creative de problemes est essentielle.',
-        about_readmore:   'Lire la suite',
+        about_readmore:   'En savoir plus sur moi',
 
         label_skills:     'Ce Que Je Sais',
         skills_heading:   'Competences et Outils',
@@ -493,7 +493,7 @@ const TRANSLATIONS = {
         about_heading:    '构建世界，解决问题',
         about_p1:         '我是一名来自南非德班的游戏开发者，目前正在维嘉学院攻读设计领导力荣誉学士学位。我的工作处于技术开发与创意设计的交汇处 - 从使用Unity和虚幻引擎开发游戏，到研究虚拟现实如何革新编程教学方式。',
         about_p2:         '除开发工作外，我还拥有竞技电子竞技教练和学术辅导的经验，这磨练了我的沟通、领导力和分析思维能力。我善于在需要创造性解决问题的协作型快节奏环境中发挥所长。',
-        about_readmore:   '阅读更多',
+        about_readmore:   '了解更多关于我的信息',
 
         label_skills:     '我的技能',
         skills_heading:   '技能与工具',
@@ -602,7 +602,7 @@ const TRANSLATIONS = {
         about_heading:    'दुनियाएँ बनाना, समस्याएँ सुलझाना',
         about_p1:         'मैं दक्षिण अफ्रीका के डरबन से एक गेम डेवलपर हूँ। मेरा काम तकनीकी विकास और रचनात्मक डिज़ाइन के बीच है - Unity और Unreal Engine में गेम बनाने से लेकर यह शोध करने तक कि VR प्रोग्रामिंग शिक्षा को कैसे बदल सकती है।',
         about_p2:         'डेवलपमेंट के अलावा, मेरे पास एक प्रतिस्पर्धी eSports कोच और शैक्षणिक ट्यूटर के रूप में अनुभव है, जिसने मेरी संचार, नेतृत्व और विश्लेषणात्मक सोच को निखारा है। मैं सहयोगात्मक, तेज़ गति वाले वातावरण में फलता-फूलता हूँ जहाँ रचनात्मक समस्या-समाधान महत्वपूर्ण होता है।',
-        about_readmore:   'और पढ़ें',
+        about_readmore:   'मेरे बारे में और पढ़ें',
 
         label_skills:     'मुझे क्या आता है',
         skills_heading:   'कौशल और टूल्स',
@@ -711,7 +711,7 @@ const TRANSLATIONS = {
         about_heading:    'بناء العوالم وحل المشكلات',
         about_p1:         'أنا مطور ألعاب من دربان، جنوب أفريقيا. يقع عملي عند تقاطع التطوير التقني والتصميم الإبداعي - من بناء الألعاب باستخدام Unity وUnreal Engine إلى البحث في كيفية تحويل الواقع الافتراضي لطريقة تدريس البرمجة.',
         about_p2:         'إلى جانب التطوير، أمتلك خبرة كمدرب إلكتروني تنافسي ومعلم أكاديمي، مما صقل مهاراتي في التواصل والقيادة والتفكير التحليلي. أزدهر في البيئات التعاونية سريعة الإيقاع التي تكون فيها حل المشكلات الإبداعية أمراً بالغ الأهمية.',
-        about_readmore:   'قراءة المزيد',
+        about_readmore:   'اقرأ المزيد عني',
 
         label_skills:     'ما أتقنه',
         skills_heading:   'المهارات والأدوات',
@@ -820,7 +820,7 @@ const TRANSLATIONS = {
         about_heading:    '世界を作り、問題を解決する',
         about_p1:         '南アフリカのダーバン出身のゲーム開発者です。技術開発とクリエイティブデザインの交差点で仕事をしています。UnityとUnreal Engineでのゲーム開発から、バーチャルリアリティがプログラミング教育をどのように変えられるかの研究まで幅広く取り組んでいます。',
         about_p2:         '開発以外にも、競技esportsコーチおよびアカデミックチューターとしての経験があり、コミュニケーション能力・リーダーシップ・分析的思考を磨いてきました。創造的な問題解決が求められる、協力的でスピード感のある環境で力を発揮します。',
-        about_readmore:   '続きを読む',
+        about_readmore:   '私についてもっと読む',
 
         label_skills:     'スキル・ツール',
         skills_heading:   'スキルとツール',

@@ -25,9 +25,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/favicon_io/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Self-hosted fonts — removes the third-party request chain (googleapis CSS -> gstatic woff2) -->
+    <link rel="preload" href="/fonts/oxanium-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -59,6 +60,8 @@
     </div>
 </nav>
 
+<main id="main">
+
 <!-- PAGE HERO -->
 <div class="page-hero">
     <div class="page-hero-grid"></div>
@@ -66,7 +69,7 @@
     <div class="container page-hero-content">
         <span class="section-label" data-i18n="label_achievements">Recognition</span>
         <h1 class="section-title" data-i18n="ach_heading">Achievements</h1>
-        <p class="page-hero-sub" data-i18n="ach_sub">Awards, competition placements, publications, and press coverage across my work.</p>
+        <p class="page-hero-sub" data-i18n="ach_sub">Awards, placements, and press across game jams and academia.</p>
     </div>
 </div>
 
@@ -74,98 +77,86 @@
 <!-- ACHIEVEMENTS GRID -->
 <section id="achievements">
     <div class="container">
-        <div class="ach-grid fade-in">
+        <div class="achievement-grid fade-in">
 
-            <!-- Publication -->
-            <div class="ach-card pub">
-                <div class="ach-icon-wrap">📄</div>
-                <div class="ach-body">
-                    <div class="ach-title">Published Research Paper</div>
-                    <div class="ach-context">Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — ResearchGate</div>
-                    <span class="ach-date">2025</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,191,36,.15); color:#FBBF24;" data-mdr-icon="trophy" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">National Vega Game Jam - Winner</div>
+                    <div class="achievement-sub">Cancer Crusher - 1st place nationally</div>
+                    <span class="achievement-year">2023</span>
                 </div>
             </div>
 
-            <!-- National Vega Game Jam -->
-            <div class="ach-card award">
-                <div class="ach-icon-wrap">🏆</div>
-                <div class="ach-body">
-                    <div class="ach-title">National Vega Game Jam — Winner</div>
-                    <div class="ach-context">Cancer Crusher · National Vega Game Jam</div>
-                    <span class="ach-date">Oct 2023</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,191,36,.15); color:#FBBF24;" data-mdr-icon="spark" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">Creative Conscience - Shortlisted</div>
+                    <div class="achievement-sub">Cancer Crusher - International Creative Conscience Awards</div>
+                    <span class="achievement-year">2023</span>
                 </div>
             </div>
 
-            <!-- Creative Conscience -->
-            <div class="ach-card award">
-                <div class="ach-icon-wrap">🌍</div>
-                <div class="ach-body">
-                    <div class="ach-title">Creative Conscience — Shortlisted</div>
-                    <div class="ach-context">Cancer Crusher · International Creative Conscience Awards</div>
-                    <span class="ach-date">2023</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,146,60,.15); color:#FB923C;" data-mdr-icon="medal" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">SA Game Jam - Top 10 (8th)</div>
+                    <div class="achievement-sub">Kenny's Khaos</div>
+                    <span class="achievement-year">2024</span>
                 </div>
             </div>
 
-            <!-- Press coverage -->
-            <div class="ach-card press">
-                <div class="ach-icon-wrap">📰</div>
-                <div class="ach-body">
-                    <div class="ach-title">7 Press Features</div>
-                    <div class="ach-context">Cancer Crusher covered by NGO Connect SA, Media Update, Vega School, Education Today, Love Your Nuts, World of Work &amp; The Mighty Pen</div>
-                    <span class="ach-date">2023 – 2024</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,146,60,.15); color:#FB923C;" data-mdr-icon="medal" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">TCGJ - 3rd Place</div>
+                    <div class="achievement-sub">Timmys' Revenge - Thomas More College Game Jam</div>
+                    <span class="achievement-year">2024</span>
                 </div>
             </div>
 
-            <!-- SA Game Jam -->
-            <div class="ach-card award">
-                <div class="ach-icon-wrap">🥈</div>
-                <div class="ach-body">
-                    <div class="ach-title">SA Game Jam 2024 — Top 10 (8th Place)</div>
-                    <div class="ach-context">Kenny's Khaos · SA Game Jam 2024</div>
-                    <span class="ach-date">Oct 2024</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,146,60,.15); color:#FB923C;" data-mdr-icon="medal" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">Ludum Dare 56 - Top 500 (475th)</div>
+                    <div class="achievement-sub">Tiny Cafe</div>
+                    <span class="achievement-year">2024</span>
                 </div>
             </div>
 
-            <!-- TCGJ -->
-            <div class="ach-card award">
-                <div class="ach-icon-wrap">🥉</div>
-                <div class="ach-body">
-                    <div class="ach-title">TCGJ 2024 — 3rd Place</div>
-                    <div class="ach-context">Timmys' Revenge · Thomas More College Game Jam 2024</div>
-                    <span class="ach-date">July 2024</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(251,146,60,.15); color:#FB923C;" data-mdr-icon="medal" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">Ludum Dare 55 - Top 1,000 (924th)</div>
+                    <div class="achievement-sub">Cardmageddon</div>
+                    <span class="achievement-year">2024</span>
                 </div>
             </div>
 
-            <!-- Ludum Dare 56 -->
-            <div class="ach-card rank">
-                <div class="ach-icon-wrap">🎮</div>
-                <div class="ach-body">
-                    <div class="ach-title">Ludum Dare 56 — Top 500 (Rank 475)</div>
-                    <div class="ach-context">Tiny Cafe · Ludum Dare 56 Global Game Jam</div>
-                    <span class="ach-date">Oct 2024</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(167,139,250,.15); color:#A78BFA;" data-mdr-icon="paper" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">Published VR Research</div>
+                    <div class="achievement-sub">Exploring VR in Game Development Education - ResearchGate</div>
+                    <span class="achievement-year">2025</span>
                 </div>
             </div>
 
-            <!-- Ludum Dare 55 -->
-            <div class="ach-card rank">
-                <div class="ach-icon-wrap">🃏</div>
-                <div class="ach-body">
-                    <div class="ach-title">Ludum Dare 55 — Top 1,000 (Rank 924)</div>
-                    <div class="ach-context">Cardmageddon · Ludum Dare 55 Global Game Jam</div>
-                    <span class="ach-date">April 2024</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(167,139,250,.15); color:#A78BFA;" data-mdr-icon="press" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">7 Press Features</div>
+                    <div class="achievement-sub">Cancer Crusher - NGO Connect SA, Media Update, Vega School, Education Today, Love Your Nuts, World of Work &amp; The Mighty Pen</div>
+                    <span class="achievement-year">2023 - 2024</span>
                 </div>
             </div>
 
-            <!-- Highway Mail feature -->
-            <div class="ach-card press">
-                <div class="ach-icon-wrap">📰</div>
-                <div class="ach-body">
-                    <div class="ach-title">Featured in Highway Mail</div>
-                    <div class="ach-context">
-                        Cycled 1,000km with my dad Derek during the Covid-19 lockdown in July 2020 — finished three days early.
-                        <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-2);display:inline-block;margin-top:6px;font-size:.8rem;">Read article ↗</a>
-                    </div>
-                    <span class="ach-date">Aug 2020</span>
+            <div class="achievement-card">
+                <div class="achievement-icon-well" style="background:rgba(167,139,250,.15); color:#A78BFA;" data-mdr-icon="press" data-mdr-size="24"></div>
+                <div class="achievement-body">
+                    <div class="achievement-title">Featured in Highway Mail</div>
+                    <div class="achievement-sub">Cycled 1,000km with my dad Derek during the Covid-19 lockdown - finished three days early. <a href="https://www.citizen.co.za/highway-mail/news-headlines/2020/08/30/matthew-makes-the-most-of-lockdown/" target="_blank" rel="noopener noreferrer">Read article</a></div>
+                    <span class="achievement-year">2020</span>
                 </div>
             </div>
 
@@ -222,6 +213,8 @@
     </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
     <div class="container">
@@ -241,13 +234,14 @@
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 </a>
             </div>
-            <p class="foot-text" style="color:#A78BCA;" data-i18n="foot_location">Durban, South Africa → United States</p>
+            <p class="foot-text footer-location" data-i18n="foot_location">Durban, South Africa - United States</p>
         </div>
     </div>
 </footer>
 
+<script src="assets/mdr-icons.js" defer></script>
 <script src="js/lang-persist.js" defer></script>
-<script src="js/translations.js" defer></script>
+<script src="js/translations.min.js" defer></script>
 <script src="js/nav.js" defer></script>
 </body>
 </html>

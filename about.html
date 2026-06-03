@@ -25,9 +25,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/favicon_io/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Oxanium:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Self-hosted fonts — removes the third-party request chain (googleapis CSS -> gstatic woff2) -->
+    <link rel="preload" href="/fonts/oxanium-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -59,6 +60,8 @@
     </div>
 </nav>
 
+<main id="main">
+
 <!-- PAGE HERO -->
 <div class="page-hero">
     <div class="page-hero-grid"></div>
@@ -78,9 +81,8 @@
             <div class="about-text">
                 <p data-i18n="about_p1">
                     I'm a game developer from Durban, South Africa, currently completing a BA Honours in Design Leadership
-                    at Vega School. My work sits at the intersection of technical development and creative design — from
-                    building games in Unity and Unreal Engine to researching how Virtual Reality can transform the way
-                    programming is taught.
+                    at Vega School. My work sits at the intersection of technical development and creative design - from
+                    building games in Unity and Unreal Engine to researching how VR can transform how programming is taught.
                 </p>
                 <p data-i18n="about_p2">
                     Beyond development, I bring experience as a competitive esports coach and academic tutor, which has
@@ -120,46 +122,45 @@
         </div>
         <div class="skills-grid fade-in">
             <div class="skill-card">
-                <span class="sk-icon">💻</span>
-                <h3 class="sk-title" data-i18n="skill_languages">Programming Languages</h3>
-                <div class="tags">
-                    <span class="tag">C#</span>
-                    <span class="tag">C++</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Kotlin</span>
+                <div class="skill-card-icon" data-mdr-icon="code" data-mdr-size="28"></div>
+                <h3 data-i18n="skill_languages">Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Kotlin</span>
                 </div>
             </div>
             <div class="skill-card">
-                <span class="sk-icon">🎮</span>
-                <h3 class="sk-title" data-i18n="skill_engines">Game Engines &amp; 3D</h3>
-                <div class="tags">
-                    <span class="tag c">Unity</span>
-                    <span class="tag c">Unreal Engine</span>
-                    <span class="tag c">Blender</span>
-                    <span class="tag c">3ds Max</span>
+                <div class="skill-card-icon" data-mdr-icon="gamepad" data-mdr-size="28"></div>
+                <h3 data-i18n="skill_engines">Game Engines &amp; 3D</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Unity</span>
+                    <span class="skill-tag">Unreal Engine</span>
+                    <span class="skill-tag">Blender</span>
+                    <span class="skill-tag">3ds Max</span>
                 </div>
             </div>
             <div class="skill-card">
-                <span class="sk-icon">🔧</span>
-                <h3 class="sk-title" data-i18n="skill_tools">Tools &amp; IDEs</h3>
-                <div class="tags">
-                    <span class="tag">Visual Studio</span>
-                    <span class="tag">JetBrains Rider</span>
-                    <span class="tag">Android Studio</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">GitHub</span>
-                    <span class="tag">Photoshop</span>
+                <div class="skill-card-icon" data-mdr-icon="tools" data-mdr-size="28"></div>
+                <h3 data-i18n="skill_tools">Tools &amp; IDEs</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Visual Studio</span>
+                    <span class="skill-tag">Rider</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Photoshop</span>
                 </div>
             </div>
             <div class="skill-card">
-                <span class="sk-icon">🧠</span>
-                <h3 class="sk-title" data-i18n="skill_other">Other Skills</h3>
-                <div class="tags">
-                    <span class="tag">Design Leadership</span>
-                    <span class="tag">VR Research</span>
-                    <span class="tag">Team Coaching</span>
-                    <span class="tag">Academic Tutoring</span>
+                <div class="skill-card-icon" data-mdr-icon="spark" data-mdr-size="28"></div>
+                <h3 data-i18n="skill_other">Other Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Design Leadership</span>
+                    <span class="skill-tag">VR Research</span>
+                    <span class="skill-tag">Team Coaching</span>
+                    <span class="skill-tag">Tutoring</span>
                 </div>
             </div>
         </div>
@@ -179,7 +180,7 @@
                 <div class="tl-dot"></div>
                 <div class="tl-card">
                     <div class="tl-head">
-                        <span class="tl-role">Academic Tutor — Computer Science</span>
+                        <span class="tl-role">Academic Tutor - Computer Science</span>
                         <span class="tl-date">Jan 2025 – Dec 2025</span>
                     </div>
                     <div class="tl-org">ADvTECH · Durban, South Africa</div>
@@ -193,7 +194,7 @@
                 <div class="tl-dot"></div>
                 <div class="tl-card">
                     <div class="tl-head">
-                        <span class="tl-role">Esports Coach — Counter-Strike</span>
+                        <span class="tl-role">Esports Coach - Counter-Strike</span>
                         <span class="tl-date">Mar 2024 – Oct 2025</span>
                     </div>
                     <div class="tl-org">Royal Republic Esports</div>
@@ -207,7 +208,7 @@
                 <div class="tl-dot"></div>
                 <div class="tl-card">
                     <div class="tl-head">
-                        <span class="tl-role">Esports Coach — Counter-Strike</span>
+                        <span class="tl-role">Esports Coach - Counter-Strike</span>
                         <span class="tl-date">Mar 2021 – Apr 2022</span>
                     </div>
                     <div class="tl-org">THE-SA</div>
@@ -247,19 +248,19 @@
         </div>
         <div class="edu-grid fade-in">
             <div class="edu-card">
-                <div class="edu-yr">Jan 2025 – Dec 2025</div>
+                <div class="edu-yr">JAN 2025 - DEC 2025</div>
                 <div class="edu-deg">BA Honours in Design Leadership</div>
                 <div class="edu-school">Vega School · Durban, South Africa</div>
                 <div class="edu-detail">Focus areas: Virtual Reality, Design Leadership, Higher Education Research.</div>
             </div>
             <div class="edu-card">
-                <div class="edu-yr">Jan 2022 – Dec 2024</div>
+                <div class="edu-yr">JAN 2022 - DEC 2024</div>
                 <div class="edu-deg">BCIS in Game Design and Development</div>
                 <div class="edu-school">Vega School · Durban, South Africa</div>
                 <div class="edu-detail">Coursework: Programming, App Design, Web Design, Graphic Design, Unity, Unreal Engine, Blender 3D.</div>
             </div>
             <div class="edu-card">
-                <div class="edu-yr">Jan 2017 – Dec 2021</div>
+                <div class="edu-yr">JAN 2017 - DEC 2021</div>
                 <div class="edu-deg">National Senior Certificate (Matric)</div>
                 <div class="edu-school">Thomas More College · Kloof, South Africa</div>
                 <div class="edu-detail">Completed secondary education with a focus on sciences and technology.</div>
@@ -267,6 +268,8 @@
         </div>
     </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -287,13 +290,14 @@
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 </a>
             </div>
-            <p class="foot-text" style="color:#A78BCA;" data-i18n="foot_location">Durban, South Africa → United States</p>
+            <p class="foot-text footer-location" data-i18n="foot_location">Durban, South Africa - United States</p>
         </div>
     </div>
 </footer>
 
+<script src="assets/mdr-icons.js" defer></script>
 <script src="js/lang-persist.js" defer></script>
-<script src="js/translations.js" defer></script>
+<script src="js/translations.min.js" defer></script>
 <script src="js/nav.js" defer></script>
 </body>
 </html>
