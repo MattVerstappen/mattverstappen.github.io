@@ -2,7 +2,7 @@
   "title": "Cardmageddon",
   "degree": "BCIS in Game Design And Game Development",
   "type": "game",
-  "engine": "GODOT",
+  "engine": "UNITY",
   "status": "completed",
   "event": "Ludum Dare 55",
   "awards": ["Top 1,000 (924th)"],
