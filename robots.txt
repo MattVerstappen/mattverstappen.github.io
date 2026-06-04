@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI assistants and web crawlers — all content is public and welcome
+# AI assistants and web crawlers - all content is public and welcome
 User-agent: GPTBot
 Allow: /
 
