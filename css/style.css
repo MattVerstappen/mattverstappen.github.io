@@ -961,11 +961,15 @@ hr.divider { border:none; border-top:1px solid var(--border); margin: 48px 0; }
     transition: all .2s;
 }
 .quick-card:hover { border-color: var(--accent); transform: translateX(4px); }
-.quick-icon { font-size: 1.6rem; flex-shrink: 0; }
+.quick-icon { color: var(--accent); flex-shrink: 0; display: flex; align-items: center; }
+.quick-icon svg { display: block; }
 .quick-info { flex: 1; }
 .quick-label { font-weight: 600; font-size: .95rem; margin-bottom: 3px; }
 .quick-desc { color: var(--text-muted); font-size: .78rem; }
-.quick-arrow { color: var(--accent); font-size: 1.1rem; }
+.quick-arrow { color: var(--accent); display: flex; align-items: center; flex-shrink: 0; }
+.quick-arrow svg { display: block; }
+.reloc-pin { display: inline-flex; line-height: 0; }
+.reloc-pin svg { display: block; }
 
 /* ── ABOUT SUMMARY (index.html) ── */
 .about-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
