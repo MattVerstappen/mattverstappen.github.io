@@ -1,5 +1,23 @@
 # mattverstappen.github.io
 
+## JS Quality and Security Improvements
+
+### Bundle 03 - Web Frontend JS
+- [ ] js/projects.js - fetch error handling and AbortController added
+- [ ] js/projects.js - var replaced with const/let throughout
+- [ ] js/project-detail.js - fetch error handling improved
+- [ ] js/project-detail.js - lightbox keyboard trap fixed
+- [ ] js/nav.js - DOMContentLoaded consolidated (if not already done)
+- [ ] js/lang-persist.js - async error handling improved
+- [ ] js/translations.js - applyTranslations null safety added
+
+### Bundle 05 - Security
+- [ ] js/projects.js - innerHTML XSS audit complete
+- [ ] js/project-detail.js - innerHTML XSS audit complete
+- [ ] js/translations.js - data-i18n-html restricted
+- [ ] contact form - CSP meta tag added
+- [ ] All pages - CSP meta tag added
+
 ## Multi-Language Implementation Progress
 
 ### Prompt 1 of 3 - Core JS Files
