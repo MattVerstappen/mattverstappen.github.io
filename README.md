@@ -90,8 +90,8 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
       homogenization-of-game-design) - thin content fix applied
 
 ### Issue 3 - Alternative page with proper canonical
-- [ ] /index.html canonical fixed
-- [ ] research.html?lang=ar blocked from indexing
+- [x] /index.html canonical fixed
+- [x] research.html?lang=ar blocked from indexing
 
 ### Issue 4 - Soft 404
 - [x] project.html (no slug) returns proper 404 page
