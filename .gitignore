@@ -427,3 +427,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Cloudflare Wrangler / macOS
+.DS_Store
+.wrangler/
