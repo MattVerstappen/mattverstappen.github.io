@@ -1,6 +1,6 @@
 ---
-title: "The Design Leader: A Vision for Game Development in South Africa — Matthew Derek Rall"
-description: "Research paper by Matthew Derek Rall examining the South African game development landscape and articulating a personal vision for design leadership — including a plan to build decentralised game development incubators in township communities."
+title: "The Design Leader: A Vision for Game Development in South Africa - Matthew Derek Rall"
+description: "Research paper by Matthew Derek Rall examining the South African game development landscape and articulating a personal vision for design leadership - including a plan to build decentralised game development incubators in township communities."
 url: https://matthewderekrall.com/project.html?slug=the-design-leader
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -55,11 +55,11 @@ A personal design leadership vision centred on building a **decentralised networ
 
 **Key pillars of the vision:**
 
-- **Entrepreneurship** — Equipping emerging developers with business skills alongside technical ones
-- **Cultural storytelling** — Centring African narratives, languages, and contexts in games
-- **Offline-friendly tools** — Prioritising workflows that function without reliable connectivity
-- **Community-driven curriculum** — Curricula co-designed with local communities rather than imposed from outside
-- **Geographic redistribution** — Shifting the industry's centre of gravity beyond Cape Town
+- **Entrepreneurship** - Equipping emerging developers with business skills alongside technical ones
+- **Cultural storytelling** - Centring African narratives, languages, and contexts in games
+- **Offline-friendly tools** - Prioritising workflows that function without reliable connectivity
+- **Community-driven curriculum** - Curricula co-designed with local communities rather than imposed from outside
+- **Geographic redistribution** - Shifting the industry's centre of gravity beyond Cape Town
 
 The vision aims to democratise access to game development education and create a more equitable, diverse, and creatively authentic South African games industry.
 

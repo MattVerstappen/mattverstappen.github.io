@@ -1,12 +1,12 @@
 ---
-title: "Leap Time — Time Tracking App — Matthew Derek Rall"
-description: "Leap Time — an Android time tracking app with local and cloud database saves, Pomodoro timer, and timesheet views. Built with Kotlin and Firebase by Matthew Derek Rall."
+title: "Leap Time - Time Tracking App - Matthew Derek Rall"
+description: "Leap Time - an Android time tracking app with local and cloud database saves, Pomodoro timer, and timesheet views. Built with Kotlin and Firebase by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=leap-time
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
-# Leap Time — Time Tracking App
+# Leap Time - Time Tracking App
 
 **By Matthew Derek Rall** | [← Back to Portfolio](https://matthewderekrall.com/)
 
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** App — Productivity
+- **Type:** App - Productivity
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** November 2024

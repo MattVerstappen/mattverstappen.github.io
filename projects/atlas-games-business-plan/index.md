@@ -1,5 +1,5 @@
 ---
-title: "Business Plan: Atlas Games (Pty) Ltd — Matthew Derek Rall"
+title: "Business Plan: Atlas Games (Pty) Ltd - Matthew Derek Rall"
 description: "Business plan by Matthew Derek Rall for Atlas Games (Pty) Ltd, a South African impact-first indie game studio developing culturally localised serious games for health education, with Year 1 projected revenue of R1,200,000."
 url: https://matthewderekrall.com/project.html?slug=atlas-games-business-plan
 last_updated: 2026-06-01
@@ -27,7 +27,7 @@ This business plan outlines the commercial strategy for Atlas Games (Pty) Ltd, a
 
 ### Founding Product
 
-**Cancer Crusher** — created in partnership with Love Your Nuts, a Section 18A NPO focused on testicular cancer awareness among adolescents.
+**Cancer Crusher** - created in partnership with Love Your Nuts, a Section 18A NPO focused on testicular cancer awareness among adolescents.
 
 ### Revenue Model
 
@@ -46,11 +46,11 @@ Hybrid B2B model with six income streams:
 
 Phased six-year scaling plan:
 
-- **Phase 1 (Year 1–2):** Provincial pilot — Cancer Crusher in KwaZulu-Natal schools
-- **Phase 2 (Year 2–3):** Multi-region rollout across South Africa
-- **Phase 3 (Year 3–4):** Teacher dashboards and LMS integration
-- **Phase 4 (Year 4–5):** Channel partnerships with NGOs and government health departments
-- **Phase 5 (Year 5–6):** Pan-African NGO collaboration and regional expansion
+- **Phase 1 (Year 1-2):** Provincial pilot - Cancer Crusher in KwaZulu-Natal schools
+- **Phase 2 (Year 2-3):** Multi-region rollout across South Africa
+- **Phase 3 (Year 3-4):** Teacher dashboards and LMS integration
+- **Phase 4 (Year 4-5):** Channel partnerships with NGOs and government health departments
+- **Phase 5 (Year 5-6):** Pan-African NGO collaboration and regional expansion
 
 ### Risk Management
 

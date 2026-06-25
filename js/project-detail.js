@@ -22,7 +22,7 @@ if (!slug) {
 
 /* ── HERO ── */
 function renderHero(p) {
-    var pageTitle = p.title + ' — Matthew Derek Rall';
+    var pageTitle = p.title + ' - Matthew Derek Rall';
     var pageDesc  = (p.summary || '').slice(0, 160);
     var pageUrl   = 'https://matthewderekrall.com/project.html?slug=' + slug;
 
@@ -73,9 +73,39 @@ function renderHero(p) {
     if (heroDate)   heroDate.textContent   = p.date ? '🗓 ' + p.date : '';
 }
 
+/* ── JSON-LD SCHEMA ── */
+function injectProjectSchema(p) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": p.type === 'research' ? "ScholarlyArticle" : "CreativeWork",
+        "name": p.title,
+        "description": p.summary || p.description || '',
+        "author": {
+            "@type": "Person",
+            "name": "Matthew Derek Rall",
+            "url": "https://matthewderekrall.com"
+        },
+        "url": `https://matthewderekrall.com/project.html?slug=${p.slug}`,
+        "dateCreated": p.date || '',
+        "keywords": (p.tags || []).join(', ')
+    };
+
+    if (p.type === 'game' && p.itchId) {
+        schema["@type"] = "VideoGame";
+        schema["gamePlatform"] = "PC";
+        schema["applicationCategory"] = "Game";
+    }
+
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    scriptTag.textContent = JSON.stringify(schema, null, 2);
+    document.head.appendChild(scriptTag);
+}
+
 /* ── CONTENT ── */
 function renderPage(p) {
     renderHero(p);
+    injectProjectSchema(p);
 
     var parts = [];
 
@@ -120,7 +150,7 @@ function renderPage(p) {
     if (photos.length) {
         var items = photos.map(function (src, i) {
             return '<div class="gal-item" onclick="openLB(' + i + ')" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\')openLB(' + i + ')">' +
-                '<img src="' + src + '" alt="' + p.title + ' — screenshot ' + (i + 1) + '" loading="lazy">' +
+                '<img src="' + src + '" alt="' + p.title + ' - screenshot ' + (i + 1) + '" loading="lazy">' +
                 '<div class="gal-zoom">🔍</div>' +
                 '</div>';
         }).join('');
@@ -262,6 +292,15 @@ document.addEventListener('keydown', function (e) {
 
 /* ── NOT FOUND ── */
 function showNotFound() {
+    // Add noindex so Google stops crawling this URL
+    var noindex = document.createElement('meta');
+    noindex.name = 'robots';
+    noindex.content = 'noindex, nofollow';
+    document.head.appendChild(noindex);
+
+    // Update title
+    document.title = 'Project Not Found - Matthew Derek Rall';
+
     var projHero    = document.getElementById('projHero');
     var projContent = document.getElementById('projContent');
     if (projHero)    projHero.style.display = 'none';
@@ -269,6 +308,6 @@ function showNotFound() {
         '<div class="notfound-state">' +
         '<h1>Project Not Found</h1>' +
         '<p>The project you\'re looking for doesn\'t exist or has been moved.</p>' +
-        '<a href="index.html" class="back-btn"><span class="back-arrow">←</span> Back to Portfolio</a>' +
+        '<a href="/" class="back-btn"><span class="back-arrow">-</span> Back to Portfolio</a>' +
         '</div>';
 }

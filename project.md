@@ -1,12 +1,12 @@
 ---
-title: "Project — Matthew Derek Rall"
+title: "Project - Matthew Derek Rall"
 description: "Individual project detail page for Matthew Derek Rall's portfolio. Content is loaded dynamically based on the slug query parameter."
 url: https://matthewderekrall.com/project.html
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
-# Project Detail Template — Matthew Derek Rall
+# Project Detail Template - Matthew Derek Rall
 
 This page is the shared template used to render all individual project detail pages on matthewderekrall.com. The actual content (title, description, screenshots, tech stack, links) is loaded dynamically via JavaScript based on the `?slug=` URL parameter, fetching data from the corresponding `projects/[slug]/project.json` file.
 
@@ -39,15 +39,15 @@ Each project is available at: `https://matthewderekrall.com/project.html?slug=[p
 
 Each rendered project page contains the following sections (populated from project.json):
 
-1. **Hero** — Project title, type badge, degree badge, genre badge, event badge (if applicable), date
-2. **Awards & Recognition** — Any competition awards or placements
-3. **About** — Full project summary/description
-4. **Play on Itch.io** — Embedded itch.io widget (for games with an itch ID)
-5. **Screenshots** — Photo gallery with lightbox viewer
-6. **Tech Stack** — Tools and languages used
-7. **Tags** — Genre and context tags
-8. **Links** — GitHub, itch.io, DOI, video, or live links
-9. **Document** — Inline PDF viewer for research/design documents
+1. **Hero** - Project title, type badge, degree badge, genre badge, event badge (if applicable), date
+2. **Awards & Recognition** - Any competition awards or placements
+3. **About** - Full project summary/description
+4. **Play on Itch.io** - Embedded itch.io widget (for games with an itch ID)
+5. **Screenshots** - Photo gallery with lightbox viewer
+6. **Tech Stack** - Tools and languages used
+7. **Tags** - Genre and context tags
+8. **Links** - GitHub, itch.io, DOI, video, or live links
+9. **Document** - Inline PDF viewer for research/design documents
 
 ## Available Languages
 

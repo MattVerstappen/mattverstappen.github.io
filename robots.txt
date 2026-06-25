@@ -1,6 +1,12 @@
 User-agent: *
 Allow: /
 
+# Block language parameter URLs from indexing
+Disallow: /*?lang=
+
+# Block the bare project.html with no slug
+Disallow: /project.html$
+
 # AI assistants and web crawlers - all content is public and welcome
 User-agent: GPTBot
 Allow: /

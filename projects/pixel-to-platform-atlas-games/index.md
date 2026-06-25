@@ -1,5 +1,5 @@
 ---
-title: "Pixel to Platform: Redesigning Atlas Games' Website as a Strategic Design Tool — Matthew Derek Rall"
+title: "Pixel to Platform: Redesigning Atlas Games' Website as a Strategic Design Tool - Matthew Derek Rall"
 description: "Design strategy and management plan by Matthew Derek Rall for redesigning the Atlas Games website, grounded in User-Centred Design and Minimalist Aesthetics."
 url: https://matthewderekrall.com/project.html?slug=pixel-to-platform-atlas-games
 last_updated: 2026-06-01
@@ -27,12 +27,12 @@ This report presents a design strategy and management plan for redesigning the w
 
 ### Problem Statement
 
-Fragmented digital representation — a disjointed Wix website, an isolated Itch.io profile, and no cohesive brand strategy — undermines professional credibility and limits access to funding, press, and collaboration opportunities.
+Fragmented digital representation - a disjointed Wix website, an isolated Itch.io profile, and no cohesive brand strategy - undermines professional credibility and limits access to funding, press, and collaboration opportunities.
 
 ### Design Approach
 
-- **User-Centred Design (UCD)** — Design decisions grounded in real user needs and behaviour
-- **Minimalist Aesthetics** — Clean, focused visual system that communicates professionalism without clutter
+- **User-Centred Design (UCD)** - Design decisions grounded in real user needs and behaviour
+- **Minimalist Aesthetics** - Clean, focused visual system that communicates professionalism without clutter
 - **Visual System:** Red, black, and grey with emotionally resonant storytelling
 
 ### Strategic Objectives
@@ -44,8 +44,8 @@ Fragmented digital representation — a disjointed Wix website, an isolated Itch
 ### Competitive Analysis
 
 Reference studios analysed:
-- **Donderbos Games** — South African indie studio with strong brand coherence
-- **Southgame Studio** — Competitor with established digital presence
+- **Donderbos Games** - South African indie studio with strong brand coherence
+- **Southgame Studio** - Competitor with established digital presence
 
 ### Risk Management
 

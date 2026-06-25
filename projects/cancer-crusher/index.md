@@ -1,6 +1,6 @@
 ---
-title: "Cancer Crusher — Matthew Derek Rall"
-description: "Cancer Crusher — a 2D retro fixed shooter raising testicular cancer awareness. National Vega Game Jam winner and Creative Conscience shortlist. Built with Unity and C# by Matthew Derek Rall."
+title: "Cancer Crusher - Matthew Derek Rall"
+description: "Cancer Crusher - a 2D retro fixed shooter raising testicular cancer awareness. National Vega Game Jam winner and Creative Conscience shortlist. Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=cancer-crusher
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** Game — Shooter
+- **Type:** Game - Shooter
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** October 30, 2023
@@ -48,13 +48,13 @@ Cancer Crusher was developed in partnership with Love Your Nuts, a Section 18A N
 
 ## Press & Articles
 
-- [Testicular cancer awareness: Student-developed games aim to reach younger generation](https://ngoconnectsa.org/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation/) — NGO Connect SA
-- [Students develop award-winning games to raise awareness about testicular cancer](https://www.mediaupdate.co.za/publicity/155750/students-develop-award-winning-games-to-raise-awareness-about-testicular-cancer) — Media Update
-- [Testicular cancer awareness: Student-developed games aim to reach younger generation](https://www.vegaschool.com/news-and-events/articles/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation) — Vega School
-- [IIE-VEGA students create award-winning games for testicular cancer awareness](https://www.educationtoday.co.za/innovation/student-game-developers-raise-testicular-cancer-awareness/) — Education Today
-- [Cancer Smart School Programme](https://loveyournuts.org/cancer-smart/) — Love Your Nuts
-- [IIE-Vega students' award-winning games aim to reach younger generation](https://iieworldofwork.iie.ac.za/testicular-cancer-awareness-in-a-nutshell-iie-vega-students-award-winning-games-aim-to-reach-younger-generation) — World of Work
-- [Students develop digital games for cancer awareness education](http://www.themightypen.co.za/doc/September%20&%20October%202024%20issue.pdf) — The Mighty Pen
+- [Testicular cancer awareness: Student-developed games aim to reach younger generation](https://ngoconnectsa.org/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation/) - NGO Connect SA
+- [Students develop award-winning games to raise awareness about testicular cancer](https://www.mediaupdate.co.za/publicity/155750/students-develop-award-winning-games-to-raise-awareness-about-testicular-cancer) - Media Update
+- [Testicular cancer awareness: Student-developed games aim to reach younger generation](https://www.vegaschool.com/news-and-events/articles/testicular-cancer-awareness-in-a-nutshell-student-developed-games-aim-to-reach-younger-generation) - Vega School
+- [IIE-VEGA students create award-winning games for testicular cancer awareness](https://www.educationtoday.co.za/innovation/student-game-developers-raise-testicular-cancer-awareness/) - Education Today
+- [Cancer Smart School Programme](https://loveyournuts.org/cancer-smart/) - Love Your Nuts
+- [IIE-Vega students' award-winning games aim to reach younger generation](https://iieworldofwork.iie.ac.za/testicular-cancer-awareness-in-a-nutshell-iie-vega-students-award-winning-games-aim-to-reach-younger-generation) - World of Work
+- [Students develop digital games for cancer awareness education](http://www.themightypen.co.za/doc/September%20&%20October%202024%20issue.pdf) - The Mighty Pen
 
 ---
 

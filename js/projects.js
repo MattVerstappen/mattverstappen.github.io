@@ -73,7 +73,7 @@ function buildCard(proj) {
         }
         coverInner = imgTag + fallbackDiv(false);
     } else {
-        // No cover image — use the category icon as the cover area.
+        // No cover image - use the category icon as the cover area.
         coverInner = fallbackDiv(true);
     }
     var cover = '<a href="project.html?slug=' + proj.slug + '" class="proj-cover-link">' +
@@ -176,7 +176,7 @@ function renderGrid() {
     });
 
     if (filtered.length === 0) {
-        grid.innerHTML = '<div class="proj-empty"><span class="proj-empty-icon">🔭</span>No projects here yet — check back soon.</div>';
+        grid.innerHTML = '<div class="proj-empty"><span class="proj-empty-icon">🔭</span>No projects here yet - check back soon.</div>';
     } else {
         grid.innerHTML = filtered.map(buildCard).join('');
     }

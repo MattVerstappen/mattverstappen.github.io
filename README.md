@@ -72,3 +72,32 @@ All three prompts finished. Branch: claude/brave-maxwell-Xp7Ma. Ready to review 
 All actionable comments from the Copilot review of PR #13 have been addressed.
 Fixes implemented: 22
 Comments skipped: 1 (comment 20 - README rewrite; README serves as implementation log for this branch)
+---
+
+## Google Search Console SEO Fix Progress
+
+### Issue 1 - Discovered but not indexed (6 pages)
+- [x] achievements.html - indexing fix applied
+- [x] contact.html - indexing fix applied
+- [x] work.html - indexing fix applied
+- [x] project.html?slug=pixel-to-platform-atlas-games - indexing fix applied
+- [x] project.html?slug=timmys-revenge - indexing fix applied
+- [x] project.html?slug=tiny-cafe - indexing fix applied
+
+### Issue 2 - Crawled but not indexed (5 URLs)
+- [x] ?lang= parameter URLs blocked from indexing
+- [x] project detail pages (from-the-shadows, system-saviour,
+      homogenization-of-game-design) - thin content fix applied
+
+### Issue 3 - Alternative page with proper canonical
+- [x] /index.html canonical fixed
+- [x] research.html?lang=ar blocked from indexing
+
+### Issue 4 - Soft 404
+- [x] project.html (no slug) returns proper 404 page
+
+### Issue 5 - Content improvements
+- [x] Meta descriptions reviewed and improved on all pages
+- [x] Structured data (JSON-LD) added or improved
+- [x] og:image confirmed present and correct on all pages
+- [x] sitemap.xml updated with all project pages and soft 404 removed

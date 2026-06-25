@@ -1,6 +1,6 @@
 ---
-title: "Timmys' Revenge — Matthew Derek Rall"
-description: "Timmys' Revenge — a top-down 2D zombie shooter developed for TCGJ 2024, placing 3rd. Built with Unity and C# by Matthew Derek Rall."
+title: "Timmys' Revenge - Matthew Derek Rall"
+description: "Timmys' Revenge - a top-down 2D zombie shooter developed for TCGJ 2024, placing 3rd. Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=timmys-revenge
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** Game — Shooter
+- **Type:** Game - Shooter
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** July 13, 2024
@@ -27,7 +27,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Awards & Recognition
 
-- 🥉 **3rd Place** — TCGJ 2024 (Thomas More College Game Jam 2024)
+- 🥉 **3rd Place** - TCGJ 2024 (Thomas More College Game Jam 2024)
 
 ---
 

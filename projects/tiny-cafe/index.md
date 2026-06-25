@@ -1,6 +1,6 @@
 ---
-title: "Tiny Cafe — Matthew Derek Rall"
-description: "Tiny Cafe — cafe simulation game made for Ludum Dare 56, placing Top 500 (Rank 475). Built with Unity and C# by Matthew Derek Rall."
+title: "Tiny Cafe - Matthew Derek Rall"
+description: "Tiny Cafe - cafe simulation game made for Ludum Dare 56, placing Top 500 (Rank 475). Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=tiny-cafe
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** Game — Simulation
+- **Type:** Game - Simulation
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** October 8, 2024
@@ -27,7 +27,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Awards & Recognition
 
-- 🎮 **Top 500 (Rank 475)** — Ludum Dare 56 Global Game Jam
+- 🎮 **Top 500 (Rank 475)** - Ludum Dare 56 Global Game Jam
 
 ---
 
