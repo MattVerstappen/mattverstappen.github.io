@@ -97,6 +97,6 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 - [x] project.html (no slug) returns proper 404 page
 
 ### Issue 5 - Content improvements
-- [ ] Meta descriptions reviewed and improved on all pages
+- [x] Meta descriptions reviewed and improved on all pages
 - [ ] Structured data (JSON-LD) added or improved
 - [ ] og:image confirmed present and correct on all pages
