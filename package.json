@@ -5,9 +5,11 @@
   "description": "Personal portfolio for Matthew Derek Rall (plain HTML/CSS/JS).",
   "scripts": {
     "minify:js": "terser js/translations.js -o js/translations.min.js --compress --mangle",
-    "build": "npm run minify:js"
+    "build": "npm run minify:js",
+    "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "terser": "^5.31.0"
+    "terser": "^5.31.0",
+    "wrangler": "^4.0.0"
   }
 }
