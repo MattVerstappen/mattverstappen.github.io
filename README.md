@@ -1,6 +1,6 @@
 # mattverstappen.github.io
 
-## Remaining Fixes - Round 3
+## Remaining Fixes - Round 3 - Status: COMPLETE
 
 - [x] Em dashes replaced with hyphens (none found - already clean)
 - [x] Nav logo /index.html links changed to / (already done on all pages)
