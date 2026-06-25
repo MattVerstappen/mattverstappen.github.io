@@ -1,17 +1,44 @@
 /* ── PROJECT GRID SYSTEM ── */
 
-var allProjects = [];
-var currentStatus = 'completed';
-var currentDegree = 'all';
+/**
+ * Escape HTML special characters to prevent XSS.
+ * Use this on any string from project.json before inserting into innerHTML.
+ * @param {string} str
+ * @returns {string}
+ */
+function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
 
-var DEGREE_SHORT = {
+/**
+ * Build a same-origin asset path with each segment URL-encoded.
+ * Safe for use in src/href attributes.
+ * @param {string} slug
+ * @param {string} file
+ * @returns {string}
+ */
+function assetPath(slug, file) {
+    return 'projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(file);
+}
+
+let allProjects = [];
+let currentStatus = 'completed';
+let currentDegree = 'all';
+
+const DEGREE_SHORT = {
     'BA Honours in Design Leadership':             'BA Honours',
     'BCIS in Game Design and Development':         'BCIS',
     'BCIS in Game Design And Game Development':    'BCIS',
     'Personal':                                    'Personal',
 };
 
-var TYPE_ICON = {
+const TYPE_ICON = {
     research: '📄',
     game:     '🎮',
     app:      '📱',
@@ -21,7 +48,7 @@ var TYPE_ICON = {
 };
 
 // Custom mdr-icons.js icon name per project type (used for cover placeholder / fallback)
-var TYPE_ICON_NAME = {
+const TYPE_ICON_NAME = {
     research: 'paper',
     game:     'gamepad',
     app:      'code',
@@ -30,7 +57,7 @@ var TYPE_ICON_NAME = {
     other:    'card',
 };
 
-var LINK_LABEL = {
+const LINK_LABEL = {
     github: '⌥ GitHub',
     itch:   '🎮 itch.io',
     video:  '▶ Video',
@@ -43,32 +70,33 @@ function shortenDegree(degree) {
 }
 
 function buildCard(proj) {
-    var short     = shortenDegree(proj.degree);
-    var icon      = TYPE_ICON[proj.type] || '📦';
-    var typeLabel = proj.type ? proj.type.charAt(0).toUpperCase() + proj.type.slice(1) : 'Project';
+    const short     = shortenDegree(proj.degree);
+    const icon      = TYPE_ICON[proj.type] || '📦';
+    const typeLabel = proj.type ? proj.type.charAt(0).toUpperCase() + proj.type.slice(1) : 'Project';
+    const titleSafe = escHtml(proj.title);
 
-    var catBadge   = proj.engine ? '<span class="project-category-badge">' + proj.engine + '</span>' : '';
-    var fallbackIcon = (typeof mdrIcon === 'function')
+    const catBadge   = proj.engine ? '<span class="project-category-badge">' + escHtml(proj.engine) + '</span>' : '';
+    const fallbackIcon = (typeof mdrIcon === 'function')
         ? mdrIcon(TYPE_ICON_NAME[proj.type] || 'gamepad', 40) : '';
-    var fallbackDiv = function (visible) {
+    const fallbackDiv = function (visible) {
         return '<div class="cover-icon-fallback" style="display:' + (visible ? 'flex' : 'none') +
                '; align-items:center; justify-content:center; height:100%; color:var(--accent);">' + fallbackIcon + '</div>';
     };
 
-    var coverSrc = proj.coverImage
-        ? 'projects/' + proj.slug + '/' + proj.coverImage
-        : proj.photos > 0 ? 'projects/' + proj.slug + '/cover.jpg' : null;
+    const coverSrc = proj.coverImage
+        ? assetPath(proj.slug, proj.coverImage)
+        : proj.photos > 0 ? assetPath(proj.slug, 'cover.jpg') : null;
 
-    var coverInner;
+    let coverInner;
     if (coverSrc) {
-        var onerr = "this.closest('.proj-cover-wrap').querySelector('.cover-icon-fallback').style.display='flex';";
-        var imgTag;
+        const onerr = "this.closest('.proj-cover-wrap').querySelector('.cover-icon-fallback').style.display='flex';";
+        let imgTag;
         if (proj.coverWebp) {
-            imgTag = '<picture><source type="image/webp" srcset="projects/' + proj.slug + '/' + proj.coverWebp + '">' +
-                     '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+            imgTag = '<picture><source type="image/webp" srcset="' + assetPath(proj.slug, proj.coverWebp) + '">' +
+                     '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + titleSafe + '" ' +
                      'onerror="this.closest(\'picture\').style.display=\'none\'; ' + onerr + '"></picture>';
         } else {
-            imgTag = '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+            imgTag = '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + titleSafe + '" ' +
                      'onerror="this.style.display=\'none\'; ' + onerr + '">';
         }
         coverInner = imgTag + fallbackDiv(false);
@@ -76,102 +104,103 @@ function buildCard(proj) {
         // No cover image - use the category icon as the cover area.
         coverInner = fallbackDiv(true);
     }
-    var cover = '<a href="project.html?slug=' + proj.slug + '" class="proj-cover-link">' +
+    const slugUrl = encodeURIComponent(proj.slug);
+    const cover = '<a href="project.html?slug=' + slugUrl + '" class="proj-cover-link">' +
                 '<div class="proj-cover-wrap">' + catBadge + coverInner + '</div></a>';
 
-    var gallery = proj.photoFiles && proj.photoFiles.length
+    const gallery = proj.photoFiles && proj.photoFiles.length
         ? '<div class="proj-gallery">' + proj.photoFiles.map(function (f) {
-            return '<a href="project.html?slug=' + proj.slug + '"><img src="projects/' + proj.slug + '/' + f + '" class="proj-thumb" onerror="this.style.display=\'none\'" alt="' + proj.title + ' screenshot"></a>';
+            return '<a href="project.html?slug=' + slugUrl + '"><img src="' + assetPath(proj.slug, f) + '" class="proj-thumb" onerror="this.style.display=\'none\'" alt="' + titleSafe + ' screenshot"></a>';
           }).join('') + '</div>'
         : '';
 
-    var degreeBadge = short ? '<span class="proj-degree-badge">' + short + '</span>' : '';
-    var eventBadge  = proj.event ? '<span class="proj-event-badge">🎮 ' + proj.event + '</span>' : '';
-    var genreBadge  = proj.genre ? '<span class="proj-genre">' + proj.genre + '</span>' : '';
+    const degreeBadge = short ? '<span class="proj-degree-badge">' + escHtml(short) + '</span>' : '';
+    const eventBadge  = proj.event ? '<span class="proj-event-badge">🎮 ' + escHtml(proj.event) + '</span>' : '';
+    const genreBadge  = proj.genre ? '<span class="proj-genre">' + escHtml(proj.genre) + '</span>' : '';
 
-    var dateHTML = proj.date ? '<div class="proj-date">🗓 ' + proj.date + '</div>' : '';
+    const dateHTML = proj.date ? '<div class="proj-date">🗓 ' + escHtml(proj.date) + '</div>' : '';
 
-    var awardsHTML = proj.awards && proj.awards.length
+    const awardsHTML = proj.awards && proj.awards.length
         ? '<div class="proj-awards">' + proj.awards.map(function (a) {
-            return '<div class="proj-award"><span class="proj-award-icon">🏆</span>' + a + '</div>';
+            return '<div class="proj-award"><span class="proj-award-icon">🏆</span>' + escHtml(a) + '</div>';
           }).join('') + '</div>'
         : '';
 
-    var tagsHTML = proj.tags && proj.tags.length
+    const tagsHTML = proj.tags && proj.tags.length
         ? '<div class="proj-tags">' + proj.tags.map(function (t) {
-            return '<span class="proj-tag-chip">' + t + '</span>';
+            return '<span class="proj-tag-chip">' + escHtml(t) + '</span>';
           }).join('') + '</div>'
         : '';
 
-    var stack = proj.stack && proj.stack.length
+    const stack = proj.stack && proj.stack.length
         ? '<div class="proj-stack" style="margin-top:12px">' + proj.stack.map(function (s) {
-            return '<span class="st">' + s + '</span>';
+            return '<span class="st">' + escHtml(s) + '</span>';
           }).join('') + '</div>'
         : '';
 
-    var linkBtns = [];
+    const linkBtns = [];
     if (proj.links) {
-        for (var key in proj.links) {
-            var label = LINK_LABEL[key] || key;
-            linkBtns.push('<a href="' + proj.links[key] + '" target="_blank" rel="noopener noreferrer" class="proj-link-btn">' + label + '</a>');
+        for (const key in proj.links) {
+            const label = LINK_LABEL[key] || key;
+            linkBtns.push('<a href="' + encodeURI(proj.links[key]) + '" target="_blank" rel="noopener noreferrer" class="proj-link-btn">' + escHtml(label) + '</a>');
         }
     }
     if (proj.file) {
-        linkBtns.push('<a href="projects/' + proj.slug + '/' + proj.file + '" download class="proj-link-btn proj-link-dl">⬇ Download</a>');
+        linkBtns.push('<a href="' + assetPath(proj.slug, proj.file) + '" download class="proj-link-btn proj-link-dl">⬇ Download</a>');
     }
-    var links = linkBtns.length ? '<div class="proj-links">' + linkBtns.join('') + '</div>' : '';
+    const links = linkBtns.length ? '<div class="proj-links">' + linkBtns.join('') + '</div>' : '';
 
-    var itchWidget = proj.itchId
-        ? '<div class="proj-itch-wrap"><iframe frameborder="0" src="https://itch.io/embed/' + proj.itchId + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" height="171"></iframe></div>'
+    const itchWidget = proj.itchId
+        ? '<div class="proj-itch-wrap"><iframe frameborder="0" src="https://itch.io/embed/' + encodeURIComponent(proj.itchId) + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" height="171"></iframe></div>'
         : '';
 
-    var articlesHTML = proj.articles && proj.articles.length
+    const articlesHTML = proj.articles && proj.articles.length
         ? '<div class="proj-articles"><div class="proj-articles-label">Press &amp; Articles</div>' +
           proj.articles.map(function (a) {
-            return '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="proj-article-link">↗ ' + a.title + (a.source ? '<span class="proj-article-source">' + a.source + '</span>' : '') + '</a>';
+            return '<a href="' + encodeURI(a.url) + '" target="_blank" rel="noopener noreferrer" class="proj-article-link">↗ ' + escHtml(a.title) + (a.source ? '<span class="proj-article-source">' + escHtml(a.source) + '</span>' : '') + '</a>';
           }).join('') + '</div>'
         : '';
 
     return '<div class="proj-card">' +
         cover + gallery +
         '<div class="proj-card-body">' +
-        '<div class="proj-meta-row"><span class="proj-engine">' + icon + ' ' + typeLabel + '</span>' + genreBadge + degreeBadge + eventBadge + '</div>' +
+        '<div class="proj-meta-row"><span class="proj-engine">' + icon + ' ' + escHtml(typeLabel) + '</span>' + genreBadge + degreeBadge + eventBadge + '</div>' +
         dateHTML +
-        '<h3 class="proj-title">' + proj.title + '</h3>' +
-        '<p class="proj-desc">' + (proj.summary || proj.description || '') + '</p>' +
+        '<h3 class="proj-title">' + titleSafe + '</h3>' +
+        '<p class="proj-desc">' + escHtml(proj.summary || proj.description || '') + '</p>' +
         awardsHTML + tagsHTML + stack + links + itchWidget + articlesHTML +
-        '<a href="project.html?slug=' + proj.slug + '" class="proj-view-btn">View Project →</a>' +
+        '<a href="project.html?slug=' + slugUrl + '" class="proj-view-btn">View Project →</a>' +
         '</div></div>';
 }
 
 function renderFilters(projects) {
-    var degrees = ['all'];
+    const degrees = ['all'];
     projects.forEach(function (p) {
         if (p.degree && degrees.indexOf(p.degree) === -1) degrees.push(p.degree);
     });
-    var container = document.getElementById('degreeFilters');
+    const container = document.getElementById('degreeFilters');
     if (!container) return;
     container.innerHTML = degrees.map(function (d) {
-        var label = d === 'all' ? 'All' : shortenDegree(d);
-        var on    = d === currentDegree ? ' on' : '';
-        return '<button class="filter-chip' + on + '" onclick="filterDegree(\'' + d + '\')">' + label + '</button>';
+        const label = d === 'all' ? 'All' : shortenDegree(d);
+        const on    = d === currentDegree ? ' on' : '';
+        return '<button class="filter-chip' + on + '" onclick="filterDegree(\'' + escHtml(d) + '\')">' + escHtml(label) + '</button>';
     }).join('');
 }
 
 function renderGrid() {
-    var grid = document.getElementById('projGrid');
+    const grid = document.getElementById('projGrid');
     if (!grid) return;
 
     // Check for data-types attribute to pre-filter by type
-    var dataTypes = grid.getAttribute('data-types');
-    var allowedTypes = dataTypes ? dataTypes.split(',').map(function (t) { return t.trim(); }) : null;
+    const dataTypes = grid.getAttribute('data-types');
+    const allowedTypes = dataTypes ? dataTypes.split(',').map(function (t) { return t.trim(); }) : null;
 
-    var filtered = allProjects.filter(function (p) {
-        var statusMatch = currentStatus === 'completed'
+    const filtered = allProjects.filter(function (p) {
+        const statusMatch = currentStatus === 'completed'
             ? p.status === 'completed'
             : p.status !== 'completed';
-        var degreeMatch = currentDegree === 'all' || p.degree === currentDegree;
-        var typeMatch   = !allowedTypes || allowedTypes.indexOf(p.type) !== -1;
+        const degreeMatch = currentDegree === 'all' || p.degree === currentDegree;
+        const typeMatch   = !allowedTypes || allowedTypes.indexOf(p.type) !== -1;
         return statusMatch && degreeMatch && typeMatch;
     });
 
@@ -184,8 +213,8 @@ function renderGrid() {
 
 function showStatus(status) {
     currentStatus = status;
-    var tDone = document.getElementById('t-done');
-    var tWip  = document.getElementById('t-wip');
+    const tDone = document.getElementById('t-done');
+    const tWip  = document.getElementById('t-wip');
     if (tDone) tDone.classList.toggle('on', status === 'completed');
     if (tWip)  tWip.classList.toggle('on',  status === 'wip');
     renderGrid();
@@ -194,32 +223,68 @@ function showStatus(status) {
 function filterDegree(degree) {
     currentDegree = degree;
     document.querySelectorAll('.filter-chip').forEach(function (chip) {
-        var m = chip.getAttribute('onclick').match(/'(.+)'/);
+        const m = chip.getAttribute('onclick').match(/'(.+)'/);
         if (m) chip.classList.toggle('on', m[1] === degree);
     });
     renderGrid();
 }
 
 async function loadProjects() {
+    const grid = document.getElementById('projGrid');
+    if (!grid) return;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(function () { controller.abort(); }, 8000);
+
     try {
-        var manifest = await fetch('projects/manifest.json').then(function (r) { return r.json(); });
-        var results = await Promise.allSettled(
+        const manifestRes = await fetch('projects/manifest.json', {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!manifestRes.ok) {
+            throw new Error('Manifest fetch failed: HTTP ' + manifestRes.status);
+        }
+
+        const manifest = await manifestRes.json();
+
+        const results = await Promise.allSettled(
             manifest.map(async function (slug) {
-                var data = await fetch('projects/' + slug + '/project.json').then(function (r) { return r.json(); });
+                const res = await fetch('projects/' + slug + '/project.json');
+                if (!res.ok) throw new Error('Project ' + slug + ': HTTP ' + res.status);
+                const data = await res.json();
                 return Object.assign({}, data, { slug: slug });
             })
         );
+
         allProjects = results
             .filter(function (r) { return r.status === 'fulfilled'; })
             .map(function (r) { return r.value; });
+
+        const failed = results.filter(function (r) { return r.status === 'rejected'; });
+        if (failed.length > 0) {
+            console.warn(failed.length + ' project(s) failed to load:',
+                failed.map(function (r) { return r.reason && r.reason.message; }));
+        }
+
         renderFilters(allProjects);
         renderGrid();
 
         // Dispatch event so pages can react
         document.dispatchEvent(new CustomEvent('projectsLoaded'));
-    } catch (e) {
-        var grid = document.getElementById('projGrid');
-        if (grid) grid.innerHTML = '<div class="proj-empty"><span class="proj-empty-icon">⚠️</span>Could not load projects.</div>';
+
+    } catch (err) {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') {
+            grid.innerHTML = '<div class="proj-empty">' +
+                '<span class="proj-empty-icon">-</span>' +
+                'Projects took too long to load. Please refresh.</div>';
+        } else {
+            grid.innerHTML = '<div class="proj-empty">' +
+                '<span class="proj-empty-icon">-</span>' +
+                'Could not load projects. Please try again.</div>';
+            console.error('loadProjects failed:', err);
+        }
     }
 }
 

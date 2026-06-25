@@ -63,7 +63,9 @@ async function saveLang(code) {
  */
 async function loadLang() {
     // Priority 1 - URL parameter
-    const urlParam = new URLSearchParams(window.location.search).get('lang');
+    const rawParam = new URLSearchParams(window.location.search).get('lang');
+    // Only allow 2-3 lowercase letters (valid BCP47 codes) before checking the allowlist
+    const urlParam = rawParam && /^[a-z]{2,3}$/.test(rawParam) ? rawParam : null;
     if (urlParam && VALID_LANGS.includes(urlParam)) {
         await saveLang(urlParam);
         return urlParam;
