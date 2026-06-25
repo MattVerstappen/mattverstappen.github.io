@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         buildLangSwitcher();
     }
 
-    // 2. Nav scroll behaviour — rAF-throttled, passive, write-on-change only.
+    // 2. Nav scroll behaviour - rAF-throttled, passive, write-on-change only.
     //    Batches the layout read (scrollY) into a single animation frame and only
     //    touches the DOM when the state actually flips, avoiding forced reflow and
     //    long main-thread tasks during scroll.

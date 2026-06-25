@@ -1,5 +1,5 @@
 ---
-title: "Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning — Matthew Derek Rall"
+title: "Exploring Virtual Reality in Game Development Education: Student Perspectives on Learning - Matthew Derek Rall"
 description: "Published research paper by Matthew Derek Rall exploring how VR influences student learning in higher-education computer programming classrooms. Published on ResearchGate with a DOI."
 url: https://matthewderekrall.com/project.html?slug=exploring-vr-in-game-development-education
 last_updated: 2026-06-01
@@ -34,17 +34,17 @@ This study explores how Virtual Reality (VR) influences student learning and eng
 
 ### Key Themes Identified
 
-1. **Access and hardware limitations** — Cost and availability of VR hardware remain significant barriers
-2. **Immersion and emotional influence** — VR fosters heightened presence and emotional engagement
-3. **Learning curves and problem-solving** — Steep initial learning curves but improved problem-solving skills
-4. **Teamwork and collaboration** — VR environments encourage peer interaction
-5. **Curriculum gaps** — Insufficient integration of VR into existing curricula
-6. **Impacts on programming mindset** — Participants reported shifts in how they conceptualise code
+1. **Access and hardware limitations** - Cost and availability of VR hardware remain significant barriers
+2. **Immersion and emotional influence** - VR fosters heightened presence and emotional engagement
+3. **Learning curves and problem-solving** - Steep initial learning curves but improved problem-solving skills
+4. **Teamwork and collaboration** - VR environments encourage peer interaction
+5. **Curriculum gaps** - Insufficient integration of VR into existing curricula
+6. **Impacts on programming mindset** - Participants reported shifts in how they conceptualise code
 
 ### Theoretical Frameworks
 
-- **Dewey's Learning by Doing** — Experiential learning through active, hands-on engagement
-- **Csikszentmihalyi's Flow Theory** — Optimal engagement achieved through challenge-skill balance
+- **Dewey's Learning by Doing** - Experiential learning through active, hands-on engagement
+- **Csikszentmihalyi's Flow Theory** - Optimal engagement achieved through challenge-skill balance
 
 ### Findings
 

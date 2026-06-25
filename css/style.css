@@ -288,7 +288,7 @@ nav.scrolled {
 }
 .tl-pts li::before { content:'▹'; position:absolute; left:0; color:var(--accent); }
 
-/* Other experience — collapsible */
+/* Other experience - collapsible */
 .other-exp-toggle {
     display: flex; align-items: center; gap: 10px; cursor: pointer;
     list-style: none; padding: 10px 0; margin-top: 28px;

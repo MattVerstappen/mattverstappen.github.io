@@ -1,5 +1,5 @@
 ---
-title: "System Saviour: A Modular Diagnostic Device for Accessible Tech Repair — Matthew Derek Rall"
+title: "System Saviour: A Modular Diagnostic Device for Accessible Tech Repair - Matthew Derek Rall"
 description: "Design project by Matthew Derek Rall proposing a rugged, modular, offline-compatible diagnostic device for affordable tech repair across South Africa, grounded in Cradle-to-Cradle and right-to-repair principles."
 url: https://matthewderekrall.com/project.html?slug=system-saviour
 last_updated: 2026-06-01
@@ -34,9 +34,9 @@ This project proposes System Saviour, a rugged, modular, offline-compatible diag
 
 ### Design Principles
 
-- **Cradle-to-Cradle design** — Lifecycle thinking from manufacture to end-of-life
-- **Circular economy frameworks** — Repairability and component reuse built in by design
-- **Right-to-repair ethics** — Empowering users and local repair technicians rather than locking repair to authorised centres
+- **Cradle-to-Cradle design** - Lifecycle thinking from manufacture to end-of-life
+- **Circular economy frameworks** - Repairability and component reuse built in by design
+- **Right-to-repair ethics** - Empowering users and local repair technicians rather than locking repair to authorised centres
 
 ### Product Specifications
 
@@ -52,9 +52,9 @@ This project proposes System Saviour, a rugged, modular, offline-compatible diag
 
 Testing conducted across three environments:
 
-1. **Informal repair stall, Khayelitsha** — Significant reduction in diagnosis time and improved customer throughput
-2. **School ICT lab** — Faster triage and reduced downtime for student devices
-3. **Corporate tech environment** — 70% reduction in diagnosis time compared to existing manual processes
+1. **Informal repair stall, Khayelitsha** - Significant reduction in diagnosis time and improved customer throughput
+2. **School ICT lab** - Faster triage and reduced downtime for student devices
+3. **Corporate tech environment** - 70% reduction in diagnosis time compared to existing manual processes
 
 ---
 

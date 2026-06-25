@@ -1,6 +1,6 @@
 ---
-title: "Kenny's Khaos — Matthew Derek Rall"
-description: "Kenny's Khaos — top-down 2D shooter, SA Game Jam 2024 Top 10 (8th place). Built with Unity and C# by Matthew Derek Rall."
+title: "Kenny's Khaos - Matthew Derek Rall"
+description: "Kenny's Khaos - top-down 2D shooter, SA Game Jam 2024 Top 10 (8th place). Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=kennys-khaos
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** Game — Action
+- **Type:** Game - Action
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** October 21, 2024
@@ -27,13 +27,13 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Awards & Recognition
 
-- 🥈 **Top 10 (Rank 8th)** — SA Game Jam 2024
+- 🥈 **Top 10 (Rank 8th)** - SA Game Jam 2024
 
 ---
 
 ## About
 
-A reimagining of Timmys' Revenge — rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution. Map art by Michele "Buch" Bucelli.
+A reimagining of Timmys' Revenge - rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution. Map art by Michele "Buch" Bucelli.
 
 Kenny's Khaos represents a significant step forward from its predecessor, incorporating feedback from the TCGJ 2024 jam experience to deliver tighter gameplay, improved visuals, and a more polished overall product.
 

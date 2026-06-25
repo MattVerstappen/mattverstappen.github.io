@@ -1,6 +1,6 @@
 ---
-title: "From The Shadows — Matthew Derek Rall"
-description: "From The Shadows — a dungeon crawler with engaging combat and rich storytelling. Built with Unity and C# by Matthew Derek Rall."
+title: "From The Shadows - Matthew Derek Rall"
+description: "From The Shadows - a dungeon crawler with engaging combat and rich storytelling. Built with Unity and C# by Matthew Derek Rall."
 url: https://matthewderekrall.com/project.html?slug=from-the-shadows
 last_updated: 2026-06-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 ## Project Overview
 
-- **Type:** Game — Survival
+- **Type:** Game - Survival
 - **Degree:** BCIS in Game Design and Development
 - **Status:** Completed
 - **Date:** June 26, 2023

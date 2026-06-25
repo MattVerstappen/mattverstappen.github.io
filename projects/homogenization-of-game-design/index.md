@@ -1,5 +1,5 @@
 ---
-title: "The Homogenization of Game Design: How AI-Driven Development Is Killing Creativity — Matthew Derek Rall"
+title: "The Homogenization of Game Design: How AI-Driven Development Is Killing Creativity - Matthew Derek Rall"
 description: "Research paper by Matthew Derek Rall critically examining how AI-driven development tools are contributing to homogenisation of game design and reducing creative diversity in the industry."
 url: https://matthewderekrall.com/project.html?slug=homogenization-of-game-design
 last_updated: 2026-06-01
@@ -27,11 +27,11 @@ This paper critically examines how the widespread adoption of AI-driven developm
 
 ### Three Core Concerns
 
-1. **Aesthetic convergence** — AI-generated content is causing visual aesthetics and mechanical structures to converge into predictable, formulaic patterns across titles and studios.
+1. **Aesthetic convergence** - AI-generated content is causing visual aesthetics and mechanical structures to converge into predictable, formulaic patterns across titles and studios.
 
-2. **Loss of creative agency** — Delegating design decisions to AI undermines human creative agency and produces narratives that are structurally coherent but emotionally shallow.
+2. **Loss of creative agency** - Delegating design decisions to AI undermines human creative agency and produces narratives that are structurally coherent but emotionally shallow.
 
-3. **Industry displacement** — Approximately 78% of triple-A studios now rely on AI-based generation techniques, displacing skilled artists, writers, and designers while raising unresolved questions around authorship and intellectual property.
+3. **Industry displacement** - Approximately 78% of triple-A studios now rely on AI-based generation techniques, displacing skilled artists, writers, and designers while raising unresolved questions around authorship and intellectual property.
 
 ### Conclusion
 

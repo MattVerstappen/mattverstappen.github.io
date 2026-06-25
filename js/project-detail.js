@@ -22,7 +22,7 @@ if (!slug) {
 
 /* ── HERO ── */
 function renderHero(p) {
-    var pageTitle = p.title + ' — Matthew Derek Rall';
+    var pageTitle = p.title + ' - Matthew Derek Rall';
     var pageDesc  = (p.summary || '').slice(0, 160);
     var pageUrl   = 'https://matthewderekrall.com/project.html?slug=' + slug;
 
@@ -150,7 +150,7 @@ function renderPage(p) {
     if (photos.length) {
         var items = photos.map(function (src, i) {
             return '<div class="gal-item" onclick="openLB(' + i + ')" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\')openLB(' + i + ')">' +
-                '<img src="' + src + '" alt="' + p.title + ' — screenshot ' + (i + 1) + '" loading="lazy">' +
+                '<img src="' + src + '" alt="' + p.title + ' - screenshot ' + (i + 1) + '" loading="lazy">' +
                 '<div class="gal-zoom">🔍</div>' +
                 '</div>';
         }).join('');

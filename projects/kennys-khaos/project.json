@@ -13,7 +13,7 @@
   "coverWebp": "KennysKhaosCover.webp",
   "photoFiles": ["KennysKhaos1.png"],
   "itchId": "3054461",
-  "summary": "A reimagining of Timmys' Revenge — rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution. Map art by Michele \"Buch\" Bucelli.",
+  "summary": "A reimagining of Timmys' Revenge - rebuilt and improved with a top-down 2D shooter structure, more exciting mechanics, and better overall execution. Map art by Michele \"Buch\" Bucelli.",
   "tags": ["2D", "Funny", "Gore", "Indie", "Pixel Art", "Singleplayer", "Top Down Shooter"],
   "stack": ["C#", "Unity", "Blender", "Photoshop"]
 }
