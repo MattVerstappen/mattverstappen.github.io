@@ -73,9 +73,39 @@ function renderHero(p) {
     if (heroDate)   heroDate.textContent   = p.date ? '🗓 ' + p.date : '';
 }
 
+/* ── JSON-LD SCHEMA ── */
+function injectProjectSchema(p) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": p.type === 'research' ? "ScholarlyArticle" : "CreativeWork",
+        "name": p.title,
+        "description": p.summary || p.description || '',
+        "author": {
+            "@type": "Person",
+            "name": "Matthew Derek Rall",
+            "url": "https://matthewderekrall.com"
+        },
+        "url": `https://matthewderekrall.com/project.html?slug=${p.slug}`,
+        "dateCreated": p.date || '',
+        "keywords": (p.tags || []).join(', ')
+    };
+
+    if (p.type === 'game' && p.itchId) {
+        schema["@type"] = "VideoGame";
+        schema["gamePlatform"] = "PC";
+        schema["applicationCategory"] = "Game";
+    }
+
+    const scriptTag = document.createElement('script');
+    scriptTag.type = 'application/ld+json';
+    scriptTag.textContent = JSON.stringify(schema, null, 2);
+    document.head.appendChild(scriptTag);
+}
+
 /* ── CONTENT ── */
 function renderPage(p) {
     renderHero(p);
+    injectProjectSchema(p);
 
     var parts = [];
 

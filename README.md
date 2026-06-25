@@ -86,7 +86,7 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 
 ### Issue 2 - Crawled but not indexed (5 URLs)
 - [x] ?lang= parameter URLs blocked from indexing
-- [ ] project detail pages (from-the-shadows, system-saviour,
+- [x] project detail pages (from-the-shadows, system-saviour,
       homogenization-of-game-design) - thin content fix applied
 
 ### Issue 3 - Alternative page with proper canonical
