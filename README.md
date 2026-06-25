@@ -15,8 +15,8 @@
 - [x] js/projects.js - innerHTML XSS audit complete
 - [x] js/project-detail.js - innerHTML XSS audit complete
 - [x] js/translations.js - data-i18n-html restricted
-- [ ] contact form - CSP meta tag added
-- [ ] All pages - CSP meta tag added
+- [x] contact form - CSP meta tag added
+- [x] All pages - CSP meta tag added
 
 ## Multi-Language Implementation Progress
 
