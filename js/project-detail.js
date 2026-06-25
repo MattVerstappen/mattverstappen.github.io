@@ -1,5 +1,45 @@
 /* ── PROJECT DETAIL PAGE ── */
 
+/**
+ * Escape HTML special characters to prevent XSS.
+ * Use this on any string from project.json before inserting into innerHTML.
+ * @param {string} str
+ * @returns {string}
+ */
+function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+/**
+ * Build a same-origin asset path with each segment URL-encoded.
+ * @param {string} slug
+ * @param {string} file
+ * @returns {string}
+ */
+function assetPath(slug, file) {
+    return 'projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(file);
+}
+
+/**
+ * Build a restricted PDF path. Strips any character outside a safe allowlist
+ * from both the slug and filename before assembling the path.
+ * @param {string} slug
+ * @param {string} filename
+ * @returns {string}
+ */
+function safePdfPath(slug, filename) {
+    // Only allow alphanumeric, hyphens, underscores, dots, spaces
+    const safeSlug = String(slug).replace(/[^a-zA-Z0-9\-_]/g, '');
+    const safeFile = String(filename).replace(/[^a-zA-Z0-9\-_. ]/g, '');
+    return 'projects/' + safeSlug + '/' + safeFile;
+}
+
 var DEGREE_SHORT = {
     'BA Honours in Design Leadership':          'BA Honours',
     'BCIS in Game Design and Development':      'BCIS',
@@ -47,7 +87,7 @@ var slug = new URLSearchParams(window.location.search).get('slug');
 function renderHero(p) {
     var pageTitle = p.title + ' - Matthew Derek Rall';
     var pageDesc  = (p.summary || '').slice(0, 160);
-    var pageUrl   = 'https://matthewderekrall.com/project.html?slug=' + slug;
+    var pageUrl   = 'https://matthewderekrall.com/project.html?slug=' + encodeURIComponent(slug);
 
     var pgTitle = document.getElementById('pg-title');
     var pgDesc  = document.getElementById('pg-desc');
@@ -64,8 +104,8 @@ function renderHero(p) {
     if (ogUrl)   ogUrl.content       = pageUrl;
 
     var coverSrc = p.coverImage
-        ? 'projects/' + p.slug + '/' + p.coverImage
-        : p.photos > 0 ? 'projects/' + p.slug + '/cover.jpg' : null;
+        ? assetPath(p.slug, p.coverImage)
+        : p.photos > 0 ? assetPath(p.slug, 'cover.jpg') : null;
 
     var heroBg      = document.getElementById('heroBg');
     var heroGlow    = document.getElementById('heroGlow');
@@ -81,10 +121,10 @@ function renderHero(p) {
     var type  = TYPE_LABEL[p.type]   || (p.type ? p.type.charAt(0).toUpperCase() + p.type.slice(1) : '');
 
     var badges = [
-        type    ? '<span class="badge b-type">' + type + '</span>'       : '',
-        p.genre ? '<span class="badge b-genre">' + p.genre + '</span>'   : '',
-        short   ? '<span class="badge b-degree">' + short + '</span>'    : '',
-        p.event ? '<span class="badge b-event">🎮 ' + p.event + '</span>' : '',
+        type    ? '<span class="badge b-type">' + escHtml(type) + '</span>'       : '',
+        p.genre ? '<span class="badge b-genre">' + escHtml(p.genre) + '</span>'   : '',
+        short   ? '<span class="badge b-degree">' + escHtml(short) + '</span>'    : '',
+        p.event ? '<span class="badge b-event">🎮 ' + escHtml(p.event) + '</span>' : '',
     ].filter(Boolean).join('');
 
     var heroBadges = document.getElementById('heroBadges');
@@ -130,6 +170,7 @@ function renderPage(p) {
     renderHero(p);
     injectProjectSchema(p);
 
+    var titleSafe = escHtml(p.title);
     var parts = [];
 
     /* Awards */
@@ -139,7 +180,7 @@ function renderPage(p) {
             '<div class="block-label">Awards &amp; Recognition</div>' +
             '<div class="awards-list">' +
             p.awards.map(function (a) {
-                return '<div class="award-row"><span class="award-icon">🏆</span><span class="award-text">' + a + '</span></div>';
+                return '<div class="award-row"><span class="award-icon">🏆</span><span class="award-text">' + escHtml(a) + '</span></div>';
             }).join('') +
             '</div></div>'
         );
@@ -150,7 +191,7 @@ function renderPage(p) {
         parts.push(
             '<div class="content-block fade-up">' +
             '<div class="block-label">About</div>' +
-            '<p class="summary-text">' + (p.summary || p.description) + '</p>' +
+            '<p class="summary-text">' + escHtml(p.summary || p.description) + '</p>' +
             '</div>'
         );
     }
@@ -161,19 +202,19 @@ function renderPage(p) {
             '<div class="content-block fade-up">' +
             '<div class="block-label">Play on Itch.io</div>' +
             '<div class="itch-wrap">' +
-            '<iframe frameborder="0" src="https://itch.io/embed/' + p.itchId + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" allowfullscreen title="' + p.title + ' on itch.io"></iframe>' +
+            '<iframe frameborder="0" src="https://itch.io/embed/' + encodeURIComponent(p.itchId) + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" allowfullscreen title="' + titleSafe + ' on itch.io"></iframe>' +
             '</div></div>'
         );
     }
 
     /* Screenshot gallery */
-    var photos = (p.photoFiles || []).map(function (f) { return 'projects/' + p.slug + '/' + f; });
+    var photos = (p.photoFiles || []).map(function (f) { return assetPath(p.slug, f); });
     window._lbImages = photos;
 
     if (photos.length) {
         var items = photos.map(function (src, i) {
             return '<div class="gal-item" onclick="openLB(' + i + ')" role="button" tabindex="0" onkeydown="if(event.key===\'Enter\')openLB(' + i + ')">' +
-                '<img src="' + src + '" alt="' + p.title + ' - screenshot ' + (i + 1) + '" loading="lazy">' +
+                '<img src="' + src + '" alt="' + titleSafe + ' - screenshot ' + (i + 1) + '" loading="lazy">' +
                 '<div class="gal-zoom">🔍</div>' +
                 '</div>';
         }).join('');
@@ -190,7 +231,7 @@ function renderPage(p) {
         parts.push(
             '<div class="content-block fade-up">' +
             '<div class="block-label">Tech Stack</div>' +
-            '<div class="pill-row">' + p.stack.map(function (s) { return '<span class="pill">' + s + '</span>'; }).join('') + '</div>' +
+            '<div class="pill-row">' + p.stack.map(function (s) { return '<span class="pill">' + escHtml(s) + '</span>'; }).join('') + '</div>' +
             '</div>'
         );
     }
@@ -200,7 +241,7 @@ function renderPage(p) {
         parts.push(
             '<div class="content-block fade-up">' +
             '<div class="block-label">Tags</div>' +
-            '<div class="pill-row">' + p.tags.map(function (t) { return '<span class="tag-pill">' + t + '</span>'; }).join('') + '</div>' +
+            '<div class="pill-row">' + p.tags.map(function (t) { return '<span class="tag-pill">' + escHtml(t) + '</span>'; }).join('') + '</div>' +
             '</div>'
         );
     }
@@ -210,7 +251,7 @@ function renderPage(p) {
     var extLinks = [];
     if (p.links) {
         for (var k in p.links) {
-            extLinks.push('<a href="' + p.links[k] + '" target="_blank" rel="noopener noreferrer" class="pdf-btn">' + (LABELS[k] || k) + '</a>');
+            extLinks.push('<a href="' + encodeURI(p.links[k]) + '" target="_blank" rel="noopener noreferrer" class="pdf-btn">' + escHtml(LABELS[k] || k) + '</a>');
         }
     }
     if (extLinks.length) {
@@ -224,19 +265,20 @@ function renderPage(p) {
 
     /* PDF viewer */
     if (p.file) {
-        var url = 'projects/' + p.slug + '/' + p.file;
+        var url = safePdfPath(p.slug, p.file);
+        var urlAttr = encodeURI(url);
         parts.push(
             '<div class="content-block fade-up">' +
             '<div class="block-label">Document</div>' +
             '<div class="pdf-box">' +
             '<div class="pdf-toolbar">' +
-            '<span class="pdf-name">' + p.file + '</span>' +
+            '<span class="pdf-name">' + escHtml(p.file) + '</span>' +
             '<div class="pdf-actions">' +
-            '<a href="' + url + '" target="_blank" class="pdf-btn">↗ Open in New Tab</a>' +
-            '<a href="' + url + '" download class="pdf-btn">⬇ Download</a>' +
+            '<a href="' + urlAttr + '" target="_blank" class="pdf-btn">↗ Open in New Tab</a>' +
+            '<a href="' + urlAttr + '" download class="pdf-btn">⬇ Download</a>' +
             '</div></div>' +
-            '<iframe class="pdf-frame" src="' + url + '" title="Document viewer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"></iframe>' +
-            '<div class="pdf-fallback"><p>Your browser could not display the PDF inline.</p><p style="margin-top:12px"><a href="' + url + '" target="_blank">Open in new tab</a> &nbsp;·&nbsp; <a href="' + url + '" download>Download</a></p></div>' +
+            '<iframe class="pdf-frame" src="' + urlAttr + '" title="Document viewer" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"></iframe>' +
+            '<div class="pdf-fallback"><p>Your browser could not display the PDF inline.</p><p style="margin-top:12px"><a href="' + urlAttr + '" target="_blank">Open in new tab</a> &nbsp;·&nbsp; <a href="' + urlAttr + '" download>Download</a></p></div>' +
             '</div></div>'
         );
     }
@@ -244,10 +286,10 @@ function renderPage(p) {
     /* Press / articles */
     if (p.articles && p.articles.length) {
         var rows = p.articles.map(function (a) {
-            return '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="article-row">' +
+            return '<a href="' + encodeURI(a.url) + '" target="_blank" rel="noopener noreferrer" class="article-row">' +
                 '<span class="art-arrow">↗</span>' +
-                '<span class="art-title">' + a.title + '</span>' +
-                (a.source ? '<span class="art-source">' + a.source + '</span>' : '') +
+                '<span class="art-title">' + escHtml(a.title) + '</span>' +
+                (a.source ? '<span class="art-source">' + escHtml(a.source) + '</span>' : '') +
                 '</a>';
         }).join('');
         parts.push(
