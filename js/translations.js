@@ -1,3 +1,6 @@
+// Source file - edit this file, then run `npm run build` to regenerate
+// js/translations.min.js which is what the HTML pages actually load.
+
 /**
  * translations.js
  * Contains all static UI text translations for matthewderekrall.com
