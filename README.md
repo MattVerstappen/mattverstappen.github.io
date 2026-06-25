@@ -1,5 +1,14 @@
 # mattverstappen.github.io
 
+## Remaining Fixes - Round 3
+
+- [ ] Em dashes replaced with hyphens (if any found)
+- [ ] Nav logo /index.html links changed to / (if not already done)
+- [ ] Featured project images updated to WebP on homepage
+- [ ] translations files confirmed - pages load translations.min.js
+- [ ] package.json confirmed correct (wrangler + terser setup)
+- [ ] robots.txt confirmed correct
+
 ## JS Quality and Security Improvements - Status: COMPLETE
 
 ### Bundle 03 - Web Frontend JS
