@@ -85,7 +85,7 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 - [ ] project.html?slug=tiny-cafe - indexing fix applied
 
 ### Issue 2 - Crawled but not indexed (5 URLs)
-- [ ] ?lang= parameter URLs blocked from indexing
+- [x] ?lang= parameter URLs blocked from indexing
 - [ ] project detail pages (from-the-shadows, system-saviour,
       homogenization-of-game-design) - thin content fix applied
 

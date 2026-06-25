@@ -9,6 +9,30 @@
  * 4. Default: 'en'
  */
 
+// Block ?lang= parameter URLs from Google indexing
+(function blockLangParamIndexing() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('lang')) {
+        // Add noindex tag dynamically for ?lang= URLs
+        const meta = document.createElement('meta');
+        meta.name = 'robots';
+        meta.content = 'noindex, follow';
+        document.head.appendChild(meta);
+
+        // Also add canonical pointing to the clean URL (no ?lang= param)
+        const cleanUrl = window.location.origin + window.location.pathname;
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) {
+            canonical.href = cleanUrl;
+        } else {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            canonical.href = cleanUrl;
+            document.head.appendChild(canonical);
+        }
+    }
+})();
+
 const VALID_LANGS = ['en', 'zh', 'hi', 'es', 'fr', 'ar', 'af', 'ja'];
 const LS_KEY = 'mdr-lang';
 const FS_DECLINED_KEY = 'mdr-fs-declined';
