@@ -274,16 +274,25 @@ function renderPage(p) {
 
 /* ── LIGHTBOX ── */
 var _lbIdx = 0;
+var _lbTrigger = null;   // element that opened the lightbox, for focus restore
 
 function openLB(i) {
+    _lbTrigger = document.activeElement;
     _lbIdx = i;
     syncLB();
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
+    // Move focus to close button when lightbox opens
+    setTimeout(function () {
+        var close = document.getElementById('lb-close');
+        if (close) close.focus();
+    }, 50);
 }
 function closeLB() {
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
+    // Return focus to the element that triggered the lightbox
+    if (_lbTrigger && typeof _lbTrigger.focus === 'function') _lbTrigger.focus();
 }
 function moveLB(dir) {
     var len = (window._lbImages || []).length;
@@ -293,9 +302,15 @@ function moveLB(dir) {
 function syncLB() {
     var imgs = window._lbImages || [];
     document.getElementById('lb-img').src = imgs[_lbIdx] || '';
-    document.getElementById('lb-count').textContent = (_lbIdx + 1) + ' / ' + imgs.length;
-    document.getElementById('lb-prev').style.visibility = imgs.length > 1 ? 'visible' : 'hidden';
-    document.getElementById('lb-next').style.visibility = imgs.length > 1 ? 'visible' : 'hidden';
+    var counter = (_lbIdx + 1) + ' / ' + imgs.length;
+    document.getElementById('lb-count').textContent = counter;
+
+    var announce = document.getElementById('lb-announce');
+    if (announce) announce.textContent = 'Image ' + counter;
+
+    var showNav = imgs.length > 1;
+    document.getElementById('lb-prev').style.visibility = showNav ? 'visible' : 'hidden';
+    document.getElementById('lb-next').style.visibility = showNav ? 'visible' : 'hidden';
 }
 
 var lightbox = document.getElementById('lightbox');
@@ -308,9 +323,25 @@ if (lightbox) {
 document.addEventListener('keydown', function (e) {
     var lb = document.getElementById('lightbox');
     if (!lb || !lb.classList.contains('open')) return;
-    if (e.key === 'Escape')     closeLB();
-    if (e.key === 'ArrowLeft')  moveLB(-1);
-    if (e.key === 'ArrowRight') moveLB(1);
+
+    if (e.key === 'Escape')     { closeLB(); return; }
+    if (e.key === 'ArrowLeft')  { moveLB(-1); return; }
+    if (e.key === 'ArrowRight') { moveLB(1);  return; }
+
+    // Focus trap: Tab cycles between the lightbox controls only
+    if (e.key === 'Tab') {
+        var focusable = lb.querySelectorAll('button');
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
 });
 
 /* ── NOT FOUND ── */
