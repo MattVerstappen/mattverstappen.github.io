@@ -2,12 +2,12 @@
 
 ## Remaining Fixes - Round 3
 
-- [ ] Em dashes replaced with hyphens (if any found)
-- [ ] Nav logo /index.html links changed to / (if not already done)
-- [ ] Featured project images updated to WebP on homepage
-- [ ] translations files confirmed - pages load translations.min.js
-- [ ] package.json confirmed correct (wrangler + terser setup)
-- [ ] robots.txt confirmed correct
+- [x] Em dashes replaced with hyphens (none found - already clean)
+- [x] Nav logo /index.html links changed to / (already done on all pages)
+- [x] Featured project images updated to WebP on homepage (already using picture/WebP)
+- [x] translations files confirmed - pages load translations.min.js (source comment added)
+- [x] package.json confirmed correct (wrangler + terser setup)
+- [x] robots.txt confirmed correct
 
 ## JS Quality and Security Improvements - Status: COMPLETE
 
