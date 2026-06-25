@@ -3,7 +3,7 @@
 ## JS Quality and Security Improvements
 
 ### Bundle 03 - Web Frontend JS
-- [ ] js/projects.js - fetch error handling and AbortController added
+- [x] js/projects.js - fetch error handling and AbortController added
 - [ ] js/projects.js - var replaced with const/let throughout
 - [ ] js/project-detail.js - fetch error handling improved
 - [ ] js/project-detail.js - lightbox keyboard trap fixed

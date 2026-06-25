@@ -201,25 +201,61 @@ function filterDegree(degree) {
 }
 
 async function loadProjects() {
+    const grid = document.getElementById('projGrid');
+    if (!grid) return;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(function () { controller.abort(); }, 8000);
+
     try {
-        var manifest = await fetch('projects/manifest.json').then(function (r) { return r.json(); });
-        var results = await Promise.allSettled(
+        const manifestRes = await fetch('projects/manifest.json', {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!manifestRes.ok) {
+            throw new Error('Manifest fetch failed: HTTP ' + manifestRes.status);
+        }
+
+        const manifest = await manifestRes.json();
+
+        const results = await Promise.allSettled(
             manifest.map(async function (slug) {
-                var data = await fetch('projects/' + slug + '/project.json').then(function (r) { return r.json(); });
+                const res = await fetch('projects/' + slug + '/project.json');
+                if (!res.ok) throw new Error('Project ' + slug + ': HTTP ' + res.status);
+                const data = await res.json();
                 return Object.assign({}, data, { slug: slug });
             })
         );
+
         allProjects = results
             .filter(function (r) { return r.status === 'fulfilled'; })
             .map(function (r) { return r.value; });
+
+        const failed = results.filter(function (r) { return r.status === 'rejected'; });
+        if (failed.length > 0) {
+            console.warn(failed.length + ' project(s) failed to load:',
+                failed.map(function (r) { return r.reason && r.reason.message; }));
+        }
+
         renderFilters(allProjects);
         renderGrid();
 
         // Dispatch event so pages can react
         document.dispatchEvent(new CustomEvent('projectsLoaded'));
-    } catch (e) {
-        var grid = document.getElementById('projGrid');
-        if (grid) grid.innerHTML = '<div class="proj-empty"><span class="proj-empty-icon">⚠️</span>Could not load projects.</div>';
+
+    } catch (err) {
+        clearTimeout(timeoutId);
+        if (err.name === 'AbortError') {
+            grid.innerHTML = '<div class="proj-empty">' +
+                '<span class="proj-empty-icon">-</span>' +
+                'Projects took too long to load. Please refresh.</div>';
+        } else {
+            grid.innerHTML = '<div class="proj-empty">' +
+                '<span class="proj-empty-icon">-</span>' +
+                'Could not load projects. Please try again.</div>';
+            console.error('loadProjects failed:', err);
+        }
     }
 }
 
