@@ -262,6 +262,15 @@ document.addEventListener('keydown', function (e) {
 
 /* ── NOT FOUND ── */
 function showNotFound() {
+    // Add noindex so Google stops crawling this URL
+    var noindex = document.createElement('meta');
+    noindex.name = 'robots';
+    noindex.content = 'noindex, nofollow';
+    document.head.appendChild(noindex);
+
+    // Update title
+    document.title = 'Project Not Found - Matthew Derek Rall';
+
     var projHero    = document.getElementById('projHero');
     var projContent = document.getElementById('projContent');
     if (projHero)    projHero.style.display = 'none';
@@ -269,6 +278,6 @@ function showNotFound() {
         '<div class="notfound-state">' +
         '<h1>Project Not Found</h1>' +
         '<p>The project you\'re looking for doesn\'t exist or has been moved.</p>' +
-        '<a href="index.html" class="back-btn"><span class="back-arrow">←</span> Back to Portfolio</a>' +
+        '<a href="/" class="back-btn"><span class="back-arrow">-</span> Back to Portfolio</a>' +
         '</div>';
 }

@@ -94,7 +94,7 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 - [ ] research.html?lang=ar blocked from indexing
 
 ### Issue 4 - Soft 404
-- [ ] project.html (no slug) returns proper 404 page
+- [x] project.html (no slug) returns proper 404 page
 
 ### Issue 5 - Content improvements
 - [ ] Meta descriptions reviewed and improved on all pages
