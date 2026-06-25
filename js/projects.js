@@ -1,5 +1,32 @@
 /* ── PROJECT GRID SYSTEM ── */
 
+/**
+ * Escape HTML special characters to prevent XSS.
+ * Use this on any string from project.json before inserting into innerHTML.
+ * @param {string} str
+ * @returns {string}
+ */
+function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+/**
+ * Build a same-origin asset path with each segment URL-encoded.
+ * Safe for use in src/href attributes.
+ * @param {string} slug
+ * @param {string} file
+ * @returns {string}
+ */
+function assetPath(slug, file) {
+    return 'projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(file);
+}
+
 let allProjects = [];
 let currentStatus = 'completed';
 let currentDegree = 'all';
@@ -46,8 +73,9 @@ function buildCard(proj) {
     const short     = shortenDegree(proj.degree);
     const icon      = TYPE_ICON[proj.type] || '📦';
     const typeLabel = proj.type ? proj.type.charAt(0).toUpperCase() + proj.type.slice(1) : 'Project';
+    const titleSafe = escHtml(proj.title);
 
-    const catBadge   = proj.engine ? '<span class="project-category-badge">' + proj.engine + '</span>' : '';
+    const catBadge   = proj.engine ? '<span class="project-category-badge">' + escHtml(proj.engine) + '</span>' : '';
     const fallbackIcon = (typeof mdrIcon === 'function')
         ? mdrIcon(TYPE_ICON_NAME[proj.type] || 'gamepad', 40) : '';
     const fallbackDiv = function (visible) {
@@ -56,19 +84,19 @@ function buildCard(proj) {
     };
 
     const coverSrc = proj.coverImage
-        ? 'projects/' + proj.slug + '/' + proj.coverImage
-        : proj.photos > 0 ? 'projects/' + proj.slug + '/cover.jpg' : null;
+        ? assetPath(proj.slug, proj.coverImage)
+        : proj.photos > 0 ? assetPath(proj.slug, 'cover.jpg') : null;
 
     let coverInner;
     if (coverSrc) {
         const onerr = "this.closest('.proj-cover-wrap').querySelector('.cover-icon-fallback').style.display='flex';";
         let imgTag;
         if (proj.coverWebp) {
-            imgTag = '<picture><source type="image/webp" srcset="projects/' + proj.slug + '/' + proj.coverWebp + '">' +
-                     '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+            imgTag = '<picture><source type="image/webp" srcset="' + assetPath(proj.slug, proj.coverWebp) + '">' +
+                     '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + titleSafe + '" ' +
                      'onerror="this.closest(\'picture\').style.display=\'none\'; ' + onerr + '"></picture>';
         } else {
-            imgTag = '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + proj.title + '" ' +
+            imgTag = '<img src="' + coverSrc + '" class="proj-cover" loading="lazy" decoding="async" alt="' + titleSafe + '" ' +
                      'onerror="this.style.display=\'none\'; ' + onerr + '">';
         }
         coverInner = imgTag + fallbackDiv(false);
@@ -76,36 +104,37 @@ function buildCard(proj) {
         // No cover image - use the category icon as the cover area.
         coverInner = fallbackDiv(true);
     }
-    const cover = '<a href="project.html?slug=' + proj.slug + '" class="proj-cover-link">' +
+    const slugUrl = encodeURIComponent(proj.slug);
+    const cover = '<a href="project.html?slug=' + slugUrl + '" class="proj-cover-link">' +
                 '<div class="proj-cover-wrap">' + catBadge + coverInner + '</div></a>';
 
     const gallery = proj.photoFiles && proj.photoFiles.length
         ? '<div class="proj-gallery">' + proj.photoFiles.map(function (f) {
-            return '<a href="project.html?slug=' + proj.slug + '"><img src="projects/' + proj.slug + '/' + f + '" class="proj-thumb" onerror="this.style.display=\'none\'" alt="' + proj.title + ' screenshot"></a>';
+            return '<a href="project.html?slug=' + slugUrl + '"><img src="' + assetPath(proj.slug, f) + '" class="proj-thumb" onerror="this.style.display=\'none\'" alt="' + titleSafe + ' screenshot"></a>';
           }).join('') + '</div>'
         : '';
 
-    const degreeBadge = short ? '<span class="proj-degree-badge">' + short + '</span>' : '';
-    const eventBadge  = proj.event ? '<span class="proj-event-badge">🎮 ' + proj.event + '</span>' : '';
-    const genreBadge  = proj.genre ? '<span class="proj-genre">' + proj.genre + '</span>' : '';
+    const degreeBadge = short ? '<span class="proj-degree-badge">' + escHtml(short) + '</span>' : '';
+    const eventBadge  = proj.event ? '<span class="proj-event-badge">🎮 ' + escHtml(proj.event) + '</span>' : '';
+    const genreBadge  = proj.genre ? '<span class="proj-genre">' + escHtml(proj.genre) + '</span>' : '';
 
-    const dateHTML = proj.date ? '<div class="proj-date">🗓 ' + proj.date + '</div>' : '';
+    const dateHTML = proj.date ? '<div class="proj-date">🗓 ' + escHtml(proj.date) + '</div>' : '';
 
     const awardsHTML = proj.awards && proj.awards.length
         ? '<div class="proj-awards">' + proj.awards.map(function (a) {
-            return '<div class="proj-award"><span class="proj-award-icon">🏆</span>' + a + '</div>';
+            return '<div class="proj-award"><span class="proj-award-icon">🏆</span>' + escHtml(a) + '</div>';
           }).join('') + '</div>'
         : '';
 
     const tagsHTML = proj.tags && proj.tags.length
         ? '<div class="proj-tags">' + proj.tags.map(function (t) {
-            return '<span class="proj-tag-chip">' + t + '</span>';
+            return '<span class="proj-tag-chip">' + escHtml(t) + '</span>';
           }).join('') + '</div>'
         : '';
 
     const stack = proj.stack && proj.stack.length
         ? '<div class="proj-stack" style="margin-top:12px">' + proj.stack.map(function (s) {
-            return '<span class="st">' + s + '</span>';
+            return '<span class="st">' + escHtml(s) + '</span>';
           }).join('') + '</div>'
         : '';
 
@@ -113,34 +142,34 @@ function buildCard(proj) {
     if (proj.links) {
         for (const key in proj.links) {
             const label = LINK_LABEL[key] || key;
-            linkBtns.push('<a href="' + proj.links[key] + '" target="_blank" rel="noopener noreferrer" class="proj-link-btn">' + label + '</a>');
+            linkBtns.push('<a href="' + encodeURI(proj.links[key]) + '" target="_blank" rel="noopener noreferrer" class="proj-link-btn">' + escHtml(label) + '</a>');
         }
     }
     if (proj.file) {
-        linkBtns.push('<a href="projects/' + proj.slug + '/' + proj.file + '" download class="proj-link-btn proj-link-dl">⬇ Download</a>');
+        linkBtns.push('<a href="' + assetPath(proj.slug, proj.file) + '" download class="proj-link-btn proj-link-dl">⬇ Download</a>');
     }
     const links = linkBtns.length ? '<div class="proj-links">' + linkBtns.join('') + '</div>' : '';
 
     const itchWidget = proj.itchId
-        ? '<div class="proj-itch-wrap"><iframe frameborder="0" src="https://itch.io/embed/' + proj.itchId + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" height="171"></iframe></div>'
+        ? '<div class="proj-itch-wrap"><iframe frameborder="0" src="https://itch.io/embed/' + encodeURIComponent(proj.itchId) + '?border_width=3&bg_color=0D0A14&fg_color=F1E8FF&link_color=9333EA&border_color=C026D3" height="171"></iframe></div>'
         : '';
 
     const articlesHTML = proj.articles && proj.articles.length
         ? '<div class="proj-articles"><div class="proj-articles-label">Press &amp; Articles</div>' +
           proj.articles.map(function (a) {
-            return '<a href="' + a.url + '" target="_blank" rel="noopener noreferrer" class="proj-article-link">↗ ' + a.title + (a.source ? '<span class="proj-article-source">' + a.source + '</span>' : '') + '</a>';
+            return '<a href="' + encodeURI(a.url) + '" target="_blank" rel="noopener noreferrer" class="proj-article-link">↗ ' + escHtml(a.title) + (a.source ? '<span class="proj-article-source">' + escHtml(a.source) + '</span>' : '') + '</a>';
           }).join('') + '</div>'
         : '';
 
     return '<div class="proj-card">' +
         cover + gallery +
         '<div class="proj-card-body">' +
-        '<div class="proj-meta-row"><span class="proj-engine">' + icon + ' ' + typeLabel + '</span>' + genreBadge + degreeBadge + eventBadge + '</div>' +
+        '<div class="proj-meta-row"><span class="proj-engine">' + icon + ' ' + escHtml(typeLabel) + '</span>' + genreBadge + degreeBadge + eventBadge + '</div>' +
         dateHTML +
-        '<h3 class="proj-title">' + proj.title + '</h3>' +
-        '<p class="proj-desc">' + (proj.summary || proj.description || '') + '</p>' +
+        '<h3 class="proj-title">' + titleSafe + '</h3>' +
+        '<p class="proj-desc">' + escHtml(proj.summary || proj.description || '') + '</p>' +
         awardsHTML + tagsHTML + stack + links + itchWidget + articlesHTML +
-        '<a href="project.html?slug=' + proj.slug + '" class="proj-view-btn">View Project →</a>' +
+        '<a href="project.html?slug=' + slugUrl + '" class="proj-view-btn">View Project →</a>' +
         '</div></div>';
 }
 
@@ -154,7 +183,7 @@ function renderFilters(projects) {
     container.innerHTML = degrees.map(function (d) {
         const label = d === 'all' ? 'All' : shortenDegree(d);
         const on    = d === currentDegree ? ' on' : '';
-        return '<button class="filter-chip' + on + '" onclick="filterDegree(\'' + d + '\')">' + label + '</button>';
+        return '<button class="filter-chip' + on + '" onclick="filterDegree(\'' + escHtml(d) + '\')">' + escHtml(label) + '</button>';
     }).join('');
 }
 

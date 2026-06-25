@@ -12,7 +12,7 @@
 - [x] js/translations.js - applyTranslations null safety added
 
 ### Bundle 05 - Security
-- [ ] js/projects.js - innerHTML XSS audit complete
+- [x] js/projects.js - innerHTML XSS audit complete
 - [ ] js/project-detail.js - innerHTML XSS audit complete
 - [ ] js/translations.js - data-i18n-html restricted
 - [ ] contact form - CSP meta tag added
