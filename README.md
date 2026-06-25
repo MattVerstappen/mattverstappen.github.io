@@ -9,7 +9,7 @@
 - [x] js/project-detail.js - lightbox keyboard trap fixed
 - [ ] js/nav.js - DOMContentLoaded consolidated (if not already done)
 - [ ] js/lang-persist.js - async error handling improved
-- [ ] js/translations.js - applyTranslations null safety added
+- [x] js/translations.js - applyTranslations null safety added
 
 ### Bundle 05 - Security
 - [ ] js/projects.js - innerHTML XSS audit complete

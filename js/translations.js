@@ -913,18 +913,22 @@ const TRANSLATIONS = {
  * @param {string} lang - language code
  */
 function applyTranslations(lang) {
-    const t = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+    const t = TRANSLATIONS[lang] ?? TRANSLATIONS['en'];
+    const en = TRANSLATIONS['en'];
 
     // Update all data-i18n text content
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.textContent = t[key];
+        // Fall back to English if the translation key is missing for this language
+        const value = t[key] ?? en[key];
+        if (value != null) el.textContent = value;
     });
 
     // Update all data-i18n-placeholder attributes
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
-        if (t[key] !== undefined) el.placeholder = t[key];
+        const value = t[key] ?? en[key];
+        if (value != null) el.placeholder = value;
     });
 
     // Update html lang attribute
