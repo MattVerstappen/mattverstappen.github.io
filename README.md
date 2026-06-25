@@ -98,5 +98,5 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 
 ### Issue 5 - Content improvements
 - [x] Meta descriptions reviewed and improved on all pages
-- [ ] Structured data (JSON-LD) added or improved
+- [x] Structured data (JSON-LD) added or improved
 - [ ] og:image confirmed present and correct on all pages
