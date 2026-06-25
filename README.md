@@ -14,7 +14,7 @@
 ### Bundle 05 - Security
 - [x] js/projects.js - innerHTML XSS audit complete
 - [x] js/project-detail.js - innerHTML XSS audit complete
-- [ ] js/translations.js - data-i18n-html restricted
+- [x] js/translations.js - data-i18n-html restricted
 - [ ] contact form - CSP meta tag added
 - [ ] All pages - CSP meta tag added
 

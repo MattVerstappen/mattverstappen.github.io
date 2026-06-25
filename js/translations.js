@@ -907,6 +907,12 @@ const TRANSLATIONS = {
 
 };
 
+// ONLY these keys are allowed to use innerHTML (they contain known safe markup).
+// Currently none are needed - all translations are plain text.
+const SAFE_HTML_KEYS = new Set([
+    // Add any translation keys here that legitimately need HTML markup.
+]);
+
 /**
  * Apply translations to the current page.
  * Updates all elements with data-i18n attributes.
@@ -916,7 +922,7 @@ function applyTranslations(lang) {
     const t = TRANSLATIONS[lang] ?? TRANSLATIONS['en'];
     const en = TRANSLATIONS['en'];
 
-    // Update all data-i18n text content
+    // Plain text translations (safe) - always use textContent
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         // Fall back to English if the translation key is missing for this language
@@ -929,6 +935,21 @@ function applyTranslations(lang) {
         const key = el.getAttribute('data-i18n-placeholder');
         const value = t[key] ?? en[key];
         if (value != null) el.placeholder = value;
+    });
+
+    // HTML translations - ONLY for explicitly allowlisted keys
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (!SAFE_HTML_KEYS.has(key)) {
+            // Key not on allowlist - fall back to textContent for safety
+            console.warn('data-i18n-html key "' + key + '" is not on the allowlist. ' +
+                'Use data-i18n instead, or add to SAFE_HTML_KEYS if HTML is needed.');
+            const value = t[key] ?? en[key];
+            if (value != null) el.textContent = value;
+            return;
+        }
+        const value = t[key] ?? en[key];
+        if (value != null) el.innerHTML = value;
     });
 
     // Update html lang attribute
