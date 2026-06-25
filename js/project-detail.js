@@ -11,14 +11,37 @@ var TYPE_LABEL = { game:'Game', research:'Research', app:'App', design:'Design' 
 
 /* ── INIT ── */
 var slug = new URLSearchParams(window.location.search).get('slug');
-if (!slug) {
-    showNotFound();
-} else {
-    fetch('projects/' + slug + '/project.json')
-        .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
-        .then(function (p) { p.slug = slug; renderPage(p); })
-        .catch(showNotFound);
-}
+(async function () {
+    if (!slug) {
+        showNotFound();
+        return;
+    }
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(function () { controller.abort(); }, 8000);
+
+    try {
+        const res = await fetch('projects/' + slug + '/project.json', {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) {
+            throw new Error('HTTP ' + res.status + ': project not found');
+        }
+
+        const p = await res.json();
+        p.slug = slug;
+        renderPage(p);
+
+    } catch (err) {
+        clearTimeout(timeoutId);
+        if (err.name !== 'AbortError') {
+            console.error('Failed to load project:', slug, err);
+        }
+        showNotFound();
+    }
+})();
 
 /* ── HERO ── */
 function renderHero(p) {

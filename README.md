@@ -5,7 +5,7 @@
 ### Bundle 03 - Web Frontend JS
 - [x] js/projects.js - fetch error handling and AbortController added
 - [x] js/projects.js - var replaced with const/let throughout
-- [ ] js/project-detail.js - fetch error handling improved
+- [x] js/project-detail.js - fetch error handling improved
 - [ ] js/project-detail.js - lightbox keyboard trap fixed
 - [ ] js/nav.js - DOMContentLoaded consolidated (if not already done)
 - [ ] js/lang-persist.js - async error handling improved
