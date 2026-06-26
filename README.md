@@ -8,11 +8,11 @@
 - [x] translations.min.js rebuilt
 
 ### Part B - Creative coding folder structure
-- [ ] creative-coding/atmosphere/ created with CSS
-- [ ] creative-coding/blackhole/ created with CSS
-- [ ] creative-coding/meteor-shower/ created with CSS and JS
-- [ ] creative-coding/lightning/ created with CSS and JS
-- [ ] creative-coding/binary-rain/ created (moved from inline)
+- [x] creative-coding/atmosphere/ created with CSS
+- [x] creative-coding/blackhole/ created with CSS
+- [x] creative-coding/meteor-shower/ created with CSS and JS
+- [x] creative-coding/lightning/ created with CSS and JS
+- [x] creative-coding/binary-rain/ created (moved from inline)
 
 ### Part C - creative-coding.html updated
 - [ ] Atmosphere demo added
