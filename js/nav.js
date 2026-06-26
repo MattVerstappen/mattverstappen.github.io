@@ -46,6 +46,30 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // ---- Scroll progress bar ----
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop  = window.scrollY;
+            const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+            const progress   = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = progress + '%';
+        }, { passive: true });
+    }
+
+    // ---- Hero spotlight (mouse follow) ----
+    const heroSection  = document.getElementById('hero');
+    const heroSpotlight = document.getElementById('heroSpotlight');
+    if (heroSection && heroSpotlight) {
+        heroSection.addEventListener('mousemove', e => {
+            const rect = heroSection.getBoundingClientRect();
+            const x    = ((e.clientX - rect.left) / rect.width)  * 100;
+            const y    = ((e.clientY - rect.top)  / rect.height) * 100;
+            heroSpotlight.style.setProperty('--mouse-x', x + '%');
+            heroSpotlight.style.setProperty('--mouse-y', y + '%');
+        });
+    }
+
     // 4. Fade-in observer
     var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {

@@ -22,7 +22,7 @@
 - [x] sitemap.xml updated with creative-coding.html
 
 ### Part D - Scroll Progress + Hero JS
-- [ ] js/nav.js updated with scroll progress and hero spotlight
+- [x] js/nav.js updated with scroll progress and hero spotlight
 
 ## Remaining Fixes - Round 3 - Status: COMPLETE
 
