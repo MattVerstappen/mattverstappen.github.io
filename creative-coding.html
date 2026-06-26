@@ -38,6 +38,11 @@
     <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Creative Coding Demo Styles (scoped, do not affect main site) -->
+    <link rel="stylesheet" href="creative-coding/atmosphere/atmosphere.css">
+    <link rel="stylesheet" href="creative-coding/blackhole/blackhole.css">
+    <link rel="stylesheet" href="creative-coding/meteor-shower/meteor-shower.css">
+    <link rel="stylesheet" href="creative-coding/lightning/lightning.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -132,6 +137,163 @@
     </div>
 </section>
 
+<!-- PURPLE LIGHTNING + RAIN DEMO -->
+<section id="cc-demo-lightning-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_2">Demo 02</span>
+            <h2 class="section-title" data-i18n="cc_demo2_heading">Purple Lightning &amp; Rain</h2>
+            <p class="section-sub" data-i18n="cc_demo2_sub">Procedural purple rain with branching lightning bolts. Click the frame to trigger a strike.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame cc-lightning-container" id="cc-demo-lightning">
+                <canvas id="cc-rain-canvas"></canvas>
+                <canvas id="cc-lightning-canvas"></canvas>
+                <div class="cc-lightning-flash" id="cc-lightning-flash"></div>
+                <div class="cc-demo-hint">Click to strike</div>
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Vanilla JS</span>
+                    <span class="cc-tech-tag">Canvas API</span>
+                    <span class="cc-tech-tag">Procedural Generation</span>
+                    <span class="cc-tech-tag">Particle Systems</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ATMOSPHERE / TEMPLE FX DEMO -->
+<section id="cc-demo-atmosphere-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_3">Demo 03</span>
+            <h2 class="section-title" data-i18n="cc_demo3_heading">Atmospheric Temple FX</h2>
+            <p class="section-sub" data-i18n="cc_demo3_sub">Pure CSS - no JavaScript required. Glowing sun orb, layered fortress silhouette, floating ember particles, and a CRT scanline overlay.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame" id="cc-demo-atmosphere" style="overflow:hidden;position:relative;">
+                <div class="cc-atmosphere cc-atmosphere-layer">
+                    <div class="cc-atmosphere-sun"></div>
+                    <div class="cc-atmosphere-fortress">
+                        <div class="cc-atmosphere-tier cc-atmosphere-tier-1"></div>
+                        <div class="cc-atmosphere-tier cc-atmosphere-tier-2"></div>
+                        <div class="cc-atmosphere-tier cc-atmosphere-tier-3"></div>
+                        <div class="cc-atmosphere-tier cc-atmosphere-tier-4"></div>
+                        <div class="cc-atmosphere-base"></div>
+                    </div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                    <div class="cc-atmosphere-ember"></div>
+                </div>
+                <div class="cc-atmosphere cc-atmosphere-scanlines"></div>
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Pure CSS</span>
+                    <span class="cc-tech-tag">CSS Animations</span>
+                    <span class="cc-tech-tag">clip-path</span>
+                    <span class="cc-tech-tag">CSS Custom Properties</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLACK HOLE DEMO -->
+<section id="cc-demo-blackhole-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_4">Demo 04</span>
+            <h2 class="section-title" data-i18n="cc_demo4_heading">Black Hole</h2>
+            <p class="section-sub" data-i18n="cc_demo4_sub">Pure CSS - spinning accretion disk, pulsing event horizon, and particle streams swirling outward into the void.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame" id="cc-demo-blackhole" style="overflow:hidden;position:relative;background:#0a0612;">
+                <div class="cc-blackhole">
+                    <div class="cc-blackhole-core"></div>
+                    <div class="cc-blackhole-glow"></div>
+                    <div class="cc-blackhole-disk"></div>
+                    <div class="cc-particle-stream">
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                        <div class="cc-bh-particle"></div>
+                    </div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                    <div class="cc-bh-dust"></div>
+                </div>
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Pure CSS</span>
+                    <span class="cc-tech-tag">conic-gradient</span>
+                    <span class="cc-tech-tag">CSS Animations</span>
+                    <span class="cc-tech-tag">radial-gradient</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METEOR SHOWER DEMO -->
+<section id="cc-demo-meteor-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_5">Demo 05</span>
+            <h2 class="section-title" data-i18n="cc_demo5_heading">Meteor Shower</h2>
+            <p class="section-sub" data-i18n="cc_demo5_sub">Dynamically generated meteors with realistic trail physics. Random angles, speeds, and positions - each meteor calculated individually.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame cc-meteor-shower" id="cc-demo-meteor">
+                <div class="cc-meteor-stars"></div>
+                <!-- meteors injected by meteor-shower.js -->
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Vanilla JS</span>
+                    <span class="cc-tech-tag">CSS Animations</span>
+                    <span class="cc-tech-tag">Dynamic DOM</span>
+                    <span class="cc-tech-tag">Trigonometry</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- MORE COMING SECTION -->
 <section id="more-coming">
     <div class="container">
@@ -174,5 +336,7 @@
 <script src="js/particle-network.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="js/creative-coding.js" defer></script>
+<script src="creative-coding/meteor-shower/meteor-shower.js" defer></script>
+<script src="creative-coding/lightning/lightning.js" defer></script>
 </body>
 </html>

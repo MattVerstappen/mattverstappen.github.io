@@ -15,12 +15,12 @@
 - [x] creative-coding/binary-rain/ created (moved from inline)
 
 ### Part C - creative-coding.html updated
-- [ ] Atmosphere demo added
-- [ ] Black Hole demo added
-- [ ] Meteor Shower demo added
-- [ ] Purple Lightning + Rain demo added
-- [ ] Demo CSS files linked in creative-coding.html head
-- [ ] Nav updated with Home link
+- [x] Atmosphere demo added
+- [x] Black Hole demo added
+- [x] Meteor Shower demo added
+- [x] Purple Lightning + Rain demo added
+- [x] Demo CSS files linked in creative-coding.html head
+- [x] Nav updated with Home link
 
 ## Visual Improvements + Creative Coding Page
 
