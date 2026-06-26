@@ -34,14 +34,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="proj-nav">
     <a href="/" class="nav-logo">MDR</a>
     <div style="display:flex; align-items:center; gap: 16px;">
         <ul class="nav-links" id="navLinks" style="position:static; background:transparent; border:none; padding:0; flex-direction:row; gap:20px;">
+            <li><a href="/">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="work.html">Work</a></li>
+            <li><a href="creative-coding.html">Creative Coding</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="achievements.html">Achievements</a></li>
             <li><a href="contact.html" class="nav-cta">Contact</a></li>
@@ -90,6 +94,7 @@
 </footer>
 
 <script src="assets/mdr-icons.js" defer></script>
+<script src="js/particle-network.js" defer></script>
 <script src="js/nav.js" defer></script>
 <script src="js/project-detail.js"></script>
 </body>

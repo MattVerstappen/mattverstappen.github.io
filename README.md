@@ -1,5 +1,58 @@
 # mattverstappen.github.io
 
+## Creative Coding Demos + Home Nav
+
+### Part A - Home nav link
+- [x] nav_home translation key added to all 8 languages
+- [x] Home link added to nav on all 8 pages
+- [x] translations.min.js rebuilt
+
+### Part B - Creative coding folder structure
+- [x] creative-coding/atmosphere/ created with CSS
+- [x] creative-coding/blackhole/ created with CSS
+- [x] creative-coding/meteor-shower/ created with CSS and JS
+- [x] creative-coding/lightning/ created with CSS and JS
+- [x] creative-coding/binary-rain/ created (moved from inline)
+
+### Part C - creative-coding.html updated
+- [x] Atmosphere demo added
+- [x] Black Hole demo added
+- [x] Meteor Shower demo added
+- [x] Purple Lightning + Rain demo added
+- [x] Demo CSS files linked in creative-coding.html head
+- [x] Nav updated with Home link
+
+## Creative Coding Demos + Home Nav - Status: COMPLETE
+
+## Visual Improvements + Creative Coding Page
+
+### Part A - CSS Improvements
+- [x] css/style.css updated with animation and shadow improvements
+
+### Part B - Particle Network (all pages)
+- [x] js/particle-network.js created
+- [x] Particle canvas added to index.html
+- [x] Particle canvas added to about.html
+- [x] Particle canvas added to work.html
+- [x] Particle canvas added to research.html
+- [x] Particle canvas added to achievements.html
+- [x] Particle canvas added to contact.html
+- [x] Particle canvas added to project.html
+
+### Part C - Creative Coding Page
+- [x] creative-coding.html created
+- [x] Nav updated on all 8 pages to include Creative Coding link
+- [x] translations.js updated with Creative Coding nav label
+- [x] sitemap.xml updated with creative-coding.html
+
+### Part D - Scroll Progress + Hero JS
+- [x] js/nav.js updated with scroll progress and hero spotlight
+
+## Visual Improvements + Creative Coding Page - Status: COMPLETE
+
+All particle network, CSS improvements, and Creative Coding page
+changes are live on the current branch.
+
 ## Remaining Fixes - Round 3 - Status: COMPLETE
 
 - [x] Em dashes replaced with hyphens (none found - already clean)

@@ -1,0 +1,10 @@
+/**
+ * binary-rain.css
+ * Styles for the binary rain + lightning demo on creative-coding.html.
+ * These styles are scoped to the #cc-demo-binary-rain container.
+ */
+
+#cc-demo-binary-rain {
+    background: radial-gradient(ellipse at bottom,
+        #1a0a2e 0%, #0d0618 60%, #000000 100%);
+}

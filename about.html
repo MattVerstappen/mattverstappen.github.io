@@ -60,13 +60,17 @@
     </script>
 </head>
 <body>
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <nav>
     <div class="nav-inner">
         <a href="/" class="nav-logo">MDR</a>
         <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav_home">Home</a></li>
             <li><a href="about.html" class="active" data-i18n="nav_about">About</a></li>
             <li><a href="work.html" data-i18n="nav_work">Work</a></li>
+            <li><a href="creative-coding.html" data-i18n="nav_creative_coding">Creative Coding</a></li>
             <li><a href="research.html" data-i18n="nav_research">Research</a></li>
             <li><a href="achievements.html" data-i18n="nav_achievements">Achievements</a></li>
             <li><a href="contact.html" class="nav-cta" data-i18n="nav_contact">Contact</a></li>
@@ -326,6 +330,7 @@
 <script src="assets/mdr-icons.js" defer></script>
 <script src="js/lang-persist.js" defer></script>
 <script src="js/translations.min.js" defer></script>
+<script src="js/particle-network.js" defer></script>
 <script src="js/nav.js" defer></script>
 </body>
 </html>
