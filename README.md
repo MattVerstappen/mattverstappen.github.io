@@ -7,7 +7,7 @@
 
 ### Part B - Particle Network (all pages)
 - [x] js/particle-network.js created
-- [ ] Particle canvas added to index.html
+- [x] Particle canvas added to index.html
 - [ ] Particle canvas added to about.html
 - [ ] Particle canvas added to work.html
 - [ ] Particle canvas added to research.html
