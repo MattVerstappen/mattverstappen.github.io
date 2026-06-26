@@ -1,0 +1,37 @@
+Texture setup for this project
+==============================
+
+Place your texture files inside:
+assets/textures/
+
+Expected texture filenames:
+sun.webp
+mercury.webp
+venus-surface.webp
+venus-atmosphere.webp
+earth-day.webp
+earth-night.webp
+earth-clouds.webp
+earth-specular-map.webp
+moon.webp
+mars.webp
+jupiter.webp
+saturn.webp
+saturn-ring.webp
+uranus.webp
+neptune.webp
+stars.webp
+stars-milky-way.webp
+
+Expected normal-map filenames:
+assets/normal-maps/earth-normal.webp
+assets/normal-maps/mars-normal.webp
+assets/normal-maps/moon-normal.webp
+
+If your downloaded file names differ, either rename your files to match the list above or edit js/sss-planets.js.
+
+Recommended texture source:
+Solar System Scope Textures
+https://www.solarsystemscope.com/textures/
+
+Check and follow the texture licence/usage terms from the source you downloaded from.

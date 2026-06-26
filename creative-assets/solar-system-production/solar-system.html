@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Cinematic solar system viewer with local planet textures." />
+  <meta name="theme-color" content="#02030a" />
+
+  <title>Cinematic Solar System Viewer</title>
+
+  <link rel="stylesheet" href="solar-system-style.css" />
+</head>
+<body>
+  <main class="cc-app" aria-label="Cinematic solar system viewer">
+    <canvas
+      id="cc-canvas"
+      width="1600"
+      height="900"
+      aria-label="Interactive solar system canvas"
+    ></canvas>
+
+    <section class="cc-panel" aria-label="Planet information">
+      <p class="cc-kicker">Solar System</p>
+
+      <h1 id="cc-planet-name">Earth</h1>
+
+      <p id="cc-planet-description">
+        Our home world with oceans, continents, clouds, atmosphere, and night lights.
+      </p>
+
+      <div class="cc-stats">
+        <div>
+          <span>Type</span>
+          <strong id="cc-planet-type">Terrestrial</strong>
+        </div>
+
+        <div>
+          <span>Atmosphere</span>
+          <strong id="cc-planet-atmosphere">Nitrogen / Oxygen</strong>
+        </div>
+
+        <div>
+          <span>Visual</span>
+          <strong id="cc-planet-visual">Day map</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="cc-toolbar" aria-label="Viewer controls">
+      <button id="cc-prev" type="button" title="Previous planet" aria-label="Previous planet">
+        ←
+      </button>
+
+      <div class="cc-toolbar-center" aria-live="polite">
+        <strong id="cc-current-label">Earth</strong>
+        <span id="cc-counter">4 / 11</span>
+      </div>
+
+      <button id="cc-next" type="button" title="Next planet" aria-label="Next planet">
+        →
+      </button>
+    </section>
+
+    <section class="cc-modebar" aria-label="Render mode controls">
+      <button id="cc-day-night" type="button" aria-label="Toggle Earth day and night mode">
+        Earth: Day
+      </button>
+
+      <button id="cc-weather" type="button" aria-label="Toggle cloudy weather mode">
+        Weather: Clear
+      </button>
+
+      <button id="cc-background" type="button" aria-label="Toggle star and Milky Way background">
+        Background: Stars
+      </button>
+    </section>
+
+    <a
+      id="cc-texture-credits"
+      class="cc-credit-button"
+      href="https://www.solarsystemscope.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Visit Solar System Scope"
+    >
+      Planet Textures by Solar System Scope
+    </a>
+
+    <div id="cc-loader" class="cc-loader" aria-live="polite">
+      <div class="cc-loader-orbit" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <p>Loading local textures</p>
+    </div>
+  </main>
+
+  <script src="js/sss-utils.js"></script>
+  <script src="js/sss-planets.js"></script>
+  <script src="js/sss-textures.js"></script>
+  <script src="js/sss-lighting.js"></script>
+  <script src="js/sss-stars.js"></script>
+  <script src="js/sss-effects.js"></script>
+  <script src="js/sss-renderer.js"></script>
+  <script src="js/sss-ui.js"></script>
+  <script src="js/sss-main.js"></script>
+</body>
+</html>
