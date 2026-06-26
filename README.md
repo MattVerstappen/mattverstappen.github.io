@@ -16,7 +16,7 @@
 - [x] Particle canvas added to project.html
 
 ### Part C - Creative Coding Page
-- [ ] creative-coding.html created
+- [x] creative-coding.html created
 - [ ] Nav updated on all 8 pages to include Creative Coding link
 - [ ] translations.js updated with Creative Coding nav label
 - [ ] sitemap.xml updated with creative-coding.html
