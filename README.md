@@ -1,5 +1,27 @@
 # mattverstappen.github.io
 
+## Creative Coding Demos + Home Nav
+
+### Part A - Home nav link
+- [ ] nav_home translation key added to all 8 languages
+- [ ] Home link added to nav on all 8 pages
+- [ ] translations.min.js rebuilt
+
+### Part B - Creative coding folder structure
+- [ ] creative-coding/atmosphere/ created with CSS
+- [ ] creative-coding/blackhole/ created with CSS
+- [ ] creative-coding/meteor-shower/ created with CSS and JS
+- [ ] creative-coding/lightning/ created with CSS and JS
+- [ ] creative-coding/binary-rain/ created (moved from inline)
+
+### Part C - creative-coding.html updated
+- [ ] Atmosphere demo added
+- [ ] Black Hole demo added
+- [ ] Meteor Shower demo added
+- [ ] Purple Lightning + Rain demo added
+- [ ] Demo CSS files linked in creative-coding.html head
+- [ ] Nav updated with Home link
+
 ## Visual Improvements + Creative Coding Page
 
 ### Part A - CSS Improvements
