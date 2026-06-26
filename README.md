@@ -11,7 +11,7 @@
 - [x] Particle canvas added to about.html
 - [x] Particle canvas added to work.html
 - [x] Particle canvas added to research.html
-- [ ] Particle canvas added to achievements.html
+- [x] Particle canvas added to achievements.html
 - [ ] Particle canvas added to contact.html
 - [ ] Particle canvas added to project.html
 
