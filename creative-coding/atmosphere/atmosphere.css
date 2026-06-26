@@ -1,0 +1,149 @@
+/**
+ * atmosphere.css
+ * Pure-CSS atmospheric temple FX for the creative-coding.html demo frame.
+ * All selectors are scoped with the .cc-atmosphere- prefix so they cannot
+ * leak into the rest of the site. No JavaScript required.
+ */
+
+.cc-atmosphere {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Main visual layer - sky gradient behind the temple */
+.cc-atmosphere-layer {
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255, 170, 80, 0.22), transparent 60%),
+        linear-gradient(to bottom,
+            #1a0a2e 0%,
+            #2a1145 32%,
+            #5c2a4d 58%,
+            #b5552f 82%,
+            #e8893f 100%);
+}
+
+/* Glowing sun orb */
+.cc-atmosphere-sun {
+    position: absolute;
+    top: 26%; left: 50%;
+    width: 130px; height: 130px;
+    margin-left: -65px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%,
+        #fff6e0 0%, #ffd27a 28%, #ff9d3c 55%, rgba(255, 120, 40, 0) 72%);
+    box-shadow:
+        0 0 60px 20px rgba(255, 180, 90, 0.45),
+        0 0 120px 60px rgba(255, 130, 60, 0.25);
+    animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* Layered fortress silhouette */
+.cc-atmosphere-fortress {
+    position: absolute;
+    bottom: 0; left: 50%;
+    width: 360px; height: 62%;
+    margin-left: -180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cc-atmosphere-tier {
+    background: linear-gradient(to bottom, #160a22 0%, #0b0512 100%);
+    box-shadow: 0 -1px 0 rgba(255, 160, 90, 0.18);
+}
+
+.cc-atmosphere-tier-1 {
+    width: 90px; height: 16%;
+    clip-path: polygon(28% 0, 72% 0, 100% 100%, 0 100%);
+}
+.cc-atmosphere-tier-2 {
+    width: 150px; height: 20%;
+    clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+}
+.cc-atmosphere-tier-3 {
+    width: 230px; height: 26%;
+    clip-path: polygon(12% 0, 88% 0, 100% 100%, 0 100%);
+}
+.cc-atmosphere-tier-4 {
+    width: 320px; height: 30%;
+    clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+
+.cc-atmosphere-base {
+    width: 100%; height: 14%;
+    background: linear-gradient(to bottom, #0b0512 0%, #050208 100%);
+}
+
+/* Floating ember particles */
+.cc-atmosphere-ember {
+    position: absolute;
+    bottom: -10px;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #ffb35c;
+    box-shadow: 0 0 8px 2px rgba(255, 160, 80, 0.7);
+    opacity: 0;
+    animation: ember-rise 7s linear infinite, flicker 1.4s ease-in-out infinite;
+}
+
+/* Distribute the 18 embers across the frame with varied timing */
+.cc-atmosphere-ember:nth-child(1)  { left: 8%;  animation-delay: 0s,    0.0s; }
+.cc-atmosphere-ember:nth-child(2)  { left: 15%; animation-delay: 0.8s,  0.2s; }
+.cc-atmosphere-ember:nth-child(3)  { left: 22%; animation-delay: 2.1s,  0.5s; }
+.cc-atmosphere-ember:nth-child(4)  { left: 29%; animation-delay: 3.4s,  0.1s; }
+.cc-atmosphere-ember:nth-child(5)  { left: 36%; animation-delay: 1.2s,  0.6s; }
+.cc-atmosphere-ember:nth-child(6)  { left: 43%; animation-delay: 4.6s,  0.3s; }
+.cc-atmosphere-ember:nth-child(7)  { left: 50%; animation-delay: 0.4s,  0.7s; }
+.cc-atmosphere-ember:nth-child(8)  { left: 57%; animation-delay: 2.8s,  0.2s; }
+.cc-atmosphere-ember:nth-child(9)  { left: 64%; animation-delay: 5.2s,  0.4s; }
+.cc-atmosphere-ember:nth-child(10) { left: 71%; animation-delay: 1.9s,  0.8s; }
+.cc-atmosphere-ember:nth-child(11) { left: 78%; animation-delay: 3.9s,  0.1s; }
+.cc-atmosphere-ember:nth-child(12) { left: 85%; animation-delay: 0.6s,  0.5s; }
+.cc-atmosphere-ember:nth-child(13) { left: 92%; animation-delay: 2.4s,  0.3s; }
+.cc-atmosphere-ember:nth-child(14) { left: 12%; animation-delay: 5.8s,  0.6s; }
+.cc-atmosphere-ember:nth-child(15) { left: 40%; animation-delay: 4.1s,  0.2s; }
+.cc-atmosphere-ember:nth-child(16) { left: 60%; animation-delay: 6.3s,  0.7s; }
+.cc-atmosphere-ember:nth-child(17) { left: 75%; animation-delay: 1.5s,  0.4s; }
+.cc-atmosphere-ember:nth-child(18) { left: 33%; animation-delay: 3.0s,  0.9s; }
+
+/* CRT scanline overlay */
+.cc-atmosphere-scanlines {
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.16) 3px,
+        rgba(0, 0, 0, 0.16) 4px);
+    mix-blend-mode: multiply;
+    z-index: 2;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow:
+            0 0 60px 20px rgba(255, 180, 90, 0.45),
+            0 0 120px 60px rgba(255, 130, 60, 0.25);
+    }
+    50% {
+        box-shadow:
+            0 0 80px 28px rgba(255, 195, 110, 0.6),
+            0 0 150px 80px rgba(255, 145, 70, 0.35);
+    }
+}
+
+@keyframes ember-rise {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    80%  { opacity: 0.8; }
+    100% { transform: translateY(-340px) translateX(14px); opacity: 0; }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+}
