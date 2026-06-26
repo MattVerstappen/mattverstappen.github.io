@@ -19,7 +19,7 @@
 - [x] creative-coding.html created
 - [x] Nav updated on all 8 pages to include Creative Coding link
 - [x] translations.js updated with Creative Coding nav label
-- [ ] sitemap.xml updated with creative-coding.html
+- [x] sitemap.xml updated with creative-coding.html
 
 ### Part D - Scroll Progress + Hero JS
 - [ ] js/nav.js updated with scroll progress and hero spotlight
