@@ -24,6 +24,11 @@
 ### Part D - Scroll Progress + Hero JS
 - [x] js/nav.js updated with scroll progress and hero spotlight
 
+## Visual Improvements + Creative Coding Page - Status: COMPLETE
+
+All particle network, CSS improvements, and Creative Coding page
+changes are live on the current branch.
+
 ## Remaining Fixes - Round 3 - Status: COMPLETE
 
 - [x] Em dashes replaced with hyphens (none found - already clean)
