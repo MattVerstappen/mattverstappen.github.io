@@ -22,6 +22,8 @@
 - [x] Demo CSS files linked in creative-coding.html head
 - [x] Nav updated with Home link
 
+## Creative Coding Demos + Home Nav - Status: COMPLETE
+
 ## Visual Improvements + Creative Coding Page
 
 ### Part A - CSS Improvements
