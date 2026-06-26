@@ -3,9 +3,9 @@
 ## Creative Coding Demos + Home Nav
 
 ### Part A - Home nav link
-- [ ] nav_home translation key added to all 8 languages
+- [x] nav_home translation key added to all 8 languages
 - [ ] Home link added to nav on all 8 pages
-- [ ] translations.min.js rebuilt
+- [x] translations.min.js rebuilt
 
 ### Part B - Creative coding folder structure
 - [ ] creative-coding/atmosphere/ created with CSS

@@ -22,6 +22,7 @@ const TRANSLATIONS = {
 
     en: {
         // Nav
+        nav_home:         'Home',
         nav_about:        'About',
         nav_work:         'Work',
         nav_creative_coding: 'Creative Coding',
@@ -155,6 +156,7 @@ const TRANSLATIONS = {
     },
 
     af: {
+        nav_home:         'Tuis',
         nav_about:        'Oor My',
         nav_work:         'Werk',
         nav_creative_coding: 'Kreatiewe Kodering',
@@ -273,6 +275,7 @@ const TRANSLATIONS = {
     },
 
     es: {
+        nav_home:         'Inicio',
         nav_about:        'Acerca de',
         nav_work:         'Trabajo',
         nav_creative_coding: 'Codigo Creativo',
@@ -391,6 +394,7 @@ const TRANSLATIONS = {
     },
 
     fr: {
+        nav_home:         'Accueil',
         nav_about:        'A propos',
         nav_work:         'Travaux',
         nav_creative_coding: 'Programmation Creative',
@@ -509,6 +513,7 @@ const TRANSLATIONS = {
     },
 
     zh: {
+        nav_home:         '首页',
         nav_about:        '关于我',
         nav_work:         '作品',
         nav_creative_coding: '创意编程',
@@ -627,6 +632,7 @@ const TRANSLATIONS = {
     },
 
     hi: {
+        nav_home:         'होम',
         nav_about:        'मेरे बारे में',
         nav_work:         'कार्य',
         nav_creative_coding: 'क्रिएटिव कोडिंग',
@@ -745,6 +751,7 @@ const TRANSLATIONS = {
     },
 
     ar: {
+        nav_home:         'الرئيسية',
         nav_about:        'نبذة عني',
         nav_work:         'أعمالي',
         nav_creative_coding: 'البرمجة الإبداعية',
@@ -863,6 +870,7 @@ const TRANSLATIONS = {
     },
 
     ja: {
+        nav_home:         'ホーム',
         nav_about:        '自己紹介',
         nav_work:         '作品',
         nav_creative_coding: 'クリエイティブコーディング',
