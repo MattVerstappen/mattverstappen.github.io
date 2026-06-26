@@ -1,0 +1,45 @@
+/**
+ * lightning.css
+ * Purple rain + lightning for the creative-coding.html demo frame.
+ * All selectors are scoped with the .cc-lightning- prefix (and the
+ * #cc-rain-canvas / #cc-lightning-canvas IDs) so they cannot leak into
+ * the rest of the site.
+ *
+ * Note: .cc-lightning-container is applied to the same element as the
+ * shared .cc-demo-frame, which already provides position/size/overflow.
+ * This rule therefore only supplies the demo background - it intentionally
+ * does not set position:absolute, which would break the frame's layout.
+ */
+
+.cc-lightning-container {
+    overflow: hidden;
+    z-index: 0;
+    background: radial-gradient(ellipse at bottom,
+        #1a0a2e 0%, #0d0618 60%, #000000 100%);
+}
+
+#cc-rain-canvas,
+#cc-lightning-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+#cc-rain-canvas      { z-index: 1; }
+#cc-lightning-canvas { z-index: 2; }
+
+.cc-lightning-flash {
+    position: absolute;
+    inset: 0;
+    background: rgba(180, 120, 255, 0.10);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.05s;
+    z-index: 3;
+}
+.cc-lightning-flash.active {
+    opacity: 1;
+    transition: opacity 0s;
+}
