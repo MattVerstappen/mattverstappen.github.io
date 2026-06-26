@@ -3,7 +3,7 @@
 ## Visual Improvements + Creative Coding Page
 
 ### Part A - CSS Improvements
-- [ ] css/style.css updated with animation and shadow improvements
+- [x] css/style.css updated with animation and shadow improvements
 
 ### Part B - Particle Network (all pages)
 - [ ] js/particle-network.js created
