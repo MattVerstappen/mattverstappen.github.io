@@ -17,7 +17,7 @@
 
 ### Part C - Creative Coding Page
 - [x] creative-coding.html created
-- [ ] Nav updated on all 8 pages to include Creative Coding link
+- [x] Nav updated on all 8 pages to include Creative Coding link
 - [ ] translations.js updated with Creative Coding nav label
 - [ ] sitemap.xml updated with creative-coding.html
 
