@@ -182,23 +182,23 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 - [x] og:image confirmed present and correct on all pages
 - [x] sitemap.xml updated with all project pages and soft 404 removed
 
-## Wormhole + Solar System Creative Coding Demos
+## Wormhole + Solar System Creative Coding Demos - Status: COMPLETE
 
 ### Part A - Move files
-- [ ] creative-coding/wormhole/ created with scoped CSS and JS
-- [ ] creative-coding/solar-system/ created with all files
-- [ ] creative-assets/ folder deleted after move
+- [x] creative-coding/wormhole/ created with scoped CSS and JS
+- [x] creative-coding/solar-system/ created with all files
+- [x] creative-assets/ folder deleted after move
 
 ### Part B - Wormhole demo
-- [ ] Wormhole embedded as demo frame on creative-coding.html
-- [ ] Wormhole translation keys added to all 8 languages
+- [x] Wormhole embedded as demo frame on creative-coding.html
+- [x] Wormhole translation keys added to all 8 languages
 
 ### Part C - Solar system
-- [ ] Solar system standalone page works correctly after move
-- [ ] Solar system preview card added to creative-coding.html
-- [ ] Solar system translation keys added to all 8 languages
+- [x] Solar system standalone page works correctly after move
+- [x] Solar system preview card added to creative-coding.html
+- [x] Solar system translation keys added to all 8 languages
 
 ### Part D - Final
-- [ ] translations.min.js rebuilt
-- [ ] All paths verified
-- [ ] creative-assets/ deleted
+- [x] translations.min.js rebuilt
+- [x] All paths verified
+- [x] creative-assets/ deleted
