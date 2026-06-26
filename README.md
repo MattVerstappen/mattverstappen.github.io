@@ -13,7 +13,7 @@
 - [x] Particle canvas added to research.html
 - [x] Particle canvas added to achievements.html
 - [x] Particle canvas added to contact.html
-- [ ] Particle canvas added to project.html
+- [x] Particle canvas added to project.html
 
 ### Part C - Creative Coding Page
 - [ ] creative-coding.html created
