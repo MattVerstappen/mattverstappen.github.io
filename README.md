@@ -4,7 +4,7 @@
 
 ### Part A - Home nav link
 - [x] nav_home translation key added to all 8 languages
-- [ ] Home link added to nav on all 8 pages
+- [x] Home link added to nav on all 8 pages
 - [x] translations.min.js rebuilt
 
 ### Part B - Creative coding folder structure
