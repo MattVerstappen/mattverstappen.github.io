@@ -9,7 +9,7 @@
 - [x] js/particle-network.js created
 - [x] Particle canvas added to index.html
 - [x] Particle canvas added to about.html
-- [ ] Particle canvas added to work.html
+- [x] Particle canvas added to work.html
 - [ ] Particle canvas added to research.html
 - [ ] Particle canvas added to achievements.html
 - [ ] Particle canvas added to contact.html
