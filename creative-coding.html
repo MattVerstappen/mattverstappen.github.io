@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="creative-coding/blackhole/blackhole.css">
     <link rel="stylesheet" href="creative-coding/meteor-shower/meteor-shower.css">
     <link rel="stylesheet" href="creative-coding/lightning/lightning.css">
+    <link rel="stylesheet" href="creative-coding/wormhole/wormhole.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -294,6 +295,86 @@
     </div>
 </section>
 
+<!-- WORMHOLE VORTEX DEMO -->
+<section id="cc-demo-wormhole-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_6">Demo 06</span>
+            <h2 class="section-title" data-i18n="cc_demo6_heading">Cinematic Wormhole Vortex</h2>
+            <p class="section-sub" data-i18n="cc_demo6_sub">A cinematic wormhole rendered entirely with the Canvas 2D API. No WebGL, no libraries - pure mathematics driving a spiral tunnel through space.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame" id="cc-demo-wormhole"
+                 style="background:#02030a;position:relative;overflow:hidden;">
+                <canvas id="cc-wormhole-canvas"></canvas>
+                <div class="cc-wormhole-overlay">Cinematic Wormhole Vortex</div>
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Vanilla JS</span>
+                    <span class="cc-tech-tag">Canvas 2D API</span>
+                    <span class="cc-tech-tag">Mathematics</span>
+                    <span class="cc-tech-tag">Procedural Animation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLAR SYSTEM SHOWCASE -->
+<section id="cc-demo-solar-section">
+    <div class="container">
+        <div class="fade-in">
+            <span class="section-label" data-i18n="label_demo_7">Demo 07</span>
+            <h2 class="section-title" data-i18n="cc_demo7_heading">Cinematic Solar System</h2>
+            <p class="section-sub" data-i18n="cc_demo7_sub">A full 3D solar system built with Three.js. Real planetary textures, day/night cycles, atmospheric effects, Saturn's rings, and an interactive camera. Opens as a standalone experience.</p>
+        </div>
+        <div class="cc-demo-wrap fade-in">
+            <div class="cc-demo-frame cc-solar-preview" id="cc-demo-solar"
+                 style="background:radial-gradient(ellipse at center, #0d0a1f 0%, #02030a 70%);
+                        position:relative;overflow:hidden;display:flex;
+                        align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+                <!-- Static preview - stars bg -->
+                <div class="cc-solar-stars" aria-hidden="true"></div>
+                <!-- Planet icons row -->
+                <div class="cc-solar-preview-planets" aria-hidden="true">
+                    <div class="cc-solar-planet cc-solar-sun"></div>
+                    <div class="cc-solar-planet cc-solar-mercury"></div>
+                    <div class="cc-solar-planet cc-solar-venus"></div>
+                    <div class="cc-solar-planet cc-solar-earth"></div>
+                    <div class="cc-solar-planet cc-solar-mars"></div>
+                    <div class="cc-solar-planet cc-solar-jupiter"></div>
+                    <div class="cc-solar-planet cc-solar-saturn"></div>
+                </div>
+                <!-- Launch button -->
+                <a href="creative-coding/solar-system/solar-system.html"
+                   class="cc-solar-launch" data-i18n="cc_solar_launch"
+                   target="_blank" rel="noopener">
+                    Launch Solar System
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                         aria-hidden="true">
+                        <path d="M3 8h10M9 4l4 4-4 4"
+                              stroke="currentColor" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <p class="cc-solar-note" data-i18n="cc_solar_note">
+                    Opens in a new tab - best experienced fullscreen
+                </p>
+            </div>
+            <div class="cc-demo-meta">
+                <div class="cc-tech-tags">
+                    <span class="cc-tech-tag">Three.js</span>
+                    <span class="cc-tech-tag">WebGL</span>
+                    <span class="cc-tech-tag">GLSL Shaders</span>
+                    <span class="cc-tech-tag">Real Textures</span>
+                    <span class="cc-tech-tag">9 JS Modules</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- MORE COMING SECTION -->
 <section id="more-coming">
     <div class="container">
@@ -338,5 +419,6 @@
 <script src="js/creative-coding.js" defer></script>
 <script src="creative-coding/meteor-shower/meteor-shower.js" defer></script>
 <script src="creative-coding/lightning/lightning.js" defer></script>
+<script src="creative-coding/wormhole/wormhole.js" defer></script>
 </body>
 </html>

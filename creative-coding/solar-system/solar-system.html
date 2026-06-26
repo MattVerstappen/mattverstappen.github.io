@@ -11,6 +11,21 @@
   <link rel="stylesheet" href="solar-system-style.css" />
 </head>
 <body>
+<a href="../../creative-coding.html"
+   style="position:fixed;top:16px;left:16px;z-index:9999;
+          display:inline-flex;align-items:center;gap:6px;
+          color:rgba(255,255,255,0.6);text-decoration:none;
+          font:13px system-ui,sans-serif;letter-spacing:0.05em;
+          background:rgba(2,3,10,0.7);padding:6px 14px;
+          border-radius:20px;backdrop-filter:blur(6px);
+          border:1px solid rgba(255,255,255,0.08);
+          transition:color 0.2s,border-color 0.2s;"
+   onmouseover="this.style.color='rgba(255,255,255,0.9)';
+                this.style.borderColor='rgba(255,255,255,0.2)'"
+   onmouseout="this.style.color='rgba(255,255,255,0.6)';
+               this.style.borderColor='rgba(255,255,255,0.08)'">
+    ← Creative Coding
+</a>
   <main class="cc-app" aria-label="Cinematic solar system viewer">
     <canvas
       id="cc-canvas"
