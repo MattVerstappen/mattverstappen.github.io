@@ -6,7 +6,7 @@
 - [x] css/style.css updated with animation and shadow improvements
 
 ### Part B - Particle Network (all pages)
-- [ ] js/particle-network.js created
+- [x] js/particle-network.js created
 - [ ] Particle canvas added to index.html
 - [ ] Particle canvas added to about.html
 - [ ] Particle canvas added to work.html
