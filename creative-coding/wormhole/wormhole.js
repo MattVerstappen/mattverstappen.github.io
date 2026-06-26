@@ -1,0 +1,201 @@
+(function() {
+    'use strict';
+
+    const canvas = document.getElementById('cc-wormhole-canvas');
+    if (!canvas) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = canvas.getContext('2d');
+
+    let width, height, cx, cy;
+    let t = 0;
+
+    function resize() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        width = canvas.width = rect.width || window.innerWidth;
+        height = canvas.height = rect.height || window.innerHeight;
+        cx = width / 2;
+        cy = height / 2;
+        initStars();
+    }
+    window.addEventListener('resize', resize);
+
+    // ── Starfield with lifecycle ──
+    const stars = [];
+    const STAR_COUNT = 120;
+
+    function initStars() {
+        stars.length = 0;
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: 0.4 + Math.random() * 1.2,
+                hue: 200 + Math.random() * 60,
+                saturation: 0.3 + Math.random() * 0.5,
+                lightness: 70 + Math.random() * 30,
+                life: Math.random(), // start at random point
+                lifeSpeed: 0.002 + Math.random() * 0.005,
+                maxLife: 1,
+            });
+        }
+    }
+
+    function drawStars() {
+        for (const star of stars) {
+            // ── update lifecycle ──
+            star.life += star.lifeSpeed;
+
+            // ── respawn when life expires ──
+            if (star.life >= star.maxLife) {
+                star.x = Math.random() * width;
+                star.y = Math.random() * height;
+                star.radius = 0.4 + Math.random() * 1.2;
+                star.hue = 200 + Math.random() * 60;
+                star.saturation = 0.3 + Math.random() * 0.5;
+                star.lightness = 70 + Math.random() * 30;
+                star.life = 0;
+                star.lifeSpeed = 0.002 + Math.random() * 0.005;
+            }
+
+            // ── fade curve: 0 → 1 → 0 ──
+            const p = star.life / star.maxLife;
+            let alpha;
+            if (p < 0.15) {
+                alpha = p / 0.15; // fade in
+            } else if (p < 0.55) {
+                alpha = 1.0; // hold
+            } else {
+                alpha = 1 - (p - 0.55) / 0.45; // fade out
+            }
+            const sizeScale = 0.7 + 0.3 * alpha;
+
+            const x = star.x;
+            const y = star.y;
+            const outerR = star.radius * 2.0 * sizeScale;
+            const innerR = outerR * 0.35;
+
+            // ── subtle glow ──
+            const glowRadius = outerR * 1.5;
+            const gradient = ctx.createRadialGradient(x, y, 0, x, y, glowRadius);
+            gradient.addColorStop(0, `hsla(${star.hue}, ${star.saturation*100}%, ${star.lightness}%, ${alpha * 0.12})`);
+            gradient.addColorStop(0.8, `hsla(${star.hue}, ${star.saturation*100}%, ${star.lightness}%, ${alpha * 0.02})`);
+            gradient.addColorStop(1, `hsla(${star.hue}, ${star.saturation*100}%, ${star.lightness}%, 0)`);
+            ctx.beginPath();
+            ctx.arc(x, y, glowRadius, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+
+            // ── star shape ──
+            ctx.beginPath();
+            for (let i = 0; i < 8; i++) {
+                const radius = i % 2 === 0 ? outerR : innerR;
+                const angle = (i / 8) * Math.PI * 2 - Math.PI / 2;
+                const px = x + Math.cos(angle) * radius;
+                const py = y + Math.sin(angle) * radius;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fillStyle = `hsla(${star.hue}, ${star.saturation*100}%, ${star.lightness}%, ${alpha})`;
+            ctx.fill();
+
+            // ── tiny core ──
+            ctx.beginPath();
+            ctx.arc(x, y, outerR * 0.15, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${star.hue}, 100%, 100%, ${alpha * 0.4})`;
+            ctx.fill();
+        }
+    }
+
+    // ── Main draw loop ──
+    function draw() {
+        t += 0.012;
+
+        // Motion trail
+        ctx.fillStyle = 'rgba(2, 3, 10, 0.06)';
+        ctx.fillRect(0, 0, width, height);
+
+        const particleCount = 3000;
+        const maxRadius = Math.min(width, height) * 0.48;
+
+        // Particle spiral
+        for (let i = 0; i < particleCount; i++) {
+            const p = i / particleCount;
+            const arm = i % 3;
+            const armAngle = (arm / 3) * Math.PI * 2;
+            const angle = p * Math.PI * 12 + t * 0.45 + armAngle;
+            const radius = Math.pow(p, 0.35) * maxRadius + 2;
+            const warpX = Math.sin(i * 0.07 + t * 1.5) * 4;
+            const warpY = Math.cos(i * 0.09 + t * 1.7) * 4;
+
+            const x = cx + Math.cos(angle) * (radius + warpX);
+            const y = cy + Math.sin(angle) * (radius + warpY) * 0.38;
+
+            const size = 0.4 + p * 3.0;
+            const hue = 230 + 70 * Math.sin(p * 14 + t * 0.5);
+            const lightness = 65 - 30 * p + 15 * Math.sin(i * 0.02 + t * 2);
+            const alpha = 0.02 + 0.12 * (1 - p);
+
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${hue}, 100%, ${lightness}%, ${alpha})`;
+            ctx.fill();
+        }
+
+        // Central glow
+        const glowRadius = Math.min(width, height) * 0.32;
+        const grad1 = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowRadius);
+        grad1.addColorStop(0.00, 'rgba(255, 255, 255, 1)');
+        grad1.addColorStop(0.05, 'rgba(200, 230, 255, 0.95)');
+        grad1.addColorStop(0.12, 'rgba(130, 180, 255, 0.75)');
+        grad1.addColorStop(0.18, 'rgba(60, 100, 255, 0.40)');
+        grad1.addColorStop(0.22, 'rgba(0, 0, 0, 1)');
+        grad1.addColorStop(0.27, 'rgba(220, 150, 255, 0.45)');
+        grad1.addColorStop(0.32, 'rgba(150, 200, 255, 0.20)');
+        grad1.addColorStop(0.45, 'rgba(80, 150, 255, 0.08)');
+        grad1.addColorStop(1.00, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = grad1;
+        ctx.beginPath();
+        ctx.arc(cx, cy, glowRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Bloom
+        const bloom = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowRadius * 0.25);
+        bloom.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+        bloom.addColorStop(0.4, 'rgba(180, 220, 255, 0.4)');
+        bloom.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = bloom;
+        ctx.beginPath();
+        ctx.arc(cx, cy, glowRadius * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Shadow
+        const shadow = ctx.createRadialGradient(cx, cy, 0, cx, cy, glowRadius * 0.18);
+        shadow.addColorStop(0, 'rgba(0, 0, 0, 0)');
+        shadow.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
+        shadow.addColorStop(1, 'rgba(0, 0, 0, 0.8)');
+        ctx.fillStyle = shadow;
+        ctx.beginPath();
+        ctx.arc(cx, cy, glowRadius * 0.18, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Vignette
+        const vignette = ctx.createRadialGradient(cx, cy, height * 0.25, cx, cy, Math.max(width, height) * 0.75);
+        vignette.addColorStop(0, 'rgba(0,0,0,0)');
+        vignette.addColorStop(0.6, 'rgba(0,0,0,0)');
+        vignette.addColorStop(1, 'rgba(0,0,0,0.65)');
+        ctx.fillStyle = vignette;
+        ctx.fillRect(0, 0, width, height);
+
+        // Stars
+        drawStars();
+
+        requestAnimationFrame(draw);
+    }
+
+    resize();
+    draw();
+
+})();
