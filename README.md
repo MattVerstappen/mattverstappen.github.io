@@ -1,5 +1,29 @@
 # mattverstappen.github.io
 
+## Visual Improvements + Creative Coding Page
+
+### Part A - CSS Improvements
+- [ ] css/style.css updated with animation and shadow improvements
+
+### Part B - Particle Network (all pages)
+- [ ] js/particle-network.js created
+- [ ] Particle canvas added to index.html
+- [ ] Particle canvas added to about.html
+- [ ] Particle canvas added to work.html
+- [ ] Particle canvas added to research.html
+- [ ] Particle canvas added to achievements.html
+- [ ] Particle canvas added to contact.html
+- [ ] Particle canvas added to project.html
+
+### Part C - Creative Coding Page
+- [ ] creative-coding.html created
+- [ ] Nav updated on all 8 pages to include Creative Coding link
+- [ ] translations.js updated with Creative Coding nav label
+- [ ] sitemap.xml updated with creative-coding.html
+
+### Part D - Scroll Progress + Hero JS
+- [ ] js/nav.js updated with scroll progress and hero spotlight
+
 ## Remaining Fixes - Round 3 - Status: COMPLETE
 
 - [x] Em dashes replaced with hyphens (none found - already clean)
