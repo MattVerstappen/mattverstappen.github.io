@@ -1,0 +1,11 @@
+{
+  "slug": "weighted-random-selector",
+  "title": "Weighted Random Selector",
+  "description": "Select items from any collection using weighted probabilities. Ideal for loot tables, enemy spawning, and procedurally generated content.",
+  "tags": ["unity", "utility", "reusable"],
+  "language": "C#",
+  "unityVersion": "2022.3+",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
+  "status": "planned",
+  "featured": false
+}
