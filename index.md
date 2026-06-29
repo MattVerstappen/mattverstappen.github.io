@@ -2,7 +2,7 @@
 title: "Matthew Derek Rall - Game Developer & Designer"
 description: "Matthew Derek Rall - Unity & Unreal Engine game developer relocating to the USA. Indie game developer, C# and C++ programmer, national game jam winner, and published VR researcher."
 url: https://matthewderekrall.com/
-last_updated: 2026-06-01
+last_updated: 2026-06-29
 languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
@@ -14,7 +14,7 @@ languages: [en, zh, hi, es, fr, ar, af, ja]
 
 Shipping games since 2023 - from cancer awareness shooters to card-based dungeon crawlers. BCIS in Game Design & Development, Honours in Design Leadership, and a published VR researcher.
 
-[View Projects](https://matthewderekrall.com/#projects) | [Download CV](https://matthewderekrall.com/Matthew_Rall_Resume.pdf)
+[View Projects](https://matthewderekrall.com/#projects) | [Download CV](https://matthewderekrall.com/assets/docs/Matthew_Rall_Resume.pdf)
 
 > **Language note:** The live HTML site at matthewderekrall.com supports 8 languages (English, Chinese, Hindi, Spanish, French, Arabic, Afrikaans, Japanese) via an in-page language switcher. This markdown file is an AI-readable mirror of the homepage and is English-only.
 
@@ -305,6 +305,18 @@ All 16 projects are listed below. Each has a dedicated detail page linked by slu
 
 ---
 
+## Creative Coding
+
+**Browser Experiments** - A filterable gallery of interactive creative-coding demos that run directly in the browser, each tagged by technique (canvas, WebGL, 3D). Demos include binary rain, lightning, an atmospheric temple scene, a black hole, a meteor shower, a wormhole vortex, and a Three.js solar system. Browse them at [/creative-coding.html](https://matthewderekrall.com/creative-coding.html).
+
+---
+
+## Toolkit
+
+**MDR Unity Toolkit** - A collection of free, modular, open source C# scripts for Unity developers is under development. The catalogue is browsable at [/toolkit.html](https://matthewderekrall.com/toolkit.html), and the scripts themselves will live in the [mdr-unity-toolkit](https://github.com/MattVerstappen/mdr-unity-toolkit) repository.
+
+---
+
 ## Contact
 
 **Get In Touch** - I'm relocating to the USA and am actively seeking game development roles. Whether you have a project, a position, or just want to connect - reach out.
@@ -314,7 +326,7 @@ All 16 projects are listed below. Each has a dedicated detail page linked by slu
 - **GitHub:** [github.com/MattVerstappen](https://github.com/MattVerstappen)
 - **Instagram:** [@mattverstappen1](https://www.instagram.com/mattverstappen1)
 - **Discord:** mattverstappen
-- **Resume / CV:** [Download PDF](https://matthewderekrall.com/Matthew_Rall_Resume.pdf)
+- **Resume / CV:** [Download PDF](https://matthewderekrall.com/assets/docs/Matthew_Rall_Resume.pdf)
 
 ---
 

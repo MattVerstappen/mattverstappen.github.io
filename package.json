@@ -4,7 +4,7 @@
   "private": true,
   "description": "Personal portfolio for Matthew Derek Rall (plain HTML/CSS/JS).",
   "scripts": {
-    "minify:js": "terser js/translations.js -o js/translations.min.js --compress --mangle",
+    "minify:js": "terser assets/js/translations.js -o assets/js/translations.min.js --compress --mangle",
     "build": "npm run minify:js",
     "deploy": "wrangler deploy"
   },
