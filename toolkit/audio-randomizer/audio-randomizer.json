@@ -1,0 +1,11 @@
+{
+  "slug": "audio-randomizer",
+  "title": "Audio Randomizer with Anti-Repeat",
+  "description": "Play randomised audio clips that never repeat the same clip consecutively. Keeps sound design feeling fresh without jarring repetition.",
+  "tags": ["unity", "audio", "utility", "reusable"],
+  "language": "C#",
+  "unityVersion": "2022.3+",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
+  "status": "planned",
+  "featured": false
+}

@@ -1,20 +1,17 @@
 /**
- * creative-coding.js
- * Manifest-driven filter gallery controller for creative-coding.html.
+ * toolkit.js
+ * Manifest-driven filter gallery controller for toolkit.html.
  *
- * Reads /creative-coding/manifest.json, fetches each demo's [slug].json
- * metadata in parallel, builds the tag filter UI, and renders the gallery
- * cards. Vanilla JS only.
+ * Mirrors creative-coding.js but targets the toolkit section: reads
+ * /toolkit/manifest.json, fetches each script's [slug].json, builds the tag
+ * filter UI, and renders cards that show a release-status badge and a
+ * "View on GitHub" link. Vanilla JS only.
  */
 (function () {
     'use strict';
 
-    var MANIFEST_URL = '/creative-coding/manifest.json';
-    var BASE_PATH    = '/creative-coding/';
-
-    // Demos that have a standalone HTML page. Everything else links to an
-    // in-page anchor (#slug) so we never link to a file that does not exist.
-    var STANDALONE = { 'solar-system': 'solar-system.html' };
+    var MANIFEST_URL = '/toolkit/manifest.json';
+    var BASE_PATH    = '/toolkit/';
 
     // Readable labels for known tag values. Unknown tags fall back to a
     // simple capitalisation of the first letter.
@@ -39,6 +36,10 @@
         return tag.charAt(0).toUpperCase() + tag.slice(1);
     }
 
+    function statusLabel(status) {
+        return status === 'available' ? 'Available' : 'Planned';
+    }
+
     function escHtml(str) {
         return String(str == null ? '' : str)
             .replace(/&/g, '&amp;')
@@ -49,10 +50,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        var filterBar = document.getElementById('cc-filter-bar');
-        var gallery   = document.getElementById('cc-gallery');
+        var filterBar = document.getElementById('tk-filter-bar');
+        var gallery   = document.getElementById('tk-gallery');
 
-        // If either container is missing, this is not the gallery page.
+        // If either container is missing, this is not the toolkit page.
         if (!filterBar || !gallery) return;
 
         init(filterBar, gallery);
@@ -63,7 +64,7 @@
         try {
             items = await loadItems();
         } catch (err) {
-            console.error('[creative-coding] failed to load manifest:', err);
+            console.error('[toolkit] failed to load manifest:', err);
             return;
         }
         if (!items.length) return;
@@ -91,7 +92,7 @@
                     return r.json();
                 })
                 .catch(function (err) {
-                    console.error('[creative-coding] skipping "' + slug + '":', err);
+                    console.error('[toolkit] skipping "' + slug + '":', err);
                     return null;
                 });
         }));
@@ -137,26 +138,28 @@
 
     function buildCard(item) {
         var tags = item.tags || [];
-
-        var href = STANDALONE[item.slug]
-            ? BASE_PATH + item.slug + '/' + STANDALONE[item.slug]
-            : '#' + item.slug;
+        var planned = item.status === 'planned';
 
         var tagSpans = tags.map(function (t) {
             return '<span class="tag">' + escHtml(labelFor(t)) + '</span>';
         }).join('');
 
+        var badgeClass = planned ? 'status-planned' : 'status-available';
+
         var article = document.createElement('article');
-        article.className = 'project-card';
+        article.className = 'project-card' + (planned ? ' is-planned' : '');
         article.setAttribute('data-tags', tags.join(' '));
         article.innerHTML =
             '<div class="card-body">' +
-                '<h3 class="card-title">' + escHtml(item.title) + '</h3>' +
+                '<div class="card-head">' +
+                    '<h3 class="card-title">' + escHtml(item.title) + '</h3>' +
+                    '<span class="status-badge ' + badgeClass + '">' + escHtml(statusLabel(item.status)) + '</span>' +
+                '</div>' +
                 '<p class="card-desc">' + escHtml(item.description) + '</p>' +
                 '<div class="card-tags">' + tagSpans + '</div>' +
             '</div>' +
             '<div class="card-footer">' +
-                '<a href="' + escHtml(href) + '" class="btn btn-primary" target="_blank" rel="noopener">View Demo</a>' +
+                '<a href="' + escHtml(item.github) + '" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>' +
             '</div>';
 
         return article;

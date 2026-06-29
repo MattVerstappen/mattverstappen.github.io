@@ -1,0 +1,11 @@
+{
+  "slug": "camera-shake",
+  "title": "Trauma-Based Camera Shake",
+  "description": "Screen shake driven by a trauma value with configurable intensity, frequency, and decay curves. A staple of game feel used in action and combat games.",
+  "tags": ["unity", "gameplay", "utility"],
+  "language": "C#",
+  "unityVersion": "2022.3+",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
+  "status": "planned",
+  "featured": true
+}

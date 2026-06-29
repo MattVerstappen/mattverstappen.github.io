@@ -1531,3 +1531,73 @@ hr.divider { border:none; border-top:1px solid var(--border); margin: 48px 0; }
     margin: 0; text-align: center;
     font-family: 'DM Sans', sans-serif;
 }
+
+/* ── FILTER GALLERY (creative-coding + toolkit, manifest-driven) ── */
+
+/* Generic hide utility used by the filter controllers. */
+.hidden { display: none; }
+
+/* Intro paragraph under the page hero (toolkit). */
+.page-hero-intro { color: var(--text-dim); font-size: .95rem; line-height: 1.7; max-width: 65ch; margin-top: 14px; }
+
+/* Filter bar + buttons (pill style, matches .filter-chip). */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0; min-height: 38px; }
+.filter-btn {
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-muted); padding: 7px 18px; border-radius: 100px;
+    font-family: 'DM Sans', sans-serif; font-size: .8rem;
+    font-weight: 500; cursor: pointer; transition: all .2s;
+}
+.filter-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent-lt); background: var(--bg-elevated); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Card grid. */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+
+/* Card (matches .proj-card styling). */
+.project-card {
+    display: flex; flex-direction: column;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 26px; transition: all .3s;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(147, 51, 234, 0.05);
+}
+.project-card:hover {
+    border-color: var(--accent); transform: translateY(-5px);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 40px var(--glow),
+        inset 0 1px 0 rgba(147, 51, 234, 0.1);
+}
+.project-card .card-body { display: flex; flex-direction: column; flex: 1; }
+.project-card .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.card-title { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.card-desc { color: var(--text-muted); font-size: .86rem; line-height: 1.65; margin-bottom: 18px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.card-footer { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+/* Generic buttons used by gallery card footers. */
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none; padding: 11px 22px; border-radius: 8px;
+    font-weight: 600; font-size: .9rem; cursor: pointer;
+    border: 1px solid transparent; font-family: 'DM Sans', sans-serif;
+    transition: opacity .2s, transform .2s, box-shadow .2s, border-color .2s, background .2s, color .2s;
+}
+.btn-primary { background: var(--gradient); color: #fff; }
+.btn-primary:hover { opacity: .9; transform: translateY(-2px); box-shadow: 0 0 20px var(--glow); }
+.btn-secondary { background: transparent; color: var(--text); border-color: var(--border-hi); }
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent-lt); transform: translateY(-2px); }
+
+/* Toolkit release-status badge + planned (muted) state. */
+.status-badge {
+    flex-shrink: 0; font-size: .64rem; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 100px; white-space: nowrap;
+}
+.status-planned { background: rgba(196,176,224,.12); border: 1px solid var(--border-hi); color: var(--text-muted); }
+.status-available { background: rgba(147,51,234,.15); border: 1px solid var(--accent); color: var(--accent-lt); }
+.project-card.is-planned { opacity: .82; }
+.project-card.is-planned:hover { opacity: 1; }
