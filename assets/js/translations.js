@@ -173,6 +173,9 @@ const TRANSLATIONS = {
         title_research:   'Research - Matthew Derek Rall',
         title_ach:        'Achievements - Matthew Derek Rall',
         title_contact:    'Contact - Matthew Derek Rall',
+        title_creative_coding: 'Creative Coding - Matthew Derek Rall',
+        title_project: 'Project - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     af: {
@@ -312,6 +315,9 @@ const TRANSLATIONS = {
         title_research:   'Navorsing - Matthew Derek Rall',
         title_ach:        'Prestasies - Matthew Derek Rall',
         title_contact:    'Kontak - Matthew Derek Rall',
+        title_creative_coding: 'Kreatiewe Kodering - Matthew Derek Rall',
+        title_project: 'Projek - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     es: {
@@ -451,6 +457,9 @@ const TRANSLATIONS = {
         title_research:   'Investigacion - Matthew Derek Rall',
         title_ach:        'Logros - Matthew Derek Rall',
         title_contact:    'Contacto - Matthew Derek Rall',
+        title_creative_coding: 'Codigo Creativo - Matthew Derek Rall',
+        title_project: 'Proyecto - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     fr: {
@@ -590,6 +599,9 @@ const TRANSLATIONS = {
         title_research:   'Recherche - Matthew Derek Rall',
         title_ach:        'Realisations - Matthew Derek Rall',
         title_contact:    'Contact - Matthew Derek Rall',
+        title_creative_coding: 'Programmation Creative - Matthew Derek Rall',
+        title_project: 'Projet - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     zh: {
@@ -729,6 +741,9 @@ const TRANSLATIONS = {
         title_research:   '研究 - Matthew Derek Rall',
         title_ach:        '成就 - Matthew Derek Rall',
         title_contact:    '联系 - Matthew Derek Rall',
+        title_creative_coding: '创意编程 - Matthew Derek Rall',
+        title_project: '项目 - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     hi: {
@@ -868,6 +883,9 @@ const TRANSLATIONS = {
         title_research:   'शोध - Matthew Derek Rall',
         title_ach:        'उपलब्धियाँ - Matthew Derek Rall',
         title_contact:    'संपर्क - Matthew Derek Rall',
+        title_creative_coding: 'क्रिएटिव कोडिंग - Matthew Derek Rall',
+        title_project: 'परियोजना - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     ar: {
@@ -1007,6 +1025,9 @@ const TRANSLATIONS = {
         title_research:   'البحث - Matthew Derek Rall',
         title_ach:        'الإنجازات - Matthew Derek Rall',
         title_contact:    'تواصل - Matthew Derek Rall',
+        title_creative_coding: 'البرمجة الإبداعية - Matthew Derek Rall',
+        title_project: 'مشروع - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
     ja: {
@@ -1146,6 +1167,9 @@ const TRANSLATIONS = {
         title_research:   '研究 - Matthew Derek Rall',
         title_ach:        '実績 - Matthew Derek Rall',
         title_contact:    'お問い合わせ - Matthew Derek Rall',
+        title_creative_coding: 'クリエイティブコーディング - Matthew Derek Rall',
+        title_project: 'プロジェクト - Matthew Derek Rall',
+        title_toolkit: 'MDR Unity Toolkit - Matthew Derek Rall',
     },
 
 };
@@ -1214,6 +1238,9 @@ function applyTranslations(lang) {
         '/research.html':      'title_research',
         '/achievements.html':  'title_ach',
         '/contact.html':       'title_contact',
+        '/creative-coding.html': 'title_creative_coding',
+        '/project.html':         'title_project',
+        '/toolkit.html':         'title_toolkit',
     };
     const path = window.location.pathname;
     const tKey = titleKey[path] || 'title_home';
