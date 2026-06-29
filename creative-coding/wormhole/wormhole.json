@@ -1,0 +1,7 @@
+{
+  "slug": "wormhole",
+  "title": "Wormhole",
+  "description": "A tunnelling wormhole effect with depth and motion blur.",
+  "tags": ["web", "interactive-demo", "canvas"],
+  "featured": false
+}
