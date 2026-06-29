@@ -1,0 +1,7 @@
+{
+  "slug": "binary-rain",
+  "title": "Binary Rain",
+  "description": "Matrix-style cascading binary characters rendered on an HTML canvas.",
+  "tags": ["web", "interactive-demo", "canvas"],
+  "featured": false
+}

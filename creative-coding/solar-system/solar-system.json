@@ -1,0 +1,7 @@
+{
+  "slug": "solar-system",
+  "title": "Solar System",
+  "description": "An interactive 3D solar system with realistic planet textures, lighting, and orbital mechanics built with Three.js.",
+  "tags": ["web", "interactive-demo", "webgl", "3d"],
+  "featured": true
+}

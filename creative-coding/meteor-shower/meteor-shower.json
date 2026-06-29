@@ -1,0 +1,7 @@
+{
+  "slug": "meteor-shower",
+  "title": "Meteor Shower",
+  "description": "An animated meteor shower with randomised trajectories and glow trails.",
+  "tags": ["web", "interactive-demo", "canvas"],
+  "featured": false
+}

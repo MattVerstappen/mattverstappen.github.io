@@ -1,0 +1,7 @@
+{
+  "slug": "atmosphere",
+  "title": "Atmosphere",
+  "description": "A layered atmospheric particle effect using CSS animations.",
+  "tags": ["web", "interactive-demo", "canvas"],
+  "featured": false
+}

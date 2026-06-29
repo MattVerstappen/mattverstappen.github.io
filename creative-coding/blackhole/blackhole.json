@@ -1,0 +1,7 @@
+{
+  "slug": "blackhole",
+  "title": "Black Hole",
+  "description": "A gravitational black hole simulation with particle distortion effects.",
+  "tags": ["web", "interactive-demo", "canvas"],
+  "featured": false
+}
