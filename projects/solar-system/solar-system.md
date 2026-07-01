@@ -1,0 +1,5 @@
+# Solar System
+Type: web | Degree: Solo | Date: 2026 | Status: completed
+Stack: JavaScript, Three.js, WebGL, CSS
+
+A real-time 3D solar system built with Three.js and WebGL. All eight planets orbit the sun with accurate relative sizes and speeds, each textured with high-resolution WebP maps including normal maps, specular maps, and cloud layers for Earth. The scene uses physically-based lighting, a particle-field star background from a Milky Way texture, and Saturn's ring system with transparency mapping. Navigation lets users cycle between planets with smooth camera transitions. Built across nine modular JavaScript files covering rendering, planet configuration, texture loading, lighting, UI, and visual effects.

@@ -1,0 +1,14 @@
+{
+  "title": "Black Hole",
+  "summary": "A CSS-rendered gravitational black hole with rotating disc effects and visual distortion layers simulating gravitational lensing.",
+  "description": "A stylised black hole rendered purely through CSS animations and keyframe transforms. Concentric rotating rings at varied speeds simulate an accretion disc, while layered opacity and blur effects suggest gravitational lensing around the singularity. The piece explores what can be communicated about astrophysical phenomena using only the browser's native styling engine - no canvas, no WebGL, no JavaScript.",
+  "type": "web",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "CSS",
+  "tags": ["CSS", "Animation", "Visual Effect", "Ambient"],
+  "stack": ["CSS"],
+  "photos": 0,
+  "viewPage": "blackhole-view.html"
+}

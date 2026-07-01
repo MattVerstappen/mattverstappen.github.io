@@ -1,0 +1,14 @@
+{
+  "title": "Lightning",
+  "summary": "Procedurally generated lightning bolts rendered on HTML Canvas using recursive branching paths and binary character glyphs.",
+  "description": "An interactive lightning system that generates randomised bolt paths using recursive branching segments. Each strike is rendered character by character using '0' and '1' glyphs on an HTML Canvas, producing a stylised binary aesthetic. Branches split from the main bolt at random angles with decreasing intensity. Includes a screen flash on each strike and responds to mouse click events to fire targeted bolts at the cursor position.",
+  "type": "web",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "HTML Canvas",
+  "tags": ["JavaScript", "Canvas", "Procedural", "Interactive"],
+  "stack": ["JavaScript", "HTML Canvas", "CSS"],
+  "photos": 0,
+  "viewPage": "lightning-view.html"
+}

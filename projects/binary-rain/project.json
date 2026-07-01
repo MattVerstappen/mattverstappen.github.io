@@ -1,0 +1,14 @@
+{
+  "title": "Binary Rain",
+  "summary": "Matrix-style binary characters cascade down an HTML canvas with procedurally generated lightning strikes, built as an interactive ambient animation.",
+  "description": "A canvas-based ambient animation featuring two layered effects: a continuous rainfall of '0' and '1' characters drawn in purple and teal hues, and a procedurally generated lightning system that fires at random intervals and responds to mouse clicks. Built entirely in vanilla JavaScript using the HTML Canvas API with no external libraries. Characters vary in speed, size, and opacity for a natural, organic feel.",
+  "type": "web",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "HTML Canvas",
+  "tags": ["JavaScript", "Canvas", "Animation", "Interactive"],
+  "stack": ["JavaScript", "HTML Canvas", "CSS"],
+  "photos": 0,
+  "viewPage": "binary-rain-view.html"
+}
