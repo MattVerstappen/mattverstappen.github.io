@@ -2,7 +2,7 @@
 title: "Matthew Derek Rall - Game Developer & Designer"
 description: "Matthew Derek Rall - Unity & Unreal Engine game developer relocating to the USA. Indie game developer, C# and C++ programmer, national game jam winner, and published VR researcher."
 url: https://matthewderekrall.com/
-last_updated: 2026-06-29
+last_updated: 2026-07-01
 languages: [en, zh, hi, es, fr, ar, af, ja]
 ---
 
@@ -156,7 +156,7 @@ Cycled 1,000km with my dad Derek during the Covid-19 lockdown in July 2020 - fin
 
 **My Work** - Games, research, and applications across my degrees and personal work.
 
-All 16 projects are listed below. Each has a dedicated detail page linked by slug.
+work.html now lists 28 projects in total: the 16 below (games, academic research, design work, and apps), plus 12 further entries covering browser-based creative-coding experiments and open-source Unity toolkit scripts, each with its own view page showing a live demo (where applicable) and full source code. The 16 projects with a dedicated detail page are listed below, linked by slug.
 
 ### Games
 
