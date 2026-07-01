@@ -10,5 +10,5 @@
   "tags": ["JavaScript", "Canvas", "Animation", "Particle System"],
   "stack": ["JavaScript", "HTML Canvas", "CSS"],
   "photos": 0,
-  "viewPage": "meteor-shower-view.html"
+  "viewPage": "projects/meteor-shower/meteor-shower-view.html"
 }

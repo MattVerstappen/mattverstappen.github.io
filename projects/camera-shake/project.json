@@ -13,5 +13,5 @@
   "links": {
     "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/Camera/TraumaCameraShake.cs"
   },
-  "viewPage": "camera-shake-view.html"
+  "viewPage": "projects/camera-shake/camera-shake-view.html"
 }

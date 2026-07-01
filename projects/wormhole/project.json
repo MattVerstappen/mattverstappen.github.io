@@ -10,5 +10,5 @@
   "tags": ["JavaScript", "Canvas", "Animation", "Tunnel Effect"],
   "stack": ["JavaScript", "HTML Canvas", "CSS"],
   "photos": 0,
-  "viewPage": "wormhole-view.html"
+  "viewPage": "projects/wormhole/wormhole-view.html"
 }

@@ -13,5 +13,5 @@
   "links": {
     "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/Utility/WeightedRandomSelector.cs"
   },
-  "viewPage": "weighted-random-selector-view.html"
+  "viewPage": "projects/weighted-random-selector/weighted-random-selector-view.html"
 }

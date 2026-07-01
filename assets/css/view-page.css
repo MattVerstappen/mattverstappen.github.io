@@ -1,0 +1,168 @@
+/**
+ * view-page.css
+ * Shared styles for the 12 Phase 5B project view pages (creative-coding
+ * demos + Unity toolkit scripts). Extends the site's existing design
+ * system (assets/css/style.css) with a back-link, a live-demo frame,
+ * a launch-demo button, and a tabbed code-viewer component.
+ */
+
+/* ── BACK LINK ── */
+.view-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text-muted); text-decoration: none;
+    font-size: .88rem; font-weight: 500; transition: color .2s;
+    margin-bottom: 20px;
+}
+.view-back:hover { color: var(--accent-lt); }
+
+/* ── DEMO FRAME ── */
+.demo-section { padding: 48px 0 0; }
+.demo-label-row {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; margin-bottom: 14px;
+}
+.demo-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .72rem; font-weight: 600; letter-spacing: .15em;
+    text-transform: uppercase; color: #C026D3;
+}
+.demo-label::before {
+    content: ''; display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; background: #C026D3; animation: demo-pulse 2s infinite;
+}
+@keyframes demo-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .4; transform: scale(.8); }
+}
+.demo-hint { color: var(--text-dim); font-size: .8rem; }
+
+.demo-frame {
+    position: relative;
+    height: 420px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0,0,0,.3), 0 8px 32px rgba(0,0,0,.2);
+}
+.demo-frame.tall { height: 520px; }
+.demo-note {
+    display: flex; align-items: center; justify-content: center;
+    height: 100%; padding: 32px; text-align: center;
+    color: var(--text-muted); font-size: .92rem; line-height: 1.7;
+}
+.demo-note a { color: var(--accent-lt); }
+
+/* Generic helpers for demos whose own stylesheet doesn't size the
+   canvas/overlay itself (their original markup lived on the now-removed
+   creative-coding.html page). */
+.demo-canvas-fill {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; display: block;
+}
+.demo-flash-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+    background: rgba(180,120,255,.15); opacity: 0; transition: opacity .05s;
+}
+.demo-flash-overlay.active { opacity: 1; transition: opacity 0s; }
+
+/* ── LAUNCH DEMO ── */
+.launch-demo-row { margin: 40px 0; }
+
+/* ── DESCRIPTION ── */
+.view-desc {
+    color: var(--text-muted); font-size: 1rem; line-height: 1.8;
+    max-width: 75ch; margin: 40px 0;
+}
+
+/* ── SECTION HEADINGS WITHIN VIEW PAGE ── */
+.view-section-title {
+    font-size: 1.3rem; font-weight: 700; margin: 48px 0 16px;
+    font-family: 'Oxanium', sans-serif;
+}
+
+/* ── ACTION BUTTON ROW (Unity pages) ── */
+.view-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 32px 0; }
+
+/* ── CODE VIEWER ── */
+.code-viewer {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    box-shadow: 0 2px 8px rgba(0,0,0,.3), 0 8px 32px rgba(0,0,0,.2);
+    margin-bottom: 24px;
+}
+.cv-tabs {
+    display: flex; flex-wrap: wrap; gap: 2px;
+    background: var(--bg-elevated);
+    padding: 8px 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+.code-viewer.cv-single .cv-tabs { display: none; }
+.cv-tab {
+    background: transparent; border: none;
+    color: var(--text-muted); font-size: .82rem; font-weight: 500;
+    padding: 9px 16px; border-radius: 6px 6px 0 0;
+    cursor: pointer; transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+    white-space: nowrap;
+}
+.cv-tab:hover:not(.on) { color: var(--text); background: rgba(147,51,234,.08); }
+.cv-tab.on { background: var(--bg-card); color: var(--text); }
+
+.cv-header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 10px 16px;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+}
+.cv-filename {
+    font-family: 'Courier New', monospace; font-size: .82rem;
+    color: var(--text-muted);
+}
+.cv-header-right { display: flex; align-items: center; gap: 10px; }
+
+.cv-lang-badge {
+    font-size: .68rem; font-weight: 700; letter-spacing: .05em;
+    padding: 3px 9px; border-radius: 100px; text-transform: uppercase;
+}
+.cv-badge-html { background: rgba(249,115,22,.15); border: 1px solid rgba(249,115,22,.3); color: #FDBA74; }
+.cv-badge-css  { background: rgba(45,212,191,.15); border: 1px solid rgba(45,212,191,.3); color: #5EEAD4; }
+.cv-badge-js   { background: rgba(251,191,36,.15); border: 1px solid rgba(251,191,36,.3); color: #FDE68A; }
+.cv-badge-json { background: rgba(147,51,234,.15); border: 1px solid rgba(147,51,234,.3); color: #D8B4FE; }
+.cv-badge-cs   { background: rgba(249,115,22,.15); border: 1px solid rgba(249,115,22,.3); color: #FDBA74; }
+.cv-badge-md   { background: rgba(196,176,224,.12); border: 1px solid rgba(196,176,224,.25); color: var(--text-muted); }
+.cv-badge-default { background: rgba(196,176,224,.12); border: 1px solid rgba(196,176,224,.25); color: var(--text-muted); }
+
+.cv-copy-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; color: var(--text-muted);
+    border: 1px solid var(--border-hi); border-radius: 6px;
+    padding: 5px 12px; font-size: .78rem; font-weight: 500;
+    cursor: pointer; transition: all .2s;
+    font-family: 'DM Sans', sans-serif;
+}
+.cv-copy-btn:hover { border-color: var(--accent); color: var(--accent-lt); }
+.cv-copy-btn.copied { border-color: var(--accent); color: var(--accent-lt); }
+
+.cv-body { max-height: 480px; overflow-y: auto; overflow-x: auto; }
+.cv-body pre {
+    margin: 0 !important; background: var(--bg-card) !important;
+    padding: 18px !important;
+}
+.cv-code, .cv-body code {
+    font-family: 'Courier New', monospace !important;
+    font-size: 13px !important; line-height: 1.7 !important;
+    background: var(--bg-card) !important;
+}
+.cv-error {
+    padding: 24px; color: var(--text-muted); font-size: .88rem;
+    font-family: 'DM Sans', sans-serif;
+}
+
+@media (max-width: 640px) {
+    .demo-frame { height: 320px; }
+    .demo-frame.tall { height: 380px; }
+    .view-actions { flex-direction: column; }
+    .view-actions .btn-p, .view-actions .btn-s { justify-content: center; }
+}
