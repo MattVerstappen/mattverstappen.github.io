@@ -5,7 +5,7 @@
   "tags": ["unity", "utility", "data-persistence", "reusable"],
   "language": "C#",
   "unityVersion": "2022.3+",
-  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
-  "status": "planned",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/Save/SaveSystem.cs",
+  "status": "available",
   "featured": false
 }
