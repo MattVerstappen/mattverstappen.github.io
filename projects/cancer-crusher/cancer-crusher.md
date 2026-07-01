@@ -54,7 +54,7 @@ Cancer Crusher was developed in partnership with Love Your Nuts, a Section 18A N
 - [IIE-VEGA students create award-winning games for testicular cancer awareness](https://www.educationtoday.co.za/innovation/student-game-developers-raise-testicular-cancer-awareness/) - Education Today
 - [Cancer Smart School Programme](https://loveyournuts.org/cancer-smart/) - Love Your Nuts
 - [IIE-Vega students' award-winning games aim to reach younger generation](https://iieworldofwork.iie.ac.za/testicular-cancer-awareness-in-a-nutshell-iie-vega-students-award-winning-games-aim-to-reach-younger-generation) - World of Work
-- [Students develop digital games for cancer awareness education](http://www.themightypen.co.za/doc/September%20&%20October%202024%20issue.pdf) - The Mighty Pen
+- [Students develop digital games for cancer awareness education](https://www.themightypen.co.za/doc/September%20&%20October%202024%20issue.pdf) - The Mighty Pen
 
 ---
 

@@ -16,6 +16,11 @@
 /projects/*
   Cache-Control: public, max-age=31536000, immutable
 
+# View pages are HTML and may be redeployed more often than the static
+# assets under /projects/ - override with a short cache.
+/projects/*/*-view.html
+  Cache-Control: public, max-age=3600
+
 /assets/favicon/*
   Cache-Control: public, max-age=31536000, immutable
 

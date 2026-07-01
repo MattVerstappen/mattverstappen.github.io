@@ -4,6 +4,7 @@
   "type": "design",
   "engine": "DESIGN",
   "status": "completed",
+  "date": "2024",
   "photos": 0,
   "summary": "This report presents a design strategy and management plan for redesigning the website of Atlas Games, a South African indie game studio formerly known as Fruckets. The core problem identified is fragmented digital representation - a disjointed Wix website, an isolated Itch.io profile, and no cohesive brand strategy - all of which undermine professional credibility and limit access to funding, press, and collaboration opportunities. The proposed redesign is grounded in User-Centred Design and Minimalist Aesthetics, creating a unified digital presence through a red, black, and grey visual system with emotionally resonant storytelling. Strategic objectives include reducing bounce rates below 40%, achieving a 200% increase in monthly site visits within 90 days, and gaining 50 new downloads of Cancer Crusher within 30 days. The report conducts competitive analysis referencing Donderbos Games and Southgame Studio, and identifies five key risk categories with mitigation strategies focusing on UX testing, mobile-first design, SEO fundamentals, and accessible navigation.",
   "stack": ["Word", "Google Docs", "Obsidian", "Google Sheets", "Excel", "Photoshop"],
