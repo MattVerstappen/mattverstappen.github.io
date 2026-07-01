@@ -5,21 +5,21 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://js.hs-scripts.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://matthewderekrall.com; frame-src 'self' https://itch.io; connect-src 'self' https://formspree.io https://raw.githubusercontent.com; form-action 'self' https://formspree.io;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0D0A14">
-    <title>Audio Randomizer - Matthew Derek Rall</title>
-    <meta name="description" content="Audio Randomizer - a Unity audio randomizer that eliminates the machine gun effect using an anti-repeat queue and weighted clip pools.">
-    <link rel="canonical" href="https://matthewderekrall.com/audio-randomizer-view.html">
+    <title>Trauma-Based Camera Shake - Matthew Derek Rall</title>
+    <meta name="description" content="Trauma-Based Camera Shake - a Unity camera shake system using Perlin noise and a trauma-squared curve for natural, physically-grounded screen shake.">
+    <link rel="canonical" href="https://matthewderekrall.com/projects/camera-shake/camera-shake-view.html">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Audio Randomizer - Matthew Derek Rall">
-    <meta property="og:description" content="A Unity audio randomizer that eliminates the machine gun effect using an anti-repeat queue, with weighted clip pools and pitch and volume randomisation.">
-    <meta property="og:url" content="https://matthewderekrall.com/audio-randomizer-view.html">
+    <meta property="og:title" content="Trauma-Based Camera Shake - Matthew Derek Rall">
+    <meta property="og:description" content="A trauma-based camera shake system for Unity using Perlin noise and a trauma-squared curve for natural, physically-grounded screen shake.">
+    <meta property="og:url" content="https://matthewderekrall.com/projects/camera-shake/camera-shake-view.html">
     <meta property="og:image" content="https://matthewderekrall.com/assets/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Matthew Derek Rall - Game Developer and Designer">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Audio Randomizer - Matthew Derek Rall">
-    <meta name="twitter:description" content="A Unity audio randomizer that eliminates the machine gun effect using an anti-repeat queue, with weighted clip pools and pitch and volume randomisation.">
+    <meta name="twitter:title" content="Trauma-Based Camera Shake - Matthew Derek Rall">
+    <meta name="twitter:description" content="A trauma-based camera shake system for Unity using Perlin noise and a trauma-squared curve for natural, physically-grounded screen shake.">
     <meta name="twitter:image" content="https://matthewderekrall.com/assets/images/og-image.jpg">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
@@ -31,8 +31,8 @@
     <link rel="preload" href="/assets/fonts/oxanium-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/view-page.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/view-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
 </head>
 <body>
@@ -44,11 +44,11 @@
     <div style="display:flex; align-items:center; gap: 16px;">
         <ul class="nav-links" id="navLinks" style="position:static; background:transparent; border:none; padding:0; flex-direction:row; gap:20px;">
             <li><a href="/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html" class="active">Work</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/work.html" class="active">Work</a></li>
+            <li><a href="/research.html">Research</a></li>
+            <li><a href="/achievements.html">Achievements</a></li>
+            <li><a href="/contact.html" class="nav-cta">Contact</a></li>
         </ul>
         <a href="/" class="back-btn"><span class="back-arrow">←</span> Back to Portfolio</a>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -63,13 +63,13 @@
     <div class="page-hero-grid"></div>
     <div class="page-hero-glow"></div>
     <div class="container page-hero-content">
-        <a href="work.html" class="view-back">← Back to Work</a>
+        <a href="/work.html" class="view-back">← Back to Work</a>
         <div class="hero-badges" style="margin-bottom:14px;">
             <span class="badge b-type">Tool</span>
             <span class="badge b-degree">Unity 2022.3+</span>
             <span class="badge b-degree">Solo</span>
         </div>
-        <h1 class="section-title">Audio Randomizer</h1>
+        <h1 class="section-title">Trauma-Based Camera Shake</h1>
         <p class="page-hero-sub">🗓 2026</p>
     </div>
 </div>
@@ -80,7 +80,7 @@
     <a href="https://github.com/MattVerstappen/mdr-unity-toolkit" target="_blank" rel="noopener noreferrer" class="btn-s">View on GitHub →</a>
 </div>
 
-<p class="view-desc">A MonoBehaviour audio randomizer for Unity that solves the most common audio problem in game development: the machine gun effect caused by the same clip repeating consecutively. The system maintains a queue of recently played clips and excludes them from the next pick, with a configurable anti-repeat count. Clips are assigned weights so some sounds play more frequently than others. Each play randomises pitch and volume within configurable min and max ranges, and the system automatically falls back to unrestricted selection when the pool is too small to satisfy the exclusion queue. Includes a play-mode Inspector preview with live queue visualisation.</p>
+<p class="view-desc">A GDC-recommended camera shake implementation for Unity using the trauma model. The system maintains a trauma value from 0 to 1 and samples Perlin noise for each enabled axis using unique seed offsets to prevent correlated movement. Shake magnitude is trauma squared, producing a natural falloff that feels physically grounded. Multiple trauma events stack additively. Includes a ShakePreset ScriptableObject for saving and reusing shake configurations, four built-in presets covering light, medium, heavy, and explosion scenarios, and a live trauma bar in the Inspector that updates in real time during play mode.</p>
 
 <h2 class="view-section-title">Quick Start</h2>
 <div class="code-viewer" id="cv-quickstart">
@@ -115,26 +115,27 @@
     <a href="/" class="footer-back">← Back to Portfolio</a>
 </footer>
 
-<script src="assets/icons/mdr-icons.js" defer></script>
-<script src="assets/js/particle-network.js" defer></script>
-<script src="assets/js/nav.js" defer></script>
+<script src="/assets/icons/mdr-icons.js" defer></script>
+<script src="/assets/js/particle-network.js" defer></script>
+<script src="/assets/js/nav.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
-<script src="assets/js/code-viewer.js"></script>
+<script src="/assets/js/code-viewer.js"></script>
 <script>
     initCodeViewer(document.getElementById('cv-quickstart'), [
         { label: 'QuickStart.cs', lang: 'csharp', inline:
-'// Attach AudioRandomizer to a GameObject with an AudioSource\n' +
-'// Add clips to the Entries list in the Inspector\n' +
-'GetComponent<AudioRandomizer>().PlayRandom();' }
+'// On any impactful event (explosion, hit, etc.)\n' +
+'FindObjectOfType<TraumaCameraShake>().AddTrauma(0.8f);\n\n' +
+'// Multiple hits stack\n' +
+'cameraShake.AddTrauma(0.3f);' }
     ]);
     initCodeViewer(document.getElementById('cv-source'), [
-        { label: 'AudioRandomizer.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Runtime/Audio/AudioRandomizer.cs' },
-        { label: 'AudioEntry.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Runtime/Audio/AudioEntry.cs' },
-        { label: 'AudioRandomizerEditor.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Editor/AudioRandomizerEditor.cs' },
-        { label: 'AudioRandomizerDemo.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Samples/AudioRandomizer/AudioRandomizerDemo.cs' }
+        { label: 'TraumaCameraShake.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Runtime/Camera/TraumaCameraShake.cs' },
+        { label: 'ShakePreset.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Runtime/Camera/ShakePreset.cs' },
+        { label: 'TraumaCameraShakeEditor.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Editor/TraumaCameraShakeEditor.cs' },
+        { label: 'TraumaCameraShakeDemo.cs', lang: 'csharp', path: 'https://raw.githubusercontent.com/MattVerstappen/mdr-unity-toolkit/main/Assets/MDR-Toolkit/Samples/TraumaCameraShake/TraumaCameraShakeDemo.cs' }
     ]);
 </script>
 </body>

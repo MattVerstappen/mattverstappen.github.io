@@ -7,12 +7,12 @@
     <meta name="theme-color" content="#0D0A14">
     <title>Wormhole - Matthew Derek Rall</title>
     <meta name="description" content="Wormhole - a tunnelling wormhole effect simulating depth, speed, and spatial distortion using HTML Canvas. View the live demo and source code.">
-    <link rel="canonical" href="https://matthewderekrall.com/wormhole-view.html">
+    <link rel="canonical" href="https://matthewderekrall.com/projects/wormhole/wormhole-view.html">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Wormhole - Matthew Derek Rall">
     <meta property="og:description" content="Wormhole - a tunnelling wormhole effect simulating depth, speed, and spatial distortion using HTML Canvas.">
-    <meta property="og:url" content="https://matthewderekrall.com/wormhole-view.html">
+    <meta property="og:url" content="https://matthewderekrall.com/projects/wormhole/wormhole-view.html">
     <meta property="og:image" content="https://matthewderekrall.com/assets/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -31,9 +31,9 @@
     <link rel="preload" href="/assets/fonts/oxanium-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/view-page.css">
-    <link rel="stylesheet" href="projects/wormhole/wormhole.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/view-page.css">
+    <link rel="stylesheet" href="/projects/wormhole/wormhole.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
 </head>
 <body>
@@ -45,11 +45,11 @@
     <div style="display:flex; align-items:center; gap: 16px;">
         <ul class="nav-links" id="navLinks" style="position:static; background:transparent; border:none; padding:0; flex-direction:row; gap:20px;">
             <li><a href="/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html" class="active">Work</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-            <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/work.html" class="active">Work</a></li>
+            <li><a href="/research.html">Research</a></li>
+            <li><a href="/achievements.html">Achievements</a></li>
+            <li><a href="/contact.html" class="nav-cta">Contact</a></li>
         </ul>
         <a href="/" class="back-btn"><span class="back-arrow">←</span> Back to Portfolio</a>
         <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -64,7 +64,7 @@
     <div class="page-hero-grid"></div>
     <div class="page-hero-glow"></div>
     <div class="container page-hero-content">
-        <a href="work.html" class="view-back">← Back to Work</a>
+        <a href="/work.html" class="view-back">← Back to Work</a>
         <div class="hero-badges" style="margin-bottom:14px;">
             <span class="badge b-type">Web</span>
             <span class="badge b-degree">HTML Canvas</span>
@@ -123,15 +123,15 @@
     <a href="/" class="footer-back">← Back to Portfolio</a>
 </footer>
 
-<script src="assets/icons/mdr-icons.js" defer></script>
-<script src="assets/js/particle-network.js" defer></script>
-<script src="assets/js/nav.js" defer></script>
+<script src="/assets/icons/mdr-icons.js" defer></script>
+<script src="/assets/js/particle-network.js" defer></script>
+<script src="/assets/js/nav.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
-<script src="assets/js/code-viewer.js"></script>
-<script src="projects/wormhole/wormhole.js" defer></script>
+<script src="/assets/js/code-viewer.js"></script>
+<script src="/projects/wormhole/wormhole.js" defer></script>
 <script>
     initCodeViewer(document.getElementById('cv-howto'), [
         { label: 'usage.html', lang: 'markup', inline:
@@ -143,8 +143,8 @@
 '<script src="wormhole.js" defer><' + '/script>' }
     ]);
     initCodeViewer(document.getElementById('cv-source'), [
-        { label: 'wormhole.js', lang: 'javascript', path: 'projects/wormhole/wormhole.js' },
-        { label: 'wormhole.css', lang: 'css', path: 'projects/wormhole/wormhole.css' }
+        { label: 'wormhole.js', lang: 'javascript', path: '/projects/wormhole/wormhole.js' },
+        { label: 'wormhole.css', lang: 'css', path: '/projects/wormhole/wormhole.css' }
     ]);
 </script>
 </body>

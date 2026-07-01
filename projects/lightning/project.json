@@ -10,5 +10,5 @@
   "tags": ["JavaScript", "Canvas", "Procedural", "Interactive"],
   "stack": ["JavaScript", "HTML Canvas", "CSS"],
   "photos": 0,
-  "viewPage": "lightning-view.html"
+  "viewPage": "projects/lightning/lightning-view.html"
 }

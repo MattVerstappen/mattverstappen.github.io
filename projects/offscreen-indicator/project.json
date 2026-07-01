@@ -13,5 +13,5 @@
   "links": {
     "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/UI/OffScreenIndicator.cs"
   },
-  "viewPage": "offscreen-indicator-view.html"
+  "viewPage": "projects/offscreen-indicator/offscreen-indicator-view.html"
 }

@@ -10,5 +10,5 @@
   "tags": ["JavaScript", "Canvas", "Animation", "Interactive"],
   "stack": ["JavaScript", "HTML Canvas", "CSS"],
   "photos": 0,
-  "viewPage": "binary-rain-view.html"
+  "viewPage": "projects/binary-rain/binary-rain-view.html"
 }

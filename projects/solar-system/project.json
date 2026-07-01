@@ -13,5 +13,5 @@
   "links": {
     "live": "projects/solar-system/solar-system.html"
   },
-  "viewPage": "solar-system-view.html"
+  "viewPage": "projects/solar-system/solar-system-view.html"
 }
