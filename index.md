@@ -313,7 +313,7 @@ All 16 projects are listed below. Each has a dedicated detail page linked by slu
 
 ## Toolkit
 
-**MDR Unity Toolkit** - A collection of free, modular, open source C# scripts for Unity developers is under development. The catalogue is browsable at [/toolkit.html](https://matthewderekrall.com/toolkit.html), and the scripts themselves will live in the [mdr-unity-toolkit](https://github.com/MattVerstappen/mdr-unity-toolkit) repository.
+**MDR Unity Toolkit** - A free, open-source collection of modular C# scripts for Unity 6 (6000.0)+, now live at [mdr-unity-toolkit](https://github.com/MattVerstappen/mdr-unity-toolkit). The toolkit page at [/toolkit.html](https://matthewderekrall.com/toolkit.html) lists all available scripts with links.
 
 ---
 

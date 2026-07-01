@@ -4,8 +4,8 @@
   "description": "JSON-based save and load with version tracking and schema migration, so players never lose progress after a game update changes the data structure.",
   "tags": ["unity", "utility", "data-persistence", "reusable"],
   "language": "C#",
-  "unityVersion": "2022.3+",
-  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
-  "status": "planned",
+  "unityVersion": "6000.0+",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/Save/SaveSystem.cs",
+  "status": "available",
   "featured": false
 }

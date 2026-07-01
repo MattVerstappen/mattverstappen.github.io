@@ -4,8 +4,8 @@
   "description": "UI arrows or icons that point toward off-screen targets, keeping players aware of objectives or enemies outside the camera view.",
   "tags": ["unity", "gameplay", "ui"],
   "language": "C#",
-  "unityVersion": "2022.3+",
-  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit",
-  "status": "planned",
+  "unityVersion": "6000.0+",
+  "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/UI/OffScreenIndicator.cs",
+  "status": "available",
   "featured": false
 }
