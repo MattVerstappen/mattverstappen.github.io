@@ -1,0 +1,17 @@
+{
+  "title": "Weighted Random Selector",
+  "summary": "A generic C# weighted random selection system for Unity that works with any type - strings, prefabs, enums, or custom classes.",
+  "description": "A fully generic weighted random selector built for Unity in C#. Any collection of items can be assigned float weights and selected at runtime with statistically correct probability distribution. A single Random.Range call against the accumulated weight ensures efficient O(n) selection. The included Inspector integration displays a visual weight bar for each entry showing its percentage of the total weight, making it easy to balance loot tables, enemy spawn rates, or any probability-driven system. Supports runtime add and remove operations and throws descriptive exceptions for invalid configurations.",
+  "type": "tool",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "Unity 2022.3+",
+  "tags": ["C#", "Unity", "Utility", "Open Source"],
+  "stack": ["C#", "Unity"],
+  "photos": 0,
+  "links": {
+    "github": "https://github.com/MattVerstappen/mdr-unity-toolkit/blob/main/Assets/MDR-Toolkit/Runtime/Utility/WeightedRandomSelector.cs"
+  },
+  "viewPage": "weighted-random-selector-view.html"
+}

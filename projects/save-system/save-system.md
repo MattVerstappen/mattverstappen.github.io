@@ -1,0 +1,5 @@
+# Save System with Schema Migration
+Type: tool | Degree: Solo | Date: 2026 | Status: completed
+Stack: C#, Unity
+
+A production-ready save system for Unity built around the problem almost no free save system addresses: what happens when a game update changes the save data structure and players load an old file. The system uses a versioned SaveData container holding a serialisable dictionary payload. Any MonoBehaviour implementing the ISaveable interface participates automatically, writing and reading its state through typed Set and Get methods. On load, if the saved schema version is lower than the current version, SaveMigrator runs each migration step sequentially before distributing data to scene objects. Supports multiple save slots, manual registration for dynamically spawned objects, and an Editor window for inspecting and deleting save files.

@@ -25,22 +25,6 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- CREATIVE CODING -->
-  <url>
-    <loc>https://matthewderekrall.com/creative-coding.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- TOOLKIT -->
-  <url>
-    <loc>https://matthewderekrall.com/toolkit.html</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- RESEARCH -->
   <url>
     <loc>https://matthewderekrall.com/research.html</loc>

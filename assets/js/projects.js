@@ -36,6 +36,7 @@ const DEGREE_SHORT = {
     'BCIS in Game Design and Development':         'BCIS',
     'BCIS in Game Design And Game Development':    'BCIS',
     'Personal':                                    'Personal',
+    'Solo':                                        'Solo',
 };
 
 const TYPE_ICON = {
@@ -45,6 +46,7 @@ const TYPE_ICON = {
     web:      '🌐',
     design:   '🎨',
     other:    '📦',
+    tool:     '🔧',
 };
 
 // Custom mdr-icons.js icon name per project type (used for cover placeholder / fallback)
@@ -55,6 +57,7 @@ const TYPE_ICON_NAME = {
     web:      'globe',
     design:   'spark',
     other:    'card',
+    tool:     'code',
 };
 
 const LINK_LABEL = {
@@ -169,7 +172,7 @@ function buildCard(proj) {
         '<h3 class="proj-title">' + titleSafe + '</h3>' +
         '<p class="proj-desc">' + escHtml(proj.summary || proj.description || '') + '</p>' +
         awardsHTML + tagsHTML + stack + links + itchWidget + articlesHTML +
-        '<a href="project.html?slug=' + slugUrl + '" class="proj-view-btn">View Project →</a>' +
+        '<a href="' + (proj.viewPage ? escHtml(proj.viewPage) : 'project.html?slug=' + slugUrl) + '" class="proj-view-btn">View Project →</a>' +
         '</div></div>';
 }
 

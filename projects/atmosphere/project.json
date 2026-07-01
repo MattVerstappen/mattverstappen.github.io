@@ -1,0 +1,14 @@
+{
+  "title": "Atmosphere",
+  "summary": "A pure CSS ambient atmosphere effect built from layered floating particles - no JavaScript required.",
+  "description": "An ambient particle atmosphere built entirely using CSS keyframe animations. Multiple floating particle layers drift upward at varied speeds and opacities, creating a sense of spatial depth and gentle movement. The effect uses no JavaScript whatsoever, demonstrating what CSS alone can achieve when animation delays, durations, and transforms are composed thoughtfully. Lightweight and performant even on mobile.",
+  "type": "web",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "CSS",
+  "tags": ["CSS", "Animation", "Pure CSS", "Ambient"],
+  "stack": ["CSS"],
+  "photos": 0,
+  "viewPage": "atmosphere-view.html"
+}

@@ -305,15 +305,9 @@ All 16 projects are listed below. Each has a dedicated detail page linked by slu
 
 ---
 
-## Creative Coding
+## Creative Coding & Toolkit
 
-**Browser Experiments** - A filterable gallery of interactive creative-coding demos that run directly in the browser, each tagged by technique (canvas, WebGL, 3D). Demos include binary rain, lightning, an atmospheric temple scene, a black hole, a meteor shower, a wormhole vortex, and a Three.js solar system. Browse them at [/creative-coding.html](https://matthewderekrall.com/creative-coding.html).
-
----
-
-## Toolkit
-
-**MDR Unity Toolkit** - A free, open-source collection of modular C# scripts for Unity 6 (6000.0)+, now live at [mdr-unity-toolkit](https://github.com/MattVerstappen/mdr-unity-toolkit). The toolkit page at [/toolkit.html](https://matthewderekrall.com/toolkit.html) lists all available scripts with links.
+The browser-based creative-coding demos (binary rain, lightning, an atmospheric scene, a black hole, a meteor shower, a wormhole vortex, and a Three.js solar system) and the MDR Unity Toolkit scripts (open source at [mdr-unity-toolkit](https://github.com/MattVerstappen/mdr-unity-toolkit)) are no longer separate pages - they're now project entries in the main portfolio. Browse all of it at [/work.html](https://matthewderekrall.com/work.html).
 
 ---
 

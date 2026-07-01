@@ -1,0 +1,14 @@
+{
+  "title": "Meteor Shower",
+  "summary": "An animated meteor shower with randomised trajectories, glow trails, and particle effects rendered on HTML Canvas.",
+  "description": "A canvas-based meteor shower animation with individually randomised meteors, each assigned a unique trajectory angle, speed, length, and opacity. Meteors leave fading glow trails as they travel and despawn on exit, with fresh ones spawning to maintain consistent density. The system scales particle count to viewport size to stay performant across screen sizes. Built in vanilla JavaScript with no dependencies.",
+  "type": "web",
+  "degree": "Solo",
+  "date": "2026",
+  "status": "completed",
+  "engine": "HTML Canvas",
+  "tags": ["JavaScript", "Canvas", "Animation", "Particle System"],
+  "stack": ["JavaScript", "HTML Canvas", "CSS"],
+  "photos": 0,
+  "viewPage": "meteor-shower-view.html"
+}
