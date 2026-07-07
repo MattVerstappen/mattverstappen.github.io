@@ -8,6 +8,7 @@
     "build": "npm run minify:js",
     "deploy": "wrangler deploy",
     "new-project": "node scripts/new-project.js",
+    "manager": "node scripts/project-manager.js",
     "generate": "node scripts/generate.js",
     "validate": "node scripts/validate.js"
   },

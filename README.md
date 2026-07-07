@@ -234,3 +234,22 @@ and push.
   unnoticed.
 
 Deleting a project = delete its folder, run `npm run generate`, commit.
+
+## Project Manager (desktop app)
+
+Prefer not to use the terminal? Double-click **`Project Manager.cmd`** in the
+repo root. It starts a local-only server (nothing leaves your machine) and
+opens a form UI in your browser where you can:
+
+- create new projects (drag & drop cover, screenshots, PDFs)
+- edit any existing project - text, tags, links, articles, images
+- delete projects
+
+Every save writes `projects/<slug>/project.json`, copies/renames images,
+regenerates `manifest.json` + `sitemap.xml`, and runs the validator - the
+same pipeline as `npm run new-project`. Changes only touch your local
+working copy; publish them by committing and pushing as usual (GitHub
+Desktop works fine).
+
+Keep the black terminal window open while using the app; close it when done.
+Also available as `npm run manager`.

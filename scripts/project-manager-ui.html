@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Manager - MDR Portfolio</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --bg: #0D0A14; --bg-card: #1A1025; --bg-elevated: #221633;
+    --border: rgba(59,31,94,.7); --accent: #9333EA; --accent-lt: #D257E6;
+    --text: #F1E8FF; --muted: #C4B0E0; --ok: #34D399; --bad: #F87171;
+}
+body { background: var(--bg); color: var(--text); font: 15px/1.6 'Segoe UI', system-ui, sans-serif; padding: 32px 16px 80px; }
+.wrap { max-width: 880px; margin: 0 auto; }
+h1 { font-size: 1.5rem; margin-bottom: 4px; }
+h1 span { color: var(--accent-lt); }
+.sub { color: var(--muted); margin-bottom: 28px; font-size: .92rem; }
+button { font: inherit; cursor: pointer; border: none; border-radius: 8px; }
+.btn-p { background: linear-gradient(135deg,#9333EA,#C026D3); color: #fff; padding: 10px 22px; font-weight: 600; }
+.btn-p:hover { filter: brightness(1.15); }
+.btn-s { background: var(--bg-elevated); color: var(--text); border: 1px solid var(--border); padding: 9px 18px; }
+.btn-s:hover { border-color: var(--accent); }
+.btn-danger { background: rgba(248,113,113,.12); color: var(--bad); border: 1px solid rgba(248,113,113,.4); padding: 9px 18px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+input[type=text], input[type=url], textarea, select {
+    width: 100%; background: var(--bg); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; font: inherit;
+}
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); }
+textarea { min-height: 90px; resize: vertical; }
+label { display: block; font-size: .82rem; color: var(--muted); margin: 0 0 4px; font-weight: 600; letter-spacing: .3px; }
+.hint { font-size: .78rem; color: var(--muted); opacity: .75; margin-top: 3px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+.field { margin-bottom: 14px; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 18px; }
+.card h2 { font-size: .95rem; color: var(--accent-lt); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
+/* project list */
+.plist { display: grid; gap: 10px; }
+.prow { display: flex; align-items: center; gap: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; }
+.prow:hover { border-color: var(--accent); }
+.prow img { width: 64px; height: 44px; object-fit: cover; border-radius: 6px; background: var(--bg-elevated); }
+.prow .noimg { width: 64px; height: 44px; border-radius: 6px; background: var(--bg-elevated); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 1.1rem; }
+.prow-info { flex: 1; min-width: 0; }
+.prow-title { font-weight: 600; }
+.prow-meta { font-size: .78rem; color: var(--muted); }
+.chip { display: inline-block; font-size: .7rem; padding: 1px 8px; border-radius: 20px; background: rgba(147,51,234,.18); color: var(--accent-lt); margin-left: 6px; vertical-align: 1px; }
+.chip.wip { background: rgba(251,191,36,.14); color: #FBBF24; }
+/* images */
+.thumbs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.thumb { position: relative; width: 108px; }
+.thumb img { width: 108px; height: 74px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); display: block; }
+.thumb.removed img { opacity: .25; filter: grayscale(1); }
+.thumb .tname { font-size: .68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
+.thumb button { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; border-radius: 50%; background: rgba(13,10,20,.85); color: var(--bad); font-size: .8rem; line-height: 1; }
+.drop { border: 2px dashed var(--border); border-radius: 10px; padding: 18px; text-align: center; color: var(--muted); font-size: .88rem; cursor: pointer; transition: border-color .15s; }
+.drop:hover, .drop.over { border-color: var(--accent); color: var(--text); }
+/* status banner */
+#banner { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); max-width: 720px; width: calc(100% - 32px);
+    background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.6); display: none; z-index: 50; }
+#banner.ok { border-color: rgba(52,211,153,.5); }
+#banner.bad { border-color: rgba(248,113,113,.5); }
+#banner pre { white-space: pre-wrap; font-size: .78rem; color: var(--muted); margin-top: 6px; max-height: 160px; overflow: auto; }
+.art-row { display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 8px; margin-bottom: 8px; }
+.savebar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.hidden { display: none !important; }
+a { color: var(--accent-lt); }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>MDR <span>Project Manager</span></h1>
+    <p class="sub">Create and edit portfolio projects. Every save updates <code>project.json</code>, regenerates the manifest &amp; sitemap, and runs the validator. When you're happy, commit &amp; push with GitHub Desktop or git.</p>
+
+    <!-- ══ LIST VIEW ══ -->
+    <div id="listView">
+        <div class="topbar">
+            <button class="btn-p" onclick="openForm(null)">+ New Project</button>
+            <a href="/work.html" target="_blank" class="btn-s" style="text-decoration:none; display:inline-block;">Preview site ↗</a>
+        </div>
+        <div class="plist" id="plist"><p style="color:var(--muted)">Loading…</p></div>
+    </div>
+
+    <!-- ══ FORM VIEW ══ -->
+    <div id="formView" class="hidden">
+        <div class="topbar">
+            <button class="btn-s" onclick="backToList()">← All projects</button>
+            <span id="formTitle" style="font-weight:600;"></span>
+        </div>
+
+        <div class="card">
+            <h2>Basics</h2>
+            <div class="grid2">
+                <div class="field"><label>Title *</label><input type="text" id="f-title" placeholder="My New Game"></div>
+                <div class="field"><label>Slug (folder name)</label><input type="text" id="f-slug" placeholder="my-new-game"><div class="hint" id="slugHint">Auto-filled from the title. Lowercase letters, numbers, hyphens.</div></div>
+            </div>
+            <div class="grid3">
+                <div class="field"><label>Type</label>
+                    <select id="f-type"><option>game</option><option>research</option><option>app</option><option>web</option><option>design</option><option>tool</option><option>other</option></select></div>
+                <div class="field"><label>Status</label>
+                    <select id="f-status"><option value="completed">completed</option><option value="wip">in development</option></select></div>
+                <div class="field"><label>Date on the card</label><input type="text" id="f-date" placeholder="October 30, 2026"></div>
+            </div>
+            <div class="grid3">
+                <div class="field"><label>Degree / context</label><input type="text" id="f-degree" placeholder="Personal" list="degreeList">
+                    <datalist id="degreeList"><option>Personal</option><option>Solo</option><option>BCIS in Game Design and Development</option><option>BA Honours in Design Leadership</option></datalist></div>
+                <div class="field"><label>Engine badge</label><input type="text" id="f-engine" placeholder="UNITY"></div>
+                <div class="field"><label>Genre</label><input type="text" id="f-genre" placeholder="Shooter"></div>
+            </div>
+            <div class="field"><label>Event</label><input type="text" id="f-event" placeholder="SA Game Jam 2026 (optional)"></div>
+        </div>
+
+        <div class="card">
+            <h2>Text</h2>
+            <div class="field"><label>Summary * <span style="font-weight:400">(shown on the card)</span></label><textarea id="f-summary"></textarea></div>
+            <div class="field"><label>Longer description (optional)</label><textarea id="f-description"></textarea></div>
+            <div class="grid3">
+                <div class="field"><label>Tags</label><input type="text" id="f-tags" placeholder="2D, Indie, Unity"><div class="hint">Comma-separated</div></div>
+                <div class="field"><label>Tech stack</label><input type="text" id="f-stack" placeholder="C#, Unity, Blender"><div class="hint">Comma-separated</div></div>
+                <div class="field"><label>Awards</label><input type="text" id="f-awards" placeholder="1st Place - Game Jam"><div class="hint">Comma-separated</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Images &amp; Files</h2>
+            <div class="field">
+                <label>Cover image</label>
+                <div class="thumbs" id="coverThumb"></div>
+                <div class="drop" id="coverDrop">Drop an image here or click to choose</div>
+                <input type="file" id="coverFile" accept="image/*" class="hidden">
+            </div>
+            <div class="field">
+                <label>Screenshots</label>
+                <div class="thumbs" id="shotThumbs"></div>
+                <div class="drop" id="shotDrop">Drop images here or click to choose (multiple allowed)</div>
+                <input type="file" id="shotFiles" accept="image/*" multiple class="hidden">
+            </div>
+            <div class="field">
+                <label>Document (PDF - research papers etc.)</label>
+                <div id="pdfCurrent" class="hint" style="margin-bottom:6px;"></div>
+                <div class="drop" id="pdfDrop">Drop a PDF here or click to choose</div>
+                <input type="file" id="pdfFile" accept="application/pdf" class="hidden">
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Links</h2>
+            <div class="grid2">
+                <div class="field"><label>GitHub</label><input type="url" id="f-link-github" placeholder="https://github.com/…"></div>
+                <div class="field"><label>itch.io page</label><input type="url" id="f-link-itch" placeholder="https://….itch.io/…"></div>
+                <div class="field"><label>Video</label><input type="url" id="f-link-video" placeholder="https://youtube.com/…"></div>
+                <div class="field"><label>DOI</label><input type="url" id="f-link-doi" placeholder="https://doi.org/…"></div>
+                <div class="field"><label>Live demo</label><input type="url" id="f-link-live"></div>
+                <div class="field"><label>itch.io embed ID</label><input type="text" id="f-itchid" placeholder="2710574"><div class="hint">itch.io → Edit game → Distribute → Embed game: the number in the code. Shows a playable widget.</div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Press &amp; Articles</h2>
+            <div id="articles"></div>
+            <button class="btn-s" onclick="addArticleRow()">+ Add article</button>
+        </div>
+
+        <div class="savebar">
+            <button class="btn-p" id="saveBtn" onclick="save()">Save project</button>
+            <button class="btn-s" onclick="backToList()">Cancel</button>
+            <span style="flex:1"></span>
+            <button class="btn-danger hidden" id="deleteBtn" onclick="del()">Delete project…</button>
+        </div>
+    </div>
+</div>
+
+<div id="banner"><div id="bannerMsg"></div><pre id="bannerLog" class="hidden"></pre></div>
+
+<script>
+'use strict';
+let projects = [];
+let editing = null;          // slug being edited, or null for new
+let current = null;          // the loaded project object when editing
+let newCover = null;         // {name, data}
+let newShots = [];           // [{name, data, preview}]
+let newPdf = null;
+let removeCover = false;
+let removedPhotos = [];
+
+const $ = function (id) { return document.getElementById(id); };
+
+function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toSlug(t) {
+    return t.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+}
+
+function banner(ok, msg, log) {
+    const b = $('banner');
+    b.className = ok ? 'ok' : 'bad';
+    b.style.display = 'block';
+    $('bannerMsg').textContent = (ok ? '✓ ' : '✗ ') + msg;
+    const pre = $('bannerLog');
+    if (log) { pre.textContent = log; pre.classList.remove('hidden'); }
+    else pre.classList.add('hidden');
+    clearTimeout(banner._t);
+    banner._t = setTimeout(function () { b.style.display = 'none'; }, ok ? 6000 : 15000);
+}
+
+/* ── list view ── */
+async function loadList() {
+    const res = await fetch('/api/projects');
+    projects = await res.json();
+    const el = $('plist');
+    if (!projects.length) { el.innerHTML = '<p style="color:var(--muted)">No projects yet.</p>'; return; }
+    el.innerHTML = projects.map(function (p) {
+        const img = p.coverImage
+            ? '<img src="/projects/' + encodeURIComponent(p.slug) + '/' + encodeURIComponent(p.coverImage) + '" alt="">'
+            : '<div class="noimg">🎮</div>';
+        const wip = p.status !== 'completed' ? '<span class="chip wip">WIP</span>' : '';
+        return '<div class="prow">' + img +
+            '<div class="prow-info"><div class="prow-title">' + esc(p.title) + wip +
+            '<span class="chip">' + esc(p.type || '') + '</span></div>' +
+            '<div class="prow-meta">' + esc(p.slug) + (p.date ? ' · ' + esc(p.date) : '') + '</div></div>' +
+            '<button class="btn-s" onclick="openForm(\'' + esc(p.slug) + '\')">Edit</button></div>';
+    }).join('');
+}
+
+/* ── form view ── */
+function resetUploads() {
+    newCover = null; newShots = []; newPdf = null;
+    removeCover = false; removedPhotos = [];
+}
+
+function openForm(slug) {
+    resetUploads();
+    editing = slug;
+    current = slug ? projects.find(function (p) { return p.slug === slug; }) : null;
+    const p = current || {};
+
+    $('formTitle').textContent = slug ? 'Editing: ' + (p.title || slug) : 'New project';
+    $('f-title').value = p.title || '';
+    $('f-slug').value = slug || '';
+    $('f-slug').disabled = !!slug;
+    $('slugHint').textContent = slug ? 'The folder name can’t change after creation.' : 'Auto-filled from the title. Lowercase letters, numbers, hyphens.';
+    $('f-type').value = p.type || 'game';
+    $('f-status').value = p.status || 'completed';
+    $('f-date').value = p.date || '';
+    $('f-degree').value = p.degree || (slug ? '' : 'Personal');
+    $('f-engine').value = p.engine || '';
+    $('f-genre').value = p.genre || '';
+    $('f-event').value = p.event || '';
+    $('f-summary').value = p.summary || '';
+    $('f-description').value = p.description || '';
+    $('f-tags').value = (p.tags || []).join(', ');
+    $('f-stack').value = (p.stack || []).join(', ');
+    $('f-awards').value = (p.awards || []).join(', ');
+    const links = p.links || {};
+    ['github','itch','video','doi','live'].forEach(function (k) { $('f-link-' + k).value = links[k] || ''; });
+    $('f-itchid').value = p.itchId || '';
+
+    $('articles').innerHTML = '';
+    (p.articles || []).forEach(function (a) { addArticleRow(a); });
+
+    $('deleteBtn').classList.toggle('hidden', !slug);
+    renderImages();
+
+    $('listView').classList.add('hidden');
+    $('formView').classList.remove('hidden');
+    window.scrollTo(0, 0);
+}
+
+function backToList() {
+    $('formView').classList.add('hidden');
+    $('listView').classList.remove('hidden');
+    loadList();
+}
+
+$('f-title').addEventListener('input', function () {
+    if (!editing) $('f-slug').value = toSlug(this.value);
+});
+
+/* ── articles ── */
+function addArticleRow(a) {
+    a = a || {};
+    const row = document.createElement('div');
+    row.className = 'art-row';
+    row.innerHTML =
+        '<input type="text" placeholder="Article title" value="' + esc(a.title) + '" data-k="title">' +
+        '<input type="text" placeholder="Source" value="' + esc(a.source) + '" data-k="source">' +
+        '<input type="url" placeholder="https://…" value="' + esc(a.url) + '" data-k="url">' +
+        '<button class="btn-danger" style="padding:6px 12px" onclick="this.parentNode.remove()">✕</button>';
+    $('articles').appendChild(row);
+}
+
+/* ── image handling ── */
+function renderImages() {
+    const p = current || {};
+    const slug = editing;
+
+    // cover
+    const ct = $('coverThumb');
+    ct.innerHTML = '';
+    if (newCover) {
+        ct.innerHTML = '<div class="thumb"><img src="' + newCover.preview + '"><span class="tname">new: ' + esc(newCover.name) + '</span>' +
+            '<button onclick="newCover=null;renderImages()">✕</button></div>';
+    } else if (p.coverImage && !removeCover) {
+        ct.innerHTML = '<div class="thumb"><img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(p.coverImage) + '">' +
+            '<span class="tname">' + esc(p.coverImage) + '</span>' +
+            '<button onclick="removeCover=true;renderImages()">✕</button></div>';
+    }
+
+    // screenshots
+    const st = $('shotThumbs');
+    st.innerHTML = '';
+    (p.photoFiles || []).forEach(function (f) {
+        const gone = removedPhotos.indexOf(f) !== -1;
+        const d = document.createElement('div');
+        d.className = 'thumb' + (gone ? ' removed' : '');
+        d.innerHTML = '<img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(f) + '">' +
+            '<span class="tname">' + esc(f) + (gone ? ' (will delete)' : '') + '</span>';
+        const b = document.createElement('button');
+        b.textContent = gone ? '↩' : '✕';
+        b.onclick = function () {
+            const i = removedPhotos.indexOf(f);
+            if (i === -1) removedPhotos.push(f); else removedPhotos.splice(i, 1);
+            renderImages();
+        };
+        d.appendChild(b);
+        st.appendChild(d);
+    });
+    newShots.forEach(function (s, i) {
+        const d = document.createElement('div');
+        d.className = 'thumb';
+        d.innerHTML = '<img src="' + s.preview + '"><span class="tname">new: ' + esc(s.name) + '</span>';
+        const b = document.createElement('button');
+        b.textContent = '✕';
+        b.onclick = function () { newShots.splice(i, 1); renderImages(); };
+        d.appendChild(b);
+        st.appendChild(d);
+    });
+
+    // pdf
+    const cur = $('pdfCurrent');
+    if (newPdf) cur.textContent = 'New file: ' + newPdf.name;
+    else if (p.file && !window._removePdfFlag) cur.innerHTML = 'Current: ' + esc(p.file) + ' &nbsp; <a href="#" onclick="window._removePdfFlag=true;renderImages();return false;">remove</a>';
+    else cur.textContent = 'None';
+}
+
+function fileToUpload(f) {
+    return new Promise(function (resolve, reject) {
+        const r = new FileReader();
+        r.onload = function () {
+            const b64 = r.result.split(',')[1];
+            resolve({ name: f.name, data: b64, preview: r.result });
+        };
+        r.onerror = reject;
+        r.readAsDataURL(f);
+    });
+}
+
+function wireDrop(dropId, inputId, onFiles) {
+    const drop = $(dropId), input = $(inputId);
+    drop.onclick = function () { input.click(); };
+    input.onchange = function () { onFiles(Array.from(input.files)); input.value = ''; };
+    drop.ondragover = function (e) { e.preventDefault(); drop.classList.add('over'); };
+    drop.ondragleave = function () { drop.classList.remove('over'); };
+    drop.ondrop = function (e) {
+        e.preventDefault(); drop.classList.remove('over');
+        onFiles(Array.from(e.dataTransfer.files));
+    };
+}
+
+wireDrop('coverDrop', 'coverFile', async function (files) {
+    if (!files[0]) return;
+    newCover = await fileToUpload(files[0]);
+    removeCover = false;
+    renderImages();
+});
+wireDrop('shotDrop', 'shotFiles', async function (files) {
+    for (const f of files) newShots.push(await fileToUpload(f));
+    renderImages();
+});
+wireDrop('pdfDrop', 'pdfFile', async function (files) {
+    if (!files[0]) return;
+    newPdf = await fileToUpload(files[0]);
+    window._removePdfFlag = false;
+    renderImages();
+});
+
+/* ── save / delete ── */
+function splitList(v) { return v.split(',').map(function (s) { return s.trim(); }).filter(Boolean); }
+
+async function save() {
+    const links = {};
+    ['github','itch','video','doi','live'].forEach(function (k) {
+        const v = $('f-link-' + k).value.trim();
+        if (v) links[k] = v;
+    });
+    const articles = Array.from(document.querySelectorAll('#articles .art-row')).map(function (row) {
+        const get = function (k) { return row.querySelector('[data-k=' + k + ']').value.trim(); };
+        return { title: get('title'), source: get('source'), url: get('url') };
+    }).filter(function (a) { return a.title && a.url; });
+
+    const payload = {
+        isNew: !editing,
+        slug: editing || $('f-slug').value.trim(),
+        project: {
+            title: $('f-title').value.trim(),
+            type: $('f-type').value,
+            status: $('f-status').value,
+            date: $('f-date').value.trim(),
+            degree: $('f-degree').value.trim(),
+            engine: $('f-engine').value.trim(),
+            genre: $('f-genre').value.trim(),
+            event: $('f-event').value.trim(),
+            summary: $('f-summary').value.trim(),
+            description: $('f-description').value.trim(),
+            tags: splitList($('f-tags').value),
+            stack: splitList($('f-stack').value),
+            awards: splitList($('f-awards').value),
+            links: links,
+            itchId: $('f-itchid').value.trim(),
+            articles: articles,
+        },
+        uploads: {
+            cover: newCover ? { name: newCover.name, data: newCover.data } : null,
+            photos: newShots.map(function (s) { return { name: s.name, data: s.data }; }),
+            pdf: newPdf ? { name: newPdf.name, data: newPdf.data } : null,
+        },
+        removeCover: removeCover,
+        removePhotos: removedPhotos,
+        removePdf: !!window._removePdfFlag,
+    };
+
+    $('saveBtn').disabled = true;
+    $('saveBtn').textContent = 'Saving…';
+    try {
+        const res = await fetch('/api/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+        const out = await res.json();
+        if (!res.ok || out.error) {
+            banner(false, out.error || 'Save failed', out.pipeline);
+        } else {
+            banner(out.ok, out.ok ? 'Saved "' + payload.project.title + '" - manifest & sitemap updated, validation passed.'
+                                  : 'Saved, but validation reported problems - see details.', out.pipeline);
+            window._removePdfFlag = false;
+            backToList();
+        }
+    } catch (e) {
+        banner(false, 'Could not reach the local server: ' + e.message);
+    }
+    $('saveBtn').disabled = false;
+    $('saveBtn').textContent = 'Save project';
+}
+
+async function del() {
+    const p = current || {};
+    if (!editing) return;
+    if (!confirm('Delete "' + (p.title || editing) + '" and its whole folder (images, PDFs)?\nThis only changes your local working copy - nothing is deleted from the live site until you commit and push.')) return;
+    const res = await fetch('/api/project/' + encodeURIComponent(editing), { method: 'DELETE' });
+    const out = await res.json();
+    if (out.error) banner(false, out.error);
+    else banner(true, 'Project deleted - manifest & sitemap updated.', out.pipeline);
+    backToList();
+}
+
+loadList();
+</script>
+</body>
+</html>
