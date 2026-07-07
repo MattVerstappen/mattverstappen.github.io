@@ -6,7 +6,10 @@
   "scripts": {
     "minify:js": "terser assets/js/translations.js -o assets/js/translations.min.js --compress --mangle",
     "build": "npm run minify:js",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "new-project": "node scripts/new-project.js",
+    "generate": "node scripts/generate.js",
+    "validate": "node scripts/validate.js"
   },
   "devDependencies": {
     "terser": "^5.31.0",
