@@ -17,7 +17,7 @@
         })(window, document, "clarity", "script", "xfnexa17km");
     </script>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://js.hs-scripts.com https://www.googletagmanager.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://matthewderekrall.com https://www.google-analytics.com; frame-src 'self' https://itch.io; connect-src 'self' https://formspree.io https://raw.githubusercontent.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.clarity.ms; form-action 'self' https://formspree.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.clarity.ms; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://matthewderekrall.com https://www.google-analytics.com https://*.clarity.ms; frame-src 'self' https://itch.io; connect-src 'self' https://formspree.io https://raw.githubusercontent.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://*.clarity.ms; form-action 'self' https://formspree.io;">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0D0A14">
     <title>Research - Matthew Derek Rall</title>
@@ -89,6 +89,7 @@
     </script>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to content</a>
 <canvas id="particleCanvas" aria-hidden="true"></canvas>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -172,8 +173,8 @@
             <p style="color:var(--text-muted);margin-bottom:28px;" data-i18n="research_also">Additional research and design work from my Honours year:</p>
         </div>
         <div class="proj-tabs fade-in">
-            <button class="tab on" id="t-done" onclick="showStatus('completed')">Completed</button>
-            <button class="tab" id="t-wip"  onclick="showStatus('wip')">In Development</button>
+            <button class="tab on" id="t-done" onclick="showStatus('completed')" data-i18n="tab_completed">Completed</button>
+            <button class="tab" id="t-wip"  onclick="showStatus('wip')" data-i18n="tab_wip">In Development</button>
         </div>
         <div class="proj-filters" id="degreeFilters"></div>
         <div class="proj-grid" id="projGrid" data-types="research,design"></div>

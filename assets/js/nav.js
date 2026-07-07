@@ -36,12 +36,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     var ham = document.getElementById('hamburger') || document.getElementById('ham');
     var navLinks = document.getElementById('navLinks');
     if (ham && navLinks) {
+        ham.setAttribute('aria-controls', navLinks.id);
+        ham.setAttribute('aria-expanded', 'false');
         ham.addEventListener('click', function () {
-            navLinks.classList.toggle('open');
+            var open = navLinks.classList.toggle('open');
+            ham.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
         navLinks.querySelectorAll('a').forEach(function (a) {
             a.addEventListener('click', function () {
                 navLinks.classList.remove('open');
+                ham.setAttribute('aria-expanded', 'false');
             });
         });
     }

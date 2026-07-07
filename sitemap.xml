@@ -4,7 +4,7 @@
   <!-- HOMEPAGE -->
   <url>
     <loc>https://matthewderekrall.com/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- WORK -->
   <url>
     <loc>https://matthewderekrall.com/work.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- ABOUT -->
   <url>
     <loc>https://matthewderekrall.com/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- RESEARCH -->
   <url>
     <loc>https://matthewderekrall.com/research.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- ACHIEVEMENTS -->
   <url>
     <loc>https://matthewderekrall.com/achievements.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- CONTACT -->
   <url>
     <loc>https://matthewderekrall.com/contact.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -52,73 +52,73 @@
   <!-- PROJECT VIEW PAGES (Phase 5B) -->
   <url>
     <loc>https://matthewderekrall.com/projects/binary-rain/binary-rain-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/atmosphere/atmosphere-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/blackhole/blackhole-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/lightning/lightning-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/meteor-shower/meteor-shower-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/wormhole/wormhole-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/solar-system/solar-system-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/weighted-random-selector/weighted-random-selector-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/audio-randomizer/audio-randomizer-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/camera-shake/camera-shake-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/offscreen-indicator/offscreen-indicator-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://matthewderekrall.com/projects/save-system/save-system-view.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

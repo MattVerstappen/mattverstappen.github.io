@@ -61,7 +61,7 @@ var slug = new URLSearchParams(window.location.search).get('slug');
     const timeoutId = setTimeout(function () { controller.abort(); }, 8000);
 
     try {
-        const res = await fetch('projects/' + slug + '/project.json', {
+        const res = await fetch('projects/' + encodeURIComponent(slug) + '/project.json', {
             signal: controller.signal
         });
         clearTimeout(timeoutId);
