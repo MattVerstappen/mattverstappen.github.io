@@ -202,3 +202,35 @@ Comments skipped: 1 (comment 20 - README rewrite; README serves as implementatio
 - [x] translations.min.js rebuilt
 - [x] All paths verified
 - [x] creative-assets/ deleted
+
+## Adding a new project
+
+Run the interactive scaffolder from the repo root:
+
+```
+npm run new-project
+```
+
+It asks for the title, type, status, summary, tags, links, etc., copies your
+cover image / screenshots / PDF into `projects/<slug>/` with clean names,
+writes `project.json`, and then regenerates `projects/manifest.json` and
+`sitemap.xml` automatically. Press Enter to accept a `[default]`; leave
+optional answers blank to skip.
+
+Afterwards: preview locally, then `git add projects/ sitemap.xml`, commit,
+and push.
+
+### Supporting scripts
+
+- `npm run generate` - rebuilds `manifest.json` (from the folders in
+  `projects/`, preserving display order; new projects append at the end -
+  reorder slugs in `manifest.json` by hand if wanted, the order is kept) and
+  `sitemap.xml` (static pages + every project with a `viewPage`). Never edit
+  those two files for additions/removals - just re-run this.
+- `npm run validate` - integrity check: every manifest slug has a folder,
+  every referenced image/PDF/viewPage exists, every sitemap URL maps to a
+  real file. Runs automatically on GitHub for every push/PR via
+  `.github/workflows/validate.yml`, so a broken project can't reach `main`
+  unnoticed.
+
+Deleting a project = delete its folder, run `npm run generate`, commit.
