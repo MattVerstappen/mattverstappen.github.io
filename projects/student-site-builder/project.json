@@ -1,0 +1,23 @@
+{
+  "title": "Student Site Builder",
+  "degree": "Personal",
+  "type": "tool",
+  "status": "completed",
+  "date": "July 3, 2026",
+  "coverImage": "StudentSiteBuilderCover.png",
+  "itchId": "4733885",
+  "summary": "A beginner-friendly desktop tool that helps students create editable portfolio websites for GitHub Pages.",
+  "description": "Student Site Builder:\nStudent Site Builder is a beginner-friendly desktop tool that helps students create personal portfolio websites without needing to manually build everything from scratch. It is designed for students who want a simple way to create a clean website for their projects, CV, skills, contact links, and creative work. The generated websites are static HTML, CSS, JavaScript, and JSON projects, which makes them suitable for GitHub Pages.\n\nWhat it does:\nStudent Site Builder lets students:\n- Create a new portfolio website from a template\n- Choose from different website templates\n- Edit profile details such as name, role, bio, email, location, and skills\n- Add and manage project entries\n- Add project images and gallery images\n- Add a profile image and CV/document\n- Pick and customize theme colours, fonts, and card styles\n- Preview the generated website locally\n- Create or update a README for the generated website\n- Prepare a static website that can later be uploaded to GitHub Pages\n\nWho this is for:\nThis tool is mainly for students, beginner developers, game developers, artists, designers, and other creative students who want a simple portfolio website but may not feel comfortable editing code manually. It can also be useful for students who are learning HTML, CSS, JavaScript, and GitHub Pages, because the generated site remains editable and easy to inspect.\n\nImportant note:\nStudent Site Builder does not currently publish directly to GitHub and does not push files automatically. The tool creates and edits the website files locally. Students can then use GitHub Desktop, GitHub Pages, or their preferred workflow to publish the generated website.\n\nCurrent status:\nThis is an early version and may receive updates, fixes, and new templates over time. The current focus is making the website creation process easier, safer, and more beginner-friendly.\n\nPlatform:\nThis release is intended for Windows desktop use.\n\nAI disclosure:\nThis project was developed with assistance from generative AI tools for planning, coding guidance, writing, template drafting, and the itch.io cover image. The app itself is a traditional desktop tool and does not generate websites using AI at runtime.",
+  "tags": [
+    "Application",
+    "Website"
+  ],
+  "stack": [
+    "C#"
+  ],
+  "links": {
+    "github": "https://github.com/MattVerstappen/StudentSiteBuilder",
+    "itch": "https://mattverstappen.itch.io/studentsitebuilder"
+  },
+  "photos": 0
+}
