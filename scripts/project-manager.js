@@ -143,7 +143,8 @@ function syncContentBranch() {
     try { git(['fetch', 'origin', '--prune']); }
     catch (e) { fetched = false; }
 
-    const dirty = git(['status', '--porcelain']) !== '';
+    // Untracked files don't block a branch switch - only real modifications do.
+    const dirty = git(['status', '--porcelain', '--untracked-files=no']) !== '';
     let branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
 
     if (branch !== CONTENT_BRANCH) {
