@@ -247,9 +247,24 @@ opens a form UI in your browser where you can:
 
 Every save writes `projects/<slug>/project.json`, copies/renames images,
 regenerates `manifest.json` + `sitemap.xml`, and runs the validator - the
-same pipeline as `npm run new-project`. Changes only touch your local
-working copy; publish them by committing and pushing as usual (GitHub
-Desktop works fine).
+same pipeline as `npm run new-project`.
+
+### Git workflow (automatic)
+
+- **On startup** the app switches to the `features/projects-adding` branch
+  (creating it from `origin/main` if needed) and merges the latest `main`
+  into it, so it always begins as an up-to-date duplicate of main. If you
+  have uncommitted changes or a merge conflict, it stops and tells you
+  instead of forcing anything.
+- **On save/delete** (with "Commit & push" ticked, the default) the change
+  is committed to `features/projects-adding` with your commit title/notes
+  and pushed to GitHub - every project edit is tracked in git history.
+- **Publishing stays deliberate**: the live site only changes when you merge
+  `features/projects-adding` into `main` (the app links straight to the
+  GitHub compare page for opening that pull request).
+
+If a push fails (offline), the commit is still safe locally - push later
+with GitHub Desktop or `git push -u origin features/projects-adding`.
 
 Keep the black terminal window open while using the app; close it when done.
 Also available as `npm run manager`.

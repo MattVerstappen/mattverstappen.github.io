@@ -11,6 +11,15 @@
  *
  * This server binds to 127.0.0.1 only and is a dev tool - it is never
  * part of the deployed site.
+ *
+ * Git workflow:
+ * On startup the app switches to the content branch (features/projects-adding,
+ * creating it from origin/main if needed) and merges the latest origin/main
+ * into it, so it always starts as an up-to-date duplicate of main. When you
+ * save (or delete) with "Commit & push" enabled, the change is committed to
+ * that branch with your title/notes and pushed to GitHub. Publishing to the
+ * live site stays a deliberate step: open a PR from features/projects-adding
+ * into main on GitHub and merge it.
  */
 
 'use strict';
@@ -23,6 +32,7 @@ const { execFileSync, exec } = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const PROJECTS_DIR = path.join(ROOT, 'projects');
 const PORT = 5177;
+const CONTENT_BRANCH = 'features/projects-adding';
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -102,6 +112,110 @@ function orderedProject(p) {
     // photos is a count and may legitimately be 0
     out.photos = (p.photoFiles || []).length;
     return out;
+}
+
+/* ── git integration ── */
+
+function git(args, opts) {
+    return execFileSync('git', args, Object.assign({
+        cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'],
+    }, opts || {})).trim();
+}
+
+// Startup sync result, shown in the UI header.
+const gitState = { branch: '', ok: false, message: '', pushedRemote: false };
+
+function branchExists(name) {
+    try { git(['rev-parse', '--verify', '--quiet', name]); return true; }
+    catch (e) { return false; }
+}
+
+/**
+ * On startup: make features/projects-adding an up-to-date copy of main.
+ *  1. fetch origin (skipped gracefully when offline)
+ *  2. switch to the content branch (create from origin/main if missing)
+ *  3. merge origin/main into it
+ * Never forces anything: with uncommitted changes it stays put and reports,
+ * and a merge conflict is aborted and reported instead of leaving a mess.
+ */
+function syncContentBranch() {
+    let fetched = true;
+    try { git(['fetch', 'origin', '--prune']); }
+    catch (e) { fetched = false; }
+
+    const dirty = git(['status', '--porcelain']) !== '';
+    let branch = git(['rev-parse', '--abbrev-ref', 'HEAD']);
+
+    if (branch !== CONTENT_BRANCH) {
+        if (dirty) {
+            gitState.branch = branch;
+            gitState.message = 'You have uncommitted changes on "' + branch + '" - branch switch skipped. ' +
+                'Commit or discard them, then restart the app.';
+            return;
+        }
+        if (branchExists(CONTENT_BRANCH)) {
+            git(['checkout', CONTENT_BRANCH]);
+        } else if (branchExists('origin/' + CONTENT_BRANCH)) {
+            git(['checkout', '-b', CONTENT_BRANCH, '--track', 'origin/' + CONTENT_BRANCH]);
+        } else {
+            const base = branchExists('origin/main') ? 'origin/main' : 'main';
+            git(['checkout', '-b', CONTENT_BRANCH, base]);
+        }
+        branch = CONTENT_BRANCH;
+    }
+    gitState.branch = branch;
+
+    // Bring in whatever reached main since last time (merged PRs etc.)
+    const mainRef = fetched && branchExists('origin/main') ? 'origin/main' : 'main';
+    try {
+        const out = git(['merge', '--no-edit', mainRef]);
+        gitState.ok = true;
+        gitState.message = /Already up to date/i.test(out)
+            ? 'Up to date with ' + mainRef + '.'
+            : 'Merged latest ' + mainRef + ' into ' + CONTENT_BRANCH + '.';
+        if (!fetched) gitState.message += ' (offline - used local main)';
+    } catch (e) {
+        try { git(['merge', '--abort']); } catch (e2) { /* no merge in progress */ }
+        gitState.message = 'Could not merge ' + mainRef + ' into ' + CONTENT_BRANCH +
+            ' (conflict). Resolve it manually, then restart the app.';
+    }
+}
+
+/**
+ * Commit content changes and push the branch. Returns a human-readable
+ * summary; a failed push is reported but the commit still exists locally.
+ */
+function commitAndPush(title, notes) {
+    git(['add', '--', 'projects', 'sitemap.xml']);
+    if (git(['status', '--porcelain', '--', 'projects', 'sitemap.xml']) === '') {
+        return { ok: true, message: 'Nothing changed, so no commit was made.' };
+    }
+    const args = ['commit', '-m', title];
+    if (notes) args.push('-m', notes);
+    git(args);
+    try {
+        git(['push', '-u', 'origin', CONTENT_BRANCH]);
+        return { ok: true, message: 'Committed and pushed to ' + CONTENT_BRANCH + '.' };
+    } catch (e) {
+        return {
+            ok: false,
+            message: 'Committed locally, but the push failed (offline or auth issue). ' +
+                'Your work is safe - push later with GitHub Desktop or: git push -u origin ' + CONTENT_BRANCH,
+        };
+    }
+}
+
+function apiGitStatus(res) {
+    let ahead = 0;
+    try {
+        ahead = parseInt(git(['rev-list', '--count', 'origin/main..HEAD']), 10) || 0;
+    } catch (e) { /* remote missing */ }
+    send(res, 200, {
+        branch: gitState.branch,
+        syncOk: gitState.ok,
+        syncMessage: gitState.message,
+        aheadOfMain: ahead,
+    });
 }
 
 function runPipeline() {
@@ -221,18 +335,35 @@ function apiSave(res, body) {
     fs.writeFileSync(path.join(dir, 'project.json'), JSON.stringify(merged, null, 2) + '\n');
 
     const pipeline = runPipeline();
-    send(res, 200, { ok: pipeline.ok, slug: slug, pipeline: pipeline.output });
+
+    let gitResult = null;
+    if (body.commit && body.commit.enabled && pipeline.ok) {
+        const title = (body.commit.title || '').trim() ||
+            (isNew ? 'Add project: ' : 'Update project: ') + p.title;
+        gitResult = commitAndPush(title, (body.commit.notes || '').trim());
+    } else if (body.commit && body.commit.enabled && !pipeline.ok) {
+        gitResult = { ok: false, message: 'Commit skipped because validation failed - fix the errors and save again.' };
+    }
+
+    send(res, 200, { ok: pipeline.ok, slug: slug, pipeline: pipeline.output, git: gitResult });
 }
 
-function apiDelete(res, slug) {
+function apiDelete(res, slug, body) {
     slug = safeSlug(slug);
     const dir = path.join(PROJECTS_DIR, slug);
     if (!slug || !fs.existsSync(path.join(dir, 'project.json'))) {
         return send(res, 404, { error: 'Project not found.' });
     }
+    let title = slug;
+    try { title = readProject(slug).title || slug; } catch (e) { /* keep slug */ }
     fs.rmSync(dir, { recursive: true, force: true });
     const pipeline = runPipeline();
-    send(res, 200, { ok: pipeline.ok, pipeline: pipeline.output });
+
+    let gitResult = null;
+    if (body && body.commit && body.commit.enabled && pipeline.ok) {
+        gitResult = commitAndPush('Remove project: ' + title, (body.commit.notes || '').trim());
+    }
+    send(res, 200, { ok: pipeline.ok, pipeline: pipeline.output, git: gitResult });
 }
 
 /* ── static file serving (repo root, traversal-safe) ── */
@@ -263,18 +394,33 @@ const server = http.createServer(async function (req, res) {
         if (url === '/api/projects' && req.method === 'GET') {
             return apiListProjects(res);
         }
+        if (url === '/api/git' && req.method === 'GET') {
+            return apiGitStatus(res);
+        }
         if (url === '/api/save' && req.method === 'POST') {
             const body = JSON.parse(await readBody(req));
             return apiSave(res, body);
         }
         if (url.indexOf('/api/project/') === 0 && req.method === 'DELETE') {
-            return apiDelete(res, url.slice('/api/project/'.length));
+            const raw = await readBody(req);
+            const body = raw ? JSON.parse(raw) : {};
+            return apiDelete(res, url.slice('/api/project/'.length), body);
         }
         return serveStatic(res, url);
     } catch (e) {
         send(res, 500, { error: e.message });
     }
 });
+
+console.log('');
+console.log('  Syncing content branch with main…');
+try {
+    syncContentBranch();
+    console.log('  ' + gitState.message);
+} catch (e) {
+    gitState.message = 'Git sync failed: ' + e.message;
+    console.log('  ' + gitState.message);
+}
 
 server.listen(PORT, '127.0.0.1', function () {
     const url = 'http://localhost:' + PORT + '/manager';

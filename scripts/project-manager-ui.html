@@ -65,6 +65,13 @@ label { display: block; font-size: .82rem; color: var(--muted); margin: 0 0 4px;
 #banner.bad { border-color: rgba(248,113,113,.5); }
 #banner pre { white-space: pre-wrap; font-size: .78rem; color: var(--muted); margin-top: 6px; max-height: 160px; overflow: auto; }
 .art-row { display: grid; grid-template-columns: 2fr 1fr 2fr auto; gap: 8px; margin-bottom: 8px; }
+.gitbar { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 10px;
+    padding: 9px 14px; font-size: .82rem; color: var(--muted); margin-bottom: 22px; }
+.gitbar b { color: var(--accent-lt); font-weight: 600; }
+.gitbar.warn { border-color: rgba(251,191,36,.5); color: #FBBF24; }
+.checkrow { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.checkrow input { width: 16px; height: 16px; accent-color: var(--accent); }
+.checkrow label { margin: 0; font-size: .9rem; color: var(--text); cursor: pointer; }
 .savebar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .hidden { display: none !important; }
 a { color: var(--accent-lt); }
@@ -73,7 +80,8 @@ a { color: var(--accent-lt); }
 <body>
 <div class="wrap">
     <h1>MDR <span>Project Manager</span></h1>
-    <p class="sub">Create and edit portfolio projects. Every save updates <code>project.json</code>, regenerates the manifest &amp; sitemap, and runs the validator. When you're happy, commit &amp; push with GitHub Desktop or git.</p>
+    <p class="sub">Create and edit portfolio projects. Every save updates <code>project.json</code>, regenerates the manifest &amp; sitemap, runs the validator, and (by default) commits &amp; pushes to the <code>features/projects-adding</code> branch. Publish to the live site by merging that branch into <code>main</code> on GitHub.</p>
+    <div id="gitbar" class="gitbar">Checking git status…</div>
 
     <!-- ══ LIST VIEW ══ -->
     <div id="listView">
@@ -164,6 +172,17 @@ a { color: var(--accent-lt); }
             <button class="btn-s" onclick="addArticleRow()">+ Add article</button>
         </div>
 
+        <div class="card">
+            <h2>Save &amp; Publish</h2>
+            <div class="checkrow">
+                <input type="checkbox" id="f-commit" checked>
+                <label for="f-commit">Commit &amp; push to <b style="color:var(--accent-lt)">features/projects-adding</b> after saving</label>
+            </div>
+            <div class="field"><label>Commit title</label><input type="text" id="f-commit-title" placeholder="Add project: …"><div class="hint">Leave blank for an automatic title.</div></div>
+            <div class="field"><label>Notes (optional)</label><textarea id="f-commit-notes" style="min-height:60px" placeholder="What changed and why - kept in the git history."></textarea></div>
+            <div class="hint">Pushing only updates the branch on GitHub. The live site changes when you merge that branch into <b>main</b> (open a pull request on GitHub).</div>
+        </div>
+
         <div class="savebar">
             <button class="btn-p" id="saveBtn" onclick="save()">Save project</button>
             <button class="btn-s" onclick="backToList()">Cancel</button>
@@ -206,6 +225,23 @@ function banner(ok, msg, log) {
     else pre.classList.add('hidden');
     clearTimeout(banner._t);
     banner._t = setTimeout(function () { b.style.display = 'none'; }, ok ? 6000 : 15000);
+}
+
+/* ── git status bar ── */
+async function loadGit() {
+    const bar = $('gitbar');
+    try {
+        const g = await (await fetch('/api/git')).json();
+        bar.className = 'gitbar' + (g.syncOk ? '' : ' warn');
+        bar.innerHTML = 'Branch: <b>' + esc(g.branch) + '</b> · ' + esc(g.syncMessage) +
+            (g.aheadOfMain > 0
+                ? ' · <b>' + g.aheadOfMain + ' change' + (g.aheadOfMain === 1 ? '' : 's') +
+                  '</b> waiting to be merged into main - <a href="https://github.com/MattVerstappen/mattverstappen.github.io/compare/main...features/projects-adding" target="_blank">open a pull request ↗</a>'
+                : ' · Nothing waiting to merge.');
+    } catch (e) {
+        bar.className = 'gitbar warn';
+        bar.textContent = 'Could not read git status.';
+    }
 }
 
 /* ── list view ── */
@@ -263,6 +299,10 @@ function openForm(slug) {
     $('articles').innerHTML = '';
     (p.articles || []).forEach(function (a) { addArticleRow(a); });
 
+    $('f-commit-title').value = '';
+    $('f-commit-title').placeholder = slug ? 'Update project: ' + (p.title || slug) : 'Add project: …';
+    $('f-commit-notes').value = '';
+
     $('deleteBtn').classList.toggle('hidden', !slug);
     renderImages();
 
@@ -275,6 +315,7 @@ function backToList() {
     $('formView').classList.add('hidden');
     $('listView').classList.remove('hidden');
     loadList();
+    loadGit();
 }
 
 $('f-title').addEventListener('input', function () {
@@ -432,6 +473,11 @@ async function save() {
         removeCover: removeCover,
         removePhotos: removedPhotos,
         removePdf: !!window._removePdfFlag,
+        commit: {
+            enabled: $('f-commit').checked,
+            title: $('f-commit-title').value.trim(),
+            notes: $('f-commit-notes').value.trim(),
+        },
     };
 
     $('saveBtn').disabled = true;
@@ -446,8 +492,11 @@ async function save() {
         if (!res.ok || out.error) {
             banner(false, out.error || 'Save failed', out.pipeline);
         } else {
-            banner(out.ok, out.ok ? 'Saved "' + payload.project.title + '" - manifest & sitemap updated, validation passed.'
-                                  : 'Saved, but validation reported problems - see details.', out.pipeline);
+            let msg = out.ok ? 'Saved "' + payload.project.title + '" - validation passed.'
+                             : 'Saved, but validation reported problems - see details.';
+            let allOk = out.ok;
+            if (out.git) { msg += ' ' + out.git.message; allOk = allOk && out.git.ok; }
+            banner(allOk, msg, out.pipeline);
             window._removePdfFlag = false;
             backToList();
         }
@@ -461,15 +510,28 @@ async function save() {
 async function del() {
     const p = current || {};
     if (!editing) return;
-    if (!confirm('Delete "' + (p.title || editing) + '" and its whole folder (images, PDFs)?\nThis only changes your local working copy - nothing is deleted from the live site until you commit and push.')) return;
-    const res = await fetch('/api/project/' + encodeURIComponent(editing), { method: 'DELETE' });
+    if (!confirm('Delete "' + (p.title || editing) + '" and its whole folder (images, PDFs)?\nNothing is removed from the live site until features/projects-adding is merged into main.')) return;
+    const res = await fetch('/api/project/' + encodeURIComponent(editing), {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ commit: {
+            enabled: $('f-commit').checked,
+            notes: $('f-commit-notes').value.trim(),
+        } }),
+    });
     const out = await res.json();
     if (out.error) banner(false, out.error);
-    else banner(true, 'Project deleted - manifest & sitemap updated.', out.pipeline);
+    else {
+        let msg = 'Project deleted - manifest & sitemap updated.';
+        let allOk = true;
+        if (out.git) { msg += ' ' + out.git.message; allOk = out.git.ok; }
+        banner(allOk, msg, out.pipeline);
+    }
     backToList();
 }
 
 loadList();
+loadGit();
 </script>
 </body>
 </html>
