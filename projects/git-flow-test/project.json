@@ -1,0 +1,10 @@
+{
+  "title": "Git Flow Test",
+  "degree": "Personal",
+  "type": "game",
+  "status": "completed",
+  "date": "2026",
+  "coverImage": "GitFlowTestCover.png",
+  "summary": "Temporary project used to verify the commit-and-push pipeline.",
+  "photos": 0
+}
