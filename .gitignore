@@ -431,3 +431,10 @@ FodyWeavers.xsd
 # Cloudflare Wrangler / macOS
 .DS_Store
 .wrangler/
+
+# Playwright test artifacts
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.last-run.json

@@ -10,9 +10,13 @@
     "new-project": "node scripts/new-project.js",
     "manager": "node scripts/project-manager.js",
     "generate": "node scripts/generate.js",
-    "validate": "node scripts/validate.js"
+    "validate": "node scripts/validate.js",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "terser": "^5.31.0",
     "wrangler": "^4.0.0"
   }
