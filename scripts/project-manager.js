@@ -57,6 +57,25 @@ function readBody(req) {
     });
 }
 
+/**
+ * Guard against cross-site requests and DNS-rebinding attacks. The control
+ * surface (/manager + /api/*) is only reachable when both the Host header and
+ * any Origin header resolve to localhost/127.0.0.1. This blocks a malicious
+ * page (or a rebinding host) from driving the file-writing endpoints while the
+ * tool is running.
+ */
+function isLocalRequest(req) {
+    const host = String(req.headers.host || '');
+    const hostOk = host === '127.0.0.1:' + PORT || host === 'localhost:' + PORT;
+    const origin = req.headers.origin;
+    if (origin) {
+        let hostname;
+        try { hostname = new URL(origin).hostname; } catch (e) { return false; }
+        if (hostname !== '127.0.0.1' && hostname !== 'localhost') return false;
+    }
+    return hostOk;
+}
+
 function safeSlug(raw) {
     return String(raw || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
 }
@@ -241,7 +260,11 @@ function serveStatic(res, urlPath) {
     let rel = decodeURIComponent(urlPath.split('?')[0]);
     if (rel === '/') rel = '/index.html';
     const full = path.normalize(path.join(ROOT, rel));
-    if (full.indexOf(ROOT) !== 0) return send(res, 403, { error: 'Forbidden' });
+    // Confine to ROOT: exact match or a real child path (avoids the sibling
+    // "ROOT-something" string-prefix bypass that `indexOf(ROOT) !== 0` allowed).
+    if (full !== ROOT && full.indexOf(ROOT + path.sep) !== 0) {
+        return send(res, 403, { error: 'Forbidden' });
+    }
     if (!fs.existsSync(full) || !fs.statSync(full).isFile()) {
         return send(res, 404, 'Not found', 'text/plain');
     }
@@ -255,6 +278,12 @@ function serveStatic(res, urlPath) {
 const server = http.createServer(async function (req, res) {
     try {
         const url = req.url || '/';
+
+        // Only local requests may reach the UI or the file-writing API.
+        if ((url === '/manager' || url === '/manager/' || url.indexOf('/api/') === 0)
+            && !isLocalRequest(req)) {
+            return send(res, 403, { error: 'Forbidden: this dev server accepts local requests only.' });
+        }
 
         if (url === '/manager' || url === '/manager/') {
             const ui = fs.readFileSync(path.join(__dirname, 'project-manager-ui.html'));

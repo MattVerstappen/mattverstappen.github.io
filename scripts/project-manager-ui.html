@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Local-only Project Manager for creating and editing portfolio projects.">
+<meta name="robots" content="noindex, nofollow">
 <title>Project Manager - MDR Portfolio</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,7 +81,7 @@ a { color: var(--accent-lt); }
     <div id="listView">
         <div class="topbar">
             <button class="btn-p" onclick="openForm(null)">+ New Project</button>
-            <a href="/work.html" target="_blank" class="btn-s" style="text-decoration:none; display:inline-block;">Preview site ↗</a>
+            <a href="/work.html" target="_blank" rel="noopener" class="btn-s" style="text-decoration:none; display:inline-block;">Preview site ↗</a>
         </div>
         <div class="plist" id="plist"><p style="color:var(--muted)">Loading…</p></div>
     </div>
@@ -303,10 +305,10 @@ function renderImages() {
     const ct = $('coverThumb');
     ct.innerHTML = '';
     if (newCover) {
-        ct.innerHTML = '<div class="thumb"><img src="' + newCover.preview + '"><span class="tname">new: ' + esc(newCover.name) + '</span>' +
+        ct.innerHTML = '<div class="thumb"><img src="' + newCover.preview + '" alt="Cover preview"><span class="tname">new: ' + esc(newCover.name) + '</span>' +
             '<button onclick="newCover=null;renderImages()">✕</button></div>';
     } else if (p.coverImage && !removeCover) {
-        ct.innerHTML = '<div class="thumb"><img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(p.coverImage) + '">' +
+        ct.innerHTML = '<div class="thumb"><img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(p.coverImage) + '" alt="Current cover">' +
             '<span class="tname">' + esc(p.coverImage) + '</span>' +
             '<button onclick="removeCover=true;renderImages()">✕</button></div>';
     }
@@ -318,7 +320,7 @@ function renderImages() {
         const gone = removedPhotos.indexOf(f) !== -1;
         const d = document.createElement('div');
         d.className = 'thumb' + (gone ? ' removed' : '');
-        d.innerHTML = '<img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(f) + '">' +
+        d.innerHTML = '<img src="/projects/' + encodeURIComponent(slug) + '/' + encodeURIComponent(f) + '" alt="Screenshot">' +
             '<span class="tname">' + esc(f) + (gone ? ' (will delete)' : '') + '</span>';
         const b = document.createElement('button');
         b.textContent = gone ? '↩' : '✕';
@@ -333,7 +335,7 @@ function renderImages() {
     newShots.forEach(function (s, i) {
         const d = document.createElement('div');
         d.className = 'thumb';
-        d.innerHTML = '<img src="' + s.preview + '"><span class="tname">new: ' + esc(s.name) + '</span>';
+        d.innerHTML = '<img src="' + s.preview + '" alt="Screenshot preview"><span class="tname">new: ' + esc(s.name) + '</span>';
         const b = document.createElement('button');
         b.textContent = '✕';
         b.onclick = function () { newShots.splice(i, 1); renderImages(); };

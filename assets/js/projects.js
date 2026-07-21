@@ -232,6 +232,11 @@ function filterDegree(degree) {
     renderGrid();
 }
 
+// When the user navigates away, any in-flight fetch rejects with a generic
+// "Failed to fetch" that is not a real fault - track unload to suppress the noise.
+let _navigatingAway = false;
+window.addEventListener('pagehide', function () { _navigatingAway = true; }, { once: true });
+
 async function loadProjects() {
     const grid = document.getElementById('projGrid');
     if (!grid) return;
@@ -286,7 +291,7 @@ async function loadProjects() {
             grid.innerHTML = '<div class="proj-empty">' +
                 '<span class="proj-empty-icon">-</span>' +
                 'Could not load projects. Please try again.</div>';
-            console.error('loadProjects failed:', err);
+            if (!_navigatingAway) console.error('loadProjects failed:', err);
         }
     }
 }

@@ -34,3 +34,13 @@
 # HTML should always be revalidated so deploys go live immediately.
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers applied to every response (Netlify / Cloudflare Pages only —
+# GitHub Pages ignores this file). frame-ancestors provides the clickjacking
+# protection the per-page <meta> CSP cannot (frame-ancestors is invalid in meta).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), browsing-topics=()
+  Content-Security-Policy: frame-ancestors 'none'
